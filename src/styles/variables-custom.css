@@ -1,0 +1,23 @@
+
+:root {
+
+    /*Colors*/
+    --primary-color: #29A383;
+    --secondary-color: #20573E;
+    --accent-color: #F76B15;
+
+    --button-height-sm: 20px;
+    --button-height: 25px;
+    --button-height-md: 30px;
+    --button-height-lg: 40px;
+
+    --bg-primary-color: #F5F6F7;
+
+    --text-primary-color: #111111;
+}
+
+[data-theme="dark"] {
+    --bg-primary-color: #191919;
+
+    --text-primary-color: #B4B4B4;
+}

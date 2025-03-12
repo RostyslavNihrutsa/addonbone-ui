@@ -1,0 +1,51 @@
+
+:root {
+    /* Typography variables */
+    --font-family: 'Arial', sans-serif;
+    --font-size: 14px;
+    --font-weight: 400;
+    --letter-spacing: 0.2px;
+    --line-height: 14px;
+
+    --border-radius: 20px;
+
+    --side-padding-xs: 15px;
+    --side-padding-sm: 20px;
+    --side-padding-md: 25px;
+    --side-padding-lg: 30px;
+
+    --transition-speed-xs: 100ms;
+    --transition-speed-sm: 200ms;
+    --transition-speed-md: 250ms;
+    --transition-speed-lg: 500ms;
+
+
+    /*Colors*/
+    --primary-color: #5959FF;
+    --secondary-color: #3EA2F3;
+    --accent-color: #1DCE75;
+
+    --bg-transparent: transparent;
+    --bg-default-color: #FFF;
+    --bg-primary-color: #F5F6F7;
+    --bg-secondary-color: #E9ECEF;
+
+    --text-default-color: #000;
+    --text-primary-color: #2E4453;
+    --text-secondary-color: #25282B;
+    --text-accent-color: var(--accent-color);
+    --text-disabled-color: #333337;
+}
+
+[data-theme="dark"] {
+    --bg-transparent: transparent;
+    --bg-default-color: #000;
+    --bg-primary-color: #2E2F3B;
+    --bg-secondary-color: #3F404B;
+
+    --text-default-color: #FFF;
+    --text-primary-color: #EDEDED;
+    --text-secondary-color: #FBFBFB;
+    --text-accent-color: var(--accent-color);
+    --text-disabled-color: #90AAB9;
+}
