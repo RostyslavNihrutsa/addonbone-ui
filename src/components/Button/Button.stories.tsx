@@ -1,12 +1,11 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import ButtonComponent, {ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from "./Button";
+import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
 const variants: ButtonVariant[] = [ButtonVariant.Contained, ButtonVariant.Outlined, ButtonVariant.Text]
 const colors: (ButtonColor | 'default') [] = ['default', ButtonColor.Primary, ButtonColor.Secondary, ButtonColor.Accent]
 const sizes: (ButtonSize | 'default')[] = [ButtonSize.Small, 'default', ButtonSize.Medium, ButtonSize.Large]
 const radii: (ButtonRadius | 'default')[] = [ButtonRadius.Small, 'default', ButtonRadius.Medium, ButtonRadius.Large, ButtonRadius.Full]
-
-const capitalizeFirstLetter = (text: string) => text[0].toUpperCase() + text.slice(1)
 
 const meta: Meta<typeof ButtonComponent> = {
     title: "Components/Button",
@@ -29,6 +28,10 @@ const meta: Meta<typeof ButtonComponent> = {
             options: radii,
             control: {type: 'select'},
         },
+
+        after: hideInTable,
+        before: hideInTable,
+        textClassName: hideInTable
     },
 };
 

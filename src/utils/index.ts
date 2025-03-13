@@ -1,0 +1,1 @@
+export {hideInTable, capitalizeFirstLetter} from './utils'
