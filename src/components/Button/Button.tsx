@@ -57,6 +57,7 @@ const Button: FC<ButtonProps> = (props) => {
     return (
         <button
             {...other}
+            disabled={disabled}
             className={classnames(
                 styles["button"],
                 {
@@ -68,7 +69,6 @@ const Button: FC<ButtonProps> = (props) => {
                 },
                 className
             )}
-            disabled
         >
             {before}
             <span className={classnames(styles['button__text'], textClassName)}>
