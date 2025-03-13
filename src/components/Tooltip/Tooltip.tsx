@@ -22,7 +22,7 @@ export interface TooltipProps extends TooltipRootProps, TooltipContentProps {
     contentClassName?: string;
 }
 
-const TooltipComponent: FC<TooltipProps> = (props) => {
+const Tooltip: FC<TooltipProps> = (props) => {
     const {
         open,
         defaultOpen,
@@ -75,4 +75,4 @@ const TooltipComponent: FC<TooltipProps> = (props) => {
     );
 };
 
-export const Tooltip = memo(TooltipComponent);
+export default memo(Tooltip);

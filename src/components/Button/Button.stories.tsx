@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {Button as ButtonComponent, ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from "./Button";
+import ButtonComponent, {ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from "./Button";
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
 const variants: ButtonVariant[] = [ButtonVariant.Contained, ButtonVariant.Outlined, ButtonVariant.Text]

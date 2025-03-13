@@ -39,7 +39,7 @@ export interface ButtonProps extends ComponentProps<'button'> {
     disabled?: boolean;
 }
 
-const ButtonComponent: FC<ButtonProps> = (props) => {
+const Button: FC<ButtonProps> = (props) => {
     const {
         variant = ButtonVariant.Contained,
         color,
@@ -79,4 +79,4 @@ const ButtonComponent: FC<ButtonProps> = (props) => {
     );
 };
 
-export const Button = memo(ButtonComponent);
+export default memo(Button);
