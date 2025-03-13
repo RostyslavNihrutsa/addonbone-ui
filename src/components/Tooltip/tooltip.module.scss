@@ -2,7 +2,7 @@ $root: tooltip;
 
 .#{$root} {
 
-  &__content {
+  &-content {
     box-sizing: border-box;
     font-family: var(--font-family);
     font-weight: var(--tooltip-font-weight, 500);
@@ -41,7 +41,7 @@ $root: tooltip;
     }
   }
 
-  &__arrow {
+  &-arrow {
     fill: var(--tooltip-bg-color, var(--bg-secondary-color));
   }
 }
@@ -49,7 +49,7 @@ $root: tooltip;
 @keyframes slideUpAndFade {
   from {
     opacity: 0;
-    transform: translateY(2px);
+    transform: translateY(var(--tooltip-slide-distance, 2px));
   }
   to {
     opacity: 1;
@@ -60,7 +60,7 @@ $root: tooltip;
 @keyframes slideRightAndFade {
   from {
     opacity: 0;
-    transform: translateX(-2px);
+    transform: translateX(calc(0px - var(--tooltip-slide-distance, 2px)));
   }
   to {
     opacity: 1;
@@ -71,7 +71,7 @@ $root: tooltip;
 @keyframes slideDownAndFade {
   from {
     opacity: 0;
-    transform: translateY(-2px);
+    transform: translateY(calc(0px - var(--tooltip-slide-distance, 2px)));
   }
   to {
     opacity: 1;
@@ -82,7 +82,7 @@ $root: tooltip;
 @keyframes slideLeftAndFade {
   from {
     opacity: 0;
-    transform: translateX(2px);
+    transform: translateX(var(--tooltip-slide-distance, 2px));
   }
   to {
     opacity: 1;

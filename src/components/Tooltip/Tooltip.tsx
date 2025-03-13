@@ -22,7 +22,7 @@ export interface TooltipProps extends TooltipRootProps, TooltipContentProps {
     contentClassName?: string;
 }
 
-const Tooltip: FC<TooltipProps> = (props) => {
+const TooltipComponent: FC<TooltipProps> = (props) => {
     const {
         open,
         defaultOpen,
@@ -54,9 +54,9 @@ const Tooltip: FC<TooltipProps> = (props) => {
                 </Trigger>
                 <Portal>
                     <Content
-                        className={classnames(styles["tooltip__content"],
+                        className={classnames(styles["tooltip-content"],
                             {
-                              [styles["tooltip__content--trigger-width"]]: matchTriggerWidth
+                              [styles["tooltip-content--trigger-width"]]: matchTriggerWidth
                             },
                             contentClassName
                         )}
@@ -66,7 +66,7 @@ const Tooltip: FC<TooltipProps> = (props) => {
                         <Arrow
                             width={arrowWidth}
                             height={arrowHeight}
-                            className={classnames(styles["tooltip__arrow"], arrowClassName)}
+                            className={classnames(styles["tooltip-arrow"], arrowClassName)}
                         />
                     </Content>
                 </Portal>
@@ -75,4 +75,4 @@ const Tooltip: FC<TooltipProps> = (props) => {
     );
 };
 
-export default memo(Tooltip);
+export const Tooltip = memo(TooltipComponent);
