@@ -1,7 +1,7 @@
 import React, {ComponentProps, FC, memo, ReactNode,} from "react";
 import classnames from "classnames";
 
-import {useDefaultProps} from "../../theme/context";
+import {useDefaultProps} from "../../theme";
 
 import styles from "./button.module.scss";
 
