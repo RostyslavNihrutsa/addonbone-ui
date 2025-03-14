@@ -1,6 +1,8 @@
 import React, {ComponentProps, FC, memo, ReactNode,} from "react";
 import classnames from "classnames";
 
+import {useDefaultProps} from "../../theme/context";
+
 import styles from "./button.module.scss";
 
 export enum ButtonVariant {
@@ -40,6 +42,8 @@ export interface ButtonProps extends ComponentProps<'button'> {
 }
 
 const Button: FC<ButtonProps> = (props) => {
+    const defaultProps = useDefaultProps('button');
+    const mergedProps = { ...defaultProps, ...props };
     const {
         variant = ButtonVariant.Contained,
         color,
@@ -52,7 +56,7 @@ const Button: FC<ButtonProps> = (props) => {
         disabled,
         children,
         ...other
-    } = props;
+    } = mergedProps;
 
     return (
         <button

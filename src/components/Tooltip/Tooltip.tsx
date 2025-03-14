@@ -11,6 +11,8 @@ import {
     Trigger
 } from '@radix-ui/react-tooltip';
 
+import {useDefaultProps} from "../../theme/context";
+
 import styles from "./tooltip.module.scss"
 
 export interface TooltipProps extends TooltipRootProps, TooltipContentProps {
@@ -23,6 +25,8 @@ export interface TooltipProps extends TooltipRootProps, TooltipContentProps {
 }
 
 const Tooltip: FC<TooltipProps> = (props) => {
+    const defaultProps = useDefaultProps('tooltip');
+    const mergedProps = { ...defaultProps, ...props };
     const {
         open,
         defaultOpen,
@@ -38,7 +42,7 @@ const Tooltip: FC<TooltipProps> = (props) => {
         contentClassName,
         children,
         ...other
-    } = props;
+    } = mergedProps;
 
     return (
         <Provider>
