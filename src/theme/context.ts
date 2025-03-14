@@ -1,5 +1,5 @@
 import {createContext, useContext} from "react";
-import {Mode, Theme} from "../types/theme";
+import {Theme} from "../types/theme";
 import type {ButtonProps, TooltipProps} from "../components";
 
 export interface DefaultProps {
@@ -8,8 +8,6 @@ export interface DefaultProps {
 }
 
 export interface ThemeContract {
-    mode: Mode;
-
     theme: Theme;
 
     defaultProps: DefaultProps;
@@ -20,7 +18,6 @@ export interface ThemeContract {
 }
 
 export const ThemeContext = createContext<ThemeContract>({
-    mode: Mode.Static,
     theme: Theme.Light,
     defaultProps: {},
     changeTheme: () => {
