@@ -14,6 +14,8 @@ $root: tooltip;
     border-color: var(--tooltip-border-color, var(--tooltip-bg-color, var(--bg-secondary-color)));
     border-style: solid;
     padding: var(--tooltip-padding, 7px 10px);
+    max-width: var(--tooltip-max-width, 300px);
+    word-wrap: break-word;
     user-select: none;
     animation-duration: var(--transition-speed-md);
     will-change: transform, opacity;
