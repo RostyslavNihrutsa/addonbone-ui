@@ -1,6 +1,5 @@
 import React, {PropsWithChildren, useCallback, useEffect, useState} from "react";
 
-import {getTheme as getThemeFromStorage, setTheme as setThemeToStorage} from "../api/theme";
 import {DefaultProps, ThemeContext} from "./context";
 
 import {Theme, Mode} from "../types/theme";
@@ -19,11 +18,6 @@ const Provider = ({children, ...defaultProps}: PropsWithChildren<DefaultProps>) 
 
     const changeTheme = useCallback((theme: Theme) => {
         setTheme(theme);
-
-        setThemeToStorage(theme).catch(e => {
-            console.log('ThemeProvider setThemeToStorage error', e);
-        });
-
     }, []);
 
     const toggleTheme = useCallback(() => {
@@ -33,16 +27,6 @@ const Provider = ({children, ...defaultProps}: PropsWithChildren<DefaultProps>) 
     useEffect(() => {
         document.querySelector("html")?.setAttribute("theme", theme);
     }, [theme]);
-
-    useEffect(() => {
-        getThemeFromStorage().then(theme => {
-            if (theme && [Theme.Light, Theme.Dark].includes(theme)) {
-                setTheme(theme);
-            }
-        }).catch(e => {
-            console.log('ThemeProvider getThemeFromStorage error', e);
-        });
-    }, []);
 
     useEffect(() => {
         const url = new URL(document.location.href);
