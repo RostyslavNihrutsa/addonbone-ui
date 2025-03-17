@@ -18,6 +18,9 @@
 
     --text-primary-color: #111111;
 
+    /* Components */
+    --avatar-fallback-bg-color: #FFE7B3;
+    --avatar-fallback-color: #2E2F3B;
     --tooltip-bg-color: #A39073;
 }
 
@@ -26,5 +29,8 @@
 
     --text-primary-color: #B4B4B4;
 
+    /* Components */
+    --avatar-fallback-bg-color: #3F2700;
+    --avatar-fallback-color: #F5F6F7;
     --tooltip-bg-color: #D4B3A5;
 }

@@ -20,7 +20,7 @@
     --transition-speed-lg: 500ms;
 
 
-    /*Colors*/
+    /* Colors */
     --primary-color: #5959FF;
     --secondary-color: #3EA2F3;
     --accent-color: #1DCE75;
@@ -35,9 +35,14 @@
     --text-secondary-color: #25282B;
     --text-accent-color: var(--accent-color);
     --text-disabled-color: #333337;
+
+    /* Components */
+    --avatar-fallback-bg-color: #EDEEF0;
+    --avatar-fallback-color: #2E2F3B;
 }
 
 [data-theme="dark"] {
+    /* Colors */
     --bg-transparent: transparent;
     --bg-default-color: #000;
     --bg-primary-color: #2E2F3B;
@@ -48,4 +53,8 @@
     --text-secondary-color: #FBFBFB;
     --text-accent-color: var(--accent-color);
     --text-disabled-color: #90AAB9;
+
+    /* Components */
+    --avatar-fallback-bg-color: #606060;
+    --avatar-fallback-color: #EEEEEE;
 }

@@ -1,8 +1,15 @@
 import {createContext, useContext} from "react";
 import {Theme} from "../types/theme";
-import type {ButtonProps, TooltipProps} from "../components";
+import type {
+    AvatarProps,
+    AvatarFallbackProps,
+    ButtonProps,
+    TooltipProps,
+} from "../components";
 
 export interface DefaultProps {
+    avatar?: Pick<AvatarProps, 'size' | 'radius' | 'cursorPointer'>;
+    avatarFallback?: Pick<AvatarFallbackProps, 'delayMs'>;
     button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
 }
