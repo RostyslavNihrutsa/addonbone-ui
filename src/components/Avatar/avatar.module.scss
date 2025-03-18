@@ -1,59 +1,57 @@
 $root: avatar;
 
 .#{$root} {
-  &-root {
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    overflow: hidden;
-    cursor: default;
-    width: var(--avatar-size, 45px);
-    height: var(--avatar-size, 45px);
-    background-color: var(--avatar-bg-color, transparent);
-    border-radius: var(--avatar-border-radius, 100%);
-    border-width: var(--avatar-border-width);
-    border-color: var(--avatar-border-color);
-    border-style: var(--avatar-border-style);
-    font-size: var(--avatar-font-size, 18px);
-    font-weight: var(--avatar-font-weight, 500);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  cursor: default;
+  width: var(--avatar-size, 45px);
+  height: var(--avatar-size, 45px);
+  background-color: var(--avatar-bg-color, transparent);
+  border-radius: var(--avatar-border-radius, 100%);
+  border-width: var(--avatar-border-width);
+  border-color: var(--avatar-border-color);
+  border-style: var(--avatar-border-style);
+  font-size: var(--avatar-font-size, 18px);
+  font-weight: var(--avatar-font-weight, 500);
 
-    &--cursor-pointer {
-      cursor: pointer;
-    }
+  &--cursor-pointer {
+    cursor: pointer;
+  }
 
-    // Size
-    &--small-size {
-      width: var(--avatar-size-sm, 35px);
-      height: var(--avatar-size-sm, 35px);
-      font-size: var(--avatar-font-size-sm, 14px);
-    }
+  // Size
+  &--small-size {
+    width: var(--avatar-size-sm, 35px);
+    height: var(--avatar-size-sm, 35px);
+    font-size: var(--avatar-font-size-sm, 14px);
+  }
 
-    &--medium-size {
-      width: var(--avatar-size-md, 55px);
-      height: var(--avatar-size-md, 55px);
-      font-size: var(--avatar-font-size-md, 22px);
-    }
+  &--medium-size {
+    width: var(--avatar-size-md, 55px);
+    height: var(--avatar-size-md, 55px);
+    font-size: var(--avatar-font-size-md, 22px);
+  }
 
-    &--large-size {
-      width: var(--avatar-size-lg, 65px);
-      height: var(--avatar-size-lg, 65px);
-      font-size: var(--avatar-font-size-lg, 26px);
-    }
+  &--large-size {
+    width: var(--avatar-size-lg, 65px);
+    height: var(--avatar-size-lg, 65px);
+    font-size: var(--avatar-font-size-lg, 26px);
+  }
 
-    // Radius
-    &--small-radius {
-      border-radius: var(--avatar-border-radius-sm, 20%);
-    }
+  // Radius
+  &--small-radius {
+    border-radius: var(--avatar-border-radius-sm, 20%);
+  }
 
-    &--medium-radius {
-      border-radius: var(--avatar-border-radius-md, 30%);
-    }
+  &--medium-radius {
+    border-radius: var(--avatar-border-radius-md, 30%);
+  }
 
-    &--large-radius {
-      border-radius: var(--avatar-border-radius-lg, 40%);
-    }
+  &--large-radius {
+    border-radius: var(--avatar-border-radius-lg, 40%);
   }
 
   &-image {

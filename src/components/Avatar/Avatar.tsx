@@ -1,6 +1,6 @@
-import React, {FC, memo,} from "react";
+import React, {FC, memo, ReactNode} from "react";
 import classnames from "classnames";
-import {AvatarImageProps, Image, Root,} from '@radix-ui/react-avatar';
+import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from '@radix-ui/react-avatar';
 
 import {useDefaultProps} from "../../theme";
 
@@ -18,11 +18,13 @@ export enum AvatarRadius {
     Large = "large",
 }
 
-export interface AvatarProps extends AvatarImageProps {
+export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps, 'delayMs'> {
     imageClassname?: string;
     size?: AvatarSize;
     radius?: AvatarRadius;
-    cursorPointer?:boolean;
+    fallback?: ReactNode;
+    fallbackClassName?: string;
+    cursorPointer?: boolean;
 }
 
 const Avatar: FC<AvatarProps> = (props) => {
@@ -31,6 +33,9 @@ const Avatar: FC<AvatarProps> = (props) => {
     const {
         size,
         radius,
+        fallback,
+        fallbackClassName,
+        delayMs = 600,
         cursorPointer,
         imageClassname,
         className,
@@ -39,11 +44,11 @@ const Avatar: FC<AvatarProps> = (props) => {
     } = mergedProps;
 
     return (
-        <Root className={classnames(styles['avatar-root'],
+        <Root className={classnames(styles['avatar'],
             {
-                [styles[`avatar-root--${size}-size`]]: size,
-                [styles[`avatar-root--${radius}-radius`]]: radius,
-                [styles[`avatar-root--cursor-pointer`]]: cursorPointer,
+                [styles[`avatar--${size}-size`]]: size,
+                [styles[`avatar--${radius}-radius`]]: radius,
+                [styles[`avatar--cursor-pointer`]]: cursorPointer,
             },
             className)}
         >
@@ -51,7 +56,14 @@ const Avatar: FC<AvatarProps> = (props) => {
                 className={classnames(styles['avatar-image'], imageClassname)}
                 {...other}
             />
-            {children}
+            {fallback && (
+                <Fallback
+                    className={classnames(styles['avatar-fallback'], fallbackClassName)}
+                    delayMs={delayMs}
+                >
+                    {fallback}
+                </Fallback>
+            )}
         </Root>
     );
 };

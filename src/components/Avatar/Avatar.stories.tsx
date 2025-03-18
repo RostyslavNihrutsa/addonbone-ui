@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {Avatar as AvatarComponent, AvatarFallback, AvatarRadius, AvatarSize} from "./index";
+import {Avatar as AvatarComponent, AvatarRadius, AvatarSize} from "./index";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
@@ -19,6 +19,7 @@ const meta: Meta<typeof AvatarComponent> = {
             options: radius,
             control: {type: 'select'},
         },
+        fallbackClassName: hideInTable,
         imageClassname: hideInTable,
         children: hideInTable
     },
@@ -32,7 +33,7 @@ type Story = StoryObj<typeof AvatarComponent>;
 export const Avatar: Story = {
     args: {
         src: "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80",
-        children: <AvatarFallback>CT</AvatarFallback>,
+        fallback: 'CT',
     },
 };
 
@@ -45,17 +46,15 @@ export const AvatarRadiusGrid = () => {
                     <AvatarComponent
                         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
                         radius={radius !== 'default' ? radius : undefined}
-                    >
-                        <AvatarFallback>CT</AvatarFallback>
-                    </AvatarComponent>
+                        fallback='CT'
+                    />
                 </div>
-            ))
-            }
+            ))}
         </div>
     );
 };
 
-export const AvatarSizeGrid = () => {
+export const Size = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {sizes.map((size) => (
@@ -64,17 +63,15 @@ export const AvatarSizeGrid = () => {
                     <AvatarComponent
                         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
                         size={size !== 'default' ? size : undefined}
-                    >
-                        <AvatarFallback>CT</AvatarFallback>
-                    </AvatarComponent>
+                        fallback='CT'
+                    />
                 </div>
-            ))
-            }
+            ))}
         </div>
     );
 };
 
-export const AvatarSizeSVGGrid = () => {
+export const SizeWithSVG = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {sizes.map((size) => (
@@ -83,18 +80,15 @@ export const AvatarSizeSVGGrid = () => {
                     <AvatarComponent
                         src="https://freesvg.org/img/Female-Avatar-5.png"
                         size={size !== 'default' ? size : undefined}
-
-                    >
-                        <AvatarFallback>CT</AvatarFallback>
-                    </AvatarComponent>
+                        fallback='CT'
+                    />
                 </div>
-            ))
-            }
+            ))}
         </div>
     );
 };
 
-export const AvatarSizeFallbackGrid = () => {
+export const SizeWitchFallback = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {sizes.map((size) => (
@@ -103,12 +97,28 @@ export const AvatarSizeFallbackGrid = () => {
                     <AvatarComponent
                         src=""
                         size={size !== 'default' ? size : undefined}
-                    >
-                        <AvatarFallback>CT</AvatarFallback>
-                    </AvatarComponent>
+                        fallback='CT'
+                    />
                 </div>
-            ))
-            }
+            ))}
+        </div>
+    );
+};
+
+export const SizeRadius = () => {
+    return (
+        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
+            {sizes.map((size) => (
+                radius.map((radius) => (
+                    <div key={`${radius}-${size}`} className='item-card'>
+                        <AvatarComponent
+                            src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+                            radius={radius !== 'default' ? radius : undefined}
+                            size={size !== 'default' ? size : undefined}
+                        />
+                    </div>
+                ))
+            ))}
         </div>
     );
 };
