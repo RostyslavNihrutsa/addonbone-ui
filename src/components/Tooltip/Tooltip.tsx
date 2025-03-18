@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactNode,} from "react";
+import React, {FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 import {
     Arrow,
@@ -15,8 +15,8 @@ import {useDefaultProps} from "../../theme";
 
 import styles from "./tooltip.module.scss"
 
-export interface TooltipProps extends TooltipRootProps, TooltipContentProps {
-    description: ReactNode;
+export interface TooltipProps extends TooltipRootProps, Omit<TooltipContentProps, 'content'> {
+    content: ReactNode;
     arrowWidth?: number;
     arrowHeight?: number;
     matchTriggerWidth?: boolean;
@@ -26,7 +26,7 @@ export interface TooltipProps extends TooltipRootProps, TooltipContentProps {
 
 const Tooltip: FC<TooltipProps> = (props) => {
     const defaultProps = useDefaultProps('tooltip');
-    const mergedProps = { ...defaultProps, ...props };
+    const mergedProps = {...defaultProps, ...props};
     const {
         open,
         defaultOpen,
@@ -37,7 +37,7 @@ const Tooltip: FC<TooltipProps> = (props) => {
         arrowWidth,
         arrowHeight,
         matchTriggerWidth,
-        description,
+        content,
         arrowClassName,
         contentClassName,
         children,
@@ -66,7 +66,7 @@ const Tooltip: FC<TooltipProps> = (props) => {
                         )}
                         {...other}
                     >
-                        {description}
+                        {content}
                         <Arrow
                             width={arrowWidth}
                             height={arrowHeight}

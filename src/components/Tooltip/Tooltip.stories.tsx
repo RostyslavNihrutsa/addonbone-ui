@@ -59,11 +59,12 @@ type Story = StoryObj<typeof TooltipComponent>;
 
 export const Tooltip: Story = {
     args: {
-        description: 'Description',
+        content: 'Tooltip content',
         open: undefined,
         align: 'center',
         alignOffset: 0,
         side: 'top',
+        sideOffset: 0,
         arrowHeight: 5,
         arrowWidth: 10,
         arrowPadding: 0,
