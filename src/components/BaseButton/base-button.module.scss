@@ -6,6 +6,7 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+  vertical-align: middle;
   justify-content: center;
   will-change: background, color, transform;
   transition: background var(--transition-speed-sm), color var(--transition-speed-sm), transform var(--transition-speed-sm);
