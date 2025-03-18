@@ -11,11 +11,11 @@ $root: button;
   padding: var(--button-padding, 0 16px);
 
   &:active:not(:disabled){
-    transform: scale(0.98);
+    transform: scale(var(--button-scale, 0.98));
   }
 
   &:disabled {
-    opacity: 0.75;
+    opacity: var(--button-opacity, 0.75);
     cursor: default;
   }
 
