@@ -1,7 +1,7 @@
 import React, {ComponentProps, FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 
-import {renderElement} from "../../utils";
+import {cloneOrCreateElement} from "../../utils";
 
 import styles from "./base-button.module.scss";
 
@@ -27,9 +27,26 @@ const BaseButton: FC<BaseButtonProps> = (props) => {
 
     return (
         <button className={classnames(styles["base-button"], className)} {...other} >
-            {renderElement(before, classnames(styles["base-button__before"], beforeClassName))}
-            {renderElement(children, classnames(styles["base-button__children"], childrenClassName))}
-            {renderElement(after, classnames(styles["base-button__after"], afterClassName))}
+            {cloneOrCreateElement(
+                before,
+                {
+                    className: classnames(styles["base-button__before"], beforeClassName)
+                }
+            )}
+
+            {cloneOrCreateElement(
+                children,
+                {
+                    className: classnames(styles["base-button__children"], childrenClassName)
+                }
+            )}
+
+            {cloneOrCreateElement(
+                after,
+                {
+                    className: classnames(styles["base-button__after"], afterClassName)
+                }
+            )}
         </button>
     );
 };
