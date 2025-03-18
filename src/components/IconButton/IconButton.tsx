@@ -32,7 +32,7 @@ export interface IconButtonProps extends BaseButtonProps {
 }
 
 const IconButton: FC<IconButtonProps> = (props) => {
-    const defaultProps = useDefaultProps('button');
+    const defaultProps = useDefaultProps('iconButton');
     const mergedProps = {...defaultProps, ...props};
     const {
         size,
