@@ -1,5 +1,7 @@
 import React, {FC, memo} from "react";
 import classnames from "classnames";
+
+import {Tooltip, TooltipProps} from "../Tooltip";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
 import {useDefaultProps} from "../../theme";
@@ -28,6 +30,7 @@ export interface IconButtonProps extends BaseButtonProps {
     size?: IconButtonSize;
     radius?: IconButtonRadius;
     variant?: IconButtonVariant;
+    tooltip?: Omit<TooltipProps, 'children'>;
 }
 
 const IconButton: FC<IconButtonProps> = (props) => {
@@ -37,12 +40,13 @@ const IconButton: FC<IconButtonProps> = (props) => {
         size,
         radius,
         variant,
+        tooltip,
         className,
         children,
         ...other
     } = mergedProps;
 
-    return (
+    const iconButton = (
         <BaseButton
             {...other}
             className={classnames(
@@ -57,7 +61,16 @@ const IconButton: FC<IconButtonProps> = (props) => {
         >
             {children}
         </BaseButton>
-    );
+    )
+    if (tooltip) {
+        return (
+            <Tooltip {...tooltip}>
+                {iconButton}
+            </Tooltip>
+        )
+    }
+
+    return iconButton;
 };
 
 export default memo(IconButton);

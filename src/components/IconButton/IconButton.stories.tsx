@@ -48,6 +48,9 @@ export const IconButton: Story = {
     args: {
         children: icon,
         disabled: false,
+        tooltip: {
+            content: 'Rate Us'
+        }
     }
 };
 
