@@ -1,5 +1,7 @@
-import React, {ComponentProps, FC, memo, ReactNode, isValidElement, cloneElement} from "react";
+import React, {ComponentProps, FC, memo, ReactNode} from "react";
 import classnames from "classnames";
+
+import {renderElement} from "../../utils";
 
 import styles from "./base-button.module.scss";
 
@@ -22,15 +24,6 @@ const BaseButton: FC<BaseButtonProps> = (props) => {
         childrenClassName,
         ...other
     } = props;
-
-    const renderElement = (element: ReactNode, className?: string) => {
-        if (isValidElement<{ className?: string }>(element)) {
-            return cloneElement(element, {
-                className: classnames(element.props.className, className)
-            });
-        }
-        return element ? <span className={className}>{element}</span> : null;
-    };
 
     return (
         <button className={classnames(styles["base-button"], className)} {...other} >
