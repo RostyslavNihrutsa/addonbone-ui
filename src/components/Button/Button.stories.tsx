@@ -31,7 +31,9 @@ const meta: Meta<typeof ButtonComponent> = {
 
         after: hideInTable,
         before: hideInTable,
-        textClassName: hideInTable
+        afterClassName: hideInTable,
+        beforeClassName: hideInTable,
+        childrenClassName: hideInTable,
     },
 };
 

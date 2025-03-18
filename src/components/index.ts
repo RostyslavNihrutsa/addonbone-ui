@@ -1,4 +1,5 @@
 export * from './Avatar'
+export * from './BaseButton'
 export * from './Button'
 export * from './IconButton'
 export * from './Tooltip'

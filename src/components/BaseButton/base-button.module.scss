@@ -8,6 +8,13 @@
   align-items: center;
   vertical-align: middle;
   justify-content: center;
+  gap: var(--base-button-gap, 8px);
   will-change: background, color, transform;
   transition: background var(--transition-speed-sm), color var(--transition-speed-sm), transform var(--transition-speed-sm);
+
+  &__after,
+  &__before,
+  &__children {
+    position: relative;
+  }
 }

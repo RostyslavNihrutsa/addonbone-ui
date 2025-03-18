@@ -36,18 +36,17 @@ export interface ButtonProps extends BaseButtonProps {
     color?: ButtonColor;
     size?: ButtonSize;
     radius?: ButtonRadius;
-    textClassName?: string;
 }
 
 const Button: FC<ButtonProps> = (props) => {
     const defaultProps = useDefaultProps('button');
-    const mergedProps = { ...defaultProps, ...props };
+    const mergedProps = {...defaultProps, ...props};
     const {
         variant = ButtonVariant.Contained,
         color,
         size,
         radius,
-        textClassName,
+        childrenClassName,
         className,
         children,
         ...other
@@ -66,10 +65,9 @@ const Button: FC<ButtonProps> = (props) => {
                 },
                 className
             )}
+            childrenClassName={classnames(styles['button__text'], childrenClassName)}
         >
-            <span className={classnames(styles['button__text'], textClassName)}>
-                {children}
-            </span>
+            {children}
         </BaseButton>
     );
 };

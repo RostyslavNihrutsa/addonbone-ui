@@ -27,7 +27,9 @@ const meta: Meta<typeof IconButtonComponent> = {
         after: hideInTable,
         before: hideInTable,
         children: hideInTable,
-        textClassName: hideInTable
+        afterClassName: hideInTable,
+        beforeClassName: hideInTable,
+        childrenClassName: hideInTable,
     },
 };
 

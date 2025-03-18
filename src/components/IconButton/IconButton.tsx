@@ -28,7 +28,6 @@ export interface IconButtonProps extends BaseButtonProps {
     size?: IconButtonSize;
     radius?: IconButtonRadius;
     variant?: IconButtonVariant;
-    textClassName?: string;
 }
 
 const IconButton: FC<IconButtonProps> = (props) => {
@@ -39,7 +38,6 @@ const IconButton: FC<IconButtonProps> = (props) => {
         radius,
         variant,
         className,
-        textClassName,
         children,
         ...other
     } = mergedProps;
