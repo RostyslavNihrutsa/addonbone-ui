@@ -1,14 +1,6 @@
 $root: button;
 
 .#{$root} {
-  box-sizing: border-box;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   font-family: var(--button-font-family, var(--font-family, 'Arial, sans-serif'));
   font-weight: var(--button-font-weight, 500);
   font-size: var(--button-font-size, var(--font-size, 14px));
@@ -17,15 +9,13 @@ $root: button;
   height: var(--button-height, 34px);
   border-radius: var(--button-border-radius, 10px);
   padding: var(--button-padding, 0 16px);
-  will-change: background, color, transform;
-  transition: background var(--transition-speed-sm), color var(--transition-speed-sm), transform var(--transition-speed-sm);
 
-  &:active:not(&--disabled){
-    transform: scale(0.98);
+  &:active:not(:disabled){
+    transform: scale(var(--button-scale, 0.98));
   }
 
-  &--disabled {
-    opacity: 0.75;
+  &:disabled {
+    opacity: var(--button-opacity, 0.75);
     cursor: default;
   }
 

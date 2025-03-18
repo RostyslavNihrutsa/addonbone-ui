@@ -31,7 +31,9 @@ const meta: Meta<typeof ButtonComponent> = {
 
         after: hideInTable,
         before: hideInTable,
-        textClassName: hideInTable
+        afterClassName: hideInTable,
+        beforeClassName: hideInTable,
+        childrenClassName: hideInTable,
     },
 };
 
@@ -44,7 +46,7 @@ export const Button: Story = {
     }
 };
 
-export const VariantColorGrid = () => {
+export const VariantColor = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {variants.map((variant) => (
@@ -60,7 +62,7 @@ export const VariantColorGrid = () => {
     );
 };
 
-export const VariantColorDisabledGrid = () => {
+export const VariantColorDisabled = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {variants.map((variant) => (
@@ -76,7 +78,7 @@ export const VariantColorDisabledGrid = () => {
     );
 };
 
-export const VariantSizeGrid = () => {
+export const VariantSize = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {variants.map((variant) => (
@@ -92,7 +94,7 @@ export const VariantSizeGrid = () => {
     );
 };
 
-export const VariantRadiusGrid = () => {
+export const VariantRadius = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
             {variants.map((variant) => (

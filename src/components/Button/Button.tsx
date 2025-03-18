@@ -1,5 +1,6 @@
-import React, {ComponentProps, FC, memo, ReactNode,} from "react";
+import React, {FC, memo} from "react";
 import classnames from "classnames";
+import {BaseButton, BaseButtonProps} from "../BaseButton";
 
 import {useDefaultProps} from "../../theme";
 
@@ -30,38 +31,30 @@ export enum ButtonRadius {
     Full = "full"
 }
 
-export interface ButtonProps extends ComponentProps<'button'> {
+export interface ButtonProps extends BaseButtonProps {
     variant?: ButtonVariant;
     color?: ButtonColor;
     size?: ButtonSize;
     radius?: ButtonRadius;
-    before?: ReactNode;
-    after?: ReactNode;
-    textClassName?: string;
-    disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = (props) => {
     const defaultProps = useDefaultProps('button');
-    const mergedProps = { ...defaultProps, ...props };
+    const mergedProps = {...defaultProps, ...props};
     const {
         variant = ButtonVariant.Contained,
         color,
         size,
         radius,
-        before,
-        after,
-        textClassName,
+        childrenClassName,
         className,
-        disabled,
         children,
         ...other
     } = mergedProps;
 
     return (
-        <button
+        <BaseButton
             {...other}
-            disabled={disabled}
             className={classnames(
                 styles["button"],
                 {
@@ -69,17 +62,13 @@ const Button: FC<ButtonProps> = (props) => {
                     [styles[`button--${radius}-radius`]]: radius,
                     [styles[`button--${color}-color`]]: color,
                     [styles[`button--${size}-size`]]: size,
-                    [styles[`button--disabled`]]: disabled,
                 },
                 className
             )}
+            childrenClassName={classnames(styles['button__text'], childrenClassName)}
         >
-            {before}
-            <span className={classnames(styles['button__text'], textClassName)}>
-                {children}
-            </span>
-            {after}
-        </button>
+            {children}
+        </BaseButton>
     );
 };
 

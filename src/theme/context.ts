@@ -1,15 +1,20 @@
 import {createContext, useContext} from "react";
-import {Mode, Theme} from "../types/theme";
-import type {ButtonProps, TooltipProps} from "../components";
+import {Theme} from "../types/theme";
+import type {
+    AvatarProps,
+    ButtonProps,
+    IconButtonProps,
+    TooltipProps,
+} from "../components";
 
 export interface DefaultProps {
+    avatar?: Pick<AvatarProps, 'size' | 'radius' | 'cursorPointer' | 'delayMs'>;
     button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
+    iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
 }
 
 export interface ThemeContract {
-    mode: Mode;
-
     theme: Theme;
 
     defaultProps: DefaultProps;
@@ -20,7 +25,6 @@ export interface ThemeContract {
 }
 
 export const ThemeContext = createContext<ThemeContract>({
-    mode: Mode.Static,
     theme: Theme.Light,
     defaultProps: {},
     changeTheme: () => {
