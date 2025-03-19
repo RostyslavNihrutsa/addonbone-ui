@@ -40,6 +40,8 @@
     --avatar-fallback-bg-color: #EDEEF0;
     --avatar-fallback-color: #2E2F3B;
 
+    --checkbox-bg-color: #DDD;
+
     --icon-button-color: #59647C;
     --icon-button-bg-color: #FFF;
     --icon-button-border-color: #EDEDED;
@@ -64,6 +66,8 @@
     /* Components colors */
     --avatar-fallback-bg-color: #606060;
     --avatar-fallback-color: #EEEEEE;
+
+    --checkbox-bg-color: #777;
 
     --icon-button-color: #838A99;
     --icon-button-bg-color: #404A61;

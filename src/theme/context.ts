@@ -3,6 +3,7 @@ import {Theme} from "../types/theme";
 import type {
     AvatarProps,
     ButtonProps,
+    CheckboxProps,
     IconButtonProps,
     TooltipProps,
 } from "../components";
@@ -10,6 +11,7 @@ import type {
 export interface DefaultProps {
     avatar?: Pick<AvatarProps, 'size' | 'radius' | 'cursorPointer' | 'delayMs'>;
     button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
+    checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
 }
