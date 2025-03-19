@@ -5,6 +5,7 @@ import type {
     ButtonProps,
     CheckboxProps,
     IconButtonProps,
+    SwitchProps,
     TooltipProps,
 } from "../components";
 
@@ -13,6 +14,7 @@ export interface DefaultProps {
     button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
     checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
+    switch?: SwitchProps;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
 }
 

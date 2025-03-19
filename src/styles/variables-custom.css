@@ -6,6 +6,12 @@
     --button-height-md: 30px;
     --button-height-lg: 40px;
 
+    --switch-border-radius: 5px;
+    --switch-width: 40px;
+    --switch-height: 20px;
+    --switch-thumb-width: 20px;
+    --switch-thumb-height: 16px;
+
     --tooltip-border-radius: 10px;
     --tooltip-padding: 5px 10px;
 

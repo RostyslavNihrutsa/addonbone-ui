@@ -30,7 +30,7 @@ $root: checkbox;
     border: var(--checkbox-classic-border-width, 1px) solid var(--checkbox-classic-border-color, #999);
 
     &[data-state='checked'], &[data-state='indeterminate'] {
-      background: var(--checkbox-cheked-bg-color, var(--primary-color));
+      background: var(--checkbox-checked-bg-color, var(--primary-color));
       border: none;
     }
   }
