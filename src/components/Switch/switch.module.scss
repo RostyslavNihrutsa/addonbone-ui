@@ -16,10 +16,6 @@
 
 $root: switch;
 
-button {
-  all: unset;
-}
-
 .#{$root} {
   box-sizing: border-box;
   cursor: pointer;
