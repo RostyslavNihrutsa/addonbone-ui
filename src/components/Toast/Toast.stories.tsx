@@ -5,7 +5,7 @@ import {Button, ButtonColor, ButtonVariant} from "../Button";
 
 import {hideInTable} from "../../utils";
 
-const sides: ToastSide[] = [ToastSide.TopLeft, ToastSide.TopRight, ToastSide.BottomRight, ToastSide.BottomLeft]
+const sides: ToastSide[] = [ToastSide.TopLeft, ToastSide.TopCenter, ToastSide.TopRight, ToastSide.BottomRight, ToastSide.BottomCenter, ToastSide.BottomLeft]
 const meta: Meta<typeof ToastComponent> = {
     title: "Components/Toast",
     component: ToastComponent,
@@ -84,13 +84,19 @@ const ToastClickable: FC<ToastProps> = ({children, ...props}) => {
 
 export const Side = () => {
     return (
-        <div style={{display: 'flex', gap: '10px'}}>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(6, auto)', gap: '10px'}}>
             <ToastClickable
                 side={ToastSide.TopLeft}
                 description='Top Left'
-                swipeDirection='left'
             >
                 Top Left
+            </ToastClickable>
+
+            <ToastClickable
+                side={ToastSide.TopCenter}
+                description='Top Center'
+            >
+                Top Center
             </ToastClickable>
 
             <ToastClickable
@@ -101,18 +107,25 @@ export const Side = () => {
             </ToastClickable>
 
             <ToastClickable
+                side={ToastSide.BottomLeft}
+                description='Bottom Left'
+            >
+                Bottom Left
+            </ToastClickable>
+
+
+            <ToastClickable
+                side={ToastSide.BottomCenter}
+                description='Bottom Center'
+            >
+                Bottom Center
+            </ToastClickable>
+
+            <ToastClickable
                 side={ToastSide.BottomRight}
                 description='Bottom Right'
             >
                 Bottom Right
-            </ToastClickable>
-
-            <ToastClickable
-                side={ToastSide.BottomLeft}
-                description='Bottom Left'
-                swipeDirection='left'
-            >
-                Bottom Left
             </ToastClickable>
         </div>
     );
