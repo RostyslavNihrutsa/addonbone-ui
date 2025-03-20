@@ -1,0 +1,29 @@
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+
+  &__center {
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__primary, &__secondary {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__left, &__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
