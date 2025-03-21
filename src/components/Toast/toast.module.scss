@@ -9,7 +9,7 @@ $root: toast;
   grid-template-columns: auto max-content;
   column-gap: var(--toast-gap, 15px);
   background-color: var(--toast-bg-color, var(--bg-secondary-color));
-  border-radius: var(--toast-border-radius, 6px);
+  border-radius: var(--toast-border-radius, 10px);
   padding: var(--toast-padding, var(--side-padding-xs));
 
   &[data-state="open"] {
@@ -63,6 +63,37 @@ $root: toast;
     }
   }
 
+  &--none-radius {
+    border-radius: 0;
+  }
+  &--small-radius {
+    border-radius: var(--toast-border-radius, 6px);
+  }
+  &--medium-radius {
+    border-radius: var(--toast-border-radius, 15px);
+  }
+  &--large-radius {
+    border-radius: var(--toast-border-radius, 20px);
+  }
+
+  &--error-color {
+    background-color: var(--toast-error-bg-color, var(--error-color));
+  }
+
+  &--success-color {
+    background-color: var(--toast-success-bg-color, var(--success-color));
+  }
+
+  &__title,
+  &__description {
+    .#{$root}--error-color & {
+      color: var(--toast-error-text-color, white);
+    }
+    .#{$root}--success-color & {
+      color: var(--toast-success-text-color, white);
+    }
+  }
+
   &__title {
     grid-area: title;
     margin-bottom: 5px;
@@ -90,6 +121,7 @@ $root: toast;
   }
 
   &__viewport {
+    box-sizing: border-box;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -101,6 +133,14 @@ $root: toast;
     list-style: none;
     z-index: 999999;
     outline: none;
+
+    &:has(.#{$root}--full-width) {
+      width: 100%;
+    }
+
+    &:has(.#{$root}--sticky ) {
+      padding: 0;
+    }
 
     &:has(.#{$root}--top-center) {
       top: 0;

@@ -24,6 +24,8 @@
     --primary-color: #5959FF;
     --secondary-color: #3EA2F3;
     --accent-color: #1DCE75;
+    --error-color: #E54D2E;
+    --success-color: #1FD8A4;
 
     --bg-transparent: transparent;
     --bg-default-color: #FFF;
