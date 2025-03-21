@@ -10,6 +10,7 @@ body.sb-main-padded {
 
 .docs-story > div {
     padding: 0;
+    overflow: hidden;
 }
 
 .docs-story .innerZoomElementWrapper > div {
