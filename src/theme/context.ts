@@ -6,6 +6,7 @@ import type {
     CheckboxProps,
     IconButtonProps,
     SwitchProps,
+    TagProps,
     ToastProps,
     TooltipProps,
 } from "../components";
@@ -16,6 +17,7 @@ export interface DefaultProps {
     checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     switch?: SwitchProps;
+    tag?: Pick<TagProps, 'variant' | 'size' | 'color' | 'radius' | 'clickable'>
     toast?: Pick<ToastProps, 'side' | 'duration' | 'swipeDirection' | 'swipeThreshold' | 'closeProps' | 'closeIcon' | 'fullWidth' | 'sticky' | 'radius' | 'color'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
 }
