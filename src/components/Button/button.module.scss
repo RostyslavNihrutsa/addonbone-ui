@@ -118,27 +118,15 @@ $root: button;
   }
 
   &--medium-radius {
-    border-radius: var(--button-border-radius-md, 15px);
+    border-radius: var(--button-border-radius-md, 12px);
   }
 
   &--large-radius {
-    border-radius: var(--button-border-radius-lg, 20px);
+    border-radius: var(--button-border-radius-lg, 15px);
   }
 
   &--full-radius {
-    border-radius: var(--button-height, 34px);
-
-    &.#{$root}--small-radius {
-      border-radius: var(--button-height-sm, 24px);
-    }
-
-    &.#{$root}--medium-radius {
-      border-radius: var(--button-height-md, 44px);
-    }
-
-    &.#{$root}--large-radius {
-      border-radius: var(--button-height-lg, 54px);
-    }
+    border-radius: var(--button-height, 999px);
   }
 
   &__text {

@@ -110,4 +110,32 @@ export const VariantRadius = () => {
     );
 };
 
+export const SizeRadius = () => {
+    return (
+        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
+            Radius\Size
+            {sizes.map((size) => (
+                <span key={size} className='item-card__title'>{capitalizeFirstLetter(size)} size</span>
+            ))}
+            {radius.map((radius) => (
+                <>
+                    <span key={radius} className='item-card__title'>{capitalizeFirstLetter(radius)} radius</span>
+                    {sizes.map((size) => (
+                        <div key={`${size}-${radius}`} className='item-card'>
+                            <ButtonComponent
+                                size={size !== 'default' ? size : undefined}
+                                radius={radius !== 'default' ? radius : undefined}
+                            >
+                                Button
+                                {/*{capitalizeFirstLetter(radius)}*/}
+                            </ButtonComponent>
+                        </div>
+                    ))}
+                </>
+            ))}
+        </div>
+    );
+};
+
+
 
