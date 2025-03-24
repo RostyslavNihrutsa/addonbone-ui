@@ -46,6 +46,7 @@ export const TextField: Story = {
     args: {
         placeholder: "Enter text",
         disabled: false,
+        fullWidth: false,
         before: '🔍',
         after: '🔑'
     }

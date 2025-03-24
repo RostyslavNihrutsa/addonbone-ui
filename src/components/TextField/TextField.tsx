@@ -62,6 +62,7 @@ export interface TextFieldProps extends DetailedHTMLProps<InputHTMLAttributes<HT
     value?: string | number | undefined;
     defaultValue?: string | number | undefined;
     label?: string;
+    fullWidth?: boolean;
     before?: ReactNode;
     after?: ReactNode;
     inputClassName?: string;
@@ -78,6 +79,7 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
         radius,
         customSize,
         label,
+        fullWidth,
         type = 'text',
         value: propValue = '',
         defaultValue,
@@ -128,6 +130,7 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
                     [styles[`text-field--${accent}`]]: accent,
                     [styles[`text-field--${radius}-radius`]]: radius,
                     [styles[`text-field--${customSize}-size`]]: customSize,
+                    [styles['text-field--full-width']]: fullWidth,
                 },
                 className
             )}

@@ -47,6 +47,10 @@ $root: text-field;
     cursor: default;
   }
 
+  &--full-width {
+    width: 100%;
+  }
+
   // Variants
   &--regular {
     color: var(--text-field-regular-color, var(--text-field-color, var(--text-primary-color)));
