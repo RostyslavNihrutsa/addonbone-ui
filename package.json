@@ -14,6 +14,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "autosize": "^6.0.1",
     "classnames": "^2.5.1",
     "radix-ui": "^1.1.3",
     "react": "^19.0.0",
@@ -31,6 +32,7 @@
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
     "@storybook/test-runner": "^0.22.0",
+    "@types/autosize": "^4.0.3",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
