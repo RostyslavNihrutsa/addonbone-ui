@@ -8,6 +8,7 @@ import type {
     IconButtonProps,
     SwitchProps,
     TagProps,
+    TextFieldProps,
     ToastProps,
     TooltipProps,
 } from "../components";
@@ -20,6 +21,7 @@ export interface DefaultProps {
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     switch?: SwitchProps;
     tag?: Pick<TagProps, 'variant' | 'size' | 'color' | 'radius' | 'clickable'>
+    textField?: TextFieldProps;
     toast?: Pick<ToastProps, 'side' | 'duration' | 'swipeDirection' | 'swipeThreshold' | 'closeProps' | 'closeIcon' | 'fullWidth' | 'sticky' | 'radius' | 'color'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
 }

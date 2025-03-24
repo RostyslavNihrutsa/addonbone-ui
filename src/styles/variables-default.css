@@ -1,6 +1,5 @@
 
 :root {
-    /* Typography variables */
     --font-family: 'Arial', sans-serif;
     --font-size: 14px;
     --font-weight: 400;
@@ -26,6 +25,8 @@
     --accent-color: #1DCE75;
     --error-color: #E54D2E;
     --success-color: #1FD8A4;
+
+    --border-color: #DBDBDB;
 
     --bg-transparent: transparent;
     --bg-default-color: #FFF;
@@ -54,6 +55,8 @@
 
 [data-theme="dark"] {
     /* Common colors */
+    --border-color: #545863;
+
     --bg-transparent: transparent;
     --bg-default-color: #000;
     --bg-primary-color: #2E2F3B;
