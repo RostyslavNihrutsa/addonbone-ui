@@ -113,7 +113,7 @@ export const VariantRadius = () => {
 export const SizeRadius = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
-            Radius\Size
+            <span className='item-card__title'> Radius \ Size </span>
             {sizes.map((size) => (
                 <span key={size} className='item-card__title'>{capitalizeFirstLetter(size)} size</span>
             ))}
@@ -127,7 +127,6 @@ export const SizeRadius = () => {
                                 radius={radius !== 'default' ? radius : undefined}
                             >
                                 Button
-                                {/*{capitalizeFirstLetter(radius)}*/}
                             </ButtonComponent>
                         </div>
                     ))}
