@@ -20,7 +20,7 @@ const meta: Meta<typeof HeaderComponent> = {
     },
     decorators: [
         (Story) => (
-            <div style={{ background: '#EEE', width: '380px', height: '300px', borderRadius: '10px' }}>
+            <div style={{ background: 'var(--bg-secondary-color', width: '380px', height: '300px', borderRadius: '10px' }}>
                 <Story />
             </div>
         ),

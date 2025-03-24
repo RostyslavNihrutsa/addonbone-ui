@@ -40,7 +40,7 @@ $root: header;
   }
 
   &__subtitle {
-    color: var(--header-subtitle-color, var(--secondary-text-color));
+    color: var(--header-subtitle-color, var(--text-secondary-color));
     font-size: var(--header-subtitle-font-size, 14px);
     font-weight: var(--header-subtitle-font-weight, 400);
     line-height: var(--header-subtitle-line-height, 120%);
