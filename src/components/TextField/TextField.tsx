@@ -1,8 +1,7 @@
 import React, {
     ChangeEventHandler,
-    DetailedHTMLProps,
+    ComponentProps,
     forwardRef,
-    InputHTMLAttributes,
     memo,
     ReactNode,
     useCallback,
@@ -54,7 +53,7 @@ export interface TextFieldActions {
     setValue(value: string | number | undefined): void;
 }
 
-export interface TextFieldProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+export interface TextFieldProps extends ComponentProps<'input'> {
     variant?: TextFieldVariant;
     accent?: TextFieldAccent;
     radius?: TextFieldRadius;

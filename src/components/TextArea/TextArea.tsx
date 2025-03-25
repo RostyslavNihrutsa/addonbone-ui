@@ -1,9 +1,8 @@
 import React, {
     ChangeEventHandler,
-    DetailedHTMLProps,
+    ComponentProps,
     forwardRef,
     memo,
-    TextareaHTMLAttributes,
     useCallback,
     useEffect,
     useImperativeHandle,
@@ -45,7 +44,7 @@ export interface TextAreaActions {
     setValue(value: string): void;
 }
 
-export interface TextAreaProps extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+export interface TextAreaProps extends ComponentProps<'textarea'> {
     variant?: TextAreaVariant;
     radius?: TextAreaRadius;
     size?: TextAreaSize;
