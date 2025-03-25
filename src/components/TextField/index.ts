@@ -1,2 +1,2 @@
-export {default as TextField, TextFieldVariant, TextFieldActions, TextFieldSize, TextFieldAccent} from "./TextField";
-export type {TextFieldProps} from "./TextField";
+export {default as TextField, TextFieldVariant, TextFieldSize, TextFieldAccent} from "./TextField";
+export type {TextFieldProps, TextFieldActions} from "./TextField";
