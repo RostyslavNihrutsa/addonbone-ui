@@ -31,7 +31,22 @@ $root: drawer;
     }
 
     &[data-state="closed"] {
-      animation: hide var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+
+      &.#{$root}-content--left-side {
+        animation: slideOutLeft var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+      }
+
+      &.#{$root}-content--right-side {
+        animation: slideOutRight var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+      }
+
+      &.#{$root}-content--top-side {
+        animation: slideOutTop var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+      }
+
+      &.#{$root}-content--bottom-side {
+        animation: slideOutBottom var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+      }
     }
 
     &--left-side {
@@ -122,20 +137,38 @@ $root: drawer;
   }
 }
 
-@keyframes hide {
+@keyframes slideOutRight {
   from {
-    opacity: 1;
+    transform: translateX(0);
   }
   to {
-    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
-@keyframes overlayShow {
+@keyframes slideOutLeft {
   from {
-    opacity: 0;
+    transform: translateX(0);
   }
   to {
-    opacity: var(--drawer-animation-overlay-opacity, 0.9);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
   }
 }

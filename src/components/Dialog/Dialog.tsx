@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {FC, memo, useEffect} from "react";
 import classnames from "classnames";
 import {
     Content,
@@ -43,6 +43,23 @@ const Dialog: FC<DialogProps> = (props) => {
         childrenClassName,
         ...other
     } = mergedProps;
+
+    useEffect(() => {
+        if (open) {
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.overflow = "hidden";
+            document.body.style.boxSizing = "border-box";
+            document.body.style.setProperty("padding-right", `${scrollbarWidth}px`, "important");
+        } else {
+            document.body.style.overflow = "";
+            document.body.style.paddingRight = "";
+        }
+
+        return () => {
+            document.body.style.overflow = "";
+            document.body.style.paddingRight = "";
+        };
+    }, [open]);
 
     return (
         <Root open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange} modal={modal}>
