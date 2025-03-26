@@ -6,8 +6,8 @@ $root: modal;
     position: fixed;
     inset: 0;
     z-index: 999;
-    background-color: var(--dialog-overlay-bg-color, #111);
-    opacity: var(--dialog-animation-overlay-opacity, 0.9);
+    background-color: var(--modal-overlay-bg-color, #111);
+    opacity: var(--modal-animation-overlay-opacity, 0.9);
     animation: overlayShow var(--transition-speed-sm) ease-in-out;
   }
 
@@ -18,13 +18,13 @@ $root: modal;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: var(--dialog-width, 90vw);
-    max-width: var(--dialog-max-width, 350px);
-    max-height: var(--dialog-max-height, 85vh);
-    padding: var(--dialog-padding, 20px);
-    border-radius: var(--dialog-border-radius, 10px);
-    box-shadow: var(--dialog-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
-    background-color: var(--dialog-bg-color, var(--bg-primary-color));
+    width: var(--modal-width, 90vw);
+    max-width: var(--modal-max-width, 350px);
+    max-height: var(--modal-max-height, 85vh);
+    padding: var(--modal-padding, 20px);
+    border-radius: var(--modal-border-radius, 10px);
+    box-shadow: var(--modal-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
+    background-color: var(--modal-bg-color, var(--bg-primary-color));
     transition: background-color var(--transition-speed-sm), color var(--transition-speed-sm);
     animation: contentShow var(--transition-speed-sm) ease-in-out;
 
@@ -40,13 +40,13 @@ $root: modal;
       border-radius: 0;
     }
     &--small-radius {
-      border-radius: var(--dialog-border-radius-sm, 5px);
+      border-radius: var(--modal-border-radius-sm, 5px);
     }
     &--medium-radius {
-      border-radius: var(--dialog-border-radius-sm, 15px);
+      border-radius: var(--modal-border-radius-sm, 15px);
     }
     &--large-radius {
-      border-radius: var(--dialog-border-radius-sm, 20px);
+      border-radius: var(--modal-border-radius-sm, 20px);
     }
   }
 
@@ -57,8 +57,8 @@ $root: modal;
 
   &-close {
     position: absolute !important;
-    top: var(--dialog-close-offset, 5px);
-    right: var(--dialog-close-offset, 5px);
+    top: var(--modal-close-offset, 5px);
+    right: var(--modal-close-offset, 5px);
   }
 }
 
@@ -68,14 +68,14 @@ $root: modal;
     opacity: 0;
   }
   to {
-    opacity: var(--dialog-animation-overlay-opacity, 0.9);
+    opacity: var(--modal-animation-overlay-opacity, 0.9);
   }
 }
 
 @keyframes contentShow {
   from {
     opacity: 0;
-    transform: translate(-50%, -48%) scale(var(--dialog-animation-content-scale, 0.96));
+    transform: translate(-50%, -48%) scale(var(--modal-animation-content-scale, 0.96));
   }
   to {
     opacity: 1;
