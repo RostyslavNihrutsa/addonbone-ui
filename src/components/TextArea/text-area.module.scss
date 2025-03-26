@@ -10,6 +10,7 @@ $root: text-area;
   line-height: var(--text-area-line-height, 18px);
   padding: var(--text-area-padding, 8px 12px);
   border-radius: var(--text-area-border-radius, 8px);
+  min-width: var(--text-area-min-width, 200px);
   transition: border-color var(--transition-speed-sm), box-shadow var(--transition-speed-sm), background var(--transition-speed-sm);
 
   &:focus {
@@ -23,7 +24,7 @@ $root: text-area;
   }
 
   &--full-width {
-    width: 100%;
+    width: 100% !important;
   }
 
   // Variants
