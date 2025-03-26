@@ -4,6 +4,7 @@ import type {
     AvatarProps,
     ButtonProps,
     CheckboxProps,
+    DialogProps,
     HeaderProps,
     IconButtonProps,
     SwitchProps,
@@ -18,6 +19,7 @@ export interface DefaultProps {
     avatar?: Pick<AvatarProps, 'size' | 'radius' | 'cursorPointer' | 'delayMs'>;
     button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
     checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
+    dialog?: DialogProps;
     header?: Pick<HeaderProps, 'alignCenter' | 'before' | 'after'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     switch?: SwitchProps;
