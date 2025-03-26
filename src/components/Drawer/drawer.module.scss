@@ -3,22 +3,13 @@ $root: drawer;
 .#{$root} {
 
   &-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background-color: var(--drawer-overlay-bg-color, #111);
-    opacity: var(--drawer-animation-overlay-opacity, 0.9);
-    animation: overlayShow var(--transition-speed-sm) ease-in-out;
+    background-color: var(--drawer-overlay-bg-color, var(--dialog-overlay-bg-color, #111));
   }
 
   &-content {
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 9999;
     padding: var(--drawer-padding, var(--side-padding-xs));
     box-shadow: var(--drawer-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
     background-color: var(--drawer-bg-color, var(--bg-secondary-color));
-    transition: background-color var(--transition-speed-sm), color var(--transition-speed-sm);
 
     &[data-state="open"] {
 
