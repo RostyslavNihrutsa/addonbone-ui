@@ -5,6 +5,7 @@ import type {
     ButtonProps,
     CheckboxProps,
     DialogProps,
+    DrawerProps,
     HeaderProps,
     IconButtonProps,
     SwitchProps,
@@ -20,6 +21,7 @@ export interface DefaultProps {
     button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
     checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
     dialog?: DialogProps;
+    drawer?: DrawerProps;
     header?: Pick<HeaderProps, 'alignCenter' | 'before' | 'after'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     switch?: SwitchProps;
