@@ -19,6 +19,12 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  &__primary {
+    color: var(--list-item-primary-color, var(--text-primary-color))
+  }
+  &__secondary {
+    color: var(--list-item-secondary-color, var(--text-secondary-color))
+  }
 
   &__left, &__right {
     display: flex;

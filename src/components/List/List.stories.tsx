@@ -65,7 +65,7 @@ export const List: Story = {
                 key={id}
                 left={<Avatar src={avatar} size={AvatarSize.Small}/>}
                 primary={<span style={{fontWeight: 500}}>{name}</span>}
-                secondary={<span style={{fontSize: '14px', color: '#777'}}>{role}</span>}
+                secondary={<span style={{fontSize: '14px'}}>{role}</span>}
                 right={<Button variant={ButtonVariant.Contained} size={ButtonSize.Small}>{action}</Button>}
             />
         )),
