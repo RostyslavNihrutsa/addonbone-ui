@@ -3,18 +3,10 @@ $root: modal;
 .#{$root} {
 
   &-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background-color: var(--modal-overlay-bg-color, #111);
-    opacity: var(--modal-animation-overlay-opacity, 0.9);
-    animation: overlayShow var(--transition-speed-sm) ease-in-out;
+    background-color: var(--modal-overlay-bg-color, var(--dialog-overlay-bg-color, #111));
   }
 
   &-content {
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 9999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -33,7 +25,7 @@ $root: modal;
       max-height: 100%;
       width: 100%;
       height: 100%;
-      border-radius: 0;
+      border-radius: 0 !important;
     }
 
     &--none-radius {
@@ -59,16 +51,6 @@ $root: modal;
     position: absolute !important;
     top: var(--modal-close-offset, 5px);
     right: var(--modal-close-offset, 5px);
-  }
-}
-
-
-@keyframes overlayShow {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: var(--modal-animation-overlay-opacity, 0.9);
   }
 }
 
