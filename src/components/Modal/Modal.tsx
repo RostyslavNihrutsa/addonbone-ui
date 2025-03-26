@@ -18,17 +18,17 @@ import {cloneOrCreateElement} from "../../utils";
 
 import {IconButton, IconButtonProps} from "../IconButton";
 
-import styles from "./dialog.module.scss"
+import styles from "./modal.module.scss"
 
-export enum DialogRadius {
+export enum ModalRadius {
     None = "none",
     Small = "small",
     Medium = "medium",
     Large = "large",
 }
 
-export interface DialogProps extends DialogRootProps, DialogPortalProps, DialogContentProps {
-    radius?: DialogRadius;
+export interface ModalProps extends DialogRootProps, DialogPortalProps, DialogContentProps {
+    radius?: ModalRadius;
     description?: string;
     fullscreen?: boolean;
     closeIcon?: ReactElement;
@@ -40,8 +40,8 @@ export interface DialogProps extends DialogRootProps, DialogPortalProps, DialogC
     childrenClassName?: string;
 }
 
-const Dialog: FC<DialogProps> = (props) => {
-    const defaultProps = useDefaultProps('dialog');
+const Modal: FC<ModalProps> = (props) => {
+    const defaultProps = useDefaultProps('modal');
     const mergedProps = {...defaultProps, ...props};
     const {
         open,
@@ -74,23 +74,23 @@ const Dialog: FC<DialogProps> = (props) => {
     return (
         <Root open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange} modal={modal}>
             <Portal container={container}>
-                <Overlay className={classnames(styles["dialog-overlay"], overlayClassName)}/>
-                <Content className={classnames(styles["dialog-content"], {
-                    [styles["dialog-content--fullscreen"]]: fullscreen,
-                    [styles[`dialog-content--${radius}-radius`]]: radius,
+                <Overlay className={classnames(styles["modal-overlay"], overlayClassName)}/>
+                <Content className={classnames(styles["modal-content"], {
+                    [styles["modal-content--fullscreen"]]: fullscreen,
+                    [styles[`modal-content--${radius}-radius`]]: radius,
                 }, className)} {...other}>
                     <VisuallyHidden.Root>
                         <Title>{title}</Title>
                         <Description>{description}</Description>
                     </VisuallyHidden.Root>
 
-                    {cloneOrCreateElement(children, {className: classnames(styles["dialog-children"], childrenClassName)}, 'div')}
+                    {cloneOrCreateElement(children, {className: classnames(styles["modal-children"], childrenClassName)}, 'div')}
 
                     {showCloseIcon && (
                         <IconButton
                             aria-label="Close"
                             onClick={handleClose}
-                            className={classnames(styles["dialog-close"], closeClassName)}
+                            className={classnames(styles["modal-close"], closeClassName)}
                             {...otherCloseProps}
                         >
                             {closeIcon}
@@ -102,4 +102,4 @@ const Dialog: FC<DialogProps> = (props) => {
     );
 };
 
-export default memo(Dialog);
+export default memo(Modal);

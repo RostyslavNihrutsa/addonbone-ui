@@ -1,15 +1,15 @@
 import {useState} from "react";
 import type {Meta, StoryObj} from "@storybook/react";
-import DialogComponent, {DialogProps, DialogRadius} from "./Dialog";
+import ModalComponent, {ModalProps, ModalRadius} from "./Modal";
 import {Button} from "../Button";
 import {Header} from "../Header";
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-const radius: (DialogRadius | 'default')[] = [DialogRadius.None, DialogRadius.Small, 'default', DialogRadius.Medium, DialogRadius.Large]
+const radius: (ModalRadius | 'default')[] = [ModalRadius.None, ModalRadius.Small, 'default', ModalRadius.Medium, ModalRadius.Large]
 
-const meta: Meta<typeof DialogComponent> = {
-    title: "Components/Dialog",
-    component: DialogComponent,
+const meta: Meta<typeof ModalComponent> = {
+    title: "Components/Modal",
+    component: ModalComponent,
     tags: ['autodocs'],
     argTypes: {
         radius: {
@@ -34,15 +34,15 @@ const meta: Meta<typeof DialogComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof DialogComponent>;
+type Story = StoryObj<typeof ModalComponent>;
 
-export const Dialog = (props: DialogProps & { label?: string }) => {
+export const Modal = (props: ModalProps & { label?: string }) => {
     const [open, setOpen] = useState(false);
-    const {label = 'Open Dialog', ...other} = props
+    const {label = 'Open Modal', ...other} = props
     return (
         <div>
             <Button onClick={() => setOpen(true)}>{label}</Button>
-            <DialogComponent open={open} onOpenChange={setOpen} {...other}>
+            <ModalComponent open={open} onOpenChange={setOpen} {...other}>
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -55,9 +55,9 @@ export const Dialog = (props: DialogProps & { label?: string }) => {
                         subtitle="Adjust the current tab's volume with the slider. Switch to any audio tab in one click."
                         before='❤️'
                     />
-                    <Button onClick={() => setOpen(false)}>Close Dialog</Button>
+                    <Button onClick={() => setOpen(false)}>Close Modal</Button>
                 </div>
-            </DialogComponent>
+            </ModalComponent>
         </div>
     );
 };
@@ -67,7 +67,7 @@ export const Radius = () => {
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
             {radius.map((radius) => (
                 <div key={radius} className='item-card'>
-                    <Dialog
+                    <Modal
                         radius={radius !== 'default' ? radius : undefined}
                         fullscreen={false}
                         label={`${capitalizeFirstLetter(radius)} radius`}
