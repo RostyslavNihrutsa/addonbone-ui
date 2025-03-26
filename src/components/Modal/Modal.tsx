@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactElement, useCallback} from "react";
+import React, {FC, isValidElement, memo, ReactElement, useCallback} from "react";
 import classnames from "classnames";
 
 import {useDefaultProps} from "../../theme";
@@ -18,9 +18,7 @@ export enum ModalRadius {
 
 export interface ModalProps extends DialogProps {
     radius?: ModalRadius;
-    closeButton?: ReactElement;
-    closeButtonProps?: IconButtonProps;
-    showCloseButton?: boolean;
+    closeButton?: boolean | IconButtonProps | ReactElement;
     onClose?: () => void;
 }
 
@@ -30,9 +28,7 @@ const Modal: FC<ModalProps> = (props) => {
     const {
         radius,
         fullscreen = true,
-        closeButton = '✖',
-        showCloseButton = true,
-        closeButtonProps = {},
+        closeButton = true,
         onClose,
         onOpenChange,
         children,
@@ -43,10 +39,30 @@ const Modal: FC<ModalProps> = (props) => {
     } = mergedProps;
 
     const handleClose = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        onClose && onClose();
-        onOpenChange && onOpenChange(false);
-        closeButtonProps.onClick && closeButtonProps.onClick(event);
-    }, [onClose, closeButtonProps])
+        onClose?.();
+        onOpenChange?.(false);
+        if (typeof closeButton === 'object' && !isValidElement(closeButton)) {
+            closeButton?.onClick?.(event);
+        }
+    }, [onClose, onOpenChange, closeButton])
+
+    const renderCloseButton = useCallback(() => {
+        if (!closeButton) return null;
+
+        if (isValidElement(closeButton)) return closeButton;
+
+        const closeButtonProps = typeof closeButton === 'object' ? closeButton : {};
+
+        return (
+            <IconButton
+                aria-label="Close"
+                children="✖"
+                {...closeButtonProps}
+                onClick={handleClose}
+                className={classnames(styles["modal-close"], closeButtonProps.className)}
+            />
+        )
+    }, [closeButton]);
 
     return (
         <Dialog
@@ -59,17 +75,7 @@ const Modal: FC<ModalProps> = (props) => {
             }, className)}
         >
             {cloneOrCreateElement(children, {className: classnames(styles["modal-children"], childrenClassName)}, 'div')}
-
-            {showCloseButton && (
-                <IconButton
-                    aria-label="Close"
-                    {...closeButtonProps}
-                    onClick={handleClose}
-                    className={classnames(styles["modal-close"], closeButtonProps.className)}
-                >
-                    {closeButton}
-                </IconButton>
-            )}
+            {renderCloseButton()}
         </Dialog>
     )
 };
