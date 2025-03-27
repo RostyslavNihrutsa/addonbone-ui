@@ -22,6 +22,17 @@ export interface ModalProps extends DialogProps {
     onClose?: () => void;
 }
 
+export const modalPropsKeys = new Set<keyof ModalProps>([
+    // Modal keys
+    'radius', 'closeButton', 'onClose',
+
+    // Dialog keys
+    'description', 'fullscreen', 'className', 'overlayClassName', 'childrenClassName',
+
+    // Extended Dialog keys
+    'open', 'defaultOpen', 'onOpenChange', 'modal', 'container', 'title',
+]);
+
 const Modal: FC<ModalProps> = (props) => {
     const defaultProps = useDefaultProps('modal');
     const mergedProps = {...defaultProps, ...props};
