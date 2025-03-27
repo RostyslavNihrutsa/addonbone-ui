@@ -19,6 +19,17 @@ export interface DrawerProps extends DialogProps {
     side?: DrawerSide;
 }
 
+export const drawerPropsKeys = new Set<keyof DrawerProps>([
+    // Drawer keys
+    'side',
+
+    // Dialog keys
+    'description', 'fullscreen', 'className', 'overlayClassName', 'childrenClassName',
+
+    // Extended Dialog keys
+    'open', 'defaultOpen', 'onOpenChange', 'modal', 'container', 'title',
+]);
+
 const Drawer: FC<DrawerProps> = (props) => {
     const defaultProps = useDefaultProps('drawer');
     const mergedProps = {...defaultProps, ...props};

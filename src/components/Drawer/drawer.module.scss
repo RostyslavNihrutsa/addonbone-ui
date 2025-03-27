@@ -7,7 +7,7 @@ $root: drawer;
   }
 
   &-content {
-    padding: var(--drawer-padding, var(--side-padding-xs));
+    padding: var(--drawer-padding, 0);
     box-shadow: var(--drawer-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
     background-color: var(--drawer-bg-color, var(--bg-secondary-color));
 

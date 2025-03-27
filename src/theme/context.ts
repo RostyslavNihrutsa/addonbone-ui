@@ -16,6 +16,7 @@ import type {
     ToastProps,
     TooltipProps,
     ViewProps,
+    ViewDrawerProps,
     ViewModalProps,
 } from "../components";
 
@@ -35,6 +36,7 @@ export interface DefaultProps {
     toast?: Pick<ToastProps, 'side' | 'duration' | 'swipeDirection' | 'swipeThreshold' | 'closeProps' | 'closeIcon' | 'fullWidth' | 'sticky' | 'radius' | 'color'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
     view?: ViewProps;
+    viewDrawer?: ViewDrawerProps;
     viewModal?: ViewModalProps;
 }
 
