@@ -1,2 +1,2 @@
-export {default as Modal, ModalRadius} from './Modal'
+export {default as Modal, ModalRadius, modalPropsKeys} from './Modal'
 export type {ModalProps} from './Modal'

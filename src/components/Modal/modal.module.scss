@@ -13,7 +13,7 @@ $root: modal;
     width: var(--modal-width, 90vw);
     max-width: var(--modal-max-width, 350px);
     max-height: var(--modal-max-height, 85vh);
-    padding: var(--modal-padding, 20px);
+    padding: var(--modal-padding, 0);
     border-radius: var(--modal-border-radius, 10px);
     box-shadow: var(--modal-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
     background-color: var(--modal-bg-color, var(--bg-primary-color));
