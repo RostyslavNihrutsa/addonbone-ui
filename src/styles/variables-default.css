@@ -39,6 +39,8 @@
     --text-accent-color: var(--accent-color);
     --text-disabled-color: #333337;
 
+    --separator-color: #CCC;
+
     /* Components colors */
     --avatar-fallback-bg-color: #EDEEF0;
     --avatar-fallback-color: #2E2F3B;
@@ -67,6 +69,8 @@
     --text-secondary-color: #FBFBFB;
     --text-accent-color: var(--accent-color);
     --text-disabled-color: #90AAB9;
+
+    --separator-color: #555;
 
     /* Components colors */
     --avatar-fallback-bg-color: #606060;

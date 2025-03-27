@@ -15,6 +15,7 @@ import type {
     TextFieldProps,
     ToastProps,
     TooltipProps,
+    ViewProps,
 } from "../components";
 
 export interface DefaultProps {
@@ -32,6 +33,7 @@ export interface DefaultProps {
     textField?: TextFieldProps;
     toast?: Pick<ToastProps, 'side' | 'duration' | 'swipeDirection' | 'swipeThreshold' | 'closeProps' | 'closeIcon' | 'fullWidth' | 'sticky' | 'radius' | 'color'>;
     tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
+    view?: ViewProps;
 }
 
 export interface ThemeContract {
