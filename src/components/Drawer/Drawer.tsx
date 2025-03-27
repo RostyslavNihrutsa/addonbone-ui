@@ -4,7 +4,7 @@ import classnames from "classnames";
 import {useDefaultProps} from "../../theme";
 import {cloneOrCreateElement} from "../../utils";
 
-import {Dialog, DialogProps} from "../Dialog"
+import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"
 
 import styles from "./drawer.module.scss"
 
@@ -19,16 +19,7 @@ export interface DrawerProps extends DialogProps {
     side?: DrawerSide;
 }
 
-export const drawerPropsKeys = new Set<keyof DrawerProps>([
-    // Drawer keys
-    'side',
-
-    // Dialog keys
-    'description', 'fullscreen', 'className', 'overlayClassName', 'childrenClassName',
-
-    // Extended Dialog keys
-    'open', 'defaultOpen', 'onOpenChange', 'modal', 'container', 'title',
-]);
+export const drawerPropsKeys = new Set<keyof DrawerProps>(['side', ...dialogPropsKeys]);
 
 const Drawer: FC<DrawerProps> = (props) => {
     const defaultProps = useDefaultProps('drawer');

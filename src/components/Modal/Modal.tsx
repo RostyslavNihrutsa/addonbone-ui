@@ -4,7 +4,7 @@ import classnames from "classnames";
 import {useDefaultProps} from "../../theme";
 import {cloneOrCreateElement} from "../../utils";
 
-import {Dialog, DialogProps} from "../Dialog"
+import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"
 import {IconButton, IconButtonProps} from "../IconButton";
 
 import styles from "./modal.module.scss"
@@ -22,16 +22,7 @@ export interface ModalProps extends DialogProps {
     onClose?: () => void;
 }
 
-export const modalPropsKeys = new Set<keyof ModalProps>([
-    // Modal keys
-    'radius', 'closeButton', 'onClose',
-
-    // Dialog keys
-    'description', 'fullscreen', 'className', 'overlayClassName', 'childrenClassName',
-
-    // Extended Dialog keys
-    'open', 'defaultOpen', 'onOpenChange', 'modal', 'container', 'title',
-]);
+export const modalPropsKeys = new Set<keyof ModalProps>(['radius', 'closeButton', 'onClose', ...dialogPropsKeys]);
 
 const Modal: FC<ModalProps> = (props) => {
     const defaultProps = useDefaultProps('modal');

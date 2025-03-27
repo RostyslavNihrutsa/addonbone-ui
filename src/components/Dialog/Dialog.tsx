@@ -26,6 +26,14 @@ export interface DialogProps extends DialogRootProps, DialogPortalProps, DialogC
     childrenClassName?: string;
 }
 
+export const dialogPropsKeys = new Set<keyof DialogProps>([
+    // Dialog keys
+    'description', 'fullscreen', 'className', 'overlayClassName', 'childrenClassName',
+
+    // Extended Dialog keys
+    'open', 'defaultOpen', 'onOpenChange', 'modal', 'container', 'title',
+]);
+
 const Dialog: FC<DialogProps> = (props) => {
     const defaultProps = useDefaultProps('dialog');
     const mergedProps = {...defaultProps, ...props};
