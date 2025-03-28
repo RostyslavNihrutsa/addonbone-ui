@@ -24,6 +24,9 @@ const meta: Meta<typeof ViewModalComponent> = {
         fullscreen: {
             type: "boolean"
         },
+        speed: {
+            type: 'number',
+        },
         children: hideInTable,
         className: hideInTable,
         wrapClassName: hideInTable,

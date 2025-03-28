@@ -25,6 +25,9 @@ const meta: Meta<typeof ModalComponent> = {
             options: [true, false, {children: '❌'}],
             control: {type: 'select'},
         },
+        speed: {
+            type: 'number',
+        },
         onClose: hideInTable,
         children: hideInTable,
         className: hideInTable,
@@ -57,7 +60,9 @@ export const Modal = (props: ModalProps & { label?: string }) => {
                         subtitle="Adjust the current tab's volume with the slider. Switch to any audio tab in one click."
                         before='❤️'
                     />
-                    <Button onClick={() => setOpen(false)}>Close Modal</Button>
+                    <Button style={{margin: '50px auto', maxWidth: 'max-content'}} onClick={() => setOpen(false)}>
+                        Close Modal
+                    </Button>
                 </div>
             </ModalComponent>
         </div>

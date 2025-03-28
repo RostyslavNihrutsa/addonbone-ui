@@ -32,6 +32,9 @@ const meta: Meta<typeof ViewDrawerComponent> = {
         fullscreen: {
             type: "boolean"
         },
+        speed: {
+            type: 'number',
+        },
         children: hideInTable,
         className: hideInTable,
         wrapClassName: hideInTable,

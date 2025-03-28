@@ -6,6 +6,7 @@ import type {
     CheckboxProps,
     DialogProps,
     DrawerProps,
+    FooterProps,
     HeaderProps,
     IconButtonProps,
     ModalProps,
@@ -26,6 +27,7 @@ export interface DefaultProps {
     checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
     dialog?: DialogProps;
     drawer?: DrawerProps;
+    footer?: FooterProps;
     header?: Pick<HeaderProps, 'alignCenter' | 'before' | 'after'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     modal?: ModalProps;
