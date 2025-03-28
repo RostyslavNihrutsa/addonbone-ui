@@ -17,7 +17,7 @@ $root: icon-button;
   }
 
   &:disabled {
-    opacity: var(--icon-button-opacity, 0.75);
+    opacity: var(--icon-button-disabled-opacity, 0.75);
     cursor: default;
   }
 
