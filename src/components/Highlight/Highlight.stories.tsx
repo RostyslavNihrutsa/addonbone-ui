@@ -36,8 +36,8 @@ const meta: Meta<typeof HighlightComponent> = {
     },
     decorators: [
         (Story) => (
-            <div style={{ color: 'var(--text-primary-color' }}>
-                <Story />
+            <div style={{color: 'var(--text-primary-color'}}>
+                <Story/>
             </div>
         ),
     ],
@@ -62,16 +62,16 @@ export const Color = () => {
         <div>
             {colors.map((color) => (
                     <div key={color} style={{margin: '20px', display: 'flex', alignItems: 'center'}}>
-                        <span className='item-card__title' style={{width: '150px'}}> {capitalizeFirstLetter(color)} color </span>
-                        <div>
-                            <HighlightComponent
-                                searchWords={searchWords}
-                                textToHighlight={textToHighlight}
-                                color={color !== 'default' ? color : undefined}
-                                activeIndex={0}
-                            />
+                        <span className='item-card__title' style={{width: '150px'}}>
+                            {capitalizeFirstLetter(color)} color
+                        </span>
 
-                        </div>
+                        <HighlightComponent
+                            searchWords={searchWords}
+                            textToHighlight={textToHighlight}
+                            color={color !== 'default' ? color : undefined}
+                            activeIndex={0}
+                        />
                     </div>
                 )
             )}
