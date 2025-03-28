@@ -8,6 +8,7 @@ import type {
     DrawerProps,
     FooterProps,
     HeaderProps,
+    HighlightProps,
     IconButtonProps,
     ModalProps,
     SwitchProps,
@@ -29,6 +30,7 @@ export interface DefaultProps {
     drawer?: DrawerProps;
     footer?: FooterProps;
     header?: Pick<HeaderProps, 'alignCenter' | 'before' | 'after'>;
+    highlight?: HighlightProps;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     modal?: ModalProps;
     switch?: SwitchProps;
