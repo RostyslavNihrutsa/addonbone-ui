@@ -14,38 +14,38 @@ $root: drawer;
     &[data-state="open"] {
 
       &.#{$root}-content--left-side {
-        animation: slideInLeft var(--drawer-transition-speed, var(--transition-speed-md)) ease-out;
+        animation-name: slideInLeft;
       }
 
       &.#{$root}-content--right-side {
-        animation: slideInRight var(--drawer-transition-speed, var(--transition-speed-md)) ease-out;
+        animation-name: slideInRight;
       }
 
       &.#{$root}-content--top-side {
-        animation: slideInTop var(--drawer-transition-speed, var(--transition-speed-md)) ease-out;
+        animation-name: slideInTop;
       }
 
       &.#{$root}-content--bottom-side {
-        animation: slideInBottom var(--drawer-transition-speed, var(--transition-speed-md)) ease-out;
+        animation-name: slideInBottom;
       }
     }
 
     &[data-state="closed"] {
 
       &.#{$root}-content--left-side {
-        animation: slideOutLeft var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+        animation-name: slideOutLeft;
       }
 
       &.#{$root}-content--right-side {
-        animation: slideOutRight var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+        animation-name: slideOutRight;
       }
 
       &.#{$root}-content--top-side {
-        animation: slideOutTop var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+        animation-name: slideOutTop;
       }
 
       &.#{$root}-content--bottom-side {
-        animation: slideOutBottom var(--drawer-transition-speed, var(--transition-speed-md)) ease-in;
+        animation-name: slideOutBottom;
       }
     }
 

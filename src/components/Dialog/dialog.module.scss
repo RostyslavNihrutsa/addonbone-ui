@@ -8,7 +8,15 @@ $root: dialog;
     z-index: 999;
     background-color: var(--dialog-overlay-bg-color, #111);
     opacity: var(--dialog-animation-overlay-opacity, 0.9);
-    animation: overlayShow var(--transition-speed-sm) ease-in-out;
+    animation-timing-function: ease-in-out;
+
+    &[data-state="open"] {
+      animation-name: overlayShow;
+    }
+
+    &[data-state="closed"] {
+      animation-name: overlayHide;
+    }
   }
 
   &-content {
@@ -16,6 +24,7 @@ $root: dialog;
     position: fixed;
     z-index: 9999;
     transition: background-color var(--transition-speed-sm), color var(--transition-speed-sm);
+    animation-timing-function: ease-in-out;
   }
 
   &-children {
@@ -32,5 +41,14 @@ $root: dialog;
   }
   to {
     opacity: var(--dialog-animation-overlay-opacity, 0.9);
+  }
+}
+
+@keyframes overlayHide {
+  from {
+    opacity: var(--dialog-animation-overlay-opacity, 0.9);
+  }
+  to {
+    opacity: 0;
   }
 }

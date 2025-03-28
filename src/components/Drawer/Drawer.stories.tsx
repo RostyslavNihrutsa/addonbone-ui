@@ -31,6 +31,9 @@ const meta: Meta<typeof DrawerComponent> = {
             control: {type: "boolean"},
             type: "boolean",
         },
+        speed: {
+            type: 'number',
+        },
         className: hideInTable,
         description: hideInTable,
         overlayClassName: hideInTable,
@@ -50,11 +53,13 @@ export const Drawer = (props: DrawerProps & { label?: string }) => {
             <Button onClick={() => setOpen(true)}>{label}</Button>
             <DrawerComponent open={open} onOpenChange={setOpen} {...other}>
                 <div style={{
+                    boxSizing: 'border-box',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     height: '100%',
-                    gap: '30px'
+                    gap: '30px',
+                    padding: '20px',
                 }}>
                     <List style={{display: 'flex', flexDirection: 'column', gap: '15px', overflow: 'auto'}}>
                         {items.map(({icon, title}) => (
