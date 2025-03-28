@@ -48,10 +48,10 @@
     --checkbox-bg-color: #DDD;
 
     --icon-button-color: #59647C;
-    --icon-button-bg-color: #FFF;
+    --icon-button-bg-color: #DDD;
     --icon-button-border-color: #EDEDED;
     --icon-button-color-hover: #404A61;
-    --icon-button-bg-color-hover: #EDEEF0;
+    --icon-button-bg-color-hover: #CCC;
 
 }
 
@@ -82,5 +82,5 @@
     --icon-button-bg-color: #404A61;
     --icon-button-border-color: #3F404B;
     --icon-button-color-hover: #959CA9;
-    --icon-button-bg-color-hover: #3F404B;
+    --icon-button-bg-color-hover: #444;
 }
