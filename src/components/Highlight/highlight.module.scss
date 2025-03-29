@@ -6,7 +6,8 @@ $root: highlight;
   font-family: var(--highlight-font-family, inherit), sans-serif;
   color: var(--highlight-color, #FFF);
   background-color: var(--highlight-bg-color, #FFD60A);
-  padding: var(--highlight-padding, 2px 3px);
+  padding: var(--highlight-y-padding, 2px) var(--highlight-x-padding, 3px);
+  margin: 0 calc(-1 * var(--highlight-x-padding, 3px));
   border-radius: var(--highlight-border-radius, 2px);
 
   &--primary-color {
