@@ -2,6 +2,7 @@ import React, {ComponentProps, forwardRef, JSX, memo, ReactNode} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
+import {useDefaultProps} from "../../theme";
 
 import styles from "./list-item.module.scss";
 
@@ -25,6 +26,9 @@ export interface ListItemProps extends ComponentProps<'li'> {
 }
 
 const ListItem = forwardRef<ListItemType, ListItemProps>((props, ref) => {
+    const defaultProps = useDefaultProps('listItem');
+    const mergedProps = {...defaultProps, ...props};
+
     const {
         left,
         right,
@@ -43,7 +47,7 @@ const ListItem = forwardRef<ListItemType, ListItemProps>((props, ref) => {
         secondaryClassName,
         role = "list-item",
         ...other
-    } = props;
+    } = mergedProps;
 
     return (
         <li
