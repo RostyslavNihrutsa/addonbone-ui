@@ -13,6 +13,7 @@ import type {
     ListProps,
     ListItemProps,
     ModalProps,
+    ScrollAreaProps,
     SwitchProps,
     TagProps,
     TextAreaProps,
@@ -37,6 +38,7 @@ export interface DefaultProps {
     list?: ListProps;
     listItem?: ListItemProps;
     modal?: ModalProps;
+    scrollArea?: ScrollAreaProps;
     switch?: SwitchProps;
     tag?: Pick<TagProps, 'variant' | 'size' | 'color' | 'radius' | 'clickable'>;
     textArea?: TextAreaProps;

@@ -1,5 +1,11 @@
 
 :root {
+    --min-height: 440px;
+    --max-height: 540px;
+
+    --min-width: 380px;
+    --max-width: var(--min-width);
+
     --font-family: 'Arial', sans-serif;
     --font-size: 14px;
     --font-weight: 400;
@@ -53,6 +59,8 @@
     --icon-button-color-hover: #404A61;
     --icon-button-bg-color-hover: #CCC;
 
+    --scroll-area-thumb-bg-color: #D9D9D9;
+
 }
 
 [data-theme="dark"] {
@@ -83,4 +91,6 @@
     --icon-button-border-color: #3F404B;
     --icon-button-color-hover: #959CA9;
     --icon-button-bg-color-hover: #444;
+
+    --scroll-area-thumb-bg-color: #5E6063;
 }
