@@ -1,5 +1,11 @@
 
 :root {
+    --min-height: 440px;
+    --max-height: 540px;
+
+    --min-width: 380px;
+    --max-width: var(--min-width);
+
     --font-family: 'Arial', sans-serif;
     --font-size: 14px;
     --font-weight: 400;
