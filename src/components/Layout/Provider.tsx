@@ -1,4 +1,4 @@
-import React, {FC, PropsWithChildren, useCallback, useState} from "react";
+import React, {ComponentProps, FC, PropsWithChildren, useCallback, useState} from "react";
 
 import {expandType, LayoutContext} from "./context";
 
@@ -6,7 +6,7 @@ import classnames from "classnames";
 
 import styles from "./layout.module.scss";
 
-const Provider: FC<PropsWithChildren> = ({children}) => {
+const Provider: FC<PropsWithChildren<ComponentProps<'div'>>> = ({children, className, style, ...props}) => {
     const [isExpanded, setExpanded] = useState(false);
     const [height, setHeight] = useState<number | string | undefined>(undefined);
     const [width, setWidth] = useState<number | string | undefined>(undefined);
@@ -26,10 +26,11 @@ const Provider: FC<PropsWithChildren> = ({children}) => {
     return (
         <LayoutContext.Provider value={{isExpanded, expand, collapse}}>
             <div
-                style={{minHeight: height, minWidth: width}}
+                style={{minHeight: height, minWidth: width, ...style}}
                 className={classnames(styles["layout"], {
                     [styles["layout--expanded"]]: isExpanded,
-                })}
+                }, className)}
+                {...props}
             >
                 {children}
             </div>

@@ -19,7 +19,7 @@ export enum AvatarRadius {
 }
 
 export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps, 'delayMs'> {
-    imageClassname?: string;
+    imageClassName?: string;
     size?: AvatarSize;
     radius?: AvatarRadius;
     fallback?: ReactNode;
@@ -37,7 +37,7 @@ const Avatar: FC<AvatarProps> = (props) => {
         fallbackClassName,
         delayMs = 600,
         cursorPointer,
-        imageClassname,
+        imageClassName,
         className,
         children,
         ...other
@@ -53,7 +53,7 @@ const Avatar: FC<AvatarProps> = (props) => {
             className)}
         >
             <Image
-                className={classnames(styles['avatar-image'], imageClassname)}
+                className={classnames(styles['avatar-image'], imageClassName)}
                 {...other}
             />
             {fallback && (
