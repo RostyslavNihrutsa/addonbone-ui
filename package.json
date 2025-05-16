@@ -5,6 +5,11 @@
   "author": "AddonBone",
   "license": "MIT",
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./src/config/index.ts",
+    "./plugin": "./src/plugin/index.ts"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -14,14 +19,12 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "autosize": "^6.0.1",
+    "adnbn": "^0.0.49",
     "classnames": "^2.5.1",
     "odometer": "^0.4.8",
     "radix-ui": "^1.1.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-highlight-words": "^0.21.0",
-    "sass": "^1.85.1"
+    "sass": "^1.85.1",
+    "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
@@ -53,6 +56,20 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.1",
     "vitest": "^3.0.8"
+  },
+  "peerDependencies": {
+    "autosize": "^6.0.1",
+    "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+    "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+    "react-highlight-words": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
   },
   "eslintConfig": {
     "extends": [

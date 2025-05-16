@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import type {Preview, StoryContext, StoryFn} from '@storybook/react'
-import {ThemeProvider} from "../src/theme";
+import {UIProvider} from "../src/theme";
 import '../src/styles/preview.css'
 
 
@@ -20,7 +20,7 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
 
         const linkElement = document.createElement('link');
         linkElement.rel = 'stylesheet';
-        linkElement.href = '/src/styles/variables-custom.css';
+        linkElement.href = '/src/styles/custom.css';
         document.head.appendChild(linkElement);
 
         return () => {
@@ -29,11 +29,11 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
     }, [cssVariables]);
 
     return (
-        <ThemeProvider>
+        <UIProvider>
             <div className='story-wrapper'>
                 {Story(context.args, context)}
             </div>
-        </ThemeProvider>
+        </UIProvider>
     )
 };
 

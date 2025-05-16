@@ -20,7 +20,7 @@ const meta: Meta<typeof AvatarComponent> = {
             control: {type: 'select'},
         },
         fallbackClassName: hideInTable,
-        imageClassname: hideInTable,
+        imageClassName: hideInTable,
         children: hideInTable
     },
 
@@ -88,7 +88,7 @@ export const SizeWithSVG = () => {
     );
 };
 
-export const SizeWitchFallback = () => {
+export const SizeWithFallback = () => {
     return (
         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
             {sizes.map((size) => (
