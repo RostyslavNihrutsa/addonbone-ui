@@ -8,6 +8,7 @@ import {Theme} from "../types/theme";
 import sharedConfig from '@adnbn-ui-config-shared'
 import appConfig from '@adnbn-ui-config-app'
 
+import "../styles/default.css"
 import '@adnbn-ui-style-shared'
 import '@adnbn-ui-style-app'
 
