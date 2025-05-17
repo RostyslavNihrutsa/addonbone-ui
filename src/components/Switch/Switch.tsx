@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import classnames from "classnames";
 import {Root, SwitchProps as SwitchRootProps, Thumb} from '@radix-ui/react-switch';
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./switch.module.scss"
 
@@ -11,13 +11,11 @@ export interface SwitchProps extends SwitchRootProps {
 }
 
 const Switch: FC<SwitchProps> = (props) => {
-    const defaultProps = useDefaultProps('switch');
-    const mergedProps = {...defaultProps, ...props};
     const {
         className,
         thumbClassName,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('switch'), ...props};
 
     return (
         <Root {...other} className={classnames(styles["switch"], className)}>

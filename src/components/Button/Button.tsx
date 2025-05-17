@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import classnames from "classnames";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./button.module.scss";
 
@@ -39,8 +39,6 @@ export interface ButtonProps extends BaseButtonProps {
 }
 
 const Button: FC<ButtonProps> = (props) => {
-    const defaultProps = useDefaultProps('button');
-    const mergedProps = {...defaultProps, ...props};
     const {
         variant = ButtonVariant.Contained,
         color,
@@ -50,7 +48,7 @@ const Button: FC<ButtonProps> = (props) => {
         className,
         children,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('button'), ...props};
 
     return (
         <BaseButton

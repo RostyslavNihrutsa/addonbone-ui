@@ -1,6 +1,4 @@
-import type {DefaultProps} from '../theme'
-
-export type {DefaultProps} from '../theme'
+import type {ComponentsProps} from '../components'
 
 export {AvatarSize, AvatarRadius} from '../components/Avatar'
 export {ButtonColor, ButtonSize, ButtonRadius, ButtonVariant} from '../components/Button'
@@ -14,4 +12,6 @@ export {TextAreaSize, TextAreaVariant} from '../components/TextArea'
 export {TextFieldAccent, TextFieldSize, TextFieldVariant} from '../components/TextField'
 export {ToastColor, ToastRadius, ToastSide} from '../components/Toast'
 
-export const defineConfig = (defaultProps: DefaultProps) => defaultProps
+export type {ComponentsProps} from '../components'
+
+export const defineConfig = (config: ComponentsProps) => config

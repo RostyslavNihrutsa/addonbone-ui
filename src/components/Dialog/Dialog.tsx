@@ -13,7 +13,7 @@ import {
 } from '@radix-ui/react-dialog';
 import {VisuallyHidden} from "radix-ui";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 import {cloneOrCreateElement} from "../../utils";
 
 import styles from "./dialog.module.scss"
@@ -36,8 +36,6 @@ export const dialogPropsKeys = new Set<keyof DialogProps>([
 ]);
 
 const Dialog: FC<DialogProps> = (props) => {
-    const defaultProps = useDefaultProps('dialog');
-    const mergedProps = {...defaultProps, ...props};
     const {
         speed = 200,
         open,
@@ -52,7 +50,7 @@ const Dialog: FC<DialogProps> = (props) => {
         overlayClassName,
         childrenClassName,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('dialog'), ...props};
 
     const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
     const intervalId = useRef<ReturnType<typeof setInterval> | null>(null);

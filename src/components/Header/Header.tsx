@@ -2,7 +2,7 @@ import React, {ComponentProps, FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./header.module.scss";
 
@@ -21,8 +21,6 @@ export interface HeaderProps extends Omit<ComponentProps<'header'>, 'title'> {
 }
 
 const Header: FC<HeaderProps> = (props) => {
-    const defaultProps = useDefaultProps('header');
-    const mergedProps = {...defaultProps, ...props};
     const {
         title,
         before,
@@ -38,7 +36,7 @@ const Header: FC<HeaderProps> = (props) => {
         alignCenter = true,
         children,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('header'), ...props};
 
     return (
         <header {...other} className={classnames(styles["header"],

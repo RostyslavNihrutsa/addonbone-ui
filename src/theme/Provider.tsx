@@ -1,7 +1,8 @@
 import React, {PropsWithChildren, useCallback, useEffect, useMemo, useState} from "react";
 import {merge} from 'ts-deepmerge';
 
-import {DefaultProps, ThemeContext} from "./context";
+import {ThemeContext} from "./context";
+import {ComponentsProps} from "../components";
 
 import {Theme} from "../types/theme";
 
@@ -14,7 +15,7 @@ import '@adnbn-ui-style-app'
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
-const Provider = ({children, ...props}: PropsWithChildren<DefaultProps>) => {
+const Provider = ({children, ...props}: PropsWithChildren<ComponentsProps>) => {
 
     const [theme, setTheme] = useState<Theme>(() => {
         return isDarkMedia() ? Theme.Dark : Theme.Light;
@@ -32,10 +33,10 @@ const Provider = ({children, ...props}: PropsWithChildren<DefaultProps>) => {
         document.querySelector("html")?.setAttribute("theme", theme);
     }, [theme]);
 
-    const defaultProps: DefaultProps = useMemo(() => merge(props, sharedConfig, appConfig), [props])
+    const componentsProps: ComponentsProps = useMemo(() => merge(props, sharedConfig, appConfig), [props])
 
     return (
-        <ThemeContext.Provider value={{theme, changeTheme, toggleTheme, defaultProps}}>
+        <ThemeContext.Provider value={{theme, changeTheme, toggleTheme, componentsProps}}>
             {children}
         </ThemeContext.Provider>
     );

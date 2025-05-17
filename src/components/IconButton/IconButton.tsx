@@ -4,7 +4,7 @@ import classnames from "classnames";
 import {Tooltip, TooltipProps} from "../Tooltip";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./icon-button.module.scss";
 
@@ -34,8 +34,6 @@ export interface IconButtonProps extends BaseButtonProps {
 }
 
 const IconButton: FC<IconButtonProps> = (props) => {
-    const defaultProps = useDefaultProps('iconButton');
-    const mergedProps = {...defaultProps, ...props};
     const {
         size,
         radius,
@@ -44,7 +42,7 @@ const IconButton: FC<IconButtonProps> = (props) => {
         className,
         children,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('iconButton'), ...props};
 
     const iconButton = (
         <BaseButton
