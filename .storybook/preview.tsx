@@ -9,9 +9,9 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
     const cssVariables = context.globals.cssVariables || 'default';
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('theme', theme);
         return () => {
-            document.documentElement.removeAttribute('data-theme');
+            document.documentElement.removeAttribute('theme');
         };
     }, [theme]);
 
