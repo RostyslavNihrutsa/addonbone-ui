@@ -6,16 +6,13 @@ import {ComponentsProps} from "../components";
 
 import {Theme} from "../types/theme";
 
-import sharedConfig from '@adnbn-ui-config-shared'
-import appConfig from '@adnbn-ui-config-app'
+import config from 'adnbn-ui-config'
 
 import "../styles/default.css"
-import '@adnbn-ui-style-shared'
-import '@adnbn-ui-style-app'
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
-const Provider = ({children, ...props}: PropsWithChildren<ComponentsProps>) => {
+const ThemeProvider = ({children, ...props}: PropsWithChildren<ComponentsProps>) => {
 
     const [theme, setTheme] = useState<Theme>(() => {
         return isDarkMedia() ? Theme.Dark : Theme.Light;
@@ -33,7 +30,7 @@ const Provider = ({children, ...props}: PropsWithChildren<ComponentsProps>) => {
         document.querySelector("html")?.setAttribute("theme", theme);
     }, [theme]);
 
-    const componentsProps: ComponentsProps = useMemo(() => merge(props, sharedConfig, appConfig), [props])
+    const componentsProps: ComponentsProps = useMemo(() => merge(props, config), [props])
 
     return (
         <ThemeContext.Provider value={{theme, changeTheme, toggleTheme, componentsProps}}>
@@ -42,6 +39,6 @@ const Provider = ({children, ...props}: PropsWithChildren<ComponentsProps>) => {
     );
 };
 
-Provider.displayName = "ThemeProvider";
+ThemeProvider.displayName = "ThemeProvider";
 
-export default Provider;
+export default ThemeProvider;

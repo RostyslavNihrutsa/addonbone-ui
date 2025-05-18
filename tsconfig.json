@@ -10,18 +10,9 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@adnbn-ui-config-app": [
+      "adnbn-ui-config": [
         "./src/config/default.ts"
       ],
-      "@adnbn-ui-config-shared": [
-        "./src/config/default.ts"
-      ],
-      "@adnbn-ui-style-app": [
-        "./src/styles/default.css"
-      ],
-      "@adnbn-ui-style-shared": [
-        "./src/styles/default.css"
-      ]
     }
   }
 }

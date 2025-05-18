@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import type {Preview, StoryContext, StoryFn} from '@storybook/react'
-import {UIProvider} from "../src/theme";
+import {ThemeProvider} from "../src/theme";
 import '../src/styles/preview.css'
 
 
@@ -29,11 +29,11 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
     }, [cssVariables]);
 
     return (
-        <UIProvider>
+        <ThemeProvider>
             <div className='story-wrapper'>
                 {Story(context.args, context)}
             </div>
-        </UIProvider>
+        </ThemeProvider>
     )
 };
 
