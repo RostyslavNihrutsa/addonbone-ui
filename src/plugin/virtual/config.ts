@@ -1,7 +1,7 @@
-import {merge} from 'ts-deepmerge';
+import {merge} from "ts-deepmerge";
 
 'configs imports'
 
-'styles imports'
+import "adnbn-ui-style.scss"
 
 export default merge({});

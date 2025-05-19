@@ -1,4 +1,3 @@
-import fs from "fs";
 import path from "path";
 import {definePlugin} from 'adnbn'
 import {RspackVirtualModulePlugin} from "rspack-plugin-virtual-module"
@@ -25,8 +24,6 @@ export default definePlugin((options: PluginOptions = {}) => {
         mergeStyles = true,
     } = options;
 
-    const template = fs.readFileSync(path.resolve(__dirname, 'virtual', 'config.ts'), 'utf8')
-
     let configFinder: Finder;
     let styleFinder: Finder;
 
@@ -43,16 +40,12 @@ export default definePlugin((options: PluginOptions = {}) => {
             styleBuilder = new Builder(styleFinder)
         },
         bundler: () => {
-            const {imports: configImports, names: configNames} = configBuilder.build()
-            const {imports: styleImports} = styleBuilder.build()
 
             return {
                 plugins: [
                     new RspackVirtualModulePlugin({
-                        'adnbn-ui-config': template
-                            .replace("'styles imports'", styleImports.join("\n"))
-                            .replace("'configs imports'", configImports.join("\n"))
-                            .replace("{}", configNames.join(", "))
+                        'adnbn-ui-config': configBuilder.buildConfig(),
+                        'adnbn-ui-style.scss': styleBuilder.buildStyle()
                     }),
                 ],
 
