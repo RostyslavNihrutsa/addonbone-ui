@@ -1,7 +1,7 @@
 import React, {FC, memo} from "react";
 import classnames from "classnames";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 import {Header, HeaderProps} from "../Header";
 
 import styles from "./view.module.scss";
@@ -22,8 +22,6 @@ export const viewPropsKeys = new Set<keyof ViewProps>([
 ]);
 
 const View: FC<ViewProps> = (props) => {
-    const defaultProps = useDefaultProps('view');
-    const mergedProps = {...defaultProps, ...props};
     const {
         center,
         showSeparate,
@@ -32,7 +30,7 @@ const View: FC<ViewProps> = (props) => {
         headerClassName,
         children,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('view'), ...props};
 
     return (
         <div className={classnames(styles["view"], {

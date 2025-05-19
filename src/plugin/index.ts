@@ -1,10 +1,13 @@
 import path from "path";
 import {definePlugin} from 'adnbn'
-import ConfigFinder from "./ConfigFinder"
-import StyleFinder from "./StyleFinder"
-import Finder from "./Finder"
+import {RspackVirtualModulePlugin} from "rspack-plugin-virtual-module"
 
-export interface Options {
+import Builder from "./Builder"
+import Finder from "./finder/Finder"
+import ConfigFinder from "./finder/ConfigFinder"
+import StyleFinder from "./finder/StyleFinder"
+
+export interface PluginOptions {
     themeDir?: string;
     configFileName?: string;
     styleFileName?: string;
@@ -12,11 +15,11 @@ export interface Options {
     mergeStyles?: boolean;
 }
 
-export default definePlugin((options: Options = {}) => {
+export default definePlugin((options: PluginOptions = {}) => {
     const {
         themeDir = '.',
         configFileName = 'theme.tsx',
-        styleFileName = 'theme.css',
+        styleFileName = 'theme.scss',
         mergeConfig = true,
         mergeStyles = true,
     } = options;
@@ -24,21 +27,30 @@ export default definePlugin((options: Options = {}) => {
     let configFinder: Finder;
     let styleFinder: Finder;
 
+    let configBuilder: Builder;
+    let styleBuilder: Builder;
+
     return {
         name: 'adnbn-ui',
         startup: ({config}) => {
-            configFinder = new ConfigFinder(config, {themeDir, fileName: configFileName, merge: mergeConfig});
-            styleFinder = new StyleFinder(config, {themeDir, fileName: styleFileName, merge: mergeStyles});
+            configFinder = new ConfigFinder(config, {themeDir, fileName: configFileName, canMerge: mergeConfig});
+            styleFinder = new StyleFinder(config, {themeDir, fileName: styleFileName, canMerge: mergeStyles});
+
+            configBuilder = new Builder(configFinder)
+            styleBuilder = new Builder(styleFinder)
         },
         bundler: () => {
 
             return {
+                plugins: [
+                    new RspackVirtualModulePlugin({
+                        'adnbn-ui-config': configBuilder.buildConfig(),
+                        'adnbn-ui-style.scss': styleBuilder.buildStyle()
+                    }),
+                ],
+
                 resolve: {
                     alias: {
-                        '@adnbn-ui-config-app': configFinder.getAppPath(),
-                        '@adnbn-ui-config-shared': configFinder.getSharedPath(),
-                        '@adnbn-ui-style-app': styleFinder.getAppPath(),
-                        '@adnbn-ui-style-shared': styleFinder.getSharedPath(),
                         'react': path.resolve('./node_modules/react'),
                         'react-dom': path.resolve('./node_modules/react-dom'),
                     }

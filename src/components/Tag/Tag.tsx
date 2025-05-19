@@ -1,6 +1,6 @@
 import React, {ComponentProps, FC, memo} from "react";
 import classnames from "classnames";
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./tag.module.scss";
 
@@ -37,8 +37,6 @@ export interface TagProps extends ComponentProps<'span'> {
 }
 
 const Tag: FC<TagProps> = (props) => {
-    const defaultProps = useDefaultProps('tag');
-    const mergedProps = {...defaultProps, ...props};
     const {
         size,
         color,
@@ -48,7 +46,7 @@ const Tag: FC<TagProps> = (props) => {
         children,
         className,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('tag'), ...props};
 
     return (
         <span

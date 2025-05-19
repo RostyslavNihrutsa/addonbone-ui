@@ -13,7 +13,7 @@ import React, {
 import classnames from "classnames";
 import autosize from "autosize";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./text-area.module.scss";
 
@@ -54,8 +54,6 @@ export interface TextAreaProps extends ComponentProps<'textarea'> {
 }
 
 const TextArea = forwardRef<TextAreaActions, TextAreaProps>((props, ref) => {
-    const defaultProps = useDefaultProps('textArea');
-    const mergedProps = {...defaultProps, ...props};
     const {
         variant = TextAreaVariant.Regular,
         radius,
@@ -70,7 +68,7 @@ const TextArea = forwardRef<TextAreaActions, TextAreaProps>((props, ref) => {
         onChange,
         className,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('textArea'), ...props};
 
     const [value, setValue] = useState(propValue || children);
 

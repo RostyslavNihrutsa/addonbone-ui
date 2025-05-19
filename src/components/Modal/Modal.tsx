@@ -1,7 +1,7 @@
 import React, {FC, isValidElement, memo, ReactElement, useCallback} from "react";
 import classnames from "classnames";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 import {cloneOrCreateElement} from "../../utils";
 
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"
@@ -25,8 +25,6 @@ export interface ModalProps extends DialogProps {
 export const modalPropsKeys = new Set<keyof ModalProps>(['radius', 'closeButton', 'onClose', ...dialogPropsKeys]);
 
 const Modal: FC<ModalProps> = (props) => {
-    const defaultProps = useDefaultProps('modal');
-    const mergedProps = {...defaultProps, ...props};
     const {
         radius,
         fullscreen = true,
@@ -38,7 +36,7 @@ const Modal: FC<ModalProps> = (props) => {
         overlayClassName,
         childrenClassName,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('modal'), ...props};
 
     const handleClose = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         onClose?.();

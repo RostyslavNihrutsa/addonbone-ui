@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import classnames from "classnames";
 import Highlighter, {HighlighterProps} from "react-highlight-words";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./highlight.module.scss";
 
@@ -17,15 +17,13 @@ export interface HighlightProps extends HighlighterProps {
 }
 
 const Highlight: FC<HighlightProps> = (props) => {
-    const defaultProps = useDefaultProps('highlight');
-    const mergedProps = {...defaultProps, ...props};
     const {
         color,
         activeClassName,
         highlightClassName,
         className,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('highlight'), ...props};
 
     return (
         <Highlighter

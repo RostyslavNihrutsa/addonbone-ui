@@ -1,7 +1,7 @@
 import React, {FC, memo} from "react";
 import classnames from "classnames";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 import {cloneOrCreateElement} from "../../utils";
 
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"
@@ -22,8 +22,6 @@ export interface DrawerProps extends DialogProps {
 export const drawerPropsKeys = new Set<keyof DrawerProps>(['side', ...dialogPropsKeys]);
 
 const Drawer: FC<DrawerProps> = (props) => {
-    const defaultProps = useDefaultProps('drawer');
-    const mergedProps = {...defaultProps, ...props};
     const {
         side = DrawerSide.Left,
         fullscreen,
@@ -32,7 +30,7 @@ const Drawer: FC<DrawerProps> = (props) => {
         overlayClassName,
         childrenClassName,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('drawer'), ...props};
 
     return (
         <Dialog

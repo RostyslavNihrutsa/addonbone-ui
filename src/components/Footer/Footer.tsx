@@ -2,7 +2,7 @@ import React, {ComponentProps, FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./footer.module.scss";
 
@@ -17,8 +17,6 @@ export interface FooterProps extends ComponentProps<'footer'> {
 }
 
 const Footer: FC<FooterProps> = (props) => {
-    const defaultProps = useDefaultProps('footer');
-    const mergedProps = {...defaultProps, ...props};
     const {
         left,
         right,
@@ -30,7 +28,7 @@ const Footer: FC<FooterProps> = (props) => {
         rightClassName,
         childrenClassName,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('footer'), ...props};
 
     return (
         <footer {...other} className={classnames(styles["footer"],

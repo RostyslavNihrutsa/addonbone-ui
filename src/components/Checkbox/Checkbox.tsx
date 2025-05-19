@@ -2,7 +2,7 @@ import React, {FC, memo, ReactElement} from "react";
 import classnames from "classnames";
 import {CheckboxProps as CheckboxRootProps, Indicator, Root} from '@radix-ui/react-checkbox';
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./checkbox.module.scss"
 
@@ -34,8 +34,6 @@ export interface CheckboxProps extends CheckboxRootProps {
 }
 
 const Checkbox: FC<CheckboxProps> = (props) => {
-    const defaultProps = useDefaultProps('checkbox');
-    const mergedProps = {...defaultProps, ...props};
     const {
         checked,
         size,
@@ -46,7 +44,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
         checkedIcon = '✔',
         indeterminateIcon = '―',
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('checkbox'), ...props};
 
     return (
         <Root

@@ -1,59 +1,11 @@
 import {createContext, useContext} from "react";
 import {Theme} from "../types/theme";
-import type {
-    AvatarProps,
-    ButtonProps,
-    CheckboxProps,
-    DialogProps,
-    DrawerProps,
-    FooterProps,
-    HeaderProps,
-    HighlightProps,
-    IconButtonProps,
-    ListProps,
-    ListItemProps,
-    ModalProps,
-    ScrollAreaProps,
-    SwitchProps,
-    TagProps,
-    TextAreaProps,
-    TextFieldProps,
-    ToastProps,
-    TooltipProps,
-    ViewProps,
-    ViewDrawerProps,
-    ViewModalProps,
-} from "../components";
-
-export interface DefaultProps {
-    avatar?: Pick<AvatarProps, 'size' | 'radius' | 'cursorPointer' | 'delayMs'>;
-    button?: Pick<ButtonProps, 'variant' | 'color' | 'size' | 'radius'>;
-    checkbox?: Pick<CheckboxProps, 'variant' | 'size' | 'radius' | 'checkedIcon' | 'indeterminateIcon'>;
-    dialog?: DialogProps;
-    drawer?: DrawerProps;
-    footer?: FooterProps;
-    header?: Pick<HeaderProps, 'alignCenter' | 'before' | 'after'>;
-    highlight?: HighlightProps;
-    iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
-    list?: ListProps;
-    listItem?: ListItemProps;
-    modal?: ModalProps;
-    scrollArea?: ScrollAreaProps;
-    switch?: SwitchProps;
-    tag?: Pick<TagProps, 'variant' | 'size' | 'color' | 'radius' | 'clickable'>;
-    textArea?: TextAreaProps;
-    textField?: TextFieldProps;
-    toast?: Pick<ToastProps, 'side' | 'duration' | 'swipeDirection' | 'swipeThreshold' | 'closeProps' | 'closeIcon' | 'fullWidth' | 'sticky' | 'radius' | 'color'>;
-    tooltip?: Pick<TooltipProps, 'side' | 'align' | 'delayDuration' | 'arrowHeight' | 'arrowWidth'>;
-    view?: ViewProps;
-    viewDrawer?: ViewDrawerProps;
-    viewModal?: ViewModalProps;
-}
+import {ComponentsProps} from "../components";
 
 export interface ThemeContract {
     theme: Theme;
 
-    defaultProps: DefaultProps;
+    componentsProps: ComponentsProps;
 
     changeTheme(theme: Theme): void;
 
@@ -62,7 +14,7 @@ export interface ThemeContract {
 
 export const ThemeContext = createContext<ThemeContract>({
     theme: Theme.Light,
-    defaultProps: {},
+    componentsProps: {},
     changeTheme: () => {
     },
     toggleTheme: () => {
@@ -73,7 +25,7 @@ ThemeContext.displayName = "ThemeContext";
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const useDefaultProps = <K extends keyof DefaultProps>(key: K): DefaultProps[K] => {
-    const {defaultProps} = useTheme();
-    return defaultProps[key];
+export const useComponentProps = <K extends keyof ComponentsProps>(key: K): ComponentsProps[K] => {
+    const {componentsProps} = useTheme();
+    return componentsProps[key];
 };

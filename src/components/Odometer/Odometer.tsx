@@ -2,6 +2,8 @@ import React, {FC, memo, useRef} from "react";
 
 import classNames from "classnames";
 
+import {useComponentProps} from "../../theme";
+
 import useOdometer, {OdometerOptions} from "./hooks/useOdometer";
 
 import styles from "./odometer.module.scss";
@@ -19,7 +21,7 @@ const Odometer: FC<OdometerProps> = (props) => {
         duration = 250,
         className,
         ...other
-    } = props;
+    } = {...useComponentProps('odometer'), ...props};
 
     const targetRef = useRef(null);
 

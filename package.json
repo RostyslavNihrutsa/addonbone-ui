@@ -8,8 +8,13 @@
   "exports": {
     ".": "./src/index.ts",
     "./config": "./src/config/index.ts",
-    "./plugin": "./src/plugin/index.ts"
+    "./plugin": "./src/plugin/index.ts",
+    "./theme": "./src/styles/mixins.scss"
   },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -51,6 +56,7 @@
     "eslint-plugin-storybook": "^0.11.4",
     "globals": "^15.15.0",
     "playwright": "^1.51.0",
+    "rspack-plugin-virtual-module": "^1.0.0",
     "storybook": "^8.6.4",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",

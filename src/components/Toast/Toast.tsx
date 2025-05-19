@@ -12,7 +12,7 @@ import {
 
 import {IconButton, IconButtonProps} from "../IconButton";
 import {cloneOrCreateElement} from "../../utils";
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./toast.module.scss";
 
@@ -66,7 +66,7 @@ export interface ToastProps extends Omit<ToastRootProps, 'title'>, Omit<ToastPro
 }
 
 const Toast: FC<ToastProps> = (props) => {
-    const defaultProps = useDefaultProps('toast');
+    const defaultProps = useComponentProps('toast');
     const mergedProps = {...defaultProps, ...props};
     const {
         side = ToastSide.BottomRight,

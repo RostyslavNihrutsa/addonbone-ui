@@ -14,7 +14,7 @@ import React, {
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./text-field.module.scss";
 
@@ -70,8 +70,6 @@ export interface TextFieldProps extends ComponentProps<'input'> {
 }
 
 const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
-    const defaultProps = useDefaultProps('textField');
-    const mergedProps = {...defaultProps, ...props};
     const {
         variant = TextFieldVariant.Regular,
         accent,
@@ -90,7 +88,7 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
         beforeClassName,
         onChange,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('textField'), ...props};
 
     const [value, setValue] = useState<string | number | undefined>(defaultValue || propValue);
     const inputRef = useRef<HTMLInputElement | null>(null);

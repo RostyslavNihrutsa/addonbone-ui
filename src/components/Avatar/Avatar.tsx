@@ -2,7 +2,7 @@ import React, {FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from '@radix-ui/react-avatar';
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./avatar.module.scss"
 
@@ -28,8 +28,6 @@ export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps,
 }
 
 const Avatar: FC<AvatarProps> = (props) => {
-    const defaultProps = useDefaultProps('avatar');
-    const mergedProps = {...defaultProps, ...props};
     const {
         size,
         radius,
@@ -41,7 +39,7 @@ const Avatar: FC<AvatarProps> = (props) => {
         className,
         children,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('avatar'), ...props};
 
     return (
         <Root className={classnames(styles['avatar'],

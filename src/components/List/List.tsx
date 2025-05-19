@@ -1,7 +1,7 @@
 import React, {ComponentProps, forwardRef, memo, ReactElement} from "react";
 import classnames from "classnames";
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import {ListItemProps} from "../ListItem";
 
@@ -12,10 +12,11 @@ export interface ListProps extends Omit<ComponentProps<'ul'>, 'children'> {
 }
 
 const List = forwardRef<HTMLUListElement, ListProps>((props, ref) => {
-    const defaultProps = useDefaultProps('list');
-    const mergedProps = {...defaultProps, ...props};
-
-    const {children, className, ...other} = mergedProps;
+    const {
+        children,
+        className,
+        ...other
+    } = {...useComponentProps('list'), ...props};
 
     return (
         <ul

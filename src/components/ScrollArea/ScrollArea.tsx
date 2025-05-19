@@ -9,7 +9,7 @@ import {
     Viewport
 } from '@radix-ui/react-scroll-area';
 
-import {useDefaultProps} from "../../theme";
+import {useComponentProps} from "../../theme";
 
 import styles from "./scroll-area.module.scss"
 
@@ -23,8 +23,6 @@ export interface ScrollAreaProps extends ScrollAreaRootProps {
 }
 
 const ScrollArea: FC<ScrollAreaProps> = (props) => {
-    const defaultProps = useDefaultProps('scrollArea');
-    const mergedProps = {...defaultProps, ...props};
     const {
         xOffset,
         yOffset,
@@ -35,7 +33,7 @@ const ScrollArea: FC<ScrollAreaProps> = (props) => {
         viewportClassName,
         scrollbarClassName,
         ...other
-    } = mergedProps;
+    } = {...useComponentProps('scrollArea'), ...props};
 
     return (
         <Root className={classnames(styles["scroll-area"], className)} {...other}>

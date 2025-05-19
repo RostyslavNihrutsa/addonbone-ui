@@ -1,3 +1,2 @@
-export {default as UIProvider} from "./Provider";
-export {useTheme, useDefaultProps} from "./context";
-export type {DefaultProps} from "./context";
+export {default as ThemeProvider} from "./ThemeProvider";
+export {useTheme, useComponentProps} from "./context";
