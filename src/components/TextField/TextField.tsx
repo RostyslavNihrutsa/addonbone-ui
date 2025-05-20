@@ -14,7 +14,7 @@ import React, {
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./text-field.module.scss";
 

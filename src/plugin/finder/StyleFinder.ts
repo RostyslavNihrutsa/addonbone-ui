@@ -1,23 +1,22 @@
-import {ReadonlyConfig} from 'adnbn'
-import Finder, {FinderOptions} from "./Finder";
-import {EntrypointFile} from "../../types/entrypoint";
+import Finder from "./Finder";
+
+import type {ReadonlyConfig} from "adnbn";
+import type {FileImportInfo} from "../types";
 
 export default class StyleFinder extends Finder {
-    protected allowedExtensions: string[] = ['css', 'scss'];
-
-    constructor(protected config: ReadonlyConfig, protected options: FinderOptions) {
-        super(config, options)
+    protected getAllowedExtensions(): string[] {
+        return ['scss', 'css'];
     }
 
-    protected getAppEntrypointFile(): EntrypointFile | undefined {
-        const filePath = this.resolveFileWithExtensions(this.appThemeDir, this.fileName)
-
-        return filePath ? {file: '', import: this.toImportPath(filePath, true)} : undefined;
+    constructor(fileName: string, config: ReadonlyConfig) {
+        super(fileName, config);
     }
 
-    protected getSharedEntrypointFile(): EntrypointFile | undefined {
-        const filePath = this.resolveFileWithExtensions(this.sharedThemeDir, this.fileName)
+    protected getFile(dirPath: string): FileImportInfo | undefined {
+        const filePath = this.resolveFileWithExtensions(dirPath, this.fileName)
 
-        return filePath ? {file: '', import: this.toImportPath(filePath, true)} : undefined;
+        if (!filePath) return
+
+        return {name: '', import: this.toImportPath(filePath, true)}
     }
 }

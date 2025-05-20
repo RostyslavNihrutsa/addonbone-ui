@@ -9,7 +9,7 @@ import {
     Viewport
 } from '@radix-ui/react-scroll-area';
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./scroll-area.module.scss"
 

@@ -1,23 +1,26 @@
-import {ReadonlyConfig} from 'adnbn'
-import Finder, {FinderOptions} from "./Finder";
-import {EntrypointFile} from "../../types/entrypoint";
+import path from "path";
+import Finder from "./Finder";
+
+import type {ReadonlyConfig} from "adnbn";
+import type {FileImportInfo} from "../types";
 
 export default class ConfigFinder extends Finder {
-    protected allowedExtensions: string[] = ['ts', 'tsx'];
-
-    constructor(config: ReadonlyConfig, options: FinderOptions) {
-        super(config, options)
+    protected getAllowedExtensions(): string[] {
+        return ['tsx', 'ts'];
     }
 
-    protected getAppEntrypointFile(): EntrypointFile | undefined {
-        const filePath = this.resolveFileWithExtensions(this.appThemeDir, this.fileName)
-
-        return filePath ? {file: 'appConfig', import: this.toImportPath(filePath)} : undefined;
+    constructor(fileName: string, config: ReadonlyConfig) {
+        super(fileName, config);
     }
 
-    protected getSharedEntrypointFile(): EntrypointFile | undefined {
-        const filePath = this.resolveFileWithExtensions(this.sharedThemeDir, this.fileName)
+    protected getFile(dirPath: string): FileImportInfo | undefined {
+        const filePath = this.resolveFileWithExtensions(dirPath, this.fileName)
 
-        return filePath ? {file: 'sharedConfig', import: this.toImportPath(filePath)} : undefined;
+        if (!filePath) return
+
+        return {
+            name: dirPath.replaceAll(path.sep, ''),
+            import: this.toImportPath(filePath)
+        }
     }
 }

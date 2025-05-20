@@ -1,7 +1,7 @@
 import React, {ComponentProps, forwardRef, memo, ReactElement} from "react";
 import classnames from "classnames";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import {ListItemProps} from "../ListItem";
 

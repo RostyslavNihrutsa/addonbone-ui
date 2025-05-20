@@ -4,7 +4,7 @@ import classnames from "classnames";
 import {Tooltip, TooltipProps} from "../Tooltip";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./icon-button.module.scss";
 

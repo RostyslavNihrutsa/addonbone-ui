@@ -1,7 +1,7 @@
 import React, {FC, memo} from "react";
 
 import {splitProps} from "../../utils";
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import {Modal, ModalProps, modalPropsKeys} from "../Modal";
 import {View, ViewProps, viewPropsKeys} from "../View";

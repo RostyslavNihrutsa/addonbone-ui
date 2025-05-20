@@ -1,7 +1,7 @@
 import React, {FC, isValidElement, memo, ReactElement, useCallback} from "react";
 import classnames from "classnames";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 import {cloneOrCreateElement} from "../../utils";
 
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"

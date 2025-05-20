@@ -2,7 +2,7 @@ import React, {FC, memo, ReactElement} from "react";
 import classnames from "classnames";
 import {CheckboxProps as CheckboxRootProps, Indicator, Root} from '@radix-ui/react-checkbox';
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./checkbox.module.scss"
 

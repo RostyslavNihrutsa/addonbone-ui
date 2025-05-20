@@ -1,6 +1,6 @@
+@use "mixins" as theme;
 
-:root {
-
+@include theme.light {
     --button-height-sm: 20px;
     --button-height: 25px;
     --button-height-md: 30px;
@@ -39,7 +39,7 @@
     --tooltip-bg-color: #A39073;
 }
 
-[data-theme="dark"] {
+@include theme.dark {
     /* Common colors */
     --bg-primary-color: #191919;
 

@@ -12,7 +12,7 @@ import {
 
 import {IconButton, IconButtonProps} from "../IconButton";
 import {cloneOrCreateElement} from "../../utils";
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./toast.module.scss";
 

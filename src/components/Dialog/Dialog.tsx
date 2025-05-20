@@ -13,7 +13,7 @@ import {
 } from '@radix-ui/react-dialog';
 import {VisuallyHidden} from "radix-ui";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 import {cloneOrCreateElement} from "../../utils";
 
 import styles from "./dialog.module.scss"

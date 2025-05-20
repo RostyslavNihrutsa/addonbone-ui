@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import classnames from "classnames";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./button.module.scss";
 

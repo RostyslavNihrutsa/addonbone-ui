@@ -1,7 +1,7 @@
 import React, {FC, memo} from "react";
 import classnames from "classnames";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 import {Header, HeaderProps} from "../Header";
 
 import styles from "./view.module.scss";

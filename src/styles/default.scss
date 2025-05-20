@@ -1,4 +1,6 @@
-:root {
+@use "mixins" as theme;
+
+@include theme.light {
     --min-height: 440px;
     --max-height: 540px;
 
@@ -62,7 +64,7 @@
 
 }
 
-html[theme="dark"] {
+@include theme.dark {
     /* Common colors */
     --border-color: #545863;
 

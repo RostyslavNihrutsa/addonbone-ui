@@ -11,7 +11,7 @@ import {
     Trigger
 } from '@radix-ui/react-tooltip';
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./tooltip.module.scss"
 

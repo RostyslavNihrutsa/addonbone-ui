@@ -2,7 +2,7 @@ import React, {ComponentProps, FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./header.module.scss";
 

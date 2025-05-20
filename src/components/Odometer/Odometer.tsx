@@ -2,7 +2,7 @@ import React, {FC, memo, useRef} from "react";
 
 import classNames from "classnames";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import useOdometer, {OdometerOptions} from "./hooks/useOdometer";
 

@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import classnames from "classnames";
 import {Root, SwitchProps as SwitchRootProps, Thumb} from '@radix-ui/react-switch';
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./switch.module.scss"
 
