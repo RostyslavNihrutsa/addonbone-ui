@@ -1,7 +1,7 @@
 import React, {FC, memo} from "react";
 
 import {splitProps} from "../../utils";
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import {Drawer, DrawerProps, drawerPropsKeys} from "../Drawer";
 import {View, ViewProps, viewPropsKeys} from "../View";

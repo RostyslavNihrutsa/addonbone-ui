@@ -13,7 +13,7 @@ import React, {
 import classnames from "classnames";
 import autosize from "autosize";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./text-area.module.scss";
 

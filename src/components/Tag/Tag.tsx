@@ -1,6 +1,6 @@
 import React, {ComponentProps, FC, memo} from "react";
 import classnames from "classnames";
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./tag.module.scss";
 

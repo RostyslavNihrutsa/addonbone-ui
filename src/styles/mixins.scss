@@ -1,11 +1,11 @@
 @mixin light {
-  html[theme="light"] {
+  :root {
     @content;
   }
 }
 
 @mixin dark {
-  html[theme="dark"] body {
+  html[theme="dark"] {
     @content;
   }
 }

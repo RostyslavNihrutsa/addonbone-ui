@@ -1,4 +1,3 @@
 export * from './components'
+export * from './providers'
 export {Theme} from './types/theme'
-export { useTheme} from './theme'
-export { default as UIProvider } from './theme/UIProvider'

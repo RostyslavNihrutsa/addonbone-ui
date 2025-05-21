@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import classnames from "classnames";
 import Highlighter, {HighlighterProps} from "react-highlight-words";
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./highlight.module.scss";
 

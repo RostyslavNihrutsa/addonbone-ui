@@ -2,7 +2,7 @@ import React, {FC, memo, ReactNode} from "react";
 import classnames from "classnames";
 import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from '@radix-ui/react-avatar';
 
-import {useComponentProps} from "../../theme";
+import {useComponentProps} from "../../providers";
 
 import styles from "./avatar.module.scss"
 
