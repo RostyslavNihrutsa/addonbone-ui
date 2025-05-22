@@ -1,4 +1,5 @@
 import type {ComponentsProps} from '../components'
+import type {Icons} from '../providers'
 
 export {AvatarSize, AvatarRadius} from '../components/Avatar'
 export {ButtonColor, ButtonSize, ButtonRadius, ButtonVariant} from '../components/Button'
@@ -14,4 +15,12 @@ export {ToastColor, ToastRadius, ToastSide} from '../components/Toast'
 
 export type {ComponentsProps} from '../components'
 
-export const defineConfig = (config: ComponentsProps) => config
+export interface Config {
+    props: ComponentsProps;
+    icons: Icons;
+}
+
+export const defineConfig = (config: Partial<Config>): Config => {
+    const {props = {}, icons = {}} = config
+    return {props, icons}
+}

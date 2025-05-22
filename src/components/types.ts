@@ -7,6 +7,7 @@ import type {
     FooterProps,
     HeaderProps,
     HighlightProps,
+    IconProps,
     IconButtonProps,
     ListProps,
     ListItemProps,
@@ -33,6 +34,7 @@ export interface ComponentsProps {
     footer?: FooterProps;
     header?: Pick<HeaderProps, 'alignCenter' | 'before' | 'after'>;
     highlight?: HighlightProps;
+    icon?: Omit<IconProps, 'name'>;
     iconButton?: Pick<IconButtonProps, 'variant' | 'size' | 'radius'>;
     list?: ListProps;
     listItem?: ListItemProps;

@@ -1,11 +1,12 @@
 import React, {PropsWithChildren, useCallback, useEffect, useState} from "react";
 
 import {ThemeContext} from "./context";
-import {ComponentsProps} from "../components";
+import {ComponentsProps} from "../../components";
 
-import {Theme} from "../types/theme";
+import {Theme} from "../../types/theme";
 
-import "../styles/default.scss"
+import "../../styles/default.scss"
+import "./theme.css"
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
