@@ -1,4 +1,4 @@
-@use "mixins" as theme;
+@use "../../src/styles/mixins" as theme;
 
 @include theme.light {
     --button-height-sm: 20px;
