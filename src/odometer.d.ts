@@ -1,5 +1,5 @@
 declare module "odometer" {
-  export default class Odometer {
+  class Odometer {
     constructor(options: {
       el: HTMLElement;
       auto?: boolean;
@@ -10,4 +10,6 @@ declare module "odometer" {
 
     update(value: number): void;
   }
+
+  export default Odometer
 }

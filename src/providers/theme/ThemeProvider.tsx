@@ -5,8 +5,8 @@ import {ComponentsProps} from "../../components";
 
 import {Theme} from "../../types/theme";
 
-import "../../styles/default.scss"
-import "./theme.css"
+import "./styles/reset.css"
+import "./styles/default.scss"
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 

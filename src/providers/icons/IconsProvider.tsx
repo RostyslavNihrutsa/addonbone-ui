@@ -1,8 +1,8 @@
-import React, {FC, PropsWithChildren, useCallback, useState,} from "react";
+import React, {FC, PropsWithChildren, useCallback, useMemo, useState,} from "react";
 
 import type {Icons} from './context'
 import {IconsContext} from './context'
-import SvgSprite from './SvgSprite'
+import {SvgSprite} from '../../components'
 
 const IconsProvider: FC<PropsWithChildren<{ icons: Icons }>> = ({children, icons}) => {
     const [registeredIconNames, setRegisteredIconNames] = useState<string[]>([]);
@@ -11,10 +11,20 @@ const IconsProvider: FC<PropsWithChildren<{ icons: Icons }>> = ({children, icons
         setRegisteredIconNames(prev => prev.includes(name) ? prev : [...prev, name]);
     }, []);
 
+    const registeredIcons = useMemo(() => {
+        return registeredIconNames.reduce((acc, key) => {
+            if (key in icons) {
+                acc[key] = icons[key];
+            }
+
+            return acc;
+        }, {} as Icons);
+    }, [icons, registeredIconNames]);
+
     return (
         <IconsContext.Provider value={{icons, registeredIconNames, registerIcon}}>
             {children}
-            <SvgSprite icons={icons} registeredIconNames={registeredIconNames} />
+            <SvgSprite icons={registeredIcons}/>
         </IconsContext.Provider>
     );
 };

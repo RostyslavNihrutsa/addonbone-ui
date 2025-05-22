@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import type {Preview, StoryContext, StoryFn} from '@storybook/react'
 import {ThemeProvider} from "../src/providers";
-import '../src/styles/preview.css'
+import './styles/preview.css'
 
 
 const themeDecorator = (Story: StoryFn, context: StoryContext) => {
@@ -20,7 +20,7 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
 
         const linkElement = document.createElement('link');
         linkElement.rel = 'stylesheet';
-        linkElement.href = '/src/styles/custom.scss';
+        linkElement.href = '../.storybook/styles/custom.scss';
         document.head.appendChild(linkElement);
 
         return () => {
