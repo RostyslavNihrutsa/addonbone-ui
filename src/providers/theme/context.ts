@@ -1,6 +1,6 @@
 import {createContext, useContext} from "react";
-import {Theme} from "../types/theme";
-import {ComponentsProps} from "../components";
+import {Theme} from "../../types/theme";
+import {ComponentsProps} from "../../components";
 
 export interface ThemeContract {
     theme: Theme;
