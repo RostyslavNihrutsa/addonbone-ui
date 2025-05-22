@@ -1,10 +1,10 @@
 import React, {FC, memo, useEffect} from "react";
 import classnames from "classnames";
-import {SvgProps, useComponentProps, useIcons} from "../../providers";
+import {useComponentProps, useIcons} from "../../providers";
 
 import styles from "./icon.module.scss";
 
-export interface IconProps extends SvgProps {
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
     name: string;
     size?: number;
 }
@@ -21,14 +21,9 @@ const Icon: FC<IconProps> = (props) => {
 
     const {icons, registerIcon} = useIcons()
 
-    useEffect(() => {
-        if (icons[name]) {
-            registerIcon(name);
-        }
-    }, [name, icons])
+    useEffect(() => icons[name] && registerIcon(name), [name, icons])
 
     if (!icons[name]) {
-
         console.warn(`Icon "${name}" not found.`);
 
         return (
@@ -40,7 +35,6 @@ const Icon: FC<IconProps> = (props) => {
             </span>
         )
     }
-
 
     return (
         <svg
