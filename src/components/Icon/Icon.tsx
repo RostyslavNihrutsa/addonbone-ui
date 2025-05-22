@@ -1,10 +1,10 @@
-import React, {FC, memo, useEffect} from "react";
+import React, {FC, memo, useEffect, ComponentProps} from "react";
 import classnames from "classnames";
 import {useComponentProps, useIcons} from "../../providers";
 
 import styles from "./icon.module.scss";
 
-export interface IconProps extends React.SVGProps<SVGSVGElement> {
+export interface IconProps extends ComponentProps<'svg'> {
     name: string;
     size?: number;
 }

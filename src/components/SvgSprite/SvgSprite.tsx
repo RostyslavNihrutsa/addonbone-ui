@@ -1,7 +1,7 @@
-import React, {FC, memo, SVGProps} from "react";
+import React, {ComponentProps, FC, memo} from "react";
 
 export interface SvgSpriteProps {
-    icons: Record<string, FC<SVGProps<SVGSVGElement>>>
+    icons: Record<string, FC<ComponentProps<'svg'>>>
 }
 
 const SvgSprite: FC<SvgSpriteProps> = ({icons}) => {

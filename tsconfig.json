@@ -14,5 +14,9 @@
         "./src/config/default.ts"
       ],
     }
-  }
+  },
+  "include": [
+    "./src/declaration.d.ts",
+    "./src/odometer.d.ts",
+  ]
 }
