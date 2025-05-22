@@ -9,7 +9,7 @@ import config from 'adnbn-ui-config'
 
 import type {Config} from "../config";
 
-const UIProvider = ({children, props, icons}: PropsWithChildren<Config>) => {
+const UIProvider = ({children, props = {}, icons= {}}: PropsWithChildren<Partial<Config>>) => {
     const componentsProps: ComponentsProps = useMemo(() => merge(config.props || {}, props), [props])
 
     const svgIcons: Icons = useMemo(() => merge(config.icons || {}, icons), [icons])
