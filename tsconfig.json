@@ -15,8 +15,4 @@
       ],
     }
   },
-  "include": [
-    "./src/declaration.d.ts",
-    "./src/odometer.d.ts",
-  ]
 }

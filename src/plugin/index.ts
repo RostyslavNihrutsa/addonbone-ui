@@ -61,25 +61,6 @@ export default definePlugin((options: PluginOptions = {}) => {
                         'adnbn-ui-style.scss': styleBuilder.build()
                     }, 'adnbn-ui-virtual'),
                 ],
-
-                module: {
-                    rules: [
-                        {
-                            test: /\.svg$/i,
-                            issuer: /\.[jt]sx?$/,
-                            resourceQuery: /react/,
-                            use: [{
-                                loader: '@svgr/webpack',
-                                options: {
-                                    expandProps: 'start',
-                                    typescript: true,
-
-                                },
-                            },],
-                        },
-                    ],
-                },
-
                 resolve: {
                     alias: config.debug
                         ? {
