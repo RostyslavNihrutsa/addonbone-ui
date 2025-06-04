@@ -5,8 +5,16 @@ import './styles/preview.css'
 
 
 const themeDecorator = (Story: StoryFn, context: StoryContext) => {
+    const dir = context.globals.dir || 'ltr';
     const theme = context.globals.theme || 'light';
     const cssVariables = context.globals.cssVariables || 'default';
+
+    useEffect(() => {
+        document.documentElement.setAttribute('dir', dir);
+        return () => {
+            document.documentElement.removeAttribute('dir');
+        };
+    }, [theme]);
 
     useEffect(() => {
         document.documentElement.setAttribute('theme', theme);
@@ -38,6 +46,19 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
 };
 
 const globalTypes = {
+    dir: {
+        name: 'Direction',
+        description: 'Choose direction',
+        defaultValue: 'ltr',
+        toolbar: {
+            icon: 'transfer',
+            items: [
+                {value: 'ltr', title: 'Left to right'},
+                {value: 'rtl', title: 'Right to left'},
+            ],
+            showName: true,
+        },
+    },
     theme: {
         name: 'Theme',
         description: 'Global theme for components',
