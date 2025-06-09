@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as dir;
+
 $root: toast;
 
 .#{$root} {
@@ -118,10 +120,11 @@ $root: toast;
     position: absolute !important;
     top: var(--toast-close-offset, 5px);
 
-    html[dir="ltr"] & {
+    @include dir.ltr {
       right: var(--toast-close-offset, 5px);
     }
-    html[dir="rtl"] & {
+
+    @include dir.rtl {
       left: var(--toast-close-offset, 5px);
     }
   }

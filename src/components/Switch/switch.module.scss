@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as dir;
+
 @function switch-width() {
   @return var(--switch-width, 36px);
 }
@@ -50,7 +52,7 @@ $root: switch;
     will-change: transform;
     transition: transform var(--transition-speed-sm) ease-in-out;
 
-    html[dir="rtl"] & {
+    @include dir.rtl {
       margin-right: calc(#{switch-width()} / 2);
     }
 

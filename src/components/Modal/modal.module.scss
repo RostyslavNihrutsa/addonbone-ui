@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as dir;
+
 $root: modal;
 
 .#{$root} {
@@ -61,10 +63,11 @@ $root: modal;
     position: absolute !important;
     top: var(--modal-close-offset, 5px);
 
-    html[dir="ltr"] & {
+    @include dir.ltr {
       right: var(--modal-close-offset, 5px);
     }
-    html[dir="rtl"] & {
+
+    @include dir.rtl {
       left: var(--modal-close-offset, 5px);
     }
   }

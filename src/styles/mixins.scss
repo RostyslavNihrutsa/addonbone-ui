@@ -9,3 +9,15 @@
     @content;
   }
 }
+
+@mixin ltr {
+  html[dir="ltr"] & {
+    @content;
+  }
+}
+
+@mixin rtl {
+  html[dir="rtl"] & {
+    @content;
+  }
+}
