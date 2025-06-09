@@ -19,7 +19,7 @@ export default class ConfigFinder extends Finder {
         if (!filePath) return
 
         return {
-            name: dirPath.replaceAll(path.sep, ''),
+            name: dirPath.replaceAll(path.sep, '').replaceAll('-', ''),
             import: this.toImportPath(filePath)
         }
     }
