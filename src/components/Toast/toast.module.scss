@@ -117,7 +117,13 @@ $root: toast;
   &__close {
     position: absolute !important;
     top: var(--toast-close-offset, 5px);
-    right: var(--toast-close-offset, 5px);
+
+    html[dir="ltr"] & {
+      right: var(--toast-close-offset, 5px);
+    }
+    html[dir="rtl"] & {
+      left: var(--toast-close-offset, 5px);
+    }
   }
 
   &__viewport {

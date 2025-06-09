@@ -50,6 +50,10 @@ $root: switch;
     will-change: transform;
     transition: transform var(--transition-speed-sm) ease-in-out;
 
+    html[dir="rtl"] & {
+      margin-right: calc(#{switch-width()} / 2);
+    }
+
     &[data-state="checked"] {
       transform: translateX(calc(#{switch-width()} - #{switch-thumb-width()} - (#{switch-height()} - #{switch-thumb-height()}) / 2));
     }

@@ -22,14 +22,14 @@ $root: scroll-area;
     }
 
     &[data-orientation="vertical"] {
-      width: var(--scroll-area-scrollbar-size, 6px);
-      padding: 0 var(--scroll-area-scrollbar-offset, var(--scroll-area-scrollbar-x-offset, 3px));
+      width: var(--scroll-area-scrollbar-size, 9px);
+      padding: 0 var(--scroll-area-scrollbar-offset, var(--scroll-area-scrollbar-x-offset, 2px));
     }
 
     &[data-orientation="horizontal"] {
       flex-direction: column;
-      height: var(--scroll-area-scrollbar-size, 6px);
-      padding: var(--scroll-area-scrollbar-offset, var(--scroll-area-scrollbar-y-offset, 3px)) 0;
+      height: var(--scroll-area-scrollbar-size, 9px);
+      padding: var(--scroll-area-scrollbar-offset, var(--scroll-area-scrollbar-y-offset, 2px)) 0;
     }
   }
 

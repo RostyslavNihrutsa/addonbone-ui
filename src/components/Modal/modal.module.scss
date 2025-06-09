@@ -60,7 +60,13 @@ $root: modal;
   &-close {
     position: absolute !important;
     top: var(--modal-close-offset, 5px);
-    right: var(--modal-close-offset, 5px);
+
+    html[dir="ltr"] & {
+      right: var(--modal-close-offset, 5px);
+    }
+    html[dir="rtl"] & {
+      left: var(--modal-close-offset, 5px);
+    }
   }
 }
 
