@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as dir;
+
 @function switch-width() {
   @return var(--switch-width, 36px);
 }
@@ -49,6 +51,10 @@ $root: switch;
     border-radius: var(--switch-border-radius, 9999px);
     will-change: transform;
     transition: transform var(--transition-speed-sm) ease-in-out;
+
+    @include dir.rtl {
+      margin-right: calc(#{switch-width()} / 2);
+    }
 
     &[data-state="checked"] {
       transform: translateX(calc(#{switch-width()} - #{switch-thumb-width()} - (#{switch-height()} - #{switch-thumb-height()}) / 2));
