@@ -44,7 +44,7 @@ export interface TextAreaActions {
     setValue(value: string): void;
 }
 
-export interface TextAreaProps extends ComponentProps<'textarea'> {
+export interface TextAreaProps extends ComponentProps<"textarea"> {
     variant?: TextAreaVariant;
     radius?: TextAreaRadius;
     size?: TextAreaSize;
@@ -63,40 +63,47 @@ const TextArea = forwardRef<TextAreaActions, TextAreaProps>((props, ref) => {
         id,
         name,
         rows = 4,
-        value: propValue = '',
+        value: propValue = "",
         children,
         onChange,
         className,
         ...other
-    } = {...useComponentProps('textArea'), ...props};
+    } = {...useComponentProps("textArea"), ...props};
 
     const [value, setValue] = useState(propValue || children);
 
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-    const handleChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>((event) => {
-        onChange && onChange(event);
-        setValue(event.currentTarget.value);
-    }, [onChange]);
+    const handleChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>(
+        event => {
+            onChange && onChange(event);
+            setValue(event.currentTarget.value);
+        },
+        [onChange]
+    );
 
-    useImperativeHandle(ref, () => ({
-        select() {
-            textareaRef.current?.select();
-        },
-        focus() {
-            textareaRef.current?.focus();
-        },
-        setValue(value: string) {
-            setValue(value);
-        }
-    }), []);
+    useImperativeHandle(
+        ref,
+        () => ({
+            select() {
+                textareaRef.current?.select();
+            },
+            focus() {
+                textareaRef.current?.focus();
+            },
+            setValue(value: string) {
+                setValue(value);
+            },
+        }),
+        []
+    );
 
     useEffect(() => {
         textareaRef.current && autosize(textareaRef.current);
 
         return () => {
             textareaRef.current && autosize.destroy(textareaRef.current);
-        }
+        };
     }, []);
 
     useEffect(() => {
@@ -113,12 +120,16 @@ const TextArea = forwardRef<TextAreaActions, TextAreaProps>((props, ref) => {
             rows={rows}
             aria-label={label}
             onChange={handleChange}
-            className={classnames(styles["text-area"], {
-                [styles[`text-area--${variant}`]]: variant,
-                [styles[`text-area--${size}-size`]]: size,
-                [styles[`text-area--${radius}-radius`]]: radius,
-                [styles['text-area--full-width']]: fullWidth,
-            }, className)}
+            className={classnames(
+                styles["text-area"],
+                {
+                    [styles[`text-area--${variant}`]]: variant,
+                    [styles[`text-area--${size}-size`]]: size,
+                    [styles[`text-area--${radius}-radius`]]: radius,
+                    [styles["text-area--full-width"]]: fullWidth,
+                },
+                className
+            )}
         />
     );
 });

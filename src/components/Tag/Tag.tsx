@@ -28,7 +28,7 @@ export enum TagRadius {
     Large = "large",
 }
 
-export interface TagProps extends ComponentProps<'span'> {
+export interface TagProps extends ComponentProps<"span"> {
     size?: TagSize;
     color?: TagColor;
     radius?: TagRadius;
@@ -36,7 +36,7 @@ export interface TagProps extends ComponentProps<'span'> {
     clickable?: boolean;
 }
 
-const Tag: FC<TagProps> = (props) => {
+const Tag: FC<TagProps> = props => {
     const {
         size,
         color,
@@ -46,7 +46,7 @@ const Tag: FC<TagProps> = (props) => {
         children,
         className,
         ...other
-    } = {...useComponentProps('tag'), ...props};
+    } = {...useComponentProps("tag"), ...props};
 
     return (
         <span
@@ -58,10 +58,11 @@ const Tag: FC<TagProps> = (props) => {
                     [styles[`tag--${radius}-radius`]]: radius,
                     [styles[`tag--${color}-color`]]: color,
                     [styles[`tag--${size}-size`]]: size,
-                    [styles['tag--clickable']]: clickable,
+                    [styles["tag--clickable"]]: clickable,
                 },
                 className
-            )}>
+            )}
+        >
             {children}
         </span>
     );

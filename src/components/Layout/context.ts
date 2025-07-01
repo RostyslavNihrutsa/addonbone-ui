@@ -1,9 +1,9 @@
 import {createContext, useContext} from "react";
 
 export type expandType = {
-    height?: number | string,
-    width?: number | string,
-}
+    height?: number | string;
+    width?: number | string;
+};
 
 export interface LayoutContract {
     isExpanded?: boolean;
@@ -15,10 +15,8 @@ export interface LayoutContract {
 
 export const LayoutContext = createContext<LayoutContract>({
     isExpanded: false,
-    expand() {
-    },
-    collapse() {
-    },
+    expand() {},
+    collapse() {},
 });
 
 LayoutContext.displayName = "LayoutContext";

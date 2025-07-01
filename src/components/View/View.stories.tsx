@@ -5,7 +5,7 @@ import {hideInTable} from "../../utils";
 const meta: Meta<typeof ViewComponent> = {
     title: "Components/View",
     component: ViewComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         before: hideInTable,
         after: hideInTable,
@@ -20,8 +20,10 @@ const meta: Meta<typeof ViewComponent> = {
         childrenClassName: hideInTable,
     },
     decorators: [
-        (Story) => (
-            <div style={{ background: 'var(--bg-secondary-color', width: '380px', height: '400px', borderRadius: '10px' }}>
+        Story => (
+            <div
+                style={{background: "var(--bg-secondary-color", width: "380px", height: "400px", borderRadius: "10px"}}
+            >
                 <Story />
             </div>
         ),
@@ -34,12 +36,12 @@ type Story = StoryObj<typeof ViewComponent>;
 
 export const View: Story = {
     args: {
-        title: 'Volume Up Plus',
-        subtitle: 'Adjust the current tab\'s volume with the slider. Switch to any audio tab in one click.',
-        before: '❤️',
+        title: "Volume Up Plus",
+        subtitle: "Adjust the current tab's volume with the slider. Switch to any audio tab in one click.",
+        before: "❤️",
         alignCenter: true,
         center: true,
         showSeparate: true,
-        children: 'children'
+        children: "children",
     },
 };

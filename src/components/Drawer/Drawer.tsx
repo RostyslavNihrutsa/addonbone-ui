@@ -4,9 +4,9 @@ import classnames from "classnames";
 import {useComponentProps} from "../../providers";
 import {cloneOrCreateElement} from "../../utils";
 
-import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"
+import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog";
 
-import styles from "./drawer.module.scss"
+import styles from "./drawer.module.scss";
 
 export enum DrawerSide {
     Left = "left",
@@ -19,9 +19,9 @@ export interface DrawerProps extends DialogProps {
     side?: DrawerSide;
 }
 
-export const drawerPropsKeys = new Set<keyof DrawerProps>(['side', ...dialogPropsKeys]);
+export const drawerPropsKeys = new Set<keyof DrawerProps>(["side", ...dialogPropsKeys]);
 
-const Drawer: FC<DrawerProps> = (props) => {
+const Drawer: FC<DrawerProps> = props => {
     const {
         side = DrawerSide.Left,
         fullscreen,
@@ -30,20 +30,28 @@ const Drawer: FC<DrawerProps> = (props) => {
         overlayClassName,
         childrenClassName,
         ...other
-    } = {...useComponentProps('drawer'), ...props};
+    } = {...useComponentProps("drawer"), ...props};
 
     return (
         <Dialog
             {...other}
             overlayClassName={classnames(styles["drawer-overlay"], overlayClassName)}
-            className={classnames(styles["drawer-content"], {
-                [styles["drawer-content--fullscreen"]]: fullscreen,
-                [styles[`drawer-content--${side}-side`]]: side,
-            }, className)}
+            className={classnames(
+                styles["drawer-content"],
+                {
+                    [styles["drawer-content--fullscreen"]]: fullscreen,
+                    [styles[`drawer-content--${side}-side`]]: side,
+                },
+                className
+            )}
         >
-            {cloneOrCreateElement(children, {className: classnames(styles["drawer-children"], childrenClassName)}, 'div')}
+            {cloneOrCreateElement(
+                children,
+                {className: classnames(styles["drawer-children"], childrenClassName)},
+                "div"
+            )}
         </Dialog>
-    )
+    );
 };
 
 export default memo(Drawer);

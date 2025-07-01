@@ -4,25 +4,31 @@ import TextAreaComponent, {TextAreaRadius, TextAreaSize, TextAreaVariant} from "
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
 const variants: TextAreaVariant[] = [TextAreaVariant.Regular, TextAreaVariant.Outlined, TextAreaVariant.Filled];
-const sizes: (TextAreaSize | 'default')[] = [TextAreaSize.Small, 'default', TextAreaSize.Medium, TextAreaSize.Large];
-const radius: (TextAreaRadius | 'default')[] = [TextAreaRadius.None, TextAreaRadius.Small, 'default', TextAreaRadius.Medium, TextAreaRadius.Large];
+const sizes: (TextAreaSize | "default")[] = [TextAreaSize.Small, "default", TextAreaSize.Medium, TextAreaSize.Large];
+const radius: (TextAreaRadius | "default")[] = [
+    TextAreaRadius.None,
+    TextAreaRadius.Small,
+    "default",
+    TextAreaRadius.Medium,
+    TextAreaRadius.Large,
+];
 
 const meta: Meta<typeof TextAreaComponent> = {
     title: "Components/TextArea",
     component: TextAreaComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         variant: {
             options: variants,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
         size: {
             options: sizes,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
         radius: {
             options: radius,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
 
         label: hideInTable,
@@ -38,15 +44,15 @@ export const TextArea: Story = {
         placeholder: "Enter text",
         disabled: false,
         fullWidth: false,
-    }
+    },
 };
 
 export const Variant = () => {
     return (
-        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(3, auto)'}}>
-            {variants.map((variant) => (
+        <div className="grid-wrapper" style={{gridTemplateColumns: "repeat(3, auto)"}}>
+            {variants.map(variant => (
                 <div key={variant}>
-                    <TextAreaComponent variant={variant} placeholder={capitalizeFirstLetter(variant)}/>
+                    <TextAreaComponent variant={variant} placeholder={capitalizeFirstLetter(variant)} />
                 </div>
             ))}
         </div>
@@ -55,11 +61,11 @@ export const Variant = () => {
 
 export const Size = () => {
     return (
-        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(4, auto)'}}>
-            {sizes.map((size) => (
+        <div className="grid-wrapper" style={{gridTemplateColumns: "repeat(4, auto)"}}>
+            {sizes.map(size => (
                 <div key={size}>
                     <TextAreaComponent
-                        size={size !== 'default' ? size : undefined}
+                        size={size !== "default" ? size : undefined}
                         placeholder={capitalizeFirstLetter(size)}
                     />
                 </div>
@@ -70,11 +76,11 @@ export const Size = () => {
 
 export const Radius = () => {
     return (
-        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(3, auto)'}}>
-            {radius.map((radius) => (
+        <div className="grid-wrapper" style={{gridTemplateColumns: "repeat(3, auto)"}}>
+            {radius.map(radius => (
                 <div key={radius}>
                     <TextAreaComponent
-                        radius={radius !== 'default' ? radius : undefined}
+                        radius={radius !== "default" ? radius : undefined}
                         placeholder={capitalizeFirstLetter(radius)}
                     />
                 </div>
@@ -85,19 +91,21 @@ export const Radius = () => {
 
 export const VariantRadius = () => {
     return (
-        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
-            <span className='item-card__title'> Variant \ Radius</span>
-            {radius.slice(1).map((radius) => (
-                <span key={radius} className='item-card__title'>{capitalizeFirstLetter(radius)} radius</span>
+        <div className="grid-wrapper" style={{gridTemplateColumns: "repeat(5, auto)"}}>
+            <span className="item-card__title"> Variant \ Radius</span>
+            {radius.slice(1).map(radius => (
+                <span key={radius} className="item-card__title">
+                    {capitalizeFirstLetter(radius)} radius
+                </span>
             ))}
-            {variants.map((variant) => (
+            {variants.map(variant => (
                 <Fragment key={variant}>
-                    <span className='item-card__title'>{capitalizeFirstLetter(variant)}</span>
-                    {radius.slice(1).map((radius) => (
-                        <div key={`${radius}-${variant}`} className='item-card'>
+                    <span className="item-card__title">{capitalizeFirstLetter(variant)}</span>
+                    {radius.slice(1).map(radius => (
+                        <div key={`${radius}-${variant}`} className="item-card">
                             <TextAreaComponent
                                 variant={variant}
-                                radius={radius !== 'default' ? radius : undefined}
+                                radius={radius !== "default" ? radius : undefined}
                                 placeholder="Enter value"
                             />
                         </div>
@@ -132,4 +140,3 @@ export const VariantRadius = () => {
 //         </div>
 //     );
 // };
-

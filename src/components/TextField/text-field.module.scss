@@ -11,7 +11,10 @@ $root: text-field;
   line-height: var(--text-field-line-height, 18px);
   padding: var(--text-field-padding, 8px 12px);
   border-radius: var(--text-field-border-radius, 8px);
-  transition: border-color var(--transition-speed-sm), box-shadow var(--transition-speed-sm), background var(--transition-speed-sm);
+  transition:
+    border-color var(--transition-speed-sm),
+    box-shadow var(--transition-speed-sm),
+    background var(--transition-speed-sm);
 
   &:has(&__input:focus) {
     border-color: var(--text-field-focus-border-color, color-mix(in srgb, white 40%, var(--primary-color)));
@@ -63,7 +66,7 @@ $root: text-field;
   &--outlined {
     color: var(--text-field-outlined-color, var(--text-field-color, var(--text-primary-color)));
     background: transparent;
-    border-style: solid ;
+    border-style: solid;
     border-width: var(--text-field-outlined-border-width, var(--text-field-border-width, 1px));
     border-color: var(--text-field-outlined-border-color, var(--border-color));
   }

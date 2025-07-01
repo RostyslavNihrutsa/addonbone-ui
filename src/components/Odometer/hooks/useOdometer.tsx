@@ -1,6 +1,5 @@
-import  {RefObject, useEffect, useRef} from 'react';
-import Odometer from 'odometer';
-
+import {RefObject, useEffect, useRef} from "react";
+import Odometer from "odometer";
 
 export interface OdometerOptions {
     auto?: boolean;

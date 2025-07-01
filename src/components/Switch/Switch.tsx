@@ -1,27 +1,22 @@
 import React, {FC, memo} from "react";
 import classnames from "classnames";
-import {Root, SwitchProps as SwitchRootProps, Thumb} from '@radix-ui/react-switch';
+import {Root, SwitchProps as SwitchRootProps, Thumb} from "@radix-ui/react-switch";
 
 import {useComponentProps} from "../../providers";
 
-import styles from "./switch.module.scss"
+import styles from "./switch.module.scss";
 
 export interface SwitchProps extends SwitchRootProps {
-    thumbClassName?: string
+    thumbClassName?: string;
 }
 
-const Switch: FC<SwitchProps> = (props) => {
-    const {
-        className,
-        thumbClassName,
-        ...other
-    } = {...useComponentProps('switch'), ...props};
+const Switch: FC<SwitchProps> = props => {
+    const {className, thumbClassName, ...other} = {...useComponentProps("switch"), ...props};
 
     return (
         <Root {...other} className={classnames(styles["switch"], className)}>
-            <Thumb className={classnames(styles["switch__thumb"], thumbClassName)}/>
+            <Thumb className={classnames(styles["switch__thumb"], thumbClassName)} />
         </Root>
-
     );
 };
 

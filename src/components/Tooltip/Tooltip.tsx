@@ -8,14 +8,14 @@ import {
     Root,
     TooltipContentProps,
     TooltipProps as TooltipRootProps,
-    Trigger
-} from '@radix-ui/react-tooltip';
+    Trigger,
+} from "@radix-ui/react-tooltip";
 
 import {useComponentProps} from "../../providers";
 
-import styles from "./tooltip.module.scss"
+import styles from "./tooltip.module.scss";
 
-export interface TooltipProps extends TooltipRootProps, Omit<TooltipContentProps, 'content'> {
+export interface TooltipProps extends TooltipRootProps, Omit<TooltipContentProps, "content"> {
     content: ReactNode;
     arrowWidth?: number;
     arrowHeight?: number;
@@ -24,7 +24,7 @@ export interface TooltipProps extends TooltipRootProps, Omit<TooltipContentProps
     contentClassName?: string;
 }
 
-const Tooltip: FC<TooltipProps> = (props) => {
+const Tooltip: FC<TooltipProps> = props => {
     const {
         open,
         defaultOpen,
@@ -40,7 +40,7 @@ const Tooltip: FC<TooltipProps> = (props) => {
         contentClassName,
         children,
         ...other
-    } = {...useComponentProps('tooltip'), ...props};
+    } = {...useComponentProps("tooltip"), ...props};
 
     return (
         <Provider>
@@ -51,14 +51,13 @@ const Tooltip: FC<TooltipProps> = (props) => {
                 onOpenChange={onOpenChange}
                 delayDuration={delayDuration}
             >
-                <Trigger asChild>
-                    {children}
-                </Trigger>
+                <Trigger asChild>{children}</Trigger>
                 <Portal>
                     <Content
-                        className={classnames(styles["tooltip-content"],
+                        className={classnames(
+                            styles["tooltip-content"],
                             {
-                              [styles["tooltip-content--trigger-width"]]: matchTriggerWidth
+                                [styles["tooltip-content--trigger-width"]]: matchTriggerWidth,
                             },
                             contentClassName
                         )}

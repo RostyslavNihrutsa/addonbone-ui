@@ -1,7 +1,6 @@
 $root: dialog;
 
 .#{$root} {
-
   &-overlay {
     position: fixed;
     inset: 0;
@@ -23,7 +22,9 @@ $root: dialog;
     box-sizing: border-box;
     position: fixed;
     z-index: 9999;
-    transition: background-color var(--transition-speed-sm), color var(--transition-speed-sm);
+    transition:
+      background-color var(--transition-speed-sm),
+      color var(--transition-speed-sm);
     animation-timing-function: ease-in-out;
   }
 

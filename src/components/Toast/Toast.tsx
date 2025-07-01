@@ -7,8 +7,8 @@ import {
     Title,
     ToastProps as ToastRootProps,
     ToastProviderProps,
-    Viewport
-} from '@radix-ui/react-toast';
+    Viewport,
+} from "@radix-ui/react-toast";
 
 import {IconButton, IconButtonProps} from "../IconButton";
 import {cloneOrCreateElement} from "../../utils";
@@ -17,12 +17,12 @@ import {useComponentProps} from "../../providers";
 import styles from "./toast.module.scss";
 
 export enum ToastSide {
-    TopCenter = 'top-center',
-    TopLeft = 'top-left',
-    TopRight = 'top-right',
-    BottomRight = 'bottom-right',
-    BottomLeft = 'bottom-left',
-    BottomCenter = 'bottom-center',
+    TopCenter = "top-center",
+    TopLeft = "top-left",
+    TopRight = "top-right",
+    BottomRight = "bottom-right",
+    BottomLeft = "bottom-left",
+    BottomCenter = "bottom-center",
 }
 
 export enum ToastRadius {
@@ -37,17 +37,16 @@ export enum ToastColor {
     Success = "success",
 }
 
-
 const toastSideBySwipeDirectionMap = {
-    [ToastSide.TopLeft]: 'left',
-    [ToastSide.TopCenter]: 'up',
-    [ToastSide.TopRight]: 'right',
-    [ToastSide.BottomRight]: 'right',
-    [ToastSide.BottomCenter]: 'down',
-    [ToastSide.BottomLeft]: 'left',
-} as Record<ToastSide, ToastProviderProps['swipeDirection']>
+    [ToastSide.TopLeft]: "left",
+    [ToastSide.TopCenter]: "up",
+    [ToastSide.TopRight]: "right",
+    [ToastSide.BottomRight]: "right",
+    [ToastSide.BottomCenter]: "down",
+    [ToastSide.BottomLeft]: "left",
+} as Record<ToastSide, ToastProviderProps["swipeDirection"]>;
 
-export interface ToastProps extends Omit<ToastRootProps, 'title'>, Omit<ToastProviderProps, 'children'> {
+export interface ToastProps extends Omit<ToastRootProps, "title">, Omit<ToastProviderProps, "children"> {
     side?: ToastSide;
     color?: ToastColor;
     radius?: ToastRadius;
@@ -56,17 +55,17 @@ export interface ToastProps extends Omit<ToastRootProps, 'title'>, Omit<ToastPro
     description?: ReactNode;
     closeIcon?: ReactElement;
     closeProps?: IconButtonProps;
-    titleClassName?: string,
-    actionClassName?: string,
-    viewportClassName?: string,
-    descriptionClassName?: string,
+    titleClassName?: string;
+    actionClassName?: string;
+    viewportClassName?: string;
+    descriptionClassName?: string;
     onClose?: () => void;
     fullWidth?: boolean;
     sticky?: boolean;
 }
 
-const Toast: FC<ToastProps> = (props) => {
-    const defaultProps = useComponentProps('toast');
+const Toast: FC<ToastProps> = props => {
+    const defaultProps = useComponentProps("toast");
     const mergedProps = {...defaultProps, ...props};
     const {
         side = ToastSide.BottomRight,
@@ -77,13 +76,13 @@ const Toast: FC<ToastProps> = (props) => {
         description,
         fullWidth,
         sticky,
-        closeIcon = '✖',
+        closeIcon = "✖",
         closeProps,
 
         label,
         duration,
         swipeDirection = toastSideBySwipeDirectionMap[side],
-        swipeThreshold = ['up', 'down'].includes(swipeDirection || '') ? 15 : 50,
+        swipeThreshold = ["up", "down"].includes(swipeDirection || "") ? 15 : 50,
 
         className,
         titleClassName,
@@ -97,30 +96,23 @@ const Toast: FC<ToastProps> = (props) => {
 
     const {className: closeClassName, ...otherCloseProps} = closeProps || {};
     return (
-        <Provider
-            label={label}
-            duration={duration}
-            swipeDirection={swipeDirection}
-            swipeThreshold={swipeThreshold}
-        >
+        <Provider label={label} duration={duration} swipeDirection={swipeDirection} swipeThreshold={swipeThreshold}>
             {children}
             <Root
-                className={classnames(styles["toast"],
+                className={classnames(
+                    styles["toast"],
                     {
                         [styles[`toast--${side}`]]: side,
                         [styles[`toast--${color}-color`]]: color,
                         [styles[`toast--${radius}-radius`]]: radius,
-                        [styles['toast--sticky']]: sticky,
-                        [styles['toast--full-width']]: fullWidth,
+                        [styles["toast--sticky"]]: sticky,
+                        [styles["toast--full-width"]]: fullWidth,
                     },
-                    className)}
+                    className
+                )}
                 {...other}
             >
-                {title && (
-                    <Title className={classnames(styles["toast__title"], titleClassName)}>
-                        {title}
-                    </Title>
-                )}
+                {title && <Title className={classnames(styles["toast__title"], titleClassName)}>{title}</Title>}
 
                 {description && (
                     <Description className={classnames(styles["toast__description"], descriptionClassName)}>
@@ -142,9 +134,9 @@ const Toast: FC<ToastProps> = (props) => {
                 )}
             </Root>
 
-            <Viewport className={classnames(styles["toast__viewport"], viewportClassName)}/>
+            <Viewport className={classnames(styles["toast__viewport"], viewportClassName)} />
         </Provider>
-    )
-}
+    );
+};
 
 export default memo(Toast);

@@ -13,7 +13,7 @@ export interface OdometerProps extends OdometerOptions {
     className?: string;
 }
 
-const Odometer: FC<OdometerProps> = (props) => {
+const Odometer: FC<OdometerProps> = props => {
     const {
         value,
         auto = false,
@@ -21,7 +21,7 @@ const Odometer: FC<OdometerProps> = (props) => {
         duration = 250,
         className,
         ...other
-    } = {...useComponentProps('odometer'), ...props};
+    } = {...useComponentProps("odometer"), ...props};
 
     const targetRef = useRef(null);
 
@@ -36,7 +36,7 @@ const Odometer: FC<OdometerProps> = (props) => {
         <span
             ref={targetRef}
             dir="ltr"
-            style={{'--speed': `${duration}ms`} as React.CSSProperties}
+            style={{"--speed": `${duration}ms`} as React.CSSProperties}
             className={classNames(styles["odometer"], className)}
         />
     );

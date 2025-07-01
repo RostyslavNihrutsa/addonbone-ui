@@ -34,7 +34,7 @@ export const Odometer: Story = {
     args: {
         value: 1234,
         duration: 500,
-        format: 'd'
+        format: "d",
     },
 };
 
@@ -49,8 +49,8 @@ export const OdometerCount = () => {
         return () => clearInterval(interval);
     }, []);
 
-    return <OdometerComponent value={value} />
-}
+    return <OdometerComponent value={value} />;
+};
 
 export const OdometerRandom = () => {
     const [value, setValue] = useState(100);
@@ -63,5 +63,5 @@ export const OdometerRandom = () => {
         return () => clearInterval(interval);
     }, []);
 
-    return <OdometerComponent value={value} duration={1000}/>
-}
+    return <OdometerComponent value={value} duration={1000} />;
+};

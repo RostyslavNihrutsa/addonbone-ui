@@ -5,7 +5,7 @@ import {hideInTable} from "../../utils";
 const meta: Meta<typeof SwitchComponent> = {
     title: "Components/Switch",
     component: SwitchComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         children: hideInTable,
         className: hideInTable,

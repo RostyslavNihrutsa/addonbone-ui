@@ -5,38 +5,51 @@ import {Button, ButtonColor, ButtonVariant} from "../Button";
 
 import {hideInTable} from "../../utils";
 
-const sides: ToastSide[] = [ToastSide.TopLeft, ToastSide.TopCenter, ToastSide.TopRight, ToastSide.BottomRight, ToastSide.BottomCenter, ToastSide.BottomLeft]
-const colors: (ToastColor | 'default')[] = ['default', ToastColor.Success, ToastColor.Error]
-const radius: (ToastRadius | 'default')[] = [ToastRadius.None, ToastRadius.Small, 'default', ToastRadius.Medium, ToastRadius.Large]
+const sides: ToastSide[] = [
+    ToastSide.TopLeft,
+    ToastSide.TopCenter,
+    ToastSide.TopRight,
+    ToastSide.BottomRight,
+    ToastSide.BottomCenter,
+    ToastSide.BottomLeft,
+];
+const colors: (ToastColor | "default")[] = ["default", ToastColor.Success, ToastColor.Error];
+const radius: (ToastRadius | "default")[] = [
+    ToastRadius.None,
+    ToastRadius.Small,
+    "default",
+    ToastRadius.Medium,
+    ToastRadius.Large,
+];
 
 const meta: Meta<typeof ToastComponent> = {
     title: "Components/Toast",
     component: ToastComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         duration: {
-            description: "The time in milliseconds that should elapse before automatically closing each toast."
+            description: "The time in milliseconds that should elapse before automatically closing each toast.",
         },
         swipeDirection: {
             options: ["right", "left", "up", "down"],
-            control: {type: 'select'},
-            description: 'The direction of the pointer swipe that should close the toast.'
+            control: {type: "select"},
+            description: "The direction of the pointer swipe that should close the toast.",
         },
         swipeThreshold: {
             description: "The distance in pixels that the swipe gesture must travel before a close is triggered.",
-            control: {type: 'number'},
+            control: {type: "number"},
         },
         side: {
             options: sides,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
         radius: {
             options: radius,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
         color: {
             options: colors,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
 
         action: hideInTable,
@@ -61,34 +74,34 @@ export const Toast: Story = {
         open: true,
         sticky: false,
         fullWidth: false,
-        children: <Button variant={ButtonVariant.Contained} color={ButtonColor.Primary}>Show toast</Button>,
-        title: 'New notification',
-        description: 'Description',
+        children: (
+            <Button variant={ButtonVariant.Contained} color={ButtonColor.Primary}>
+                Show toast
+            </Button>
+        ),
+        title: "New notification",
+        description: "Description",
         side: ToastSide.BottomRight,
         duration: 5000,
-        onClose: () => undefined
+        onClose: () => undefined,
     },
 };
 
 const ToastClickable: FC<ToastProps> = ({children, ...props}) => {
     const [open, setOpen] = useState(false);
-    const handleClick = () => setOpen((prev) => !prev);
+    const handleClick = () => setOpen(prev => !prev);
     const handleClose = () => setOpen(false);
 
     return (
         <ToastComponent
             open={open}
-            title='New notification'
-            description='Description'
+            title="New notification"
+            description="Description"
             onOpenChange={setOpen}
             onClose={handleClose}
             {...props}
         >
-            <Button
-                variant={ButtonVariant.Contained}
-                color={ButtonColor.Primary}
-                onClick={handleClick}
-            >
+            <Button variant={ButtonVariant.Contained} color={ButtonColor.Primary} onClick={handleClick}>
                 {children}
             </Button>
         </ToastComponent>
@@ -97,47 +110,28 @@ const ToastClickable: FC<ToastProps> = ({children, ...props}) => {
 
 export const Side = () => {
     return (
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(6, auto)', gap: '10px'}}>
-            <ToastClickable
-                side={ToastSide.TopLeft}
-                description='Top Left'
-            >
+        <div style={{display: "grid", gridTemplateColumns: "repeat(6, auto)", gap: "10px"}}>
+            <ToastClickable side={ToastSide.TopLeft} description="Top Left">
                 Top Left
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.TopCenter}
-                description='Top Center'
-            >
+            <ToastClickable side={ToastSide.TopCenter} description="Top Center">
                 Top Center
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.TopRight}
-                description='Top Right'
-            >
+            <ToastClickable side={ToastSide.TopRight} description="Top Right">
                 Top Right
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.BottomLeft}
-                description='Bottom Left'
-            >
+            <ToastClickable side={ToastSide.BottomLeft} description="Bottom Left">
                 Bottom Left
             </ToastClickable>
 
-
-            <ToastClickable
-                side={ToastSide.BottomCenter}
-                description='Bottom Center'
-            >
+            <ToastClickable side={ToastSide.BottomCenter} description="Bottom Center">
                 Bottom Center
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.BottomRight}
-                description='Bottom Right'
-            >
+            <ToastClickable side={ToastSide.BottomRight} description="Bottom Right">
                 Bottom Right
             </ToastClickable>
         </div>
@@ -146,44 +140,24 @@ export const Side = () => {
 
 export const Radius = () => {
     return (
-        <div style={{display: 'flex', gap: '10px'}}>
-            <ToastClickable
-                side={ToastSide.TopLeft}
-                radius={ToastRadius.None}
-                description='None Radius'
-            >
+        <div style={{display: "flex", gap: "10px"}}>
+            <ToastClickable side={ToastSide.TopLeft} radius={ToastRadius.None} description="None Radius">
                 None
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.TopCenter}
-                radius={ToastRadius.Small}
-                description='Small Radius'
-            >
+            <ToastClickable side={ToastSide.TopCenter} radius={ToastRadius.Small} description="Small Radius">
                 Small
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.TopRight}
-                description='Default Radius'
-            >
+            <ToastClickable side={ToastSide.TopRight} description="Default Radius">
                 Default
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.BottomLeft}
-                radius={ToastRadius.Medium}
-                description='Medium Radius'
-            >
+            <ToastClickable side={ToastSide.BottomLeft} radius={ToastRadius.Medium} description="Medium Radius">
                 Medium
             </ToastClickable>
 
-
-            <ToastClickable
-                side={ToastSide.BottomRight}
-                radius={ToastRadius.Large}
-                description='Large Radius'
-            >
+            <ToastClickable side={ToastSide.BottomRight} radius={ToastRadius.Large} description="Large Radius">
                 Large
             </ToastClickable>
         </div>
@@ -192,13 +166,13 @@ export const Radius = () => {
 
 export const FullWidth = () => {
     return (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+        <div style={{display: "flex", flexDirection: "column", gap: "10px"}}>
             <ToastClickable
                 side={ToastSide.TopCenter}
                 radius={ToastRadius.None}
                 fullWidth
                 sticky
-                description='Top full width without padding'
+                description="Top full width without padding"
             >
                 Top
             </ToastClickable>
@@ -208,7 +182,7 @@ export const FullWidth = () => {
                 radius={ToastRadius.None}
                 fullWidth
                 sticky
-                description='Bottom full width without padding'
+                description="Bottom full width without padding"
             >
                 Bottom
             </ToastClickable>
@@ -218,27 +192,16 @@ export const FullWidth = () => {
 
 export const Color = () => {
     return (
-        <div style={{display: 'flex', gap: '10px'}}>
-            <ToastClickable
-                side={ToastSide.TopLeft}
-                color={ToastColor.Error}
-                description='Error color'
-            >
+        <div style={{display: "flex", gap: "10px"}}>
+            <ToastClickable side={ToastSide.TopLeft} color={ToastColor.Error} description="Error color">
                 Error
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.TopCenter}
-                description='Default color'
-            >
+            <ToastClickable side={ToastSide.TopCenter} description="Default color">
                 Default
             </ToastClickable>
 
-            <ToastClickable
-                side={ToastSide.TopRight}
-                color={ToastColor.Success}
-                description='Success color'
-            >
+            <ToastClickable side={ToastSide.TopRight} color={ToastColor.Success} description="Success color">
                 Success
             </ToastClickable>
         </div>

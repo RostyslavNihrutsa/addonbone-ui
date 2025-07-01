@@ -17,7 +17,8 @@ $root: header;
     gap: var(--header-wrap-gap, 10px);
   }
 
-  &__title, &__subtitle {
+  &__title,
+  &__subtitle {
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -29,7 +30,7 @@ $root: header;
     gap: var(--header-title-gap, 12px);
     color: var(--header-title-color, var(--text-primary-color));
     font-size: var(--header-title-font-size, 25px);
-    font-family: var(--header-title-font-family, var(--font-family)), 'sans-serif';
+    font-family: var(--header-title-font-family, var(--font-family)), "sans-serif";
     font-weight: var(--header-title-font-weight, 700);
     line-height: var(--header-title-line-height, 120%);
     will-change: color;
@@ -38,13 +39,12 @@ $root: header;
     .#{$root}--center & {
       justify-content: center;
     }
-
   }
 
   &__subtitle {
     color: var(--header-subtitle-color, var(--text-secondary-color));
     font-size: var(--header-subtitle-font-size, 14px);
-    font-family: var(--header-subtitle-font-family, var(--font-family)), 'sans-serif';
+    font-family: var(--header-subtitle-font-family, var(--font-family)), "sans-serif";
     font-weight: var(--header-subtitle-font-weight, 400);
     line-height: var(--header-subtitle-line-height, 120%);
     white-space: wrap;

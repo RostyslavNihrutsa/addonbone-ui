@@ -11,7 +11,10 @@ $root: text-area;
   padding: var(--text-area-padding, 8px 12px);
   border-radius: var(--text-area-border-radius, 8px);
   min-width: var(--text-area-min-width, 200px);
-  transition: border-color var(--transition-speed-sm), box-shadow var(--transition-speed-sm), background var(--transition-speed-sm);
+  transition:
+    border-color var(--transition-speed-sm),
+    box-shadow var(--transition-speed-sm),
+    background var(--transition-speed-sm);
 
   &:focus {
     border-color: var(--text-area-focus-border-color, color-mix(in srgb, white 40%, var(--primary-color)));
@@ -39,7 +42,7 @@ $root: text-area;
   &--outlined {
     color: var(--text-area-outlined-color, var(--text-area-color, var(--text-primary-color)));
     background: transparent;
-    border-style: solid ;
+    border-style: solid;
     border-width: var(--text-area-outlined-border-width, var(--text-area-border-width, 1px));
     border-color: var(--text-area-outlined-border-color, var(--border-color));
   }

@@ -1,7 +1,6 @@
 $root: drawer;
 
 .#{$root} {
-
   &-overlay {
     background-color: var(--drawer-overlay-bg-color, var(--dialog-overlay-bg-color, #111));
   }
@@ -12,7 +11,6 @@ $root: drawer;
     background-color: var(--drawer-bg-color, var(--bg-secondary-color));
 
     &[data-state="open"] {
-
       &.#{$root}-content--left-side {
         animation-name: slideInLeft;
       }
@@ -31,7 +29,6 @@ $root: drawer;
     }
 
     &[data-state="closed"] {
-
       &.#{$root}-content--left-side {
         animation-name: slideOutLeft;
       }
@@ -99,7 +96,6 @@ $root: drawer;
     flex-direction: column;
   }
 }
-
 
 @keyframes slideInRight {
   from {

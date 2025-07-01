@@ -1,3 +1,3 @@
-import {Config} from './index'
+import {Config} from "./index";
 
-export default {} as Config
+export default {} as Config;

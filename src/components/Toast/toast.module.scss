@@ -1,4 +1,4 @@
-@use '../../styles/mixins' as dir;
+@use "../../styles/mixins" as dir;
 
 $root: toast;
 
@@ -147,7 +147,7 @@ $root: toast;
       width: 100%;
     }
 
-    &:has(.#{$root}--sticky ) {
+    &:has(.#{$root}--sticky) {
       padding: 0;
     }
 

@@ -10,16 +10,16 @@ import {
     Portal,
     Root,
     Title,
-} from '@radix-ui/react-dialog';
+} from "@radix-ui/react-dialog";
 import {VisuallyHidden} from "radix-ui";
 
 import {useComponentProps} from "../../providers";
 import {cloneOrCreateElement} from "../../utils";
 
-import styles from "./dialog.module.scss"
+import styles from "./dialog.module.scss";
 
 export interface DialogProps extends DialogRootProps, DialogPortalProps, DialogContentProps {
-    speed?: number
+    speed?: number;
     description?: string;
     fullscreen?: boolean;
     className?: string;
@@ -29,13 +29,23 @@ export interface DialogProps extends DialogRootProps, DialogPortalProps, DialogC
 
 export const dialogPropsKeys = new Set<keyof DialogProps>([
     // Dialog keys
-    'speed', 'description', 'fullscreen', 'className', 'overlayClassName', 'childrenClassName',
+    "speed",
+    "description",
+    "fullscreen",
+    "className",
+    "overlayClassName",
+    "childrenClassName",
 
     // Extended Dialog keys
-    'open', 'defaultOpen', 'onOpenChange', 'modal', 'container', 'title',
+    "open",
+    "defaultOpen",
+    "onOpenChange",
+    "modal",
+    "container",
+    "title",
 ]);
 
-const Dialog: FC<DialogProps> = (props) => {
+const Dialog: FC<DialogProps> = props => {
     const {
         speed = 200,
         open,
@@ -50,7 +60,7 @@ const Dialog: FC<DialogProps> = (props) => {
         overlayClassName,
         childrenClassName,
         ...other
-    } = {...useComponentProps('dialog'), ...props};
+    } = {...useComponentProps("dialog"), ...props};
 
     const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
     const intervalId = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -72,11 +82,11 @@ const Dialog: FC<DialogProps> = (props) => {
                     document.body.style.paddingRight = "";
                     intervalId.current && clearInterval(intervalId.current);
                 }
-            }, 10)
+            }, 10);
 
-            timeoutId.current = setTimeout(()=>{
+            timeoutId.current = setTimeout(() => {
                 intervalId.current && clearInterval(intervalId.current);
-            }, speed + 100)
+            }, speed + 100);
         }
 
         return () => {
@@ -101,7 +111,11 @@ const Dialog: FC<DialogProps> = (props) => {
                         <Description>{description}</Description>
                     </VisuallyHidden.Root>
 
-                    {cloneOrCreateElement(children, {className: classnames(styles["dialog-children"], childrenClassName)}, 'div')}
+                    {cloneOrCreateElement(
+                        children,
+                        {className: classnames(styles["dialog-children"], childrenClassName)},
+                        "div"
+                    )}
                 </Content>
             </Portal>
         </Root>

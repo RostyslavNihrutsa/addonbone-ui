@@ -4,10 +4,10 @@ import classnames from "classnames";
 import {useComponentProps} from "../../providers";
 import {cloneOrCreateElement} from "../../utils";
 
-import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog"
+import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog";
 import {IconButton, IconButtonProps} from "../IconButton";
 
-import styles from "./modal.module.scss"
+import styles from "./modal.module.scss";
 
 export enum ModalRadius {
     None = "none",
@@ -22,9 +22,9 @@ export interface ModalProps extends DialogProps {
     onClose?: () => void;
 }
 
-export const modalPropsKeys = new Set<keyof ModalProps>(['radius', 'closeButton', 'onClose', ...dialogPropsKeys]);
+export const modalPropsKeys = new Set<keyof ModalProps>(["radius", "closeButton", "onClose", ...dialogPropsKeys]);
 
-const Modal: FC<ModalProps> = (props) => {
+const Modal: FC<ModalProps> = props => {
     const {
         radius,
         fullscreen = true,
@@ -36,22 +36,25 @@ const Modal: FC<ModalProps> = (props) => {
         overlayClassName,
         childrenClassName,
         ...other
-    } = {...useComponentProps('modal'), ...props};
+    } = {...useComponentProps("modal"), ...props};
 
-    const handleClose = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        onClose?.();
-        onOpenChange?.(false);
-        if (typeof closeButton === 'object' && !isValidElement(closeButton)) {
-            closeButton?.onClick?.(event);
-        }
-    }, [onClose, onOpenChange, closeButton])
+    const handleClose = useCallback(
+        (event: React.MouseEvent<HTMLButtonElement>) => {
+            onClose?.();
+            onOpenChange?.(false);
+            if (typeof closeButton === "object" && !isValidElement(closeButton)) {
+                closeButton?.onClick?.(event);
+            }
+        },
+        [onClose, onOpenChange, closeButton]
+    );
 
     const renderCloseButton = useCallback(() => {
         if (!closeButton) return null;
 
         if (isValidElement(closeButton)) return closeButton;
 
-        const closeButtonProps = typeof closeButton === 'object' ? closeButton : {};
+        const closeButtonProps = typeof closeButton === "object" ? closeButton : {};
 
         return (
             <IconButton
@@ -61,7 +64,7 @@ const Modal: FC<ModalProps> = (props) => {
                 onClick={handleClose}
                 className={classnames(styles["modal-close"], closeButtonProps.className)}
             />
-        )
+        );
     }, [closeButton]);
 
     return (
@@ -69,15 +72,23 @@ const Modal: FC<ModalProps> = (props) => {
             {...other}
             onOpenChange={onOpenChange}
             overlayClassName={classnames(styles["modal-overlay"], overlayClassName)}
-            className={classnames(styles["modal-content"], {
-                [styles["modal-content--fullscreen"]]: fullscreen,
-                [styles[`modal-content--${radius}-radius`]]: radius,
-            }, className)}
+            className={classnames(
+                styles["modal-content"],
+                {
+                    [styles["modal-content--fullscreen"]]: fullscreen,
+                    [styles[`modal-content--${radius}-radius`]]: radius,
+                },
+                className
+            )}
         >
-            {cloneOrCreateElement(children, {className: classnames(styles["modal-children"], childrenClassName)}, 'div')}
+            {cloneOrCreateElement(
+                children,
+                {className: classnames(styles["modal-children"], childrenClassName)},
+                "div"
+            )}
             {renderCloseButton()}
         </Dialog>
-    )
+    );
 };
 
 export default memo(Modal);

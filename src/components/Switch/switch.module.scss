@@ -1,4 +1,4 @@
-@use '../../styles/mixins' as dir;
+@use "../../styles/mixins" as dir;
 
 @function switch-width() {
   @return var(--switch-width, 36px);
@@ -28,7 +28,7 @@ $root: switch;
   width: switch-width();
   height: switch-height();
   border-radius: var(--switch-border-radius, 9999px);
-  background: var(--switch-bg-color, #BBB);
+  background: var(--switch-bg-color, #bbb);
   will-change: background;
   transition: background var(--transition-speed-sm);
 
@@ -57,7 +57,9 @@ $root: switch;
     }
 
     &[data-state="checked"] {
-      transform: translateX(calc(#{switch-width()} - #{switch-thumb-width()} - (#{switch-height()} - #{switch-thumb-height()}) / 2));
+      transform: translateX(
+        calc(#{switch-width()} - #{switch-thumb-width()} - (#{switch-height()} - #{switch-thumb-height()}) / 2)
+      );
     }
   }
 }

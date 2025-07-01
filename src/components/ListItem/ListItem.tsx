@@ -9,7 +9,7 @@ import styles from "./list-item.module.scss";
 type TagType = keyof JSX.IntrinsicElements;
 export type ListItemType = HTMLLIElement;
 
-export interface ListItemProps extends ComponentProps<'li'> {
+export interface ListItemProps extends ComponentProps<"li"> {
     left?: ReactNode;
     right?: ReactNode;
     primary?: ReactNode;
@@ -31,10 +31,10 @@ const ListItem = forwardRef<ListItemType, ListItemProps>((props, ref) => {
         right,
         primary,
         secondary,
-        leftTag = 'div',
-        rightTag = 'div',
-        primaryTag = 'div',
-        secondaryTag = 'div',
+        leftTag = "div",
+        rightTag = "div",
+        primaryTag = "div",
+        secondaryTag = "div",
         children,
         className,
         leftClassName,
@@ -44,21 +44,24 @@ const ListItem = forwardRef<ListItemType, ListItemProps>((props, ref) => {
         secondaryClassName,
         role = "list-item",
         ...other
-    } = {...useComponentProps('listItem'), ...props};
+    } = {...useComponentProps("listItem"), ...props};
 
     return (
-        <li
-            {...other}
-            ref={ref}
-            role={role}
-            className={classnames(styles["list-item"], className)}
-        >
+        <li {...other} ref={ref} role={role} className={classnames(styles["list-item"], className)}>
             {cloneOrCreateElement(left, {className: classnames(styles["list-item__left"], leftClassName)}, leftTag)}
 
             {(primary || secondary) && (
                 <div className={classnames(styles["list-item__center"], centerClassName)}>
-                    {cloneOrCreateElement(primary, {className: classnames(styles["list-item__primary"], primaryClassName)}, primaryTag)}
-                    {cloneOrCreateElement(secondary, {className: classnames(styles["list-item__secondary"], secondaryClassName)}, secondaryTag)}
+                    {cloneOrCreateElement(
+                        primary,
+                        {className: classnames(styles["list-item__primary"], primaryClassName)},
+                        primaryTag
+                    )}
+                    {cloneOrCreateElement(
+                        secondary,
+                        {className: classnames(styles["list-item__secondary"], secondaryClassName)},
+                        secondaryTag
+                    )}
                 </div>
             )}
 
@@ -66,7 +69,7 @@ const ListItem = forwardRef<ListItemType, ListItemProps>((props, ref) => {
 
             {children}
         </li>
-    )
-})
+    );
+});
 
 export default memo(ListItem);

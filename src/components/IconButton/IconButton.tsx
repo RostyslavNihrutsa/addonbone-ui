@@ -17,7 +17,7 @@ export enum IconButtonVariant {
 export enum IconButtonSize {
     Small = "small",
     Medium = "medium",
-    Large = "large"
+    Large = "large",
 }
 
 export enum IconButtonRadius {
@@ -30,19 +30,14 @@ export interface IconButtonProps extends BaseButtonProps {
     size?: IconButtonSize;
     radius?: IconButtonRadius;
     variant?: IconButtonVariant;
-    tooltip?: Omit<TooltipProps, 'children'>;
+    tooltip?: Omit<TooltipProps, "children">;
 }
 
-const IconButton: FC<IconButtonProps> = (props) => {
-    const {
-        size,
-        radius,
-        variant,
-        tooltip,
-        className,
-        children,
-        ...other
-    } = {...useComponentProps('iconButton'), ...props};
+const IconButton: FC<IconButtonProps> = props => {
+    const {size, radius, variant, tooltip, className, children, ...other} = {
+        ...useComponentProps("iconButton"),
+        ...props,
+    };
 
     const iconButton = (
         <BaseButton
@@ -59,13 +54,9 @@ const IconButton: FC<IconButtonProps> = (props) => {
         >
             {children}
         </BaseButton>
-    )
+    );
     if (tooltip) {
-        return (
-            <Tooltip {...tooltip}>
-                {iconButton}
-            </Tooltip>
-        )
+        return <Tooltip {...tooltip}>{iconButton}</Tooltip>;
     }
 
     return iconButton;

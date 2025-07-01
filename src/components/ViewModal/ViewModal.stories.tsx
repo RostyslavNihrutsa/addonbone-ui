@@ -7,25 +7,25 @@ import {Button} from "../Button";
 const meta: Meta<typeof ViewModalComponent> = {
     title: "Components/ViewModal",
     component: ViewModalComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         title: {
-            type: "string"
+            type: "string",
         },
         subtitle: {
-            type: "string"
+            type: "string",
         },
         after: {
-            type: "string"
+            type: "string",
         },
         before: {
-            type: "string"
+            type: "string",
         },
         fullscreen: {
-            type: "boolean"
+            type: "boolean",
         },
         speed: {
-            type: 'number',
+            type: "number",
         },
         children: hideInTable,
         className: hideInTable,
@@ -52,17 +52,13 @@ export const ViewModal = (props: ViewModalProps) => {
             <ViewModalComponent
                 open={open}
                 onOpenChange={setOpen}
-                title='Volume Up Plus'
+                title="Volume Up Plus"
                 fullscreen={false}
                 subtitle="Adjust the current tab's volume with the slider. Switch to any audio tab in one click."
-                after='❤️'
+                after="❤️"
                 {...props}
             >
-
-                <Button
-                    style={{margin: '50px auto', maxWidth: 'max-content'}}
-                    onClick={() => setOpen(false)}
-                >
+                <Button style={{margin: "50px auto", maxWidth: "max-content"}} onClick={() => setOpen(false)}>
                     Close ViewModal
                 </Button>
             </ViewModalComponent>

@@ -6,19 +6,19 @@ import {useComponentProps} from "../../providers";
 import {Drawer, DrawerProps, drawerPropsKeys} from "../Drawer";
 import {View, ViewProps, viewPropsKeys} from "../View";
 
-export type ViewDrawerProps = Omit<DrawerProps, 'title'> & ViewProps;
+export type ViewDrawerProps = Omit<DrawerProps, "title"> & ViewProps;
 
-const ViewDrawer: FC<ViewDrawerProps> = (props) => {
-    const mergedProps = {...useComponentProps('viewDrawer'), ...props};
+const ViewDrawer: FC<ViewDrawerProps> = props => {
+    const mergedProps = {...useComponentProps("viewDrawer"), ...props};
 
     const drawerProps = splitProps<DrawerProps>(mergedProps, drawerPropsKeys);
     const viewProps = splitProps<ViewProps>(mergedProps, viewPropsKeys);
 
     return (
         <Drawer {...drawerProps}>
-            <View {...viewProps}/>
+            <View {...viewProps} />
         </Drawer>
-    )
-}
+    );
+};
 
 export default memo(ViewDrawer);

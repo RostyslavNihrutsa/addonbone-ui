@@ -4,12 +4,12 @@ import {useComponentProps, useIcons} from "../../providers";
 
 import styles from "./icon.module.scss";
 
-export interface IconProps extends ComponentProps<'svg'> {
+export interface IconProps extends ComponentProps<"svg"> {
     name: string;
     size?: number;
 }
 
-const Icon: FC<IconProps> = (props) => {
+const Icon: FC<IconProps> = props => {
     const {
         name,
         className,
@@ -17,33 +17,28 @@ const Icon: FC<IconProps> = (props) => {
         width = size,
         height = size,
         ...other
-    } = {...useComponentProps('icon'), ...props};
+    } = {...useComponentProps("icon"), ...props};
 
-    const {icons, registerIcon} = useIcons()
+    const {icons, registerIcon} = useIcons();
 
-    useEffect(() => icons[name] && registerIcon(name), [name, icons])
+    useEffect(() => icons[name] && registerIcon(name), [name, icons]);
 
     if (!icons[name]) {
         console.warn(`Icon "${name}" not found.`);
 
         return (
             <span
-                className={styles['icon--default']}
+                className={styles["icon--default"]}
                 style={{fontSize: `${width}px`, lineHeight: `${width}px`, width, height}}
             >
                 ⁇
             </span>
-        )
+        );
     }
 
     return (
-        <svg
-            className={classnames(styles["icon"], className)}
-            width={width}
-            height={height}
-            {...other}
-        >
-            <use href={`#${name}`}/>
+        <svg className={classnames(styles["icon"], className)} width={width} height={height} {...other}>
+            <use href={`#${name}`} />
         </svg>
     );
 };

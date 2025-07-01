@@ -1,12 +1,12 @@
 import React, {FC, memo, ReactElement} from "react";
 import classnames from "classnames";
-import {CheckboxProps as CheckboxRootProps, Indicator, Root} from '@radix-ui/react-checkbox';
+import {CheckboxProps as CheckboxRootProps, Indicator, Root} from "@radix-ui/react-checkbox";
 
 import {useComponentProps} from "../../providers";
 
-import styles from "./checkbox.module.scss"
+import styles from "./checkbox.module.scss";
 
-export type {CheckedState} from '@radix-ui/react-checkbox';
+export type {CheckedState} from "@radix-ui/react-checkbox";
 
 export enum CheckboxVariant {
     Classic = "classic",
@@ -25,7 +25,7 @@ export enum CheckboxRadius {
 }
 
 export interface CheckboxProps extends CheckboxRootProps {
-    indicatorClassName?: string
+    indicatorClassName?: string;
     size?: CheckboxSize;
     radius?: CheckboxRadius;
     variant?: CheckboxVariant;
@@ -33,7 +33,7 @@ export interface CheckboxProps extends CheckboxRootProps {
     indeterminateIcon?: ReactElement;
 }
 
-const Checkbox: FC<CheckboxProps> = (props) => {
+const Checkbox: FC<CheckboxProps> = props => {
     const {
         checked,
         size,
@@ -41,10 +41,10 @@ const Checkbox: FC<CheckboxProps> = (props) => {
         variant,
         className,
         indicatorClassName,
-        checkedIcon = '✔',
-        indeterminateIcon = '―',
+        checkedIcon = "✔",
+        indeterminateIcon = "―",
         ...other
-    } = {...useComponentProps('checkbox'), ...props};
+    } = {...useComponentProps("checkbox"), ...props};
 
     return (
         <Root
@@ -57,14 +57,14 @@ const Checkbox: FC<CheckboxProps> = (props) => {
                     [styles[`checkbox--${radius}-radius`]]: radius,
                     [styles[`checkbox--${size}-size`]]: size,
                 },
-                className)}
+                className
+            )}
         >
             <Indicator className={classnames(styles["checkbox__indicator"], indicatorClassName)}>
-                {checked === 'indeterminate' && indeterminateIcon}
+                {checked === "indeterminate" && indeterminateIcon}
                 {checked === true && checkedIcon}
             </Indicator>
         </Root>
-
     );
 };
 

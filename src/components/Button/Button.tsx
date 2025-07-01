@@ -9,7 +9,7 @@ import styles from "./button.module.scss";
 export enum ButtonVariant {
     Contained = "contained",
     Outlined = "outlined",
-    Text = "text"
+    Text = "text",
 }
 
 export enum ButtonColor {
@@ -21,14 +21,14 @@ export enum ButtonColor {
 export enum ButtonSize {
     Small = "small",
     Medium = "medium",
-    Large = "large"
+    Large = "large",
 }
 
 export enum ButtonRadius {
     Small = "small",
     Medium = "medium",
     Large = "large",
-    Full = "full"
+    Full = "full",
 }
 
 export interface ButtonProps extends BaseButtonProps {
@@ -38,7 +38,7 @@ export interface ButtonProps extends BaseButtonProps {
     radius?: ButtonRadius;
 }
 
-const Button: FC<ButtonProps> = (props) => {
+const Button: FC<ButtonProps> = props => {
     const {
         variant = ButtonVariant.Contained,
         color,
@@ -48,7 +48,7 @@ const Button: FC<ButtonProps> = (props) => {
         className,
         children,
         ...other
-    } = {...useComponentProps('button'), ...props};
+    } = {...useComponentProps("button"), ...props};
 
     return (
         <BaseButton
@@ -63,7 +63,7 @@ const Button: FC<ButtonProps> = (props) => {
                 },
                 className
             )}
-            childrenClassName={classnames(styles['button__text'], childrenClassName)}
+            childrenClassName={classnames(styles["button__text"], childrenClassName)}
         >
             {children}
         </BaseButton>

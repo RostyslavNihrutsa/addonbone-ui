@@ -6,7 +6,9 @@
   max-width: var(--max-width);
   min-height: var(--min-height);
   max-height: var(--max-height);
-  transition: min-height var(--transition-speed-md) ease-in-out, min-width var(--transition-speed-md) ease-in-out;
+  transition:
+    min-height var(--transition-speed-md) ease-in-out,
+    min-width var(--transition-speed-md) ease-in-out;
 
   &--expanded {
     min-height: var(--max-height);

@@ -5,7 +5,7 @@ import {hideInTable} from "../../utils";
 const meta: Meta<typeof HeaderComponent> = {
     title: "Components/Header",
     component: HeaderComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         before: hideInTable,
         after: hideInTable,
@@ -19,8 +19,10 @@ const meta: Meta<typeof HeaderComponent> = {
         childrenClassName: hideInTable,
     },
     decorators: [
-        (Story) => (
-            <div style={{ background: 'var(--bg-secondary-color', width: '380px', height: '300px', borderRadius: '10px' }}>
+        Story => (
+            <div
+                style={{background: "var(--bg-secondary-color", width: "380px", height: "300px", borderRadius: "10px"}}
+            >
                 <Story />
             </div>
         ),
@@ -33,15 +35,15 @@ type Story = StoryObj<typeof HeaderComponent>;
 
 export const Header: Story = {
     args: {
-        title: 'Volume Up Plus',
-        subtitle: 'Adjust the current tab\'s volume with the slider. Switch to any audio tab in one click.',
+        title: "Volume Up Plus",
+        subtitle: "Adjust the current tab's volume with the slider. Switch to any audio tab in one click.",
     },
 };
 
 export const WithLogo: Story = {
     args: {
-        title: 'Volume Up Plus',
-        subtitle: 'Adjust the current tab\'s volume with the slider. Switch to any audio tab in one click.',
-        before: '❤️'
+        title: "Volume Up Plus",
+        subtitle: "Adjust the current tab's volume with the slider. Switch to any audio tab in one click.",
+        before: "❤️",
     },
 };

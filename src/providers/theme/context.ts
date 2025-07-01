@@ -15,10 +15,8 @@ export interface ThemeContract {
 export const ThemeContext = createContext<ThemeContract>({
     theme: Theme.Light,
     componentsProps: {},
-    changeTheme: () => {
-    },
-    toggleTheme: () => {
-    },
+    changeTheme: () => {},
+    toggleTheme: () => {},
 });
 
 ThemeContext.displayName = "ThemeContext";
@@ -27,5 +25,6 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const useComponentProps = <K extends keyof ComponentsProps>(key: K): ComponentsProps[K] => {
     const {componentsProps} = useTheme();
+
     return componentsProps[key];
 };

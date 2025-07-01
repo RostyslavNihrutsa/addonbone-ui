@@ -12,7 +12,9 @@ $root: checkbox;
   color: var(--checkbox-color, #333);
   border: var(--checkbox-border-width, 1px) solid var(--checkbox-border-color, #999);
   will-change: background, color;
-  transition: background var(--transition-speed-sm), color var(--transition-speed-sm);
+  transition:
+    background var(--transition-speed-sm),
+    color var(--transition-speed-sm);
 
   &:disabled {
     opacity: var(--checkbox-disabled-opacity, 0.6);
@@ -29,7 +31,8 @@ $root: checkbox;
     background: var(--checkbox-classic-bg-color);
     border: var(--checkbox-classic-border-width, 1px) solid var(--checkbox-classic-border-color, #999);
 
-    &[data-state='checked'], &[data-state='indeterminate'] {
+    &[data-state="checked"],
+    &[data-state="indeterminate"] {
       background: var(--checkbox-checked-bg-color, var(--primary-color));
       border: none;
     }
@@ -59,7 +62,7 @@ $root: checkbox;
 
   //Radius
   &--small-radius {
-    border-radius: var(--checkbox-border-radius-sm, 2px)
+    border-radius: var(--checkbox-border-radius-sm, 2px);
   }
 
   &--large-radius {
@@ -77,4 +80,3 @@ $root: checkbox;
     }
   }
 }
-

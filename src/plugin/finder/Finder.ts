@@ -1,7 +1,8 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 import type {ReadonlyConfig} from "adnbn";
+
 import type {FileImportInfo} from "../types";
 
 export interface FinderOptions {
@@ -20,8 +21,8 @@ export default abstract class Finder {
 
     protected constructor(
         protected readonly fileName: string,
-        protected readonly config: ReadonlyConfig) {
-    }
+        protected readonly config: ReadonlyConfig
+    ) {}
 
     public setCanMerge(canMerge: boolean): this {
         this.canMerge = canMerge;
@@ -36,22 +37,22 @@ export default abstract class Finder {
     public getFiles(): FileImportInfo[] {
         const files: FileImportInfo[] = [];
 
-        let isFound = false
+        let isFound = false;
 
-        this.searchDirs.forEach((dirPath) => {
+        this.searchDirs.forEach(dirPath => {
             const file = this.getFile(dirPath);
 
             if (file && (this.canMerge || !isFound)) {
                 files.push(file);
                 isFound = true;
             }
-        })
+        });
 
-        return files
+        return files;
     }
 
     protected resolveFileWithExtensions(basePath: string, fileName: string): string | undefined {
-        const extname = path.extname(fileName)
+        const extname = path.extname(fileName);
 
         const baseName = this.getAllowedExtensions().includes(extname.slice(1))
             ? path.basename(fileName, extname)
@@ -68,11 +69,8 @@ export default abstract class Finder {
     }
 
     protected toImportPath(fullPath: string, withExt: boolean = false): string {
-        const importPath = path
-            .relative(this.config.inputDir, fullPath)
-            .split(path.sep)
-            .join('/');
+        const importPath = path.relative(this.config.inputDir, fullPath).split(path.sep).join("/");
 
-        return withExt ? importPath : importPath.replace(path.extname(importPath), '');
+        return withExt ? importPath : importPath.replace(path.extname(importPath), "");
     }
 }

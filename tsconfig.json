@@ -12,7 +12,7 @@
     "paths": {
       "adnbn-ui-config": [
         "./src/config/default.ts"
-      ],
+      ]
     }
-  },
+  }
 }

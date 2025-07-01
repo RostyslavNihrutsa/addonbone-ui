@@ -1,15 +1,15 @@
 import React, {FC, memo, ReactNode} from "react";
 import classnames from "classnames";
-import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from '@radix-ui/react-avatar';
+import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from "@radix-ui/react-avatar";
 
 import {useComponentProps} from "../../providers";
 
-import styles from "./avatar.module.scss"
+import styles from "./avatar.module.scss";
 
 export enum AvatarSize {
     Small = "small",
     Medium = "medium",
-    Large = "large"
+    Large = "large",
 }
 
 export enum AvatarRadius {
@@ -18,7 +18,7 @@ export enum AvatarRadius {
     Large = "large",
 }
 
-export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps, 'delayMs'> {
+export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps, "delayMs"> {
     imageClassName?: string;
     size?: AvatarSize;
     radius?: AvatarRadius;
@@ -27,7 +27,7 @@ export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps,
     cursorPointer?: boolean;
 }
 
-const Avatar: FC<AvatarProps> = (props) => {
+const Avatar: FC<AvatarProps> = props => {
     const {
         size,
         radius,
@@ -39,26 +39,23 @@ const Avatar: FC<AvatarProps> = (props) => {
         className,
         children,
         ...other
-    } = {...useComponentProps('avatar'), ...props};
+    } = {...useComponentProps("avatar"), ...props};
 
     return (
-        <Root className={classnames(styles['avatar'],
-            {
-                [styles[`avatar--${size}-size`]]: size,
-                [styles[`avatar--${radius}-radius`]]: radius,
-                [styles[`avatar--cursor-pointer`]]: cursorPointer,
-            },
-            className)}
+        <Root
+            className={classnames(
+                styles["avatar"],
+                {
+                    [styles[`avatar--${size}-size`]]: size,
+                    [styles[`avatar--${radius}-radius`]]: radius,
+                    [styles[`avatar--cursor-pointer`]]: cursorPointer,
+                },
+                className
+            )}
         >
-            <Image
-                className={classnames(styles['avatar-image'], imageClassName)}
-                {...other}
-            />
+            <Image className={classnames(styles["avatar-image"], imageClassName)} {...other} />
             {fallback && (
-                <Fallback
-                    className={classnames(styles['avatar-fallback'], fallbackClassName)}
-                    delayMs={delayMs}
-                >
+                <Fallback className={classnames(styles["avatar-fallback"], fallbackClassName)} delayMs={delayMs}>
                     {fallback}
                 </Fallback>
             )}

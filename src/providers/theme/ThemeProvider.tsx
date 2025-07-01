@@ -5,13 +5,12 @@ import {ComponentsProps} from "../../components";
 
 import {Theme} from "../../types/theme";
 
-import "./styles/reset.css"
-import "./styles/default.scss"
+import "./styles/reset.css";
+import "./styles/default.scss";
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
 const ThemeProvider = ({children, ...componentsProps}: PropsWithChildren<ComponentsProps>) => {
-
     const [theme, setTheme] = useState<Theme>(() => {
         return isDarkMedia() ? Theme.Dark : Theme.Light;
     });

@@ -64,14 +64,18 @@ $root: odometer;
   }
 
   &-inside {
-    transition: all var(--speed), color var(--transition-speed-sm);
+    transition:
+      all var(--speed),
+      color var(--transition-speed-sm);
 
     &:before {
       content: "";
       width: 0;
       display: inline-block;
       color: inherit;
-      transition: all var(--speed), color var(--transition-speed-sm);
+      transition:
+        all var(--speed),
+        color var(--transition-speed-sm);
     }
   }
 }

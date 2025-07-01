@@ -17,7 +17,8 @@ $root: view;
     }
 
     &--separate {
-      border-bottom: var(--view-header-separate-width, 1px) solid var(--view-header-separate-color, var(--separator-color));
+      border-bottom: var(--view-header-separate-width, 1px) solid
+        var(--view-header-separate-color, var(--separator-color));
       justify-content: space-between;
       will-change: border;
       transition: border-bottom-color var(--transition-speed-sm);

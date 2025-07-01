@@ -53,7 +53,7 @@ export interface TextFieldActions {
     setValue(value: string | number | undefined): void;
 }
 
-export interface TextFieldProps extends ComponentProps<'input'> {
+export interface TextFieldProps extends ComponentProps<"input"> {
     variant?: TextFieldVariant;
     accent?: TextFieldAccent;
     radius?: TextFieldRadius;
@@ -77,8 +77,8 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
         customSize,
         label,
         fullWidth,
-        type = 'text',
-        value: propValue = '',
+        type = "text",
+        value: propValue = "",
         defaultValue,
         before,
         after,
@@ -88,30 +88,37 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
         beforeClassName,
         onChange,
         ...other
-    } = {...useComponentProps('textField'), ...props};
+    } = {...useComponentProps("textField"), ...props};
 
     const [value, setValue] = useState<string | number | undefined>(defaultValue || propValue);
     const inputRef = useRef<HTMLInputElement | null>(null);
 
-    useImperativeHandle(ref, () => ({
-        select() {
-            inputRef.current?.select();
-        },
-        focus() {
-            inputRef.current?.focus();
-        },
-        getValue(): string | undefined {
-            return inputRef.current?.value;
-        },
-        setValue(value: string | number | undefined) {
-            setValue(value);
-        }
-    }), []);
+    useImperativeHandle(
+        ref,
+        () => ({
+            select() {
+                inputRef.current?.select();
+            },
+            focus() {
+                inputRef.current?.focus();
+            },
+            getValue(): string | undefined {
+                return inputRef.current?.value;
+            },
+            setValue(value: string | number | undefined) {
+                setValue(value);
+            },
+        }),
+        []
+    );
 
-    const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
-        onChange && onChange(event);
-        setValue(event.currentTarget.value);
-    }, [onChange]);
+    const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+        event => {
+            onChange && onChange(event);
+            setValue(event.currentTarget.value);
+        },
+        [onChange]
+    );
 
     useEffect(() => {
         setValue(propValue);
@@ -127,12 +134,16 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
                     [styles[`text-field--${accent}`]]: accent,
                     [styles[`text-field--${radius}-radius`]]: radius,
                     [styles[`text-field--${customSize}-size`]]: customSize,
-                    [styles['text-field--full-width']]: fullWidth,
+                    [styles["text-field--full-width"]]: fullWidth,
                 },
                 className
             )}
         >
-            {cloneOrCreateElement(before, {className: classnames(styles["text-field__before"], beforeClassName)}, 'span')}
+            {cloneOrCreateElement(
+                before,
+                {className: classnames(styles["text-field__before"], beforeClassName)},
+                "span"
+            )}
             <input
                 {...other}
                 ref={inputRef}
@@ -143,7 +154,7 @@ const TextField = forwardRef<TextFieldActions, TextFieldProps>((props, ref) => {
                 className={classnames(styles["text-field__input"], inputClassName)}
                 onChange={handleChange}
             />
-            {cloneOrCreateElement(after, {className: classnames(styles["text-field__after"], afterClassName)}, 'span')}
+            {cloneOrCreateElement(after, {className: classnames(styles["text-field__after"], afterClassName)}, "span")}
         </div>
     );
 });

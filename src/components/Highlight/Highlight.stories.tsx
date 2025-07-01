@@ -3,22 +3,27 @@ import HighlightComponent, {HighlightColor} from "./Highlight";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-
-const colors: (HighlightColor | 'default') [] = ['default', HighlightColor.Primary, HighlightColor.Secondary, HighlightColor.Accent]
-const searchWords = ["Adjust", "volume", "switch", "audio"]
-const textToHighlight = "Adjust the current tab\'s volume with the slider. Switch to any audio tab in one click"
+const colors: (HighlightColor | "default")[] = [
+    "default",
+    HighlightColor.Primary,
+    HighlightColor.Secondary,
+    HighlightColor.Accent,
+];
+const searchWords = ["Adjust", "volume", "switch", "audio"];
+const textToHighlight = "Adjust the current tab\'s volume with the slider. Switch to any audio tab in one click";
 
 const meta: Meta<typeof HighlightComponent> = {
     title: "Components/Highlighter",
     component: HighlightComponent,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     argTypes: {
         color: {
             options: colors,
-            control: {type: 'select'},
+            control: {type: "select"},
         },
         searchWords: {
-            description: "Array of search words. String search terms are automatically cast to RegExps unless autoEscape is true.",
+            description:
+                "Array of search words. String search terms are automatically cast to RegExps unless autoEscape is true.",
         },
         activeIndex: {
             description: "Specify the match index that should be actively highlighted. Use along with activeClassName",
@@ -35,9 +40,9 @@ const meta: Meta<typeof HighlightComponent> = {
         className: hideInTable,
     },
     decorators: [
-        (Story) => (
-            <div style={{color: 'var(--text-primary-color'}}>
-                <Story/>
+        Story => (
+            <div style={{color: "var(--text-primary-color"}}>
+                <Story />
             </div>
         ),
     ],
@@ -60,23 +65,20 @@ export const Highlight: Story = {
 export const Color = () => {
     return (
         <div>
-            {colors.map((color) => (
-                    <div key={color} style={{margin: '20px', display: 'flex', alignItems: 'center'}}>
-                        <span className='item-card__title' style={{width: '150px'}}>
-                            {capitalizeFirstLetter(color)} color
-                        </span>
+            {colors.map(color => (
+                <div key={color} style={{margin: "20px", display: "flex", alignItems: "center"}}>
+                    <span className="item-card__title" style={{width: "150px"}}>
+                        {capitalizeFirstLetter(color)} color
+                    </span>
 
-                        <HighlightComponent
-                            searchWords={searchWords}
-                            textToHighlight={textToHighlight}
-                            color={color !== 'default' ? color : undefined}
-                            activeIndex={0}
-                        />
-                    </div>
-                )
-            )}
+                    <HighlightComponent
+                        searchWords={searchWords}
+                        textToHighlight={textToHighlight}
+                        color={color !== "default" ? color : undefined}
+                        activeIndex={0}
+                    />
+                </div>
+            ))}
         </div>
-    )
-        ;
+    );
 };
-

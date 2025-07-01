@@ -4,5 +4,5 @@ export interface FileImportInfo {
 }
 
 export interface BuilderContract {
-    build(): string
+    build(): string;
 }

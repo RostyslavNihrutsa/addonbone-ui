@@ -30,24 +30,25 @@ $root: tag;
     border: none;
 
     &.#{$root}--primary-color {
-      color: var(--tag-contained-primary-color, #FFF);
+      color: var(--tag-contained-primary-color, #fff);
       background: var(--primary-color);
     }
 
     &.#{$root}--secondary-color {
-      color: var(--tag-contained-secondary-color, #FFF);
+      color: var(--tag-contained-secondary-color, #fff);
       background: var(--secondary-color);
     }
 
     &.#{$root}--accent-color {
-      color: var(--tag-contained-accent-color, #FFF);
+      color: var(--tag-contained-accent-color, #fff);
       background: var(--accent-color);
     }
   }
 
   &--outlined {
     color: var(--tag-outlined-color, var(--tag-color, var(--text-secondary-color)));
-    border: var(--tag-border-width, 1px) solid var(--tag-outlined-border-color, var(--tag-outlined-color, var(--text-secondary-color)));
+    border: var(--tag-border-width, 1px) solid
+      var(--tag-outlined-border-color, var(--tag-outlined-color, var(--text-secondary-color)));
     background: none;
 
     &.#{$root}--primary-color {
@@ -71,19 +72,18 @@ $root: tag;
     background-color: color-mix(in srgb, white 30%, var(--tag-bg-color, var(--bg-secondary-color)));
 
     &.#{$root}--primary-color {
-      color: var(--tag-soft-primary-color, #FFF);
+      color: var(--tag-soft-primary-color, #fff);
       background-color: color-mix(in srgb, white 30%, var(--primary-color));
     }
 
     &.#{$root}--secondary-color {
-      color: var(--tag-soft-secondary-color, #FFF);
+      color: var(--tag-soft-secondary-color, #fff);
       background-color: color-mix(in srgb, white 30%, var(--secondary-color));
     }
 
     &.#{$root}--accent-color {
-      color: var(--tag-soft-accent-color, #FFF);
+      color: var(--tag-soft-accent-color, #fff);
       background-color: color-mix(in srgb, white 30%, var(--accent-color));
-
     }
   }
 
