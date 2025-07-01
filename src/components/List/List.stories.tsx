@@ -1,9 +1,10 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import ListComponent from "./List";
-import ListItem from "../ListItem/ListItem";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {hideInTable} from "../../utils";
-import {Button, ButtonSize, ButtonVariant} from "../Button";
-import {Avatar, AvatarSize} from "../Avatar";
+
+import {ListItem, Button, ButtonSize, ButtonVariant, Avatar, AvatarSize} from '../index'
+
+import ListComponent from "./List";
 
 const mockListItems = [
     {

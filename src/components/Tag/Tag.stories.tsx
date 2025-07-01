@@ -1,6 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import TagComponent, {TagColor, TagRadius, TagSize, TagVariant} from "./Tag";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {capitalizeFirstLetter} from "../../utils";
+
+import TagComponent, {TagColor, TagRadius, TagSize, TagVariant} from "./Tag";
 
 const variants: TagVariant[] = [TagVariant.Contained, TagVariant.Outlined, TagVariant.Soft];
 const colors: (TagColor | "default")[] = ["default", TagColor.Primary, TagColor.Secondary, TagColor.Accent];
@@ -32,9 +34,8 @@ const meta: Meta<typeof TagComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TagComponent>;
 
-export const Tag: Story = {
+export const Tag: StoryObj<typeof TagComponent> = {
     args: {
         children: "Test",
         variant: TagVariant.Contained,

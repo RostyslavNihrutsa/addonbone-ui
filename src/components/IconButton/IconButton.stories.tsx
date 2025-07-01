@@ -1,6 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import IconButtonComponent, {IconButtonRadius, IconButtonSize, IconButtonVariant} from "./IconButton";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import IconButtonComponent, {IconButtonRadius, IconButtonSize, IconButtonVariant} from "./IconButton";
 
 const variants: (IconButtonVariant | "default")[] = [
     "default",
@@ -49,7 +51,6 @@ const meta: Meta<typeof IconButtonComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof IconButtonComponent>;
 
 const icon = (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +63,7 @@ const icon = (
     </svg>
 );
 
-export const IconButton: Story = {
+export const IconButton: StoryObj<typeof IconButtonComponent> = {
     args: {
         children: icon,
         disabled: false,

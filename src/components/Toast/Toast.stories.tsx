@@ -1,9 +1,11 @@
 import {FC, useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import ToastComponent, {ToastColor, ToastProps, ToastRadius, ToastSide} from "./Toast";
-import {Button, ButtonColor, ButtonVariant} from "../Button";
+import {Meta, StoryObj} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
+
+import {Button, ButtonColor, ButtonVariant} from "../index";
+
+import ToastComponent, {ToastColor, ToastProps, ToastRadius, ToastSide} from "./Toast";
 
 const sides: ToastSide[] = [
     ToastSide.TopLeft,
@@ -67,9 +69,7 @@ const meta: Meta<typeof ToastComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ToastComponent>;
-
-export const Toast: Story = {
+export const Toast: StoryObj<typeof ToastComponent> = {
     args: {
         open: true,
         sticky: false,

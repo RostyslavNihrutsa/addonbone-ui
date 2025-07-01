@@ -1,6 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import HeaderComponent from "./Header";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {hideInTable} from "../../utils";
+
+import HeaderComponent from "./Header";
 
 const meta: Meta<typeof HeaderComponent> = {
     title: "Components/Header",
@@ -31,16 +33,14 @@ const meta: Meta<typeof HeaderComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof HeaderComponent>;
-
-export const Header: Story = {
+export const Header: StoryObj<typeof HeaderComponent> = {
     args: {
         title: "Volume Up Plus",
         subtitle: "Adjust the current tab's volume with the slider. Switch to any audio tab in one click.",
     },
 };
 
-export const WithLogo: Story = {
+export const WithLogo: StoryObj<typeof HeaderComponent> = {
     args: {
         title: "Volume Up Plus",
         subtitle: "Adjust the current tab's volume with the slider. Switch to any audio tab in one click.",

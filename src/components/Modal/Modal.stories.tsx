@@ -1,9 +1,11 @@
 import {useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import ModalComponent, {ModalProps, ModalRadius} from "./Modal";
-import {Button} from "../Button";
-import {Header} from "../Header";
+import {Meta} from "@storybook/react";
+
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import {Button, Header} from "../index";
+
+import ModalComponent, {ModalProps, ModalRadius} from "./Modal";
 
 const radius: (ModalRadius | "default")[] = [
     ModalRadius.None,
@@ -45,8 +47,6 @@ const meta: Meta<typeof ModalComponent> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof ModalComponent>;
 
 export const Modal = (props: ModalProps & {label?: string}) => {
     const [open, setOpen] = useState(false);

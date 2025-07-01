@@ -1,7 +1,9 @@
 import {useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import CheckboxComponent, {CheckboxRadius, CheckboxSize, CheckboxVariant, CheckedState} from "./Checkbox";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import CheckboxComponent, {CheckboxRadius, CheckboxSize, CheckboxVariant, CheckedState} from "./Checkbox";
 
 const variants: (CheckboxVariant | "default")[] = ["default", CheckboxVariant.Classic, CheckboxVariant.Soft];
 const size: (CheckboxSize | "default")[] = [CheckboxSize.Small, "default", CheckboxSize.Medium, CheckboxSize.Large];
@@ -39,9 +41,7 @@ const meta: Meta<typeof CheckboxComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof CheckboxComponent>;
-
-export const Checkbox: Story = {
+export const Checkbox: StoryObj<typeof CheckboxComponent> = {
     args: {
         checked: true,
         disabled: false,

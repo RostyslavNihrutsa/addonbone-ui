@@ -13,7 +13,7 @@ const config: StorybookConfig = {
         return mergeConfig(config, {
             resolve: {
                 alias: {
-                    "adnbn-ui-config": path.resolve(__dirname, "..", "src", "config", "default.ts"),
+                    "adnbn-ui-config": path.resolve("src", "config", "default.ts"),
                 },
             },
         });

@@ -1,6 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import ButtonComponent, {ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from "./Button";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import ButtonComponent, {ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from "./Button";
 
 const variants: ButtonVariant[] = [ButtonVariant.Contained, ButtonVariant.Outlined, ButtonVariant.Text];
 const colors: (ButtonColor | "default")[] = ["default", ButtonColor.Primary, ButtonColor.Secondary, ButtonColor.Accent];
@@ -44,9 +46,8 @@ const meta: Meta<typeof ButtonComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ButtonComponent>;
 
-export const Button: Story = {
+export const Button: StoryObj<typeof ButtonComponent> = {
     args: {
         children: "Button",
     },

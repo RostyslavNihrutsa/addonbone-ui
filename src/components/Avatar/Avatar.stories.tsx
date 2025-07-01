@@ -1,7 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import {Avatar as AvatarComponent, AvatarRadius, AvatarSize} from "./index";
+import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import AvatarComponent, {AvatarRadius, AvatarSize} from "./Avatar";
 
 const sizes: (AvatarSize | "default")[] = [AvatarSize.Small, "default", AvatarSize.Medium, AvatarSize.Large];
 const radius: (AvatarRadius | "default")[] = [AvatarRadius.Small, AvatarRadius.Medium, AvatarRadius.Large, "default"];
@@ -27,9 +28,7 @@ const meta: Meta<typeof AvatarComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof AvatarComponent>;
-
-export const Avatar: Story = {
+export const Avatar: StoryObj<typeof AvatarComponent> = {
     args: {
         src: "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80",
         fallback: "CT",

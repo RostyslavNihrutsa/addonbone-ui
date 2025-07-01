@@ -1,15 +1,11 @@
 import {useState} from "react";
-import type {Meta} from "@storybook/react";
-
-import {LayoutProvider, useLayout} from "./index";
-
-import {Header} from "../Header";
-import {Footer} from "../Footer";
-import {Button} from "../Button";
-import {ScrollArea} from "../ScrollArea";
-import {IconButton, IconButtonVariant, IconButtonSize} from "../IconButton";
+import {Meta} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
+
+import {Header, Footer, Button, ScrollArea, IconButton, IconButtonVariant, IconButtonSize} from '../index';
+
+import {LayoutProvider, useLayout} from "./index";
 
 const meta: Meta<typeof LayoutProvider> = {
     title: "Components/Layout",
