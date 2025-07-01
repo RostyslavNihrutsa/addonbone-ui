@@ -1,7 +1,9 @@
 import {Fragment} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import TextAreaComponent, {TextAreaRadius, TextAreaSize, TextAreaVariant} from "./TextArea";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import TextAreaComponent, {TextAreaRadius, TextAreaSize, TextAreaVariant} from "./TextArea";
 
 const variants: TextAreaVariant[] = [TextAreaVariant.Regular, TextAreaVariant.Outlined, TextAreaVariant.Filled];
 const sizes: (TextAreaSize | "default")[] = [TextAreaSize.Small, "default", TextAreaSize.Medium, TextAreaSize.Large];
@@ -37,9 +39,8 @@ const meta: Meta<typeof TextAreaComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TextAreaComponent>;
 
-export const TextArea: Story = {
+export const TextArea: StoryObj<typeof TextAreaComponent> = {
     args: {
         placeholder: "Enter text",
         disabled: false,
@@ -116,27 +117,27 @@ export const VariantRadius = () => {
     );
 };
 
-// export const VariantSize = () => {
-//     return (
-//         <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
-//             <span className='item-card__title'> Variant \ Size</span>
-//             {sizes.map((size) => (
-//                 <span key={size} className='item-card__title'>{capitalizeFirstLetter(size)} size</span>
-//             ))}
-//             {variants.map((variant) => (
-//                 <Fragment key={variant}>
-//                     <span className='item-card__title'>{capitalizeFirstLetter(variant)}</span>
-//                     {sizes.map((size) => (
-//                         <div key={`${size}-${variant}`} className='item-card'>
-//                             <TextAreaComponent
-//                                 variant={variant}
-//                                 size={size !== 'default' ? size : undefined}
-//                                 placeholder="Enter value"
-//                             />
-//                         </div>
-//                     ))}
-//                 </Fragment>
-//             ))}
-//         </div>
-//     );
-// };
+export const VariantSize = () => {
+    return (
+        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
+            <span className='item-card__title'> Variant \ Size</span>
+            {sizes.map((size) => (
+                <span key={size} className='item-card__title'>{capitalizeFirstLetter(size)} size</span>
+            ))}
+            {variants.map((variant) => (
+                <Fragment key={variant}>
+                    <span className='item-card__title'>{capitalizeFirstLetter(variant)}</span>
+                    {sizes.map((size) => (
+                        <div key={`${size}-${variant}`} className='item-card'>
+                            <TextAreaComponent
+                                variant={variant}
+                                size={size !== 'default' ? size : undefined}
+                                placeholder="Enter value"
+                            />
+                        </div>
+                    ))}
+                </Fragment>
+            ))}
+        </div>
+    );
+};

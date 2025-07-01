@@ -1,7 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import ScrollAreaComponent from "./ScrollArea";
+import {Meta, StoryObj} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
+
+import ScrollAreaComponent from "./ScrollArea";
 
 const meta: Meta<typeof ScrollAreaComponent> = {
     title: "Components/ScrollArea",
@@ -36,9 +37,7 @@ const meta: Meta<typeof ScrollAreaComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ScrollAreaComponent>;
-
-export const ScrollArea: Story = {
+export const ScrollArea: StoryObj<typeof ScrollAreaComponent> = {
     args: {
         type: "hover",
         dir: "ltr",

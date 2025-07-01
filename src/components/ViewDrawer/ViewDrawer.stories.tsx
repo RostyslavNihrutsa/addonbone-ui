@@ -1,10 +1,11 @@
 import {useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import ViewDrawerComponent, {ViewDrawerProps} from "./ViewDrawer";
-import {Button} from "../Button";
-import {DrawerSide} from "../Drawer";
+import {Meta} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
+
+import {Button, DrawerSide} from "../index";
+
+import ViewDrawerComponent, {ViewDrawerProps} from "./ViewDrawer";
 
 const sides: DrawerSide[] = [DrawerSide.Left, DrawerSide.Top, DrawerSide.Bottom, DrawerSide.Right];
 
@@ -49,8 +50,6 @@ const meta: Meta<typeof ViewDrawerComponent> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof ViewDrawerComponent>;
 
 export const ViewDrawer = (props: ViewDrawerProps) => {
     const [open, setOpen] = useState(false);

@@ -1,8 +1,11 @@
 import {useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import ViewModalComponent, {ViewModalProps} from "./ViewModal";
+import {Meta} from "@storybook/react";
+
 import {hideInTable} from "../../utils";
-import {Button} from "../Button";
+
+import {Button} from "../index";
+
+import ViewModalComponent, {ViewModalProps} from "./ViewModal";
 
 const meta: Meta<typeof ViewModalComponent> = {
     title: "Components/ViewModal",
@@ -41,8 +44,6 @@ const meta: Meta<typeof ViewModalComponent> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof ViewModalComponent>;
 
 export const ViewModal = (props: ViewModalProps) => {
     const [open, setOpen] = useState(false);

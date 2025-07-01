@@ -1,7 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import HighlightComponent, {HighlightColor} from "./Highlight";
+import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import HighlightComponent, {HighlightColor} from "./Highlight";
 
 const colors: (HighlightColor | "default")[] = [
     "default",
@@ -50,9 +51,7 @@ const meta: Meta<typeof HighlightComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof HighlightComponent>;
-
-export const Highlight: Story = {
+export const Highlight: StoryObj<typeof HighlightComponent> = {
     args: {
         searchWords,
         textToHighlight,

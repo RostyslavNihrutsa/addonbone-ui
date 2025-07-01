@@ -1,11 +1,11 @@
 import {useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import DrawerComponent, {DrawerProps, DrawerSide} from "./Drawer";
-import {Button} from "../Button";
-import {List} from "../List";
-import {ListItem} from "../ListItem";
+import {Meta} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import {Button, List, ListItem} from "../index";
+
+import DrawerComponent, {DrawerProps, DrawerSide} from "./Drawer";
 
 const sides: DrawerSide[] = [DrawerSide.Left, DrawerSide.Top, DrawerSide.Bottom, DrawerSide.Right];
 const items = [
@@ -43,8 +43,6 @@ const meta: Meta<typeof DrawerComponent> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof DrawerComponent>;
 
 export const Drawer = (props: DrawerProps & {label?: string}) => {
     const [open, setOpen] = useState(false);

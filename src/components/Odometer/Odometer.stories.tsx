@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import OdometerComponent from "./Odometer";
+import {Meta, StoryObj} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
+
+import OdometerComponent from "./Odometer";
 
 const meta: Meta<typeof OdometerComponent> = {
     title: "Components/Odometer",
@@ -28,9 +29,7 @@ const meta: Meta<typeof OdometerComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof OdometerComponent>;
-
-export const Odometer: Story = {
+export const Odometer: StoryObj<typeof OdometerComponent> = {
     args: {
         value: 1234,
         duration: 500,

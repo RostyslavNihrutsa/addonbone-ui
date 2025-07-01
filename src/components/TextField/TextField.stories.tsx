@@ -1,7 +1,9 @@
 import {Fragment} from "react";
-import type {Meta, StoryObj} from "@storybook/react";
-import TextFieldComponent, {TextFieldAccent, TextFieldRadius, TextFieldSize, TextFieldVariant} from "./TextField";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
+
+import TextFieldComponent, {TextFieldAccent, TextFieldRadius, TextFieldSize, TextFieldVariant} from "./TextField";
 
 const variants: TextFieldVariant[] = [TextFieldVariant.Regular, TextFieldVariant.Outlined, TextFieldVariant.Filled];
 const sizes: (TextFieldSize | "default")[] = [
@@ -52,9 +54,8 @@ const meta: Meta<typeof TextFieldComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TextFieldComponent>;
 
-export const TextField: Story = {
+export const TextField: StoryObj<typeof TextFieldComponent> = {
     args: {
         placeholder: "Enter text",
         disabled: false,

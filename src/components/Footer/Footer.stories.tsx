@@ -1,8 +1,10 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import FooterComponent from "./Footer";
-import {IconButton, IconButtonSize, IconButtonVariant} from "../IconButton";
+import {Meta, StoryObj} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
+
+import {IconButton, IconButtonSize, IconButtonVariant} from "../index";
+
+import FooterComponent from "./Footer";
 
 const meta: Meta<typeof FooterComponent> = {
     title: "Components/Footer",
@@ -39,9 +41,7 @@ const meta: Meta<typeof FooterComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FooterComponent>;
-
-export const Footer: Story = {
+export const Footer: StoryObj<typeof FooterComponent> = {
     args: {
         shadow: true,
         reverse: false,
@@ -69,7 +69,7 @@ export const Footer: Story = {
     },
 };
 
-export const FooterWithoutChildren: Story = {
+export const FooterWithoutChildren: StoryObj<typeof FooterComponent> = {
     args: {
         shadow: true,
         reverse: false,

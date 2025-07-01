@@ -1,6 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import ViewComponent from "./View";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {hideInTable} from "../../utils";
+
+import ViewComponent from "./View";
 
 const meta: Meta<typeof ViewComponent> = {
     title: "Components/View",
@@ -32,9 +34,7 @@ const meta: Meta<typeof ViewComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ViewComponent>;
-
-export const View: Story = {
+export const View: StoryObj<typeof ViewComponent> = {
     args: {
         title: "Volume Up Plus",
         subtitle: "Adjust the current tab's volume with the slider. Switch to any audio tab in one click.",

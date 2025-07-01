@@ -1,7 +1,10 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import TooltipComponent from "./Tooltip";
-import Button from "../Button/Button";
+import {Meta, StoryObj} from "@storybook/react";
+
 import {hideInTable} from "../../utils";
+
+import {Button} from "../index";
+
+import TooltipComponent from "./Tooltip";
 
 const meta: Meta<typeof TooltipComponent> = {
     title: "Components/Tooltip",
@@ -58,9 +61,7 @@ const meta: Meta<typeof TooltipComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof TooltipComponent>;
-
-export const Tooltip: Story = {
+export const Tooltip: StoryObj<typeof TooltipComponent> = {
     args: {
         content: "Tooltip content",
         open: undefined,
