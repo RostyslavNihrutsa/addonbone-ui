@@ -119,19 +119,21 @@ export const VariantRadius = () => {
 
 export const VariantSize = () => {
     return (
-        <div className='grid-wrapper' style={{gridTemplateColumns: 'repeat(5, auto)'}}>
-            <span className='item-card__title'> Variant \ Size</span>
-            {sizes.map((size) => (
-                <span key={size} className='item-card__title'>{capitalizeFirstLetter(size)} size</span>
+        <div className="grid-wrapper" style={{gridTemplateColumns: "repeat(5, auto)"}}>
+            <span className="item-card__title"> Variant \ Size</span>
+            {sizes.map(size => (
+                <span key={size} className="item-card__title">
+                    {capitalizeFirstLetter(size)} size
+                </span>
             ))}
-            {variants.map((variant) => (
+            {variants.map(variant => (
                 <Fragment key={variant}>
-                    <span className='item-card__title'>{capitalizeFirstLetter(variant)}</span>
-                    {sizes.map((size) => (
-                        <div key={`${size}-${variant}`} className='item-card'>
+                    <span className="item-card__title">{capitalizeFirstLetter(variant)}</span>
+                    {sizes.map(size => (
+                        <div key={`${size}-${variant}`} className="item-card">
                             <TextAreaComponent
                                 variant={variant}
-                                size={size !== 'default' ? size : undefined}
+                                size={size !== "default" ? size : undefined}
                                 placeholder="Enter value"
                             />
                         </div>

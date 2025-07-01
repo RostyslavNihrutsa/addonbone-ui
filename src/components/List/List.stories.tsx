@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
 
-import {ListItem, Button, ButtonSize, ButtonVariant, Avatar, AvatarSize} from '../index'
+import {ListItem, Button, ButtonSize, ButtonVariant, Avatar, AvatarSize} from "../index";
 
 import ListComponent from "./List";
 
@@ -64,7 +64,7 @@ export const List: Story = {
         children: mockListItems.map(({id, avatar, name, role, action}) => (
             <ListItem
                 key={id}
-                left={<Avatar src={avatar} size={AvatarSize.Small}/>}
+                left={<Avatar src={avatar} size={AvatarSize.Small} />}
                 primary={<span style={{fontWeight: 500}}>{name}</span>}
                 secondary={<span style={{fontSize: "14px"}}>{role}</span>}
                 right={

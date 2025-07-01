@@ -24,6 +24,7 @@ export default class ConfigBuilder implements BuilderContract {
             .filter(Boolean)
             .reverse();
 
+        // prettier-ignore
         return this.template
             .replace("'configs imports'", imports.join("\n"))
             .replace("{}", names.join(", "));

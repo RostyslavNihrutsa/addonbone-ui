@@ -3,7 +3,7 @@ import {Meta} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
 
-import {Header, Footer, Button, ScrollArea, IconButton, IconButtonVariant, IconButtonSize} from '../index';
+import {Header, Footer, Button, ScrollArea, IconButton, IconButtonVariant, IconButtonSize} from "../index";
 
 import {LayoutProvider, useLayout} from "./index";
 
