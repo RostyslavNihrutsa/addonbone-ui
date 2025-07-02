@@ -14,7 +14,7 @@ export default (ref: RefObject<HTMLElement | null>, value: number, options: Odom
         if (ref.current === null) return;
 
         od.current = new Odometer({...options, el: ref.current, value});
-    }, [ref.current]);
+    }, [ref, options, value]);
 
     useEffect(() => {
         od.current?.update(value);

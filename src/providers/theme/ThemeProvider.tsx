@@ -21,7 +21,7 @@ const ThemeProvider = ({children, ...componentsProps}: PropsWithChildren<Compone
 
     const toggleTheme = useCallback(() => {
         changeTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);
-    }, [theme]);
+    }, [theme, changeTheme]);
 
     useEffect(() => {
         document.querySelector("html")?.setAttribute("theme", theme);

@@ -11,7 +11,7 @@ const colors: (HighlightColor | "default")[] = [
     HighlightColor.Accent,
 ];
 const searchWords = ["Adjust", "volume", "switch", "audio"];
-const textToHighlight = "Adjust the current tab\'s volume with the slider. Switch to any audio tab in one click";
+const textToHighlight = "Adjust the current tab's volume with the slider. Switch to any audio tab in one click";
 
 const meta: Meta<typeof HighlightComponent> = {
     title: "Components/Highlighter",

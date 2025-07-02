@@ -37,7 +37,6 @@ const Avatar: FC<AvatarProps> = props => {
         cursorPointer,
         imageClassName,
         className,
-        children,
         ...other
     } = {...useComponentProps("avatar"), ...props};
 

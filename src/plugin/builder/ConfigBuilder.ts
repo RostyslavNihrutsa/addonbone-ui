@@ -26,7 +26,7 @@ export default class ConfigBuilder implements BuilderContract {
 
         // prettier-ignore
         return this.template
-            .replace("'configs imports'", imports.join("\n"))
+            .replace("//configs imports", imports.join("\n"))
             .replace("{}", names.join(", "));
     }
 }

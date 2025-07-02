@@ -1,6 +1,6 @@
 import {merge} from "ts-deepmerge";
 
-("configs imports");
+//configs imports;
 
 import "adnbn-ui-style.scss";
 

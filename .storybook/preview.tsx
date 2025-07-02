@@ -3,7 +3,7 @@ import type {Preview, StoryContext, StoryFn} from "@storybook/react";
 import {ThemeProvider} from "../src/providers";
 import "./styles/preview.css";
 
-const themeDecorator = (Story: StoryFn, context: StoryContext) => {
+const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
     const dir = context.globals.dir || "ltr";
     const theme = context.globals.theme || "light";
     const cssVariables = context.globals.cssVariables || "default";
@@ -13,7 +13,7 @@ const themeDecorator = (Story: StoryFn, context: StoryContext) => {
         return () => {
             document.documentElement.removeAttribute("dir");
         };
-    }, [theme]);
+    }, [dir]);
 
     useEffect(() => {
         document.documentElement.setAttribute("theme", theme);
@@ -93,7 +93,7 @@ const preview: Preview = {
             },
         },
     },
-    decorators: [themeDecorator],
+    decorators: [ThemeDecorator],
     globalTypes,
 };
 

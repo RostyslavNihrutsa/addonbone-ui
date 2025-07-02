@@ -76,7 +76,7 @@ const TextArea = forwardRef<TextAreaActions, TextAreaProps>((props, ref) => {
 
     const handleChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>(
         event => {
-            onChange && onChange(event);
+            onChange?.(event);
             setValue(event.currentTarget.value);
         },
         [onChange]
@@ -99,10 +99,16 @@ const TextArea = forwardRef<TextAreaActions, TextAreaProps>((props, ref) => {
     );
 
     useEffect(() => {
-        textareaRef.current && autosize(textareaRef.current);
+        const textarea = textareaRef.current;
+
+        if (textarea) {
+            autosize(textarea);
+        }
 
         return () => {
-            textareaRef.current && autosize.destroy(textareaRef.current);
+            if (textarea) {
+                autosize.destroy(textarea);
+            }
         };
     }, []);
 
