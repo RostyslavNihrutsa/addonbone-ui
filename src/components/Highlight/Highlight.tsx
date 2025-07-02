@@ -17,7 +17,7 @@ export interface HighlightProps extends HighlighterProps {
 }
 
 const Highlight: FC<HighlightProps> = props => {
-    const {color, activeClassName, highlightClassName, className, ...other} = {
+    const {color, activeClassName, highlightClassName, ...other} = {
         ...useComponentProps("highlight"),
         ...props,
     };

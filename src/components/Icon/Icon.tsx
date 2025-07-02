@@ -21,7 +21,7 @@ const Icon: FC<IconProps> = props => {
 
     const {icons, registerIcon} = useIcons();
 
-    useEffect(() => icons[name] && registerIcon(name), [name, icons]);
+    useEffect(() => icons[name] && registerIcon(name), [name, icons, registerIcon]);
 
     if (!icons[name]) {
         console.warn(`Icon "${name}" not found.`);

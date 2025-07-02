@@ -65,7 +65,7 @@ const Modal: FC<ModalProps> = props => {
                 className={classnames(styles["modal-close"], closeButtonProps.className)}
             />
         );
-    }, [closeButton]);
+    }, [closeButton, handleClose]);
 
     return (
         <Dialog

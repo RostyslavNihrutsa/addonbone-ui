@@ -62,12 +62,12 @@ const Dialog: FC<DialogProps> = props => {
         ...other
     } = {...useComponentProps("dialog"), ...props};
 
-    const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
-    const intervalId = useRef<ReturnType<typeof setInterval> | null>(null);
+    const timeoutId = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+    const intervalId = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
     useEffect(() => {
-        intervalId.current && clearInterval(intervalId.current);
-        timeoutId.current && clearTimeout(timeoutId.current);
+        clearInterval(intervalId.current);
+        clearTimeout(timeoutId.current);
 
         if (open) {
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -80,19 +80,19 @@ const Dialog: FC<DialogProps> = props => {
                 if (scrollbarWidth) {
                     document.body.style.overflow = "";
                     document.body.style.paddingRight = "";
-                    intervalId.current && clearInterval(intervalId.current);
+                    clearInterval(intervalId.current);
                 }
             }, 10);
 
             timeoutId.current = setTimeout(() => {
-                intervalId.current && clearInterval(intervalId.current);
+                clearInterval(intervalId.current);
             }, speed + 100);
         }
 
         return () => {
             document.body.style.overflow = "";
         };
-    }, [open]);
+    }, [open, speed]);
 
     return (
         <Root open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange} modal={modal}>
