@@ -1,7 +1,19 @@
 {
   "name": "adnbn-ui",
-  "version": "0.0.2",
-  "description": "UI Libs for AddonBone",
+  "version": "0.1.1",
+  "description": "A comprehensive React UI component library designed exclusively for the AddonBone browser extension framework with customizable theming and consistent design patterns",
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "adnbn",
+    "addonbone",
+    "browser-extension",
+    "theme",
+    "customizable",
+    "typescript",
+    "design-system"
+  ],
   "author": "Addon Bone",
   "license": "MIT",
   "type": "module",

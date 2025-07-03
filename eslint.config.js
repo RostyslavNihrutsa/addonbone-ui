@@ -17,8 +17,8 @@ export default tseslint.config(
             "coverage",
             ".storybook",
             "public",
-            "*.config.js"
-        ]
+            "*.config.js",
+        ],
     },
     {
         extends: [js.configs.recommended, ...tseslint.configs.recommended],
