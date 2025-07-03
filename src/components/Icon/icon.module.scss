@@ -1,0 +1,17 @@
+.icon {
+  color: var(--icon-color);
+  transition:
+    transform var(--transition-speed-sm),
+    color var(--transition-speed-sm);
+
+  &:hover {
+    color: var(--icon-color-hover);
+    transform: scale(var(--icon-scale, 1));
+  }
+
+  &--default {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

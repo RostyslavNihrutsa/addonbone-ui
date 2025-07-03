@@ -1,0 +1,97 @@
+@use "../../styles/mixins" as dir;
+
+$root: modal;
+
+.#{$root} {
+  &-overlay {
+    background-color: var(--modal-overlay-bg-color, var(--dialog-overlay-bg-color, #111));
+  }
+
+  &-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--modal-width, 90vw);
+    max-width: var(--modal-max-width, 350px);
+    max-height: var(--modal-max-height, 85vh);
+    padding: var(--modal-padding, 0);
+    border-radius: var(--modal-border-radius, 10px);
+    box-shadow: var(--modal-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
+    background-color: var(--modal-bg-color, var(--bg-primary-color));
+    transition:
+      background-color var(--transition-speed-sm),
+      color var(--transition-speed-sm);
+
+    &[data-state="open"] {
+      animation-name: contentShow;
+    }
+
+    &[data-state="closed"] {
+      animation-name: contentHide;
+    }
+
+    &--fullscreen {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      border-radius: 0 !important;
+    }
+
+    &--none-radius {
+      border-radius: 0;
+    }
+
+    &--small-radius {
+      border-radius: var(--modal-border-radius-sm, 5px);
+    }
+
+    &--medium-radius {
+      border-radius: var(--modal-border-radius-sm, 15px);
+    }
+
+    &--large-radius {
+      border-radius: var(--modal-border-radius-sm, 20px);
+    }
+  }
+
+  &-children {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-close {
+    position: absolute !important;
+    top: var(--modal-close-offset, 5px);
+
+    @include dir.ltr {
+      right: var(--modal-close-offset, 5px);
+    }
+
+    @include dir.rtl {
+      left: var(--modal-close-offset, 5px);
+    }
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(var(--modal-animation-content-scale, 0.96));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes contentHide {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(var(--modal-animation-content-scale, 0.96));
+  }
+}
