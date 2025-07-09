@@ -6,7 +6,9 @@ import classnames from "classnames";
 
 import styles from "./layout.module.scss";
 
-const Provider: FC<PropsWithChildren<ComponentProps<"div">>> = ({children, className, style, ...props}) => {
+export type LayoutProps = ComponentProps<"div">
+
+const Provider: FC<PropsWithChildren<LayoutProps>> = ({children, className, style, ...props}) => {
     const [isExpanded, setExpanded] = useState(false);
     const [height, setHeight] = useState<number | string | undefined>(undefined);
     const [width, setWidth] = useState<number | string | undefined>(undefined);
