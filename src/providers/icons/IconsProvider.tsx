@@ -5,7 +5,7 @@ import {SvgSprite} from "../../components";
 
 import {Config, Icons} from "../../types/config";
 
-const IconsProvider: FC<PropsWithChildren<Pick<Config, 'icons'>>> = ({children, icons}) => {
+const IconsProvider: FC<PropsWithChildren<Pick<Config, "icons">>> = ({children, icons}) => {
     const [registeredIconNames, setRegisteredIconNames] = useState<string[]>([]);
 
     const registerIcon = useCallback((name: string) => {
