@@ -320,7 +320,7 @@ import {Button, useExtra} from "adnbn-ui";
 function TrackableButton(props) {
     const extra = useExtra();
 
-    const handleClick = (e) => {
+    const handleClick = e => {
         // Use extra props for analytics
         if (extra.features.analytics) {
             trackButtonClick(props.trackingId);
@@ -361,9 +361,9 @@ With this type definition, TypeScript will provide proper type checking and auto
 import React from "react";
 import {useExtra, Button} from "adnbn-ui";
 
-const FeatureFlag: React.FC<{feature: keyof ExtraProps["features"], children: React.ReactNode}> = ({
+const FeatureFlag: React.FC<{feature: keyof ExtraProps["features"]; children: React.ReactNode}> = ({
     feature,
-    children
+    children,
 }) => {
     const extra = useExtra();
 
