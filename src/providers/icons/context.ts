@@ -1,7 +1,5 @@
 import {createContext, useContext} from "react";
-import {SvgSpriteProps} from "../../components";
-
-export type Icons = SvgSpriteProps["icons"];
+import {Icons} from "../../types/config";
 
 export interface IconsContract {
     icons: Icons;

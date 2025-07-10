@@ -11,11 +11,12 @@ export interface SwitchProps extends SwitchRootProps {
 }
 
 const Switch: FC<SwitchProps> = props => {
-    const {className, thumbClassName, ...other} = {...useComponentProps("switch"), ...props};
+    const {className, thumbClassName, children, ...other} = {...useComponentProps("switch"), ...props};
 
     return (
         <Root {...other} className={classnames(styles["switch"], className)}>
             <Thumb className={classnames(styles["switch__thumb"], thumbClassName)} />
+            {children}
         </Root>
     );
 };

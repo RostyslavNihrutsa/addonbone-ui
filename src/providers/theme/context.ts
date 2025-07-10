@@ -1,11 +1,11 @@
 import {createContext, useContext} from "react";
 import {Theme} from "../../types/theme";
-import {ComponentsProps} from "../../components";
+import {ComponentsProps} from "../../types/config";
 
 export interface ThemeContract {
     theme: Theme;
 
-    componentsProps: ComponentsProps;
+    components: ComponentsProps;
 
     changeTheme(theme: Theme): void;
 
@@ -14,7 +14,7 @@ export interface ThemeContract {
 
 export const ThemeContext = createContext<ThemeContract>({
     theme: Theme.Light,
-    componentsProps: {},
+    components: {},
     changeTheme: () => {},
     toggleTheme: () => {},
 });
@@ -24,7 +24,7 @@ ThemeContext.displayName = "ThemeContext";
 export const useTheme = () => useContext(ThemeContext);
 
 export const useComponentProps = <K extends keyof ComponentsProps>(key: K): ComponentsProps[K] => {
-    const {componentsProps} = useTheme();
+    const {components} = useTheme();
 
-    return componentsProps[key];
+    return components[key];
 };

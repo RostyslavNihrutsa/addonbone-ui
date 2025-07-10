@@ -25,5 +25,3 @@ export * from "./Tooltip";
 export * from "./View";
 export * from "./ViewDrawer";
 export * from "./ViewModal";
-
-export type {ComponentsProps} from "./types";
