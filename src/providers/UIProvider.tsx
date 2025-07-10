@@ -1,22 +1,29 @@
-import React, {PropsWithChildren, useMemo} from "react";
+import React, {FC, PropsWithChildren} from "react";
 import {merge} from "ts-deepmerge";
 
-import ThemeProvider from "./theme/ThemeProvider";
-import {IconsProvider, Icons} from "./icons";
-import {ComponentsProps} from "../components";
+import {ExtraProvider, IconsProvider, ThemeProvider} from "./index";
+
+import {ComponentsProps, Config, ExtraProps, Icons} from "../types/config";
 
 import config from "adnbn-ui-config";
 
-import type {Config} from "../config";
 
-const UIProvider = ({children, props = {}, icons = {}}: PropsWithChildren<Partial<Config>>) => {
-    const componentsProps: ComponentsProps = useMemo(() => merge(config.props || {}, props), [props]);
+export type UIProviderProps = Partial<Config>
 
-    const svgIcons: Icons = useMemo(() => merge(config.icons || {}, icons), [icons]);
+const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, components = {}, extra = {}, icons = {}}) => {
+    const componentsProps: ComponentsProps = merge(config.components || {}, components);
+
+    const extraProps: ExtraProps = merge(config.extra || {}, extra);
+
+    const svgIcons: Icons = merge(config.icons || {}, icons);
 
     return (
-        <ThemeProvider {...componentsProps}>
-            <IconsProvider icons={svgIcons}>{children}</IconsProvider>
+        <ThemeProvider components={componentsProps}>
+            <ExtraProvider extra={extraProps}>
+                <IconsProvider icons={svgIcons}>
+                    {children}
+                </IconsProvider>
+            </ExtraProvider>
         </ThemeProvider>
     );
 };

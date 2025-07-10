@@ -1,16 +1,16 @@
-import React, {PropsWithChildren, useCallback, useEffect, useState} from "react";
+import React, {FC, PropsWithChildren, useCallback, useEffect, useState} from "react";
 
 import {ThemeContext} from "./context";
-import {ComponentsProps} from "../../components";
 
 import {Theme} from "../../types/theme";
+import {Config} from "../../types/config";
 
-import "./styles/reset.css";
+import "./styles/reset.scss";
 import "./styles/default.scss";
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
-const ThemeProvider = ({children, ...componentsProps}: PropsWithChildren<ComponentsProps>) => {
+const ThemeProvider: FC<PropsWithChildren<Pick<Config, 'components'>>> = ({children, components}) => {
     const [theme, setTheme] = useState<Theme>(() => {
         return isDarkMedia() ? Theme.Dark : Theme.Light;
     });
@@ -28,7 +28,7 @@ const ThemeProvider = ({children, ...componentsProps}: PropsWithChildren<Compone
     }, [theme]);
 
     return (
-        <ThemeContext.Provider value={{theme, changeTheme, toggleTheme, componentsProps}}>
+        <ThemeContext.Provider value={{theme, changeTheme, toggleTheme, components}}>
             {children}
         </ThemeContext.Provider>
     );
