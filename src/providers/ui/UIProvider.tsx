@@ -1,12 +1,15 @@
 import React, {FC, PropsWithChildren} from "react";
 import {merge} from "ts-deepmerge";
 
-import {ExtraProvider, IconsProvider, ThemeProvider} from "./index";
+import {ExtraProvider, IconsProvider, ThemeProvider} from "../index";
 
-import {ComponentsProps, Config, ExtraProps, Icons} from "../types/config";
+import {ComponentsProps, Config, ExtraProps, Icons} from "../../types/config";
+
+import "../theme/styles/default.scss";
+import "../theme/styles/reset.scss";
+import "adnbn-ui-style.scss";
 
 import config from "adnbn-ui-config";
-
 
 export type UIProviderProps = Partial<Config>
 

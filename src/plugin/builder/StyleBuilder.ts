@@ -15,6 +15,7 @@ export default class StyleBuilder implements BuilderContract {
 
         const lines = files
             .map(file => file.import)
+            .reverse()
             .reduce((lines, filePath) => {
                 return lines + "\n" + fs.readFileSync(path.resolve(filePath), "utf8");
             }, "")
