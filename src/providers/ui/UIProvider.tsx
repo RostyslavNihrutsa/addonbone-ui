@@ -5,8 +5,8 @@ import {ExtraProvider, IconsProvider, ThemeProvider} from "../index";
 
 import {ComponentsProps, Config, ExtraProps, Icons} from "../../types/config";
 
-import "../theme/styles/default.scss";
-import "../theme/styles/reset.scss";
+import "./styles/default.scss";
+import "./styles/reset.scss";
 import "adnbn-ui-style.scss";
 
 import config from "adnbn-ui-config";
