@@ -20,6 +20,7 @@ A comprehensive UI component library designed for the AddonBone framework. This 
 - [Basic Usage](#basic-usage)
 - [Integration](#integration)
 - [Customization](#customization)
+- [Using Extra Props](#using-extra-props)
 - [Component Examples](#component-examples)
 - [Supported Components](#supported-components)
     - [Avatar](#avatar)
@@ -98,12 +99,11 @@ AddonBone is a framework for developing browser extensions with a common codebas
 ```ts
 // adnbn.config.ts
 import {defineConfig} from "adnbn";
-import ui from "adnbn-ui/plugin";
+import uiPlugin from "adnbn-ui/plugin";
 
 export default defineConfig({
-    // ... other AddonBone configuration
     plugins: [
-        ui({
+        uiPlugin({
             themeDir: "./theme", // Directory for theme files
             configFileName: "ui.config", // Name of config files
             styleFileName: "ui.style", // Name of style files
@@ -135,11 +135,13 @@ You can use the `defineConfig` helper which provides type checking:
 
 ```ts
 // src/shared/theme/ui.config.ts
-import {ButtonColor, ButtonRadius, ButtonVariant, TextFieldRadius, TextFieldSize, defineConfig} from "adnbn-ui/config";
+import {defineConfig} from "adnbn-ui/config";
+import {ButtonColor, ButtonRadius, ButtonVariant, TextFieldRadius, TextFieldSize} from "adnbn-ui";
+
 import CloseIcon from "./icons/close.svg?react";
 
 export default defineConfig({
-    props: {
+    components: {
         button: {
             variant: ButtonVariant.Contained,
             color: ButtonColor.Primary,
@@ -233,7 +235,7 @@ You can customize the theme globally by passing props to the UIProvider:
 import {UIProvider} from "adnbn-ui";
 
 const customTheme = {
-    props: {
+    components: {
         button: {
             variant: "outlined",
             color: "primary",
@@ -249,6 +251,139 @@ const customTheme = {
 
 function App() {
     return <UIProvider {...customTheme}>{/* Your application */}</UIProvider>;
+}
+```
+
+### Using Extra Props
+
+Extra Props is a powerful feature that allows you to extend component props with custom properties. This is particularly useful when you need to add custom functionality or data to components across your application without modifying the original component code.
+
+#### What are Extra Props?
+
+Extra Props provide a way to pass additional properties to components throughout your application using React Context. This allows you to:
+
+- Add application-specific properties to UI components
+- Share common data across multiple components
+- Extend the library's components with your own custom properties
+
+#### How to Use Extra Props
+
+1. **Configure Extra Props in your theme configuration:**
+
+```ts
+// src/shared/theme/ui.config.ts
+import {defineConfig} from "adnbn-ui/config";
+
+export default defineConfig({
+    components: {
+        // Component configurations
+    },
+    extra: {
+        // Your custom properties
+        appName: "My Awesome App",
+        version: "1.0.0",
+        features: {
+            darkMode: true,
+            analytics: false,
+        },
+    },
+    icons: {
+        // Icon configurations
+    },
+});
+```
+
+2. **Access Extra Props in your components using the `useExtra` hook:**
+
+```jsx
+import {useExtra} from "adnbn-ui";
+
+function AppHeader() {
+    const extra = useExtra();
+
+    return (
+        <header>
+            <h1>{extra.appName}</h1>
+            <span>Version: {extra.version}</span>
+        </header>
+    );
+}
+```
+
+#### Example Use Case
+
+A common use case for Extra Props is to add application-specific configuration to UI components. For example, you might want to add custom analytics tracking to buttons:
+
+```jsx
+import {Button, useExtra} from "adnbn-ui";
+
+function TrackableButton(props) {
+    const extra = useExtra();
+
+    const handleClick = e => {
+        // Use extra props for analytics
+        if (extra.features.analytics) {
+            trackButtonClick(props.trackingId);
+        }
+
+        // Call the original onClick handler
+        props.onClick?.(e);
+    };
+
+    return <Button {...props} onClick={handleClick} />;
+}
+```
+
+#### Extending ExtraProps in TypeScript
+
+To get proper type checking for your custom Extra Props, you can extend the `ExtraProps` interface:
+
+```ts
+// ui.d.ts or similar file
+import "adnbn-ui";
+
+declare module "adnbn-ui" {
+    interface ExtraProps {
+        appName: string;
+        version: string;
+        features: {
+            darkMode: boolean;
+            analytics: boolean;
+        };
+        // Add any other custom properties
+    }
+}
+```
+
+With this type definition, TypeScript will provide proper type checking and autocompletion when using the `useExtra` hook:
+
+```tsx
+import React from "react";
+import {useExtra, Button} from "adnbn-ui";
+
+const FeatureFlag: React.FC<{feature: keyof ExtraProps["features"]; children: React.ReactNode}> = ({
+    feature,
+    children,
+}) => {
+    const extra = useExtra();
+
+    // TypeScript knows that extra.features exists and has the properties we defined
+    if (extra.features[feature]) {
+        return <>{children}</>;
+    }
+
+    return null;
+};
+
+// Usage
+function App() {
+    return (
+        <div>
+            <FeatureFlag feature="darkMode">
+                <Button>Dark Mode Enabled</Button>
+            </FeatureFlag>
+        </div>
+    );
 }
 ```
 

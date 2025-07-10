@@ -1,5 +1,5 @@
 import {createContext, useContext} from "react";
-import {Icons} from "../../types/config"
+import {Icons} from "../../types/config";
 
 export interface IconsContract {
     icons: Icons;
