@@ -69,6 +69,7 @@ $root: avatar;
     align-items: center;
     justify-content: center;
     color: var(--avatar-fallback-color);
+    line-height: var(--fallback-line-height, var(--line-height, 1 rem));
     background-color: var(--avatar-fallback-bg-color, var(--avatar-bg-color));
     border-width: var(--avatar-fallback-border-width, var(--avatar-border-width));
     border-color: var(--avatar-fallback-border-color, var(--avatar-border-color));
