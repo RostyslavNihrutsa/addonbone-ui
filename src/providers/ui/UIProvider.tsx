@@ -11,7 +11,7 @@ import "adnbn-ui-style.scss";
 
 import config from "adnbn-ui-config";
 
-export type UIProviderProps = Partial<Config>
+export type UIProviderProps = Partial<Config>;
 
 const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, components = {}, extra = {}, icons = {}}) => {
     const componentsProps: ComponentsProps = merge(config.components || {}, components);
@@ -23,9 +23,7 @@ const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, component
     return (
         <ThemeProvider components={componentsProps}>
             <ExtraProvider extra={extraProps}>
-                <IconsProvider icons={svgIcons}>
-                    {children}
-                </IconsProvider>
+                <IconsProvider icons={svgIcons}>{children}</IconsProvider>
             </ExtraProvider>
         </ThemeProvider>
     );
