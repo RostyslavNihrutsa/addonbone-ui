@@ -1,9 +1,13 @@
 import React, {FC, PropsWithChildren} from "react";
 import {merge} from "ts-deepmerge";
 
-import {ExtraProvider, IconsProvider, ThemeProvider} from "./index";
+import {ExtraProvider, IconsProvider, ThemeProvider} from "../index";
 
-import {ComponentsProps, Config, ExtraProps, Icons} from "../types/config";
+import {ComponentsProps, Config, ExtraProps, Icons} from "../../types/config";
+
+import "./styles/default.scss";
+import "./styles/reset.scss";
+import "adnbn-ui-style.scss";
 
 import config from "adnbn-ui-config";
 

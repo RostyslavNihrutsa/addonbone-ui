@@ -7,7 +7,7 @@ $root: text-area;
   font-weight: var(--text-area-font-weight, 400);
   font-size: var(--text-area-font-size, 14px);
   letter-spacing: var(--text-area-letter-spacing, 0.5px);
-  line-height: var(--text-area-line-height, 18px);
+  line-height: var(--text-area-line-height, var(--line-height, 1 rem));
   padding: var(--text-area-padding, 8px 12px);
   border-radius: var(--text-area-border-radius, 8px);
   min-width: var(--text-area-min-width, 200px);

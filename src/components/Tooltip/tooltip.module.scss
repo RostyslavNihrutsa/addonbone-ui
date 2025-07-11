@@ -6,6 +6,7 @@ $root: tooltip;
     font-family: var(--tooltip-font-family, var(--font-family)), sans-serif;
     font-weight: var(--tooltip-font-weight, 500);
     font-size: var(--tooltip-font-size, var(--font-size, 14px));
+    line-height: var(--tooltip-line-height, var(--line-height, 1 rem));
     color: var(--tooltip-color, var(--text-secondary-color));
     background-color: var(--tooltip-bg-color, var(--bg-secondary-color));
     border-radius: var(--tooltip-border-radius, 5px);
