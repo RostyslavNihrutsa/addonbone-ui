@@ -55,7 +55,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "adnbn": "^0.0.54",
+    "adnbn": "^0.1.3",
     "autosize": "^6.0.1",
     "classnames": "^2.5.1",
     "odometer": "^0.4.8",
