@@ -5,9 +5,6 @@ import {ThemeContext} from "./context";
 import {Theme} from "../../types/theme";
 import {Config} from "../../types/config";
 
-import "./styles/reset.scss";
-import "./styles/default.scss";
-
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
 const ThemeProvider: FC<PropsWithChildren<Pick<Config, "components">>> = ({children, components}) => {

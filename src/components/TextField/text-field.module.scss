@@ -8,7 +8,7 @@ $root: text-field;
   font-weight: var(--text-field-font-weight, 400);
   font-size: var(--text-field-font-size, 14px);
   letter-spacing: var(--text-field-letter-spacing, 0.5px);
-  line-height: var(--text-field-line-height, 18px);
+  line-height: var(--text-field-line-height, var(--line-height, 1 rem));
   padding: var(--text-field-padding, 8px 12px);
   border-radius: var(--text-field-border-radius, 8px);
   transition:
