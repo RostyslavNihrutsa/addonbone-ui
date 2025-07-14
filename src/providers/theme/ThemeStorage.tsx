@@ -1,10 +1,14 @@
-import {Storage} from 'adnbn/storage';
+import {Storage} from "adnbn/storage";
 
 import {Theme} from "../../types/theme";
 
 export default class {
-    private storage = new Storage<Record<string, Theme>>({area: 'local', namespace: 'adnbn-ui'});
-    private key = 'theme';
+    private readonly storage = new Storage<Record<string, Theme>>({
+        area: "local",
+        namespace: "adnbn-ui",
+    });
+
+    private readonly key = "theme";
 
     public async get(): Promise<Theme | undefined> {
         return await this.storage.get(this.key);
@@ -15,16 +19,18 @@ export default class {
     }
 
     public async toggle(): Promise<void> {
-        const theme = await this.get();
+        let theme = await this.get();
 
-        if (!theme) return;
+        if (!theme) {
+            theme = Theme.Dark;
+        }
 
-        this.storage.set(this.key, theme === Theme.Dark ? Theme.Light : Theme.Dark);
+        await this.change(theme === Theme.Dark ? Theme.Light : Theme.Dark);
     }
 
     public watch(callback: (theme: Theme) => void): () => void {
         return this.storage.watch({
-            [this.key]: (newValue) => newValue && callback(newValue)
+            [this.key]: newValue => newValue && callback(newValue),
         });
     }
 }

@@ -8,14 +8,17 @@ import {Config} from "../../types/config";
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
+const isValid = (theme: Theme | undefined): theme is Theme => {
+    return !!theme && [Theme.Light, Theme.Dark].includes(theme);
+};
+
 const ThemeProvider: FC<PropsWithChildren<Pick<Config, "components">>> = ({children, components}) => {
     const storage = useRef(new ThemeStorage());
 
-    const [theme, setTheme] = useState<Theme>(() => isDarkMedia() ? Theme.Dark : Theme.Light);
+    const [theme, setTheme] = useState<Theme>(() => (isDarkMedia() ? Theme.Dark : Theme.Light));
 
     const changeTheme = useCallback((theme: Theme) => {
-        storage.current.change(theme)
-            .catch(e => console.error('ThemeProvider, set theme to storage error', e));
+        storage.current.change(theme).catch(e => console.error("ThemeProvider: set theme to storage error", e));
     }, []);
 
     const toggleTheme = useCallback(() => {
@@ -23,13 +26,10 @@ const ThemeProvider: FC<PropsWithChildren<Pick<Config, "components">>> = ({child
     }, [theme, changeTheme]);
 
     useEffect(() => {
-        const isValid = (theme: Theme | undefined): theme is Theme => {
-            return !!theme && [Theme.Light, Theme.Dark].includes(theme);
-        };
-
-        storage.current.get()
+        storage.current
+            .get()
             .then(newTheme => isValid(newTheme) && setTheme(newTheme))
-            .catch(e => console.error('ThemeProvider, get theme from storage error', e));
+            .catch(e => console.error("ThemeProvider: get theme from storage error", e));
 
         const unsubscribe = storage.current.watch(newTheme => isValid(newTheme) && setTheme(newTheme));
 
