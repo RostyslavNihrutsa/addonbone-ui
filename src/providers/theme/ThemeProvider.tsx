@@ -1,25 +1,20 @@
 import React, {FC, PropsWithChildren, useCallback, useEffect, useRef, useState} from "react";
 
-import {Storage} from 'adnbn/storage';
-
 import {ThemeContext} from "./context";
+import ThemeStorage from "./ThemeStorage";
 
-import {Theme, themeKey} from "../../types/theme";
+import {Theme} from "../../types/theme";
 import {Config} from "../../types/config";
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
 const ThemeProvider: FC<PropsWithChildren<Pick<Config, "components">>> = ({children, components}) => {
-    const storage = useRef<Storage<Record<string, Theme>>>(new Storage());
+    const storage = useRef(new ThemeStorage());
 
-    const [theme, setTheme] = useState<Theme>(() => {
-        return isDarkMedia() ? Theme.Dark : Theme.Light;
-    });
+    const [theme, setTheme] = useState<Theme>(() => isDarkMedia() ? Theme.Dark : Theme.Light);
 
     const changeTheme = useCallback((theme: Theme) => {
-        setTheme(theme);
-
-        storage.current.set(themeKey, theme)
+        storage.current.change(theme)
             .catch(e => console.error('ThemeProvider, set theme to storage error', e));
     }, []);
 
@@ -28,9 +23,17 @@ const ThemeProvider: FC<PropsWithChildren<Pick<Config, "components">>> = ({child
     }, [theme, changeTheme]);
 
     useEffect(() => {
-        storage.current.get(themeKey)
-            .then(theme => theme && setTheme(theme))
+        const isValid = (theme: Theme | undefined): theme is Theme => {
+            return !!theme && [Theme.Light, Theme.Dark].includes(theme);
+        };
+
+        storage.current.get()
+            .then(newTheme => isValid(newTheme) && setTheme(newTheme))
             .catch(e => console.error('ThemeProvider, get theme from storage error', e));
+
+        const unsubscribe = storage.current.watch(newTheme => isValid(newTheme) && setTheme(newTheme));
+
+        return () => unsubscribe();
     }, []);
 
     useEffect(() => {
