@@ -36,7 +36,7 @@ const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
     }, [cssVariables]);
 
     return (
-        <ThemeProvider>
+        <ThemeProvider components={{}}>
             <div className="story-wrapper">{Story(context.args, context)}</div>
         </ThemeProvider>
     );
