@@ -31,7 +31,7 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, com
     }, [theme, changeTheme]);
 
     useEffect(() => {
-        if(!storage) return
+        if (!storage) return;
 
         storage
             .get()
@@ -41,7 +41,7 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, com
         const unsubscribe = storage.watch(newTheme => isValid(newTheme) && setTheme(newTheme));
 
         return () => unsubscribe();
-    }, []);
+    }, [storage]);
 
     useEffect(() => {
         document.querySelector("html")?.setAttribute("theme", theme);
