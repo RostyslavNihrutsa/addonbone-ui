@@ -1,8 +1,8 @@
 import {Storage} from "adnbn/storage";
 
-import {Theme} from "../../types/theme";
+import {Theme, ThemeStorageContract} from "../../types/theme";
 
-export default class {
+export default class implements ThemeStorageContract {
     private readonly storage = new Storage<Record<string, Theme>>({
         area: "local",
         namespace: "adnbn-ui",

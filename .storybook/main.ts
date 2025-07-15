@@ -14,6 +14,7 @@ const config: StorybookConfig = {
             resolve: {
                 alias: {
                     "adnbn-ui-config": path.resolve("src", "config", "default.ts"),
+                    "adnbn-ui-style.scss": path.resolve("src", "providers", "ui", "styles", "default.scss"),
                 },
             },
         });

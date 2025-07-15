@@ -1,8 +1,9 @@
-import React, {FC, PropsWithChildren} from "react";
+import React, {FC, PropsWithChildren, useRef} from "react";
 import {merge} from "ts-deepmerge";
 
-import {ExtraProvider, IconsProvider, ThemeProvider} from "../index";
+import {ExtraProvider, IconsProvider, ThemeProvider, ThemeStorage} from "../index";
 
+import {ThemeStorageContract} from "../../types/theme";
 import {ComponentsProps, Config, ExtraProps, Icons} from "../../types/config";
 
 import "./styles/default.scss";
@@ -14,6 +15,8 @@ import config from "adnbn-ui-config";
 export type UIProviderProps = Partial<Config>;
 
 const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, components = {}, extra = {}, icons = {}}) => {
+    const storage = useRef<ThemeStorageContract>(new ThemeStorage());
+
     const componentsProps: ComponentsProps = merge(config.components || {}, components);
 
     const extraProps: ExtraProps = merge(config.extra || {}, extra);
@@ -21,7 +24,7 @@ const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, component
     const svgIcons: Icons = merge(config.icons || {}, icons);
 
     return (
-        <ThemeProvider components={componentsProps}>
+        <ThemeProvider components={componentsProps} storage={storage.current}>
             <ExtraProvider extra={extraProps}>
                 <IconsProvider icons={svgIcons}>{children}</IconsProvider>
             </ExtraProvider>
