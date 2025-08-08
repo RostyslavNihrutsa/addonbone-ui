@@ -2,7 +2,8 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter} from "../../utils";
 
-import TagComponent, {TagColor, TagRadius, TagSize, TagVariant} from "./Tag";
+import TagComponent from "./Tag";
+import {TagColor, TagRadius, TagSize, TagVariant} from "./types";
 
 const variants: TagVariant[] = [TagVariant.Contained, TagVariant.Outlined, TagVariant.Soft];
 const colors: (TagColor | "default")[] = ["default", TagColor.Primary, TagColor.Secondary, TagColor.Accent];

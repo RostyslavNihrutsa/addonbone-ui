@@ -2,7 +2,8 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-import HighlightComponent, {HighlightColor} from "./Highlight";
+import HighlightComponent from "./Highlight";
+import {HighlightColor} from "./types";
 
 const colors: (HighlightColor | "default")[] = [
     "default",

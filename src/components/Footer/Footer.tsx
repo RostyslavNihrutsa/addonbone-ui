@@ -1,4 +1,4 @@
-import React, {ComponentProps, FC, memo, ReactNode} from "react";
+import React, {ComponentProps, memo, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
@@ -16,7 +16,7 @@ export interface FooterProps extends ComponentProps<"footer"> {
     childrenClassName?: string;
 }
 
-const Footer: FC<FooterProps> = props => {
+const Footer: ForwardRefRenderFunction<HTMLElement, FooterProps> = (props, ref) => {
     const {
         left,
         right,
@@ -32,6 +32,7 @@ const Footer: FC<FooterProps> = props => {
 
     return (
         <footer
+            ref={ref}
             {...other}
             className={classnames(
                 styles["footer"],
@@ -55,4 +56,4 @@ const Footer: FC<FooterProps> = props => {
     );
 };
 
-export default memo(Footer);
+export default memo(forwardRef(Footer));

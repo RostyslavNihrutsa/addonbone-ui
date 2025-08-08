@@ -3,7 +3,8 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-import TextAreaComponent, {TextAreaRadius, TextAreaSize, TextAreaVariant} from "./TextArea";
+import TextAreaComponent from "./TextArea";
+import {TextAreaRadius, TextAreaSize, TextAreaVariant} from "./types";
 
 const variants: TextAreaVariant[] = [TextAreaVariant.Regular, TextAreaVariant.Outlined, TextAreaVariant.Filled];
 const sizes: (TextAreaSize | "default")[] = [TextAreaSize.Small, "default", TextAreaSize.Medium, TextAreaSize.Large];

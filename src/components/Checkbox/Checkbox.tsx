@@ -1,28 +1,14 @@
-import React, {FC, memo, ReactElement} from "react";
+import React, {memo, ReactElement, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {CheckboxProps as CheckboxRootProps, Indicator, Root} from "@radix-ui/react-checkbox";
 
 import {useComponentProps} from "../../providers";
 
+import {CheckboxVariant, CheckboxSize, CheckboxRadius} from "./types";
+
 import styles from "./checkbox.module.scss";
 
 export type {CheckedState} from "@radix-ui/react-checkbox";
-
-export enum CheckboxVariant {
-    Classic = "classic",
-    Soft = "soft",
-}
-
-export enum CheckboxSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum CheckboxRadius {
-    Small = "small",
-    Large = "large",
-}
 
 export interface CheckboxProps extends CheckboxRootProps {
     indicatorClassName?: string;
@@ -33,7 +19,7 @@ export interface CheckboxProps extends CheckboxRootProps {
     indeterminateIcon?: ReactElement;
 }
 
-const Checkbox: FC<CheckboxProps> = props => {
+const Checkbox: ForwardRefRenderFunction<HTMLButtonElement, CheckboxProps> = (props, ref) => {
     const {
         checked,
         size,
@@ -48,6 +34,7 @@ const Checkbox: FC<CheckboxProps> = props => {
 
     return (
         <Root
+            ref={ref}
             {...other}
             checked={checked}
             className={classnames(
@@ -68,4 +55,4 @@ const Checkbox: FC<CheckboxProps> = props => {
     );
 };
 
-export default memo(Checkbox);
+export default memo(forwardRef(Checkbox));

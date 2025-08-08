@@ -1,35 +1,13 @@
-import React, {FC, memo} from "react";
+import React, {memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
 import {useComponentProps} from "../../providers";
 
+import {ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from './types';
+
 import styles from "./button.module.scss";
 
-export enum ButtonVariant {
-    Contained = "contained",
-    Outlined = "outlined",
-    Text = "text",
-}
-
-export enum ButtonColor {
-    Primary = "primary",
-    Secondary = "secondary",
-    Accent = "accent",
-}
-
-export enum ButtonSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum ButtonRadius {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-    Full = "full",
-}
 
 export interface ButtonProps extends BaseButtonProps {
     variant?: ButtonVariant;
@@ -38,7 +16,7 @@ export interface ButtonProps extends BaseButtonProps {
     radius?: ButtonRadius;
 }
 
-const Button: FC<ButtonProps> = props => {
+const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (props, ref) => {
     const {
         variant = ButtonVariant.Contained,
         color,
@@ -52,6 +30,7 @@ const Button: FC<ButtonProps> = props => {
 
     return (
         <BaseButton
+            ref={ref}
             {...other}
             className={classnames(
                 styles["button"],
@@ -70,4 +49,4 @@ const Button: FC<ButtonProps> = props => {
     );
 };
 
-export default memo(Button);
+export default memo(forwardRef(Button));

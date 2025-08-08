@@ -1,4 +1,11 @@
-import React, {ComponentProps, FC, PropsWithChildren, useCallback, useState} from "react";
+import React, {
+    ComponentProps,
+    forwardRef,
+    ForwardRefRenderFunction,
+    PropsWithChildren,
+    useCallback,
+    useState
+} from "react";
 
 import {expandType, LayoutContext} from "./context";
 
@@ -8,7 +15,9 @@ import styles from "./layout.module.scss";
 
 export type LayoutProps = ComponentProps<"div">;
 
-const Provider: FC<PropsWithChildren<LayoutProps>> = ({children, className, style, ...props}) => {
+const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<LayoutProps>> = (
+    {children, className, style, ...props}, ref) => {
+
     const [isExpanded, setExpanded] = useState(false);
     const [height, setHeight] = useState<number | string | undefined>(undefined);
     const [width, setWidth] = useState<number | string | undefined>(undefined);
@@ -28,6 +37,7 @@ const Provider: FC<PropsWithChildren<LayoutProps>> = ({children, className, styl
     return (
         <LayoutContext.Provider value={{isExpanded, expand, collapse}}>
             <div
+                ref={ref}
                 style={{minHeight: height, minWidth: width, ...style}}
                 className={classnames(
                     styles["layout"],
@@ -46,4 +56,4 @@ const Provider: FC<PropsWithChildren<LayoutProps>> = ({children, className, styl
 
 Provider.displayName = "ViewportProvider";
 
-export default Provider;
+export default forwardRef(Provider);

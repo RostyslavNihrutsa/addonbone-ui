@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactElement, ReactNode} from "react";
+import React, {memo, ReactElement, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {
     Description,
@@ -14,28 +14,9 @@ import {IconButton, IconButtonProps} from "../IconButton";
 import {cloneOrCreateElement} from "../../utils";
 import {useComponentProps} from "../../providers";
 
+import {ToastSide, ToastRadius, ToastColor} from "./types";
+
 import styles from "./toast.module.scss";
-
-export enum ToastSide {
-    TopCenter = "top-center",
-    TopLeft = "top-left",
-    TopRight = "top-right",
-    BottomRight = "bottom-right",
-    BottomLeft = "bottom-left",
-    BottomCenter = "bottom-center",
-}
-
-export enum ToastRadius {
-    None = "none",
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum ToastColor {
-    Error = "error",
-    Success = "success",
-}
 
 const toastSideBySwipeDirectionMap = {
     [ToastSide.TopLeft]: "left",
@@ -64,7 +45,7 @@ export interface ToastProps extends Omit<ToastRootProps, "title">, Omit<ToastPro
     sticky?: boolean;
 }
 
-const Toast: FC<ToastProps> = props => {
+const Toast: ForwardRefRenderFunction<HTMLLIElement, ToastProps> = (props, ref) => {
     const defaultProps = useComponentProps("toast");
     const mergedProps = {...defaultProps, ...props};
     const {
@@ -99,6 +80,7 @@ const Toast: FC<ToastProps> = props => {
         <Provider label={label} duration={duration} swipeDirection={swipeDirection} swipeThreshold={swipeThreshold}>
             {children}
             <Root
+                ref={ref}
                 className={classnames(
                     styles["toast"],
                     {
@@ -139,4 +121,4 @@ const Toast: FC<ToastProps> = props => {
     );
 };
 
-export default memo(Toast);
+export default memo(forwardRef(Toast));

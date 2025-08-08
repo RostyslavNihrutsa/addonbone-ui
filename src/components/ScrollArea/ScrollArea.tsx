@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {forwardRef, ForwardRefRenderFunction, memo} from "react";
 import classnames from "classnames";
 import {
     Corner,
@@ -16,18 +16,20 @@ import styles from "./scroll-area.module.scss";
 export interface ScrollAreaProps extends ScrollAreaRootProps {
     xOffset?: number;
     yOffset?: number;
+    horizontalScroll?: boolean;
     thumbClassName?: string;
     cornerClassName?: string;
     viewportClassName?: string;
     scrollbarClassName?: string;
 }
 
-const ScrollArea: FC<ScrollAreaProps> = props => {
+const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (props, ref) => {
     const {
         xOffset,
         yOffset,
         children,
         className,
+        horizontalScroll,
         thumbClassName,
         cornerClassName,
         viewportClassName,
@@ -36,15 +38,21 @@ const ScrollArea: FC<ScrollAreaProps> = props => {
     } = {...useComponentProps("scrollArea"), ...props};
 
     return (
-        <Root className={classnames(styles["scroll-area"], className)} {...other}>
-            <Viewport className={classnames(styles["scroll-area__viewport"], viewportClassName)}>{children}</Viewport>
+        <Root ref={ref} className={classnames(styles["scroll-area"], className)} {...other}>
+            <Viewport className={classnames(
+                styles["scroll-area__viewport"],
+                {
+                    [styles["scroll-area__viewport--horizontal"]]: !horizontalScroll
+                },
+                viewportClassName
+            )}>{children}</Viewport>
 
             <Scrollbar
                 orientation="vertical"
                 style={{padding: `0 ${xOffset}px`}}
                 className={classnames(styles["scroll-area__scrollbar"], scrollbarClassName)}
             >
-                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)} />
+                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)}/>
             </Scrollbar>
 
             <Scrollbar
@@ -52,12 +60,12 @@ const ScrollArea: FC<ScrollAreaProps> = props => {
                 style={{padding: `${yOffset}px 0`}}
                 className={classnames(styles["scroll-area__scrollbar"], scrollbarClassName)}
             >
-                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)} />
+                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)}/>
             </Scrollbar>
 
-            <Corner className={classnames(styles["scroll-area__corner"], cornerClassName)} />
+            <Corner className={classnames(styles["scroll-area__corner"], cornerClassName)}/>
         </Root>
     );
 };
 
-export default memo(ScrollArea);
+export default memo(forwardRef(ScrollArea));

@@ -2,7 +2,8 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-import IconButtonComponent, {IconButtonRadius, IconButtonSize, IconButtonVariant} from "./IconButton";
+import IconButtonComponent from "./IconButton";
+import {IconButtonRadius, IconButtonSize, IconButtonVariant} from "./types";
 
 const variants: (IconButtonVariant | "default")[] = [
     "default",
