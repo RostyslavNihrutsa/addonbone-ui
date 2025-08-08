@@ -1,4 +1,4 @@
-import React, {FC, memo, useEffect, ComponentProps} from "react";
+import React, {memo, useEffect, ComponentProps, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {useComponentProps, useIcons} from "../../providers";
 
@@ -9,7 +9,7 @@ export interface IconProps extends ComponentProps<"svg"> {
     size?: number;
 }
 
-const Icon: FC<IconProps> = props => {
+const Icon: ForwardRefRenderFunction<SVGSVGElement, IconProps> = (props, ref) => {
     const {
         name,
         className,
@@ -37,10 +37,10 @@ const Icon: FC<IconProps> = props => {
     }
 
     return (
-        <svg className={classnames(styles["icon"], className)} width={width} height={height} {...other}>
+        <svg ref={ref} className={classnames(styles["icon"], className)} width={width} height={height} {...other}>
             <use href={`#${name}`} />
         </svg>
     );
 };
 
-export default memo(Icon);
+export default memo(forwardRef(Icon));

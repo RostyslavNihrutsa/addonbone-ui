@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 
 import {Tooltip, TooltipProps} from "../Tooltip";
@@ -17,7 +17,7 @@ export interface IconButtonProps extends BaseButtonProps {
     tooltip?: Omit<TooltipProps, "children">;
 }
 
-const IconButton: FC<IconButtonProps> = props => {
+const IconButton: ForwardRefRenderFunction<HTMLButtonElement, IconButtonProps> = (props, ref) => {
     const {size, radius, variant, tooltip, className, children, ...other} = {
         ...useComponentProps("iconButton"),
         ...props,
@@ -25,6 +25,7 @@ const IconButton: FC<IconButtonProps> = props => {
 
     const iconButton = (
         <BaseButton
+            ref={ref}
             {...other}
             className={classnames(
                 styles["icon-button"],
@@ -46,4 +47,4 @@ const IconButton: FC<IconButtonProps> = props => {
     return iconButton;
 };
 
-export default memo(IconButton);
+export default memo(forwardRef(IconButton));

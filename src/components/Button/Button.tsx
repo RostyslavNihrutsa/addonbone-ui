@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {BaseButton, BaseButtonProps} from "../BaseButton";
 
@@ -16,7 +16,7 @@ export interface ButtonProps extends BaseButtonProps {
     radius?: ButtonRadius;
 }
 
-const Button: FC<ButtonProps> = props => {
+const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (props, ref) => {
     const {
         variant = ButtonVariant.Contained,
         color,
@@ -30,6 +30,7 @@ const Button: FC<ButtonProps> = props => {
 
     return (
         <BaseButton
+            ref={ref}
             {...other}
             className={classnames(
                 styles["button"],
@@ -48,4 +49,4 @@ const Button: FC<ButtonProps> = props => {
     );
 };
 
-export default memo(Button);
+export default memo(forwardRef(Button));

@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {forwardRef, ForwardRefRenderFunction, memo} from "react";
 import classnames from "classnames";
 import {
     Corner,
@@ -22,7 +22,7 @@ export interface ScrollAreaProps extends ScrollAreaRootProps {
     scrollbarClassName?: string;
 }
 
-const ScrollArea: FC<ScrollAreaProps> = props => {
+const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (props, ref) => {
     const {
         xOffset,
         yOffset,
@@ -36,7 +36,7 @@ const ScrollArea: FC<ScrollAreaProps> = props => {
     } = {...useComponentProps("scrollArea"), ...props};
 
     return (
-        <Root className={classnames(styles["scroll-area"], className)} {...other}>
+        <Root ref={ref} className={classnames(styles["scroll-area"], className)} {...other}>
             <Viewport className={classnames(styles["scroll-area__viewport"], viewportClassName)}>{children}</Viewport>
 
             <Scrollbar
@@ -60,4 +60,4 @@ const ScrollArea: FC<ScrollAreaProps> = props => {
     );
 };
 
-export default memo(ScrollArea);
+export default memo(forwardRef(ScrollArea));

@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactElement} from "react";
+import React, {memo, ReactElement, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {CheckboxProps as CheckboxRootProps, Indicator, Root} from "@radix-ui/react-checkbox";
 
@@ -19,7 +19,7 @@ export interface CheckboxProps extends CheckboxRootProps {
     indeterminateIcon?: ReactElement;
 }
 
-const Checkbox: FC<CheckboxProps> = props => {
+const Checkbox: ForwardRefRenderFunction<HTMLButtonElement, CheckboxProps> = (props, ref) => {
     const {
         checked,
         size,
@@ -34,6 +34,7 @@ const Checkbox: FC<CheckboxProps> = props => {
 
     return (
         <Root
+            ref={ref}
             {...other}
             checked={checked}
             className={classnames(
@@ -54,4 +55,4 @@ const Checkbox: FC<CheckboxProps> = props => {
     );
 };
 
-export default memo(Checkbox);
+export default memo(forwardRef(Checkbox));

@@ -1,4 +1,4 @@
-import React, {FC, isValidElement, memo, ReactElement, useCallback} from "react";
+import React, {isValidElement, memo, ReactElement, useCallback, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 
 import {useComponentProps} from "../../providers";
@@ -19,7 +19,7 @@ export interface ModalProps extends DialogProps {
 
 export const modalPropsKeys = new Set<keyof ModalProps>(["radius", "closeButton", "onClose", ...dialogPropsKeys]);
 
-const Modal: FC<ModalProps> = props => {
+const Modal: ForwardRefRenderFunction<HTMLDivElement, ModalProps> = (props, ref) => {
     const {
         radius,
         fullscreen = true,
@@ -64,6 +64,7 @@ const Modal: FC<ModalProps> = props => {
 
     return (
         <Dialog
+            ref={ref}
             {...other}
             onOpenChange={onOpenChange}
             overlayClassName={classnames(styles["modal-overlay"], overlayClassName)}
@@ -86,4 +87,4 @@ const Modal: FC<ModalProps> = props => {
     );
 };
 
-export default memo(Modal);
+export default memo(forwardRef(Modal));

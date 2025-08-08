@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {Root, SwitchProps as SwitchRootProps, Thumb} from "@radix-ui/react-switch";
 
@@ -10,15 +10,15 @@ export interface SwitchProps extends SwitchRootProps {
     thumbClassName?: string;
 }
 
-const Switch: FC<SwitchProps> = props => {
+const Switch: ForwardRefRenderFunction<HTMLButtonElement, SwitchProps> = (props, ref) => {
     const {className, thumbClassName, children, ...other} = {...useComponentProps("switch"), ...props};
 
     return (
-        <Root {...other} className={classnames(styles["switch"], className)}>
+        <Root ref={ref} {...other} className={classnames(styles["switch"], className)}>
             <Thumb className={classnames(styles["switch__thumb"], thumbClassName)} />
             {children}
         </Root>
     );
 };
 
-export default memo(Switch);
+export default memo(forwardRef(Switch));

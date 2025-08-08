@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactElement, ReactNode} from "react";
+import React, {memo, ReactElement, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {
     Description,
@@ -45,7 +45,7 @@ export interface ToastProps extends Omit<ToastRootProps, "title">, Omit<ToastPro
     sticky?: boolean;
 }
 
-const Toast: FC<ToastProps> = props => {
+const Toast: ForwardRefRenderFunction<HTMLLIElement, ToastProps> = (props, ref) => {
     const defaultProps = useComponentProps("toast");
     const mergedProps = {...defaultProps, ...props};
     const {
@@ -80,6 +80,7 @@ const Toast: FC<ToastProps> = props => {
         <Provider label={label} duration={duration} swipeDirection={swipeDirection} swipeThreshold={swipeThreshold}>
             {children}
             <Root
+                ref={ref}
                 className={classnames(
                     styles["toast"],
                     {
@@ -120,4 +121,4 @@ const Toast: FC<ToastProps> = props => {
     );
 };
 
-export default memo(Toast);
+export default memo(forwardRef(Toast));

@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactNode} from "react";
+import React, {memo, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from "@radix-ui/react-avatar";
 
@@ -18,7 +18,7 @@ export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps,
     cursorPointer?: boolean;
 }
 
-const Avatar: FC<AvatarProps> = props => {
+const Avatar: ForwardRefRenderFunction<HTMLSpanElement, AvatarProps> = (props, ref) => {
     const {
         size,
         radius,
@@ -33,6 +33,7 @@ const Avatar: FC<AvatarProps> = props => {
 
     return (
         <Root
+            ref={ref}
             className={classnames(
                 styles["avatar"],
                 {
@@ -53,4 +54,4 @@ const Avatar: FC<AvatarProps> = props => {
     );
 };
 
-export default memo(Avatar);
+export default memo(forwardRef(Avatar));

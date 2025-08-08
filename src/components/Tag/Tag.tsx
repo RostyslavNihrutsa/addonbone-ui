@@ -1,4 +1,4 @@
-import React, {ComponentProps, FC, memo} from "react";
+import React, {ComponentProps, memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {useComponentProps} from "../../providers";
 
@@ -14,7 +14,7 @@ export interface TagProps extends ComponentProps<"span"> {
     clickable?: boolean;
 }
 
-const Tag: FC<TagProps> = props => {
+const Tag: ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (props, ref) => {
     const {
         size,
         color,
@@ -28,6 +28,7 @@ const Tag: FC<TagProps> = props => {
 
     return (
         <span
+            ref={ref}
             {...other}
             className={classnames(
                 styles["tag"],
@@ -46,4 +47,4 @@ const Tag: FC<TagProps> = props => {
     );
 };
 
-export default memo(Tag);
+export default memo(forwardRef(Tag));
