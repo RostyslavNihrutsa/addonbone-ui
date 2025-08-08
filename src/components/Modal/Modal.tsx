@@ -7,14 +7,9 @@ import {cloneOrCreateElement} from "../../utils";
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog";
 import {IconButton, IconButtonProps} from "../IconButton";
 
-import styles from "./modal.module.scss";
+import {ModalRadius} from "./types";
 
-export enum ModalRadius {
-    None = "none",
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
+import styles from "./modal.module.scss";
 
 export interface ModalProps extends DialogProps {
     radius?: ModalRadius;

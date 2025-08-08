@@ -6,25 +6,9 @@ import {BaseButton, BaseButtonProps} from "../BaseButton";
 
 import {useComponentProps} from "../../providers";
 
+import {IconButtonVariant, IconButtonSize, IconButtonRadius} from "./types";
+
 import styles from "./icon-button.module.scss";
-
-export enum IconButtonVariant {
-    Contained = "contained",
-    Outlined = "outlined",
-    Ghost = "ghost",
-}
-
-export enum IconButtonSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum IconButtonRadius {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
 
 export interface IconButtonProps extends BaseButtonProps {
     size?: IconButtonSize;

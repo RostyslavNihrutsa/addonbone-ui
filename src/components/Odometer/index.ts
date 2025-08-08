@@ -1,3 +1,2 @@
-export {default as Odometer} from "./Odometer";
+export {default as Odometer, type OdometerProps} from "./Odometer";
 export {default as useOdometer} from "./hooks/useOdometer";
-export type {OdometerProps} from "./Odometer";

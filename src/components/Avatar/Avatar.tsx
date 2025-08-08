@@ -4,19 +4,10 @@ import {AvatarFallbackProps, AvatarImageProps, Fallback, Image, Root} from "@rad
 
 import {useComponentProps} from "../../providers";
 
+import {AvatarRadius, AvatarSize} from './types';
+
 import styles from "./avatar.module.scss";
 
-export enum AvatarSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum AvatarRadius {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
 
 export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps, "delayMs"> {
     imageClassName?: string;

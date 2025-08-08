@@ -2,31 +2,9 @@ import React, {ComponentProps, FC, memo} from "react";
 import classnames from "classnames";
 import {useComponentProps} from "../../providers";
 
+import {TagVariant, TagColor, TagSize, TagRadius} from "./types";
+
 import styles from "./tag.module.scss";
-
-export enum TagVariant {
-    Contained = "contained",
-    Outlined = "outlined",
-    Soft = "soft",
-}
-
-export enum TagColor {
-    Primary = "primary",
-    Secondary = "secondary",
-    Accent = "accent",
-}
-
-export enum TagSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum TagRadius {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
 
 export interface TagProps extends ComponentProps<"span"> {
     size?: TagSize;

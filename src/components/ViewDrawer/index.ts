@@ -1,2 +1,1 @@
-export {default as ViewDrawer} from "./ViewDrawer";
-export type {ViewDrawerProps} from "./ViewDrawer";
+export {default as ViewDrawer, type ViewDrawerProps} from "./ViewDrawer";

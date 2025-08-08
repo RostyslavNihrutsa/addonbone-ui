@@ -14,28 +14,9 @@ import {IconButton, IconButtonProps} from "../IconButton";
 import {cloneOrCreateElement} from "../../utils";
 import {useComponentProps} from "../../providers";
 
+import {ToastSide, ToastRadius, ToastColor} from "./types";
+
 import styles from "./toast.module.scss";
-
-export enum ToastSide {
-    TopCenter = "top-center",
-    TopLeft = "top-left",
-    TopRight = "top-right",
-    BottomRight = "bottom-right",
-    BottomLeft = "bottom-left",
-    BottomCenter = "bottom-center",
-}
-
-export enum ToastRadius {
-    None = "none",
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum ToastColor {
-    Error = "error",
-    Success = "success",
-}
 
 const toastSideBySwipeDirectionMap = {
     [ToastSide.TopLeft]: "left",

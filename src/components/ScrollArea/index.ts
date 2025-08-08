@@ -1,2 +1,1 @@
-export {default as ScrollArea} from "./ScrollArea";
-export type {ScrollAreaProps} from "./ScrollArea";
+export {default as ScrollArea, type ScrollAreaProps} from "./ScrollArea";

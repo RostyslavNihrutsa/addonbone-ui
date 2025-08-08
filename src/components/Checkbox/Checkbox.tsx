@@ -4,25 +4,11 @@ import {CheckboxProps as CheckboxRootProps, Indicator, Root} from "@radix-ui/rea
 
 import {useComponentProps} from "../../providers";
 
+import {CheckboxVariant, CheckboxSize, CheckboxRadius} from "./types";
+
 import styles from "./checkbox.module.scss";
 
 export type {CheckedState} from "@radix-ui/react-checkbox";
-
-export enum CheckboxVariant {
-    Classic = "classic",
-    Soft = "soft",
-}
-
-export enum CheckboxSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum CheckboxRadius {
-    Small = "small",
-    Large = "large",
-}
 
 export interface CheckboxProps extends CheckboxRootProps {
     indicatorClassName?: string;

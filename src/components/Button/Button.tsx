@@ -4,32 +4,10 @@ import {BaseButton, BaseButtonProps} from "../BaseButton";
 
 import {useComponentProps} from "../../providers";
 
+import {ButtonColor, ButtonRadius, ButtonSize, ButtonVariant} from './types';
+
 import styles from "./button.module.scss";
 
-export enum ButtonVariant {
-    Contained = "contained",
-    Outlined = "outlined",
-    Text = "text",
-}
-
-export enum ButtonColor {
-    Primary = "primary",
-    Secondary = "secondary",
-    Accent = "accent",
-}
-
-export enum ButtonSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum ButtonRadius {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-    Full = "full",
-}
 
 export interface ButtonProps extends BaseButtonProps {
     variant?: ButtonVariant;

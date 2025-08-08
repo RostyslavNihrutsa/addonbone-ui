@@ -1,2 +1,1 @@
-export {default as ListItem} from "./ListItem";
-export type {ListItemProps, ListItemType} from "./ListItem";
+export {default as ListItem, type ListItemProps, type ListItemType} from "./ListItem";

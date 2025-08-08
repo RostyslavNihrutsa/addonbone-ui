@@ -6,14 +6,9 @@ import {cloneOrCreateElement} from "../../utils";
 
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog";
 
-import styles from "./drawer.module.scss";
+import {DrawerSide} from "./types";
 
-export enum DrawerSide {
-    Left = "left",
-    Right = "right",
-    Top = "top",
-    Bottom = "bottom",
-}
+import styles from "./drawer.module.scss";
 
 export interface DrawerProps extends DialogProps {
     side?: DrawerSide;
