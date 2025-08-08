@@ -4,7 +4,7 @@ import React, {
     ForwardRefRenderFunction,
     PropsWithChildren,
     useCallback,
-    useState
+    useState,
 } from "react";
 
 import {expandType, LayoutContext} from "./context";
@@ -16,8 +16,9 @@ import styles from "./layout.module.scss";
 export type LayoutProps = ComponentProps<"div">;
 
 const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<LayoutProps>> = (
-    {children, className, style, ...props}, ref) => {
-
+    {children, className, style, ...props},
+    ref
+) => {
     const [isExpanded, setExpanded] = useState(false);
     const [height, setHeight] = useState<number | string | undefined>(undefined);
     const [width, setWidth] = useState<number | string | undefined>(undefined);

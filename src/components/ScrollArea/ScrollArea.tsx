@@ -39,20 +39,24 @@ const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (p
 
     return (
         <Root ref={ref} className={classnames(styles["scroll-area"], className)} {...other}>
-            <Viewport className={classnames(
-                styles["scroll-area__viewport"],
-                {
-                    [styles["scroll-area__viewport--horizontal"]]: !horizontalScroll
-                },
-                viewportClassName
-            )}>{children}</Viewport>
+            <Viewport
+                className={classnames(
+                    styles["scroll-area__viewport"],
+                    {
+                        [styles["scroll-area__viewport--horizontal"]]: !horizontalScroll,
+                    },
+                    viewportClassName
+                )}
+            >
+                {children}
+            </Viewport>
 
             <Scrollbar
                 orientation="vertical"
                 style={{padding: `0 ${xOffset}px`}}
                 className={classnames(styles["scroll-area__scrollbar"], scrollbarClassName)}
             >
-                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)}/>
+                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)} />
             </Scrollbar>
 
             <Scrollbar
@@ -60,10 +64,10 @@ const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (p
                 style={{padding: `${yOffset}px 0`}}
                 className={classnames(styles["scroll-area__scrollbar"], scrollbarClassName)}
             >
-                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)}/>
+                <Thumb className={classnames(styles["scroll-area__thumb"], thumbClassName)} />
             </Scrollbar>
 
-            <Corner className={classnames(styles["scroll-area__corner"], cornerClassName)}/>
+            <Corner className={classnames(styles["scroll-area__corner"], cornerClassName)} />
         </Root>
     );
 };
