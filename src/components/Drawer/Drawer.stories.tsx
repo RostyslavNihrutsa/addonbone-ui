@@ -5,7 +5,8 @@ import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
 import {Button, List, ListItem} from "../index";
 
-import DrawerComponent, {DrawerProps, DrawerSide} from "./Drawer";
+import DrawerComponent, {DrawerProps} from "./Drawer";
+import {DrawerSide} from "./types";
 
 const sides: DrawerSide[] = [DrawerSide.Left, DrawerSide.Top, DrawerSide.Bottom, DrawerSide.Right];
 const items = [

@@ -5,7 +5,8 @@ import {hideInTable} from "../../utils";
 
 import {Button, ButtonColor, ButtonVariant} from "../index";
 
-import ToastComponent, {ToastColor, ToastProps, ToastRadius, ToastSide} from "./Toast";
+import ToastComponent, {ToastProps} from "./Toast";
+import {ToastColor, ToastRadius, ToastSide} from "./types";
 
 const sides: ToastSide[] = [
     ToastSide.TopLeft,
