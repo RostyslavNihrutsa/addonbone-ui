@@ -3,7 +3,8 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-import CheckboxComponent, {CheckboxRadius, CheckboxSize, CheckboxVariant, CheckedState} from "./Checkbox";
+import CheckboxComponent, {CheckedState} from "./Checkbox";
+import {CheckboxRadius, CheckboxSize, CheckboxVariant} from "./types";
 
 const variants: (CheckboxVariant | "default")[] = ["default", CheckboxVariant.Classic, CheckboxVariant.Soft];
 const size: (CheckboxSize | "default")[] = [CheckboxSize.Small, "default", CheckboxSize.Medium, CheckboxSize.Large];

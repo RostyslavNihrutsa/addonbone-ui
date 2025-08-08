@@ -15,26 +15,9 @@ import autosize from "autosize";
 
 import {useComponentProps} from "../../providers";
 
+import {TextAreaVariant, TextAreaSize, TextAreaRadius} from "./types";
+
 import styles from "./text-area.module.scss";
-
-export enum TextAreaVariant {
-    Regular = "regular",
-    Outlined = "outlined",
-    Filled = "filled",
-}
-
-export enum TextAreaSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum TextAreaRadius {
-    None = "none",
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
 
 export interface TextAreaActions {
     select(): void;

@@ -1,4 +1,4 @@
-import React, {ComponentProps, FC, memo, ReactNode} from "react";
+import React, {ComponentProps, memo, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
@@ -20,7 +20,7 @@ export interface HeaderProps extends Omit<ComponentProps<"header">, "title"> {
     alignCenter?: boolean;
 }
 
-const Header: FC<HeaderProps> = props => {
+const Header: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (props, ref) => {
     const {
         title,
         before,
@@ -40,6 +40,7 @@ const Header: FC<HeaderProps> = props => {
 
     return (
         <header
+            ref={ref}
             {...other}
             className={classnames(
                 styles["header"],
@@ -70,4 +71,4 @@ const Header: FC<HeaderProps> = props => {
     );
 };
 
-export default memo(Header);
+export default memo(forwardRef(Header));

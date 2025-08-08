@@ -1,2 +1,2 @@
-export {default as IconButton, IconButtonVariant, IconButtonRadius, IconButtonSize} from "./IconButton";
-export type {IconButtonProps} from "./IconButton";
+export * from "./types";
+export {default as IconButton, type IconButtonProps} from "./IconButton";

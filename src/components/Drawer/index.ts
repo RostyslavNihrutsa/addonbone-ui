@@ -1,2 +1,2 @@
-export {default as Drawer, DrawerSide, drawerPropsKeys} from "./Drawer";
-export type {DrawerProps} from "./Drawer";
+export * from "./types";
+export {default as Drawer, drawerPropsKeys, type DrawerProps} from "./Drawer";

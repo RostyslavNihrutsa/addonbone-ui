@@ -5,7 +5,8 @@ import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
 import {Button, Header} from "../index";
 
-import ModalComponent, {ModalProps, ModalRadius} from "./Modal";
+import ModalComponent, {ModalProps} from "./Modal";
+import {ModalRadius} from "./types";
 
 const radius: (ModalRadius | "default")[] = [
     ModalRadius.None,

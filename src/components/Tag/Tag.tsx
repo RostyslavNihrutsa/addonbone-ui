@@ -1,32 +1,10 @@
-import React, {ComponentProps, FC, memo} from "react";
+import React, {ComponentProps, memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {useComponentProps} from "../../providers";
 
+import {TagVariant, TagColor, TagSize, TagRadius} from "./types";
+
 import styles from "./tag.module.scss";
-
-export enum TagVariant {
-    Contained = "contained",
-    Outlined = "outlined",
-    Soft = "soft",
-}
-
-export enum TagColor {
-    Primary = "primary",
-    Secondary = "secondary",
-    Accent = "accent",
-}
-
-export enum TagSize {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
-
-export enum TagRadius {
-    Small = "small",
-    Medium = "medium",
-    Large = "large",
-}
 
 export interface TagProps extends ComponentProps<"span"> {
     size?: TagSize;
@@ -36,7 +14,7 @@ export interface TagProps extends ComponentProps<"span"> {
     clickable?: boolean;
 }
 
-const Tag: FC<TagProps> = props => {
+const Tag: ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (props, ref) => {
     const {
         size,
         color,
@@ -50,6 +28,7 @@ const Tag: FC<TagProps> = props => {
 
     return (
         <span
+            ref={ref}
             {...other}
             className={classnames(
                 styles["tag"],
@@ -68,4 +47,4 @@ const Tag: FC<TagProps> = props => {
     );
 };
 
-export default memo(Tag);
+export default memo(forwardRef(Tag));

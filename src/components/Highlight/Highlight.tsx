@@ -4,13 +4,9 @@ import Highlighter, {HighlighterProps} from "react-highlight-words";
 
 import {useComponentProps} from "../../providers";
 
-import styles from "./highlight.module.scss";
+import {HighlightColor} from "./types";
 
-export enum HighlightColor {
-    Primary = "primary",
-    Secondary = "secondary",
-    Accent = "accent",
-}
+import styles from "./highlight.module.scss";
 
 export interface HighlightProps extends HighlighterProps {
     color?: HighlightColor;

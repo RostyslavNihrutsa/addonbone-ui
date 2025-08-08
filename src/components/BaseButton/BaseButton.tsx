@@ -1,4 +1,4 @@
-import React, {ComponentProps, FC, memo, ReactNode} from "react";
+import React, {ComponentProps, memo, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 
 import {cloneOrCreateElement} from "../../utils";
@@ -13,11 +13,11 @@ export interface BaseButtonProps extends ComponentProps<"button"> {
     childrenClassName?: string;
 }
 
-const BaseButton: FC<BaseButtonProps> = props => {
+const BaseButton: ForwardRefRenderFunction<HTMLButtonElement, BaseButtonProps> = (props, ref) => {
     const {after, before, children, className, afterClassName, beforeClassName, childrenClassName, ...other} = props;
 
     return (
-        <button className={classnames(styles["base-button"], className)} {...other}>
+        <button ref={ref} className={classnames(styles["base-button"], className)} {...other}>
             {cloneOrCreateElement(before, {
                 className: classnames(styles["base-button__before"], beforeClassName),
             })}
@@ -33,4 +33,4 @@ const BaseButton: FC<BaseButtonProps> = props => {
     );
 };
 
-export default memo(BaseButton);
+export default memo(forwardRef(BaseButton));

@@ -3,7 +3,8 @@ import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
 
-import TextFieldComponent, {TextFieldAccent, TextFieldRadius, TextFieldSize, TextFieldVariant} from "./TextField";
+import TextFieldComponent from "./TextField";
+import {TextFieldAccent, TextFieldRadius, TextFieldSize, TextFieldVariant} from "./types";
 
 const variants: TextFieldVariant[] = [TextFieldVariant.Regular, TextFieldVariant.Outlined, TextFieldVariant.Filled];
 const sizes: (TextFieldSize | "default")[] = [

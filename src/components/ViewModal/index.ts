@@ -1,2 +1,1 @@
-export {default as ViewModal} from "./ViewModal";
-export type {ViewModalProps} from "./ViewModal";
+export {default as ViewModal, type ViewModalProps} from "./ViewModal";

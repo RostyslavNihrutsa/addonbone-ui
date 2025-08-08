@@ -1,2 +1,1 @@
-export {default as List} from "./List";
-export type {ListProps} from "./List";
+export {default as List, type ListProps} from "./List";

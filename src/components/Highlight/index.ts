@@ -1,2 +1,2 @@
-export {default as Highlight, HighlightColor} from "./Highlight";
-export type {HighlightProps} from "./Highlight";
+export * from "./types";
+export {default as Highlight, type HighlightProps} from "./Highlight";

@@ -1,4 +1,4 @@
-import React, {FC, memo, useEffect, useRef} from "react";
+import React, {memo, useEffect, useRef, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {
     Content,
@@ -45,7 +45,7 @@ export const dialogPropsKeys = new Set<keyof DialogProps>([
     "title",
 ]);
 
-const Dialog: FC<DialogProps> = props => {
+const Dialog: ForwardRefRenderFunction<HTMLDivElement, DialogProps> = (props, ref) => {
     const {
         speed = 200,
         open,
@@ -102,6 +102,7 @@ const Dialog: FC<DialogProps> = props => {
                     style={{animationDuration: `${speed}ms`}}
                 />
                 <Content
+                    ref={ref}
                     className={classnames(styles["dialog-content"], className)}
                     style={{animationDuration: `${speed}ms`}}
                     {...other}
@@ -122,4 +123,4 @@ const Dialog: FC<DialogProps> = props => {
     );
 };
 
-export default memo(Dialog);
+export default memo(forwardRef(Dialog));

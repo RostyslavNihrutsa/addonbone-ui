@@ -1,4 +1,4 @@
-import React, {FC, memo, ReactNode} from "react";
+import React, {memo, ReactNode, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 import {
     Arrow,
@@ -24,7 +24,7 @@ export interface TooltipProps extends TooltipRootProps, Omit<TooltipContentProps
     contentClassName?: string;
 }
 
-const Tooltip: FC<TooltipProps> = props => {
+const Tooltip: ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, ref) => {
     const {
         open,
         defaultOpen,
@@ -54,6 +54,7 @@ const Tooltip: FC<TooltipProps> = props => {
                 <Trigger asChild>{children}</Trigger>
                 <Portal>
                     <Content
+                        ref={ref}
                         className={classnames(
                             styles["tooltip-content"],
                             {
@@ -76,4 +77,4 @@ const Tooltip: FC<TooltipProps> = props => {
     );
 };
 
-export default memo(Tooltip);
+export default memo(forwardRef(Tooltip));

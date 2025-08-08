@@ -1,2 +1,2 @@
-export {default as TextArea, TextAreaVariant, TextAreaSize} from "./TextArea";
-export type {TextAreaProps, TextAreaActions} from "./TextArea";
+export * from "./types";
+export {default as TextArea, type TextAreaProps, type TextAreaActions} from "./TextArea";

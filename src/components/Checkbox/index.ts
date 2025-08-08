@@ -1,2 +1,2 @@
-export {default as Checkbox, CheckboxVariant, CheckboxSize, CheckboxRadius} from "./Checkbox";
-export type {CheckboxProps, CheckedState} from "./Checkbox";
+export * from "./types";
+export {default as Checkbox, type CheckboxProps, type CheckedState} from "./Checkbox";

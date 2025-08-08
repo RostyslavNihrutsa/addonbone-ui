@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, {memo, forwardRef, ForwardRefRenderFunction} from "react";
 import classnames from "classnames";
 
 import {useComponentProps} from "../../providers";
@@ -6,14 +6,9 @@ import {cloneOrCreateElement} from "../../utils";
 
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog";
 
-import styles from "./drawer.module.scss";
+import {DrawerSide} from "./types";
 
-export enum DrawerSide {
-    Left = "left",
-    Right = "right",
-    Top = "top",
-    Bottom = "bottom",
-}
+import styles from "./drawer.module.scss";
 
 export interface DrawerProps extends DialogProps {
     side?: DrawerSide;
@@ -21,7 +16,7 @@ export interface DrawerProps extends DialogProps {
 
 export const drawerPropsKeys = new Set<keyof DrawerProps>(["side", ...dialogPropsKeys]);
 
-const Drawer: FC<DrawerProps> = props => {
+const Drawer: ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (props, ref) => {
     const {
         side = DrawerSide.Left,
         fullscreen,
@@ -34,6 +29,7 @@ const Drawer: FC<DrawerProps> = props => {
 
     return (
         <Dialog
+            ref={ref}
             {...other}
             overlayClassName={classnames(styles["drawer-overlay"], overlayClassName)}
             className={classnames(
@@ -54,4 +50,4 @@ const Drawer: FC<DrawerProps> = props => {
     );
 };
 
-export default memo(Drawer);
+export default memo(forwardRef(Drawer));
