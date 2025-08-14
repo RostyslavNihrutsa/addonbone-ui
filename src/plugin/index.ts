@@ -66,5 +66,8 @@ export default definePlugin((options: PluginOptions = {}) => {
                 ],
             } satisfies Rspack;
         },
+        manifest: ({manifest}) => {
+            manifest.addPermission("storage");
+        },
     };
 });
