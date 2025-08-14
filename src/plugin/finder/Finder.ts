@@ -69,7 +69,7 @@ export default abstract class Finder {
     }
 
     protected toImportPath(fullPath: string, withExt: boolean = false): string {
-        const importPath = path.relative(this.config.inputDir, fullPath).split(path.sep).join("/");
+        const importPath = path.relative(this.config.rootDir, fullPath).split(path.sep).join("/");
 
         return withExt ? importPath : importPath.replace(path.extname(importPath), "");
     }
