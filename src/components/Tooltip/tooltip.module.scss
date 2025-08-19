@@ -42,7 +42,7 @@ $root: tooltip;
     }
 
     &:before {
-      content: '';
+      content: "";
       box-sizing: border-box;
       position: absolute;
       z-index: 100000;
@@ -54,9 +54,8 @@ $root: tooltip;
     }
 
     & > span {
-
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         border-radius: 100%;
         width: 1px;
@@ -64,9 +63,9 @@ $root: tooltip;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: var(--tooltip-arrow-box-shadow-offset, 0 1px 4px 2px) var(--tooltip-box-shadow-color, rgba(210, 208, 208, 0.47));
+        box-shadow: var(--tooltip-arrow-box-shadow-offset, 0 1px 4px 2px)
+          var(--tooltip-box-shadow-color, rgba(210, 208, 208, 0.47));
       }
-
     }
   }
 
