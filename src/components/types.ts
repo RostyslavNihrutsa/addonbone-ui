@@ -58,7 +58,7 @@ export interface ComponentsProps {
         | "radius"
         | "color"
     >;
-    tooltip?: Pick<TooltipProps, "side" | "align" | "delayDuration" | "arrowHeight" | "arrowWidth">;
+    tooltip?: TooltipProps;
     view?: ViewProps;
     viewDrawer?: ViewDrawerProps;
     viewModal?: ViewModalProps;
