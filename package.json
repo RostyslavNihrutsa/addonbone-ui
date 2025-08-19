@@ -1,7 +1,7 @@
 {
   "name": "adnbn-ui",
   "type": "module",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A comprehensive React UI component library designed exclusively for the AddonBone browser extension framework with customizable theming and consistent design patterns",
   "keywords": [
     "react",

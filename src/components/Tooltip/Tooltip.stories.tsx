@@ -78,3 +78,31 @@ export const Tooltip: StoryObj<typeof TooltipComponent> = {
         children: <Button style={{marginTop: "40px"}}>Button</Button>,
     },
 };
+
+export const Sides = () => {
+    const props = {
+        content: "Tooltip content",
+        open: true,
+        align: "center" as const,
+        alignOffset: 0,
+        sideOffset: 0,
+        arrowHeight: 7,
+        arrowWidth: 12,
+        arrowPadding: 0,
+        delayDuration: 700,
+        matchTriggerWidth: false,
+        avoidCollisions: true,
+        children: <Button>Button</Button>,
+    };
+
+    return (
+        <div style={{height: "200px", display: "flex", flexDirection: "column", gap: "20px"}}>
+            <TooltipComponent {...props} side="top" />
+            <div>
+                <TooltipComponent {...props} side="left" />
+                <TooltipComponent {...props} side="right" />
+            </div>
+            <TooltipComponent {...props} side="bottom" />
+        </div>
+    );
+};

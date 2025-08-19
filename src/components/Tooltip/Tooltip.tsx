@@ -34,6 +34,7 @@ const Tooltip: ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, 
 
         arrowWidth,
         arrowHeight,
+        collisionPadding = 8,
         matchTriggerWidth,
         content,
         arrowClassName,
@@ -62,6 +63,7 @@ const Tooltip: ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, 
                             },
                             contentClassName
                         )}
+                        collisionPadding={collisionPadding}
                         {...other}
                     >
                         {content}

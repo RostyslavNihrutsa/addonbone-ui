@@ -37,6 +37,8 @@
   --icon-button-bg-color-hover: #70b8ff;
 
   --tooltip-bg-color: #a39073;
+  --tooltip-border-color: #3f2700;
+  --tooltip-border-width: 1px;
 }
 
 @include theme.dark {
