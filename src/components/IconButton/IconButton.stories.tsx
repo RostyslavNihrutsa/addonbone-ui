@@ -1,3 +1,4 @@
+import React from "react";
 import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";
@@ -58,8 +59,8 @@ const icon = (
         <path
             d="M12.0002 2L15.1037 8.72839L22.4618 9.60081L17.0218 14.6316L18.4658 21.8992L12.0002 18.28L5.53456 21.8992L6.97862 14.6316L1.53857 9.60081L8.89669 8.72839L12.0002 2Z"
             stroke="currentColor"
-            stroke-width="2.4"
-            stroke-linejoin="round"
+            strokeWidth="2.4"
+            strokeLinejoin="round"
         />
     </svg>
 );

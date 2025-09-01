@@ -23,9 +23,6 @@ test/
 .vscode/
 .idea/
 eslint.config.js
-vitest.workspace.ts
-vitest.config.ts
-vite.config.ts
 
 # Build tools
 webpack.config.js

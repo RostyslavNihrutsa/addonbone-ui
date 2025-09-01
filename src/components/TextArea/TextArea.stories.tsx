@@ -1,4 +1,4 @@
-import {Fragment} from "react";
+import React, {Fragment} from "react";
 import {Meta, StoryObj} from "@storybook/react";
 
 import {capitalizeFirstLetter, hideInTable} from "../../utils";

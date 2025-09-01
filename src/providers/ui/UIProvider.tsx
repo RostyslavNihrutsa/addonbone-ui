@@ -8,9 +8,9 @@ import {ComponentsProps, Config, ExtraProps, Icons} from "../../types/config";
 
 import "./styles/default.scss";
 import "./styles/reset.scss";
-import "adnbn-ui-style.scss";
+import "addon-ui-style.scss";
 
-import config from "adnbn-ui-config";
+import config from "addon-ui-config";
 
 export type UIProviderProps = Partial<Config>;
 
