@@ -80,7 +80,6 @@ export const Tooltip: StoryObj<typeof TooltipComponent> = {
     },
 };
 
-
 export const Sides = () => {
     const props = {
         content: "Tooltip content",
@@ -98,13 +97,13 @@ export const Sides = () => {
     };
 
     return (
-        <div style={{height: '200px', display: "flex", flexDirection: 'column', gap: "20px"}}>
-            <TooltipComponent {...props} side="top"/>
+        <div style={{height: "200px", display: "flex", flexDirection: "column", gap: "20px"}}>
+            <TooltipComponent {...props} side="top" />
             <div>
-                <TooltipComponent {...props} side="left"/>
-                <TooltipComponent {...props} side="right"/>
+                <TooltipComponent {...props} side="left" />
+                <TooltipComponent {...props} side="right" />
             </div>
-            <TooltipComponent {...props} side="bottom"/>
+            <TooltipComponent {...props} side="bottom" />
         </div>
     );
 };
