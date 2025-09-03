@@ -5,6 +5,7 @@ export type {ComponentsProps};
 
 export type Icons = SvgSpriteProps["icons"];
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ExtraProps {}
 
 export interface Config {

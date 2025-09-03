@@ -1,16 +1,18 @@
-# AddonBone UI (adnbn-ui)
+# Addon UI (addon-ui)
 
-[![npm version](https://img.shields.io/npm/v/adnbn-ui.svg)](https://www.npmjs.com/package/adnbn-ui)
-[![npm downloads](https://img.shields.io/npm/dm/adnbn-ui.svg)](https://www.npmjs.com/package/adnbn-ui)
+[![npm version](https://img.shields.io/npm/v/addon-ui.svg)](https://www.npmjs.com/package/addon-ui)
+[![npm downloads](https://img.shields.io/npm/dm/addon-ui.svg)](https://www.npmjs.com/package/addon-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A comprehensive UI component library designed for the AddonBone framework. This library provides a set of customizable React components with theming capabilities to build modern, responsive user interfaces.
+A comprehensive UI component library designed for the Addon Bone framework.
+This library provides a set of customizable React components with theming capabilities to build modern,
+responsive user interfaces.
 
 ## Features
 
 - 🎨 **Customizable Theming**: Easily customize the look and feel of components through theme configuration
 - 🧩 **Rich Component Set**: Includes buttons, forms, layouts, modals, and more
-- 🔌 **AddonBone Integration**: Seamless integration with the AddonBone framework
+- 🔌 **Addon Bone Integration**: Seamless integration with the Addon Bone framework
 - 📚 **Storybook Documentation**: Comprehensive component documentation with examples
 - 🛠️ **TypeScript Support**: Full TypeScript support with type definitions
 
@@ -57,20 +59,20 @@ A comprehensive UI component library designed for the AddonBone framework. This 
 Using npm:
 
 ```bash
-npm install adnbn-ui
+npm install addon-ui
 ```
 
 Using Yarn:
 
 ```bash
-yarn add adnbn-ui
+yarn add addon-ui
 ```
 
 ## Basic Usage
 
 ```jsx
 import React from "react";
-import {Button, ButtonColor, ButtonVariant, TextField, UIProvider} from "adnbn-ui";
+import {Button, ButtonColor, ButtonVariant, TextField, UIProvider} from "addon-ui";
 
 function App() {
     return (
@@ -90,20 +92,20 @@ export default App;
 
 ## Integration
 
-AddonBone UI is designed exclusively for the AddonBone framework and does not have a standalone build as it's connected as a plugin. This library is an integral part of the AddonBone ecosystem for developing browser extensions with a shared codebase.
+**Addon UI** is designed exclusively for the Addon Bone framework and does not have a standalone build as it's connected as a plugin. This library is an integral part of the Addon Bone ecosystem for developing browser extensions with a shared codebase.
 
-AddonBone is a framework for developing browser extensions with a common codebase. This means you can create multiple extensions with the same functionality but with different designs, localizations, and feature sets depending on the needs of each extension while maintaining access to a shared codebase.
+Addon Bone is a framework for developing browser extensions with a common codebase. This means you can create multiple extensions with the same functionality but with different designs, localizations, and feature sets depending on the needs of each extension while maintaining access to a shared codebase.
 
 ### Plugin Setup
 
 ```ts
 // adnbn.config.ts
 import {defineConfig} from "adnbn";
-import uiPlugin from "adnbn-ui/plugin";
+import ui from "addon-ui/plugin";
 
 export default defineConfig({
     plugins: [
-        uiPlugin({
+        ui({
             themeDir: "./theme", // Directory for theme files
             configFileName: "ui.config", // Name of config files
             styleFileName: "ui.style", // Name of style files
@@ -116,7 +118,7 @@ export default defineConfig({
 
 ### Configuration Files
 
-The `adnbn-ui` configuration is designed to retrieve configuration from each extension separately, allowing for different designs for different extensions without changing any code. You only need to modify the configuration, style variables, and icons.
+The `addon-ui` configuration is designed to retrieve configuration from each extension separately, allowing for different designs for different extensions without changing any code. You only need to modify the configuration, style variables, and icons.
 
 The plugin looks for configuration files in specific directories within your project. By default, it searches in the following locations (in order of priority):
 
@@ -135,8 +137,8 @@ You can use the `defineConfig` helper which provides type checking:
 
 ```ts
 // src/shared/theme/ui.config.ts
-import {defineConfig} from "adnbn-ui/config";
-import {ButtonColor, ButtonRadius, ButtonVariant, TextFieldRadius, TextFieldSize} from "adnbn-ui";
+import {defineConfig} from "addon-ui/config";
+import {ButtonColor, ButtonRadius, ButtonVariant, TextFieldRadius, TextFieldSize} from "addon-ui";
 
 import CloseIcon from "./icons/close.svg?react";
 
@@ -160,7 +162,10 @@ export default defineConfig({
 });
 ```
 
-The example above shows how to use the TypeScript configuration with the AddonBone framework. The `defineConfig` helper provides type checking and autocompletion for your configuration. You can import enum values from "adnbn-ui/config" to ensure type safety when configuring components. The configuration can also include SVG icons imported directly from your project files.
+The example above shows how to use the TypeScript configuration with the Addon Bone framework.
+The `defineConfig` helper provides type checking and autocompletion for your configuration.
+You can import enum values from "addon-ui/config" to ensure type safety when configuring components.
+The configuration can also include SVG icons imported directly from your project files.
 
 #### ui.style.scss
 
@@ -169,7 +174,7 @@ Similar to configuration files, style files are also searched for in the same di
 ```scss
 // src/shared/theme/ui.style.scss
 // Custom CSS variables and mixins for theming
-@import "adnbn-ui/theme";
+@import "addon-ui/theme";
 
 @include light {
     // Base colors
@@ -225,14 +230,14 @@ Similar to configuration files, style files are also searched for in the same di
 
 ## Customization
 
-The `adnbn-ui` library allows for extensive customization to create different designs for different extensions without changing code. This is particularly useful in the AddonBone framework where you might need to maintain multiple browser extensions with the same functionality but different visual appearances.
+The `addon-ui` library allows for extensive customization to create different designs for different extensions without changing code. This is particularly useful in the Addon Bone framework where you might need to maintain multiple browser extensions with the same functionality but different visual appearances.
 
 ### Global Theme Customization
 
 You can customize the theme globally by passing props to the UIProvider:
 
 ```jsx
-import {UIProvider} from "adnbn-ui";
+import {UIProvider} from "addon-ui";
 
 const customTheme = {
     components: {
@@ -272,7 +277,7 @@ Extra Props provide a way to pass additional properties to components throughout
 
 ```ts
 // src/shared/theme/ui.config.ts
-import {defineConfig} from "adnbn-ui/config";
+import {defineConfig} from "addon-ui/config";
 
 export default defineConfig({
     components: {
@@ -296,7 +301,7 @@ export default defineConfig({
 2. **Access Extra Props in your components using the `useExtra` hook:**
 
 ```jsx
-import {useExtra} from "adnbn-ui";
+import {useExtra} from "addon-ui";
 
 function AppHeader() {
     const extra = useExtra();
@@ -315,7 +320,7 @@ function AppHeader() {
 A common use case for Extra Props is to add application-specific configuration to UI components. For example, you might want to add custom analytics tracking to buttons:
 
 ```jsx
-import {Button, useExtra} from "adnbn-ui";
+import {Button, useExtra} from "addon-ui";
 
 function TrackableButton(props) {
     const extra = useExtra();
@@ -340,9 +345,9 @@ To get proper type checking for your custom Extra Props, you can extend the `Ext
 
 ```ts
 // ui.d.ts or similar file
-import "adnbn-ui";
+import "addon-ui";
 
-declare module "adnbn-ui" {
+declare module "addon-ui" {
     interface ExtraProps {
         appName: string;
         version: string;
@@ -359,7 +364,7 @@ With this type definition, TypeScript will provide proper type checking and auto
 
 ```tsx
 import React from "react";
-import {useExtra, Button} from "adnbn-ui";
+import {useExtra, Button} from "addon-ui";
 
 const FeatureFlag: React.FC<{feature: keyof ExtraProps["features"]; children: React.ReactNode}> = ({
     feature,
@@ -392,7 +397,7 @@ function App() {
 ### Buttons
 
 ```jsx
-import {Button, ButtonColor, ButtonSize, ButtonVariant} from 'adnbn-ui';
+import {Button, ButtonColor, ButtonSize, ButtonVariant} from 'addon-ui';
 
 // Basic button
 <Button>Click me</Button>
@@ -419,7 +424,7 @@ import {Button, ButtonColor, ButtonSize, ButtonVariant} from 'adnbn-ui';
 ### Form Components
 
 ```jsx
-import {TextField, TextArea, Checkbox, Switch} from 'adnbn-ui';
+import {TextField, TextArea, Checkbox, Switch} from 'addon-ui';
 
 // Text input
 <TextField label="Username" placeholder="Enter username" />
@@ -437,7 +442,7 @@ import {TextField, TextArea, Checkbox, Switch} from 'adnbn-ui';
 ### Layout Components
 
 ```jsx
-import {Layout, Header, Footer} from "adnbn-ui";
+import {Layout, Header, Footer} from "addon-ui";
 
 <Layout>
     <Header>My Application</Header>
@@ -449,7 +454,7 @@ import {Layout, Header, Footer} from "adnbn-ui";
 ### Feedback Components
 
 ```jsx
-import {Toast, Modal, Dialog, Drawer} from 'adnbn-ui';
+import {Toast, Modal, Dialog, Drawer} from 'addon-ui';
 
 // Toast notification
 <Toast message="Operation successful!" />
@@ -525,7 +530,7 @@ ButtonRadius.Full;
 #### Example
 
 ```jsx
-import {Button, ButtonVariant, ButtonColor, ButtonSize, ButtonRadius} from "adnbn-ui";
+import {Button, ButtonVariant, ButtonColor, ButtonSize, ButtonRadius} from "addon-ui";
 
 <Button
     variant={ButtonVariant.Contained}
@@ -585,7 +590,7 @@ TextFieldAccent.Error;
 #### Example
 
 ```jsx
-import {TextField, TextFieldVariant, TextFieldSize, TextFieldRadius, TextFieldAccent} from "adnbn-ui";
+import {TextField, TextFieldVariant, TextFieldSize, TextFieldRadius, TextFieldAccent} from "addon-ui";
 
 <TextField
     variant={TextFieldVariant.Outlined}
@@ -635,7 +640,7 @@ TextAreaRadius.Large;
 #### Example
 
 ```jsx
-import {TextArea, TextAreaVariant, TextAreaSize, TextAreaRadius} from "adnbn-ui";
+import {TextArea, TextAreaVariant, TextAreaSize, TextAreaRadius} from "addon-ui";
 
 <TextArea
     variant={TextAreaVariant.Outlined}
@@ -683,7 +688,7 @@ CheckboxRadius.Large;
 #### Example
 
 ```jsx
-import {Checkbox, CheckboxVariant, CheckboxSize, CheckboxRadius} from "adnbn-ui";
+import {Checkbox, CheckboxVariant, CheckboxSize, CheckboxRadius} from "addon-ui";
 
 <Checkbox variant={CheckboxVariant.Classic} size={CheckboxSize.Medium} radius={CheckboxRadius.Small} checked={true} />;
 ```
@@ -701,7 +706,7 @@ The Switch component provides a toggle switch control.
 #### Example
 
 ```jsx
-import {Switch} from "adnbn-ui";
+import {Switch} from "addon-ui";
 
 <Switch checked={isEnabled} onCheckedChange={setIsEnabled} />;
 ```
@@ -739,7 +744,7 @@ AvatarRadius.Large;
 #### Example
 
 ```jsx
-import {Avatar, AvatarSize, AvatarRadius} from "adnbn-ui";
+import {Avatar, AvatarSize, AvatarRadius} from "addon-ui";
 
 <Avatar
     src="https://example.com/avatar.jpg"
@@ -767,7 +772,7 @@ The BaseButton component is a foundational button component that provides basic 
 #### Example
 
 ```jsx
-import {BaseButton} from "adnbn-ui";
+import {BaseButton} from "addon-ui";
 
 <BaseButton before={<Icon name="star" />} after={<Icon name="arrow-right" />}>
     Click me
@@ -796,7 +801,7 @@ The Dialog component displays a modal dialog that overlays the page content.
 #### Example
 
 ```jsx
-import {Dialog} from "adnbn-ui";
+import {Dialog} from "addon-ui";
 
 <Dialog open={isOpen} onOpenChange={setIsOpen} title="Confirmation" description="Please confirm your action">
     <div>
@@ -825,7 +830,7 @@ The Drawer component displays a sliding panel that comes from the edge of the sc
 #### Example
 
 ```jsx
-import {Drawer} from "adnbn-ui";
+import {Drawer} from "addon-ui";
 
 <Drawer open={isOpen} onClose={() => setIsOpen(false)} position="right">
     <div>Drawer content</div>
@@ -839,7 +844,7 @@ The Footer component provides a consistent footer layout.
 #### Example
 
 ```jsx
-import {Footer} from "adnbn-ui";
+import {Footer} from "addon-ui";
 
 <Footer>
     <div>© 2023 My Company</div>
@@ -853,7 +858,7 @@ The Header component provides a consistent header layout.
 #### Example
 
 ```jsx
-import {Header} from "adnbn-ui";
+import {Header} from "addon-ui";
 
 <Header>
     <div>My Application</div>
@@ -875,7 +880,7 @@ The Highlight component highlights text matches within content.
 #### Example
 
 ```jsx
-import {Highlight} from "adnbn-ui";
+import {Highlight} from "addon-ui";
 
 <Highlight searchWords={["react", "component"]} textToHighlight="This is a React component library" />;
 ```
@@ -895,7 +900,7 @@ The Icon component displays vector icons.
 #### Example
 
 ```jsx
-import {Icon} from "adnbn-ui";
+import {Icon} from "addon-ui";
 
 <Icon name="star" size={24} color="#f5a623" />;
 ```
@@ -915,7 +920,7 @@ The IconButton component combines an icon with button functionality.
 #### Example
 
 ```jsx
-import {IconButton, Icon} from "adnbn-ui";
+import {IconButton, Icon} from "addon-ui";
 
 <IconButton icon={<Icon name="star" />} size="medium" color="primary" onClick={handleClick} />;
 ```
@@ -927,7 +932,7 @@ The Layout component provides a consistent page layout structure.
 #### Example
 
 ```jsx
-import {Layout, Header, Footer} from "adnbn-ui";
+import {Layout, Header, Footer} from "addon-ui";
 
 <Layout>
     <Header>My Application</Header>
@@ -950,7 +955,7 @@ The List component displays a list of items.
 #### Example
 
 ```jsx
-import {List, ListItem} from "adnbn-ui";
+import {List, ListItem} from "addon-ui";
 
 <List variant="unordered" spacing="normal">
     <ListItem>Item 1</ListItem>
@@ -966,7 +971,7 @@ The ListItem component represents an item in a List.
 #### Example
 
 ```jsx
-import {ListItem} from "adnbn-ui";
+import {ListItem} from "addon-ui";
 
 <ListItem>Item content</ListItem>;
 ```
@@ -987,7 +992,7 @@ The Modal component displays content in a layer above the page.
 #### Example
 
 ```jsx
-import {Modal, Button} from "adnbn-ui";
+import {Modal, Button} from "addon-ui";
 
 <Modal
     open={isOpen}
@@ -1014,7 +1019,7 @@ The Odometer component displays animated number transitions.
 #### Example
 
 ```jsx
-import {Odometer} from "adnbn-ui";
+import {Odometer} from "addon-ui";
 
 <Odometer value={1234} format="(,ddd)" duration={1000} />;
 ```
@@ -1033,7 +1038,7 @@ The ScrollArea component provides a customizable scrollable area.
 #### Example
 
 ```jsx
-import {ScrollArea} from "adnbn-ui";
+import {ScrollArea} from "addon-ui";
 
 <ScrollArea type="hover" scrollHideDelay={800} style={{height: 200}}>
     <div>Content that might overflow</div>
@@ -1047,7 +1052,7 @@ The SvgSprite component manages SVG sprite definitions.
 #### Example
 
 ```jsx
-import {SvgSprite} from "adnbn-ui";
+import {SvgSprite} from "addon-ui";
 
 <SvgSprite />;
 ```
@@ -1067,7 +1072,7 @@ The Tag component displays a label or category tag.
 #### Example
 
 ```jsx
-import {Tag} from "adnbn-ui";
+import {Tag} from "addon-ui";
 
 <Tag color="primary" size="medium" onClose={handleClose}>
     Featured
@@ -1090,7 +1095,7 @@ The Toast component displays brief notifications.
 #### Example
 
 ```jsx
-import {Toast} from "adnbn-ui";
+import {Toast} from "addon-ui";
 
 <Toast message="Operation successful!" type="success" duration={3000} position="top-right" />;
 ```
@@ -1110,7 +1115,7 @@ The Tooltip component displays informative text when hovering over an element.
 #### Example
 
 ```jsx
-import {Tooltip, Button} from "adnbn-ui";
+import {Tooltip, Button} from "addon-ui";
 
 <Tooltip content="More information" position="top" delay={300}>
     <Button>Hover me</Button>
@@ -1124,7 +1129,7 @@ The View component provides a container for content with consistent styling.
 #### Example
 
 ```jsx
-import {View} from "adnbn-ui";
+import {View} from "addon-ui";
 
 <View>
     <h1>Page Title</h1>
@@ -1139,7 +1144,7 @@ The ViewDrawer component combines View and Drawer components.
 #### Example
 
 ```jsx
-import {ViewDrawer} from "adnbn-ui";
+import {ViewDrawer} from "addon-ui";
 
 <ViewDrawer open={isOpen} onClose={() => setIsOpen(false)} position="right">
     <h1>Drawer Title</h1>
@@ -1154,7 +1159,7 @@ The ViewModal component combines View and Modal components.
 #### Example
 
 ```jsx
-import {ViewModal} from "adnbn-ui";
+import {ViewModal} from "addon-ui";
 
 <ViewModal open={isOpen} onClose={() => setIsOpen(false)} title="Modal Title">
     <p>Modal content</p>
