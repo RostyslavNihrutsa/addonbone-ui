@@ -1,61 +1,65 @@
 @use "../../src/styles/mixins" as theme;
 
 @include theme.light {
-  --button-height-sm: 20px;
-  --button-height: 25px;
-  --button-height-md: 30px;
-  --button-height-lg: 40px;
+  body[custom] {
+    --button-height-sm: 20px;
+    --button-height: 25px;
+    --button-height-md: 30px;
+    --button-height-lg: 40px;
 
-  --switch-border-radius: 5px;
-  --switch-width: 40px;
-  --switch-height: 20px;
-  --switch-thumb-width: 20px;
-  --switch-thumb-height: 16px;
+    --switch-border-radius: 5px;
+    --switch-width: 40px;
+    --switch-height: 20px;
+    --switch-thumb-width: 20px;
+    --switch-thumb-height: 16px;
 
-  --tooltip-border-radius: 10px;
-  --tooltip-padding: 5px 10px;
+    --tooltip-border-radius: 10px;
+    --tooltip-padding: 5px 10px;
 
-  --toast-viewport-padding: 5px;
+    --toast-viewport-padding: 5px;
 
-  /* Common colors */
-  --primary-color: #29a383;
-  --secondary-color: #20573e;
-  --accent-color: #f76b15;
+    /* Common colors */
+    --primary-color: #29a383;
+    --secondary-color: #20573e;
+    --accent-color: #f76b15;
 
-  --bg-primary-color: #f5f6f7;
+    --bg-primary-color: #f5f6f7;
 
-  --text-primary-color: #111111;
+    --text-primary-color: #111111;
 
-  /* Components colors */
-  --avatar-fallback-bg-color: #ffe7b3;
-  --avatar-fallback-color: #2e2f3b;
+    /* Components colors */
+    --avatar-fallback-bg-color: #ffe7b3;
+    --avatar-fallback-color: #2e2f3b;
 
-  --icon-button-color: #004074;
-  --icon-button-bg-color: #70b8ff;
-  --icon-button-border-color: #c2e6ff;
-  --icon-button-color-hover: #104d87;
-  --icon-button-bg-color-hover: #70b8ff;
+    --icon-button-color: #004074;
+    --icon-button-bg-color: #70b8ff;
+    --icon-button-border-color: #c2e6ff;
+    --icon-button-color-hover: #104d87;
+    --icon-button-bg-color-hover: #70b8ff;
 
-  --tooltip-bg-color: #a39073;
-  --tooltip-border-color: #3f2700;
-  --tooltip-border-width: 1px;
+    --tooltip-bg-color: #a39073;
+    --tooltip-border-color: #3f2700;
+    --tooltip-border-width: 1px;
+  }
 }
 
 @include theme.dark {
-  /* Common colors */
-  --bg-primary-color: #191919;
+  body[custom] {
+    /* Common colors */
+    --bg-primary-color: #191919;
 
-  --text-primary-color: #b4b4b4;
+    --text-primary-color: #b4b4b4;
 
-  /* Components colors */
-  --avatar-fallback-bg-color: #3f2700;
-  --avatar-fallback-color: #f5f6f7;
+    /* Components colors */
+    --avatar-fallback-bg-color: #3f2700;
+    --avatar-fallback-color: #f5f6f7;
 
-  --icon-button-color: #0bd8b6;
-  --icon-button-bg-color: #023b37;
-  --icon-button-border-color: #084843;
-  --icon-button-color-hover: #adf0dd;
-  --icon-button-bg-color-hover: #0b3b2c;
+    --icon-button-color: #0bd8b6;
+    --icon-button-bg-color: #023b37;
+    --icon-button-border-color: #084843;
+    --icon-button-color-hover: #adf0dd;
+    --icon-button-bg-color-hover: #0b3b2c;
 
-  --tooltip-bg-color: #d4b3a5;
+    --tooltip-bg-color: #d4b3a5;
+  }
 }

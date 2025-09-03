@@ -1,4 +1,4 @@
-import React, {FC, PropsWithChildren, useRef} from "react";
+import React, {FC, PropsWithChildren, useMemo, useRef} from "react";
 import {merge} from "ts-deepmerge";
 
 import {ExtraProvider, IconsProvider, ThemeProvider, ThemeStorage} from "../index";
@@ -8,23 +8,27 @@ import {ComponentsProps, Config, ExtraProps, Icons} from "../../types/config";
 
 import "./styles/default.scss";
 import "./styles/reset.scss";
-import "adnbn-ui-style.scss";
+import "addon-ui-style.scss";
 
-import config from "adnbn-ui-config";
+import config from "addon-ui-config";
 
 export type UIProviderProps = Partial<Config>;
 
 const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, components = {}, extra = {}, icons = {}}) => {
-    const storage = useRef<ThemeStorageContract>(new ThemeStorage());
+    const storageRef = useRef<ThemeStorageContract | null>(null);
 
-    const componentsProps: ComponentsProps = merge(config.components || {}, components);
+    if (!storageRef.current) {
+        storageRef.current = new ThemeStorage();
+    }
 
-    const extraProps: ExtraProps = merge(config.extra || {}, extra);
+    const componentsProps = useMemo<ComponentsProps>(() => merge(config.components || {}, components), [components]);
 
-    const svgIcons: Icons = merge(config.icons || {}, icons);
+    const extraProps = useMemo<ExtraProps>(() => merge(config.extra || {}, extra), [extra]);
+
+    const svgIcons = useMemo<Icons>(() => merge(config.icons || {}, icons), [icons]);
 
     return (
-        <ThemeProvider components={componentsProps} storage={storage.current}>
+        <ThemeProvider components={componentsProps} storage={storageRef.current}>
             <ExtraProvider extra={extraProps}>
                 <IconsProvider icons={svgIcons}>{children}</IconsProvider>
             </ExtraProvider>

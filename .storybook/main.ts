@@ -1,23 +1,23 @@
 import path from "path";
-import {mergeConfig} from "vite";
-import type {StorybookConfig} from "@storybook/react-vite";
+import merge from "webpack-merge";
+import type {StorybookConfig} from "storybook-react-rsbuild";
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-    addons: ["@storybook/addon-essentials"],
-    framework: {
-        name: "@storybook/react-vite",
-        options: {},
-    },
-    viteFinal: config => {
-        return mergeConfig(config, {
+    framework: "storybook-react-rsbuild",
+    rsbuildFinal: async config => {
+        const {pluginSass} = await import("@rsbuild/plugin-sass");
+
+        return merge(config, {
+            plugins: [pluginSass()],
             resolve: {
                 alias: {
-                    "adnbn-ui-config": path.resolve("src", "config", "default.ts"),
-                    "adnbn-ui-style.scss": path.resolve("src", "providers", "ui", "styles", "default.scss"),
+                    "addon-ui-config": path.resolve("src", "config", "default.ts"),
+                    "addon-ui-style.scss": path.resolve("src", "providers", "ui", "styles", "default.scss"),
                 },
             },
         });
     },
 };
+
 export default config;
