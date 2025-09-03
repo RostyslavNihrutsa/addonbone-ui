@@ -18,13 +18,16 @@ export interface ThemeProviderProps extends Pick<Config, "components"> {
 const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, components, storage}) => {
     const [theme, setTheme] = useState<Theme>(() => (isDarkMedia() ? Theme.Dark : Theme.Light));
 
-    const changeTheme = useCallback((theme: Theme) => {
-        if (storage) {
-            storage.change(theme).catch(e => console.error("ThemeProvider: set theme to storage error", e));
-        } else {
-            setTheme(theme);
-        }
-    }, []);
+    const changeTheme = useCallback(
+        (theme: Theme) => {
+            if (storage) {
+                storage.change(theme).catch(e => console.error("ThemeProvider: set theme to storage error", e));
+            } else {
+                setTheme(theme);
+            }
+        },
+        [storage]
+    );
 
     const toggleTheme = useCallback(() => {
         changeTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);

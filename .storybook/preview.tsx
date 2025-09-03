@@ -26,7 +26,7 @@ const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
     }, [theme]);
 
     useEffect(() => {
-        cssVariables === 'custom' && document.body.setAttribute("custom", '');
+        cssVariables === "custom" && document.body.setAttribute("custom", "");
         return () => {
             document.body.removeAttribute("custom");
         };
