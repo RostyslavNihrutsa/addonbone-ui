@@ -1,7 +1,7 @@
 {
-  "name": "adnbn-ui",
+  "name": "addon-ui",
   "type": "module",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "A comprehensive React UI component library designed exclusively for the AddonBone browser extension framework with customizable theming and consistent design patterns",
   "keywords": [
     "react",
@@ -15,11 +15,17 @@
     "typescript",
     "design-system"
   ],
-  "author": "Addon Bone",
+  "author": "Addon Stack",
+  "contributors": [
+    "Anjey Tsibylskij <addonbonedev@gmail.com> (https://github.com/atldays)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/addonbone/addonbone-ui.git"
+    "url": "https://github.com/addon-stack/addon-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/addon-stack/addon-ui/issues"
   },
   "types": "./src/index.ts",
   "typesVersions": {
