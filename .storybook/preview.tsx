@@ -1,6 +1,9 @@
 import React, {useEffect} from "react";
 import type {Preview, StoryContext, StoryFn} from "@storybook/react";
 import {ThemeProvider} from "../src/providers";
+import "../src/providers/ui/styles/default.scss";
+import "../src/providers/ui/styles/reset.scss";
+import "./styles/custom.scss";
 import "./styles/preview.css";
 
 const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
@@ -23,15 +26,9 @@ const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
     }, [theme]);
 
     useEffect(() => {
-        if (cssVariables === "default") return;
-
-        const linkElement = document.createElement("link");
-        linkElement.rel = "stylesheet";
-        linkElement.href = "../.storybook/styles/custom.scss";
-        document.head.appendChild(linkElement);
-
+        cssVariables === 'custom' && document.body.setAttribute("custom", '');
         return () => {
-            document.head.removeChild(linkElement);
+            document.body.removeAttribute("custom");
         };
     }, [cssVariables]);
 

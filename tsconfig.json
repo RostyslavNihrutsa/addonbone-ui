@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "adnbn-ui-config": [
+      "addon-ui-config": [
         "./src/config/default.ts"
       ]
     }

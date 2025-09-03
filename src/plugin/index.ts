@@ -58,10 +58,10 @@ export default definePlugin((options: PluginOptions = {}) => {
                 plugins: [
                     new RspackVirtualModulePlugin(
                         {
-                            "adnbn-ui-config": configBuilder.build(),
-                            "adnbn-ui-style.scss": styleBuilder.build(),
+                            "addon-ui-config": configBuilder.build(),
+                            "addon-ui-style.scss": styleBuilder.build(),
                         },
-                        "adnbn-ui-virtual"
+                        "addon-ui-virtual"
                     ),
                 ],
             } satisfies Rspack;
