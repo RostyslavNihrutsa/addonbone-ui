@@ -1,4 +1,4 @@
-import {Storage} from "adnbn/storage";
+import {Storage} from "@addon-core/storage";
 
 import {Theme, ThemeStorageContract} from "../../types/theme";
 

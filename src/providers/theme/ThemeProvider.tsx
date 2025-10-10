@@ -52,8 +52,14 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, com
         const html = document.querySelector("html");
         if (html) {
             html.setAttribute("theme", theme);
-            html.setAttribute("browser", getBrowser());
+
             view && html.setAttribute("view", view);
+
+            try {
+                html.setAttribute("browser", getBrowser());
+            } catch (e) {
+                console.error("ThemeProvider: get browser error", e);
+            }
         }
     }, [theme]);
 
