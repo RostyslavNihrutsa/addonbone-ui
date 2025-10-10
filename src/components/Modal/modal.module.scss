@@ -14,20 +14,38 @@ $root: modal;
     width: var(--modal-width, 90vw);
     max-width: var(--modal-max-width, 350px);
     max-height: var(--modal-max-height, 85vh);
+    height: auto;
     padding: var(--modal-padding, 0);
     border-radius: var(--modal-border-radius, 10px);
     box-shadow: var(--modal-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5));
     background-color: var(--modal-bg-color, var(--bg-primary-color));
-    transition:
-      background-color var(--transition-speed-sm),
-      color var(--transition-speed-sm);
+    transition: background-color var(--transition-speed-sm),
+    transform var(--transition-speed-sm),
+    opacity var(--transition-speed-sm),
+    color var(--transition-speed-sm) !important;
 
     &[data-state="open"] {
-      animation-name: contentShow;
+      &.#{$root}-content {
+        &--fade-animation {
+          animation-name: fadeIn;
+        }
+
+        &--fadeScale-animation {
+          animation-name: fadeScaleIn;
+        }
+      }
     }
 
     &[data-state="closed"] {
-      animation-name: contentHide;
+      &.#{$root}-content {
+        &--fade-animation {
+          animation-name: fadeOut;
+        }
+
+        &--fadeScale-animation {
+          animation-name: fadeScaleIn;
+        }
+      }
     }
 
     &--fullscreen {
@@ -74,7 +92,7 @@ $root: modal;
   }
 }
 
-@keyframes contentShow {
+@keyframes fadeScaleIn {
   from {
     opacity: 0;
     transform: translate(-50%, -48%) scale(var(--modal-animation-content-scale, 0.96));
@@ -85,7 +103,7 @@ $root: modal;
   }
 }
 
-@keyframes contentHide {
+@keyframes fadeScaleOut {
   from {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -93,5 +111,23 @@ $root: modal;
   to {
     opacity: 0;
     transform: translate(-50%, -48%) scale(var(--modal-animation-content-scale, 0.96));
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

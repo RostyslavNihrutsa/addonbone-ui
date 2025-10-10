@@ -7,6 +7,10 @@
   box-sizing: border-box;
   line-height: var(--list-item-line-height, var(--line-height, 1 rem));
 
+  [dir="rtl"] & {
+    flex-direction: row-reverse;
+  }
+
   &__center {
     flex-grow: 1;
     display: flex;

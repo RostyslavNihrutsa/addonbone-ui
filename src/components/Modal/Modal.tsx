@@ -7,7 +7,7 @@ import {cloneOrCreateElement} from "../../utils";
 import {Dialog, DialogProps, dialogPropsKeys} from "../Dialog";
 import {IconButton, IconButtonProps} from "../IconButton";
 
-import {ModalRadius} from "./types";
+import {ModalRadius, ModalAnimation} from "./types";
 
 import styles from "./modal.module.scss";
 
@@ -15,6 +15,7 @@ export interface ModalProps extends DialogProps {
     radius?: ModalRadius;
     closeButton?: boolean | IconButtonProps | ReactElement;
     onClose?: () => void;
+    animation?: ModalAnimation;
 }
 
 export const modalPropsKeys = new Set<keyof ModalProps>(["radius", "closeButton", "onClose", ...dialogPropsKeys]);
@@ -30,6 +31,7 @@ const Modal: ForwardRefRenderFunction<HTMLDivElement, ModalProps> = (props, ref)
         className,
         overlayClassName,
         childrenClassName,
+        animation = ModalAnimation.FadeScale,
         ...other
     } = {...useComponentProps("modal"), ...props};
 
@@ -73,6 +75,7 @@ const Modal: ForwardRefRenderFunction<HTMLDivElement, ModalProps> = (props, ref)
                 {
                     [styles["modal-content--fullscreen"]]: fullscreen,
                     [styles[`modal-content--${radius}-radius`]]: radius,
+                    [styles[`modal-content--${animation}-animation`]]: animation,
                 },
                 className
             )}
