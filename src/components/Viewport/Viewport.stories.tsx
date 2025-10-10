@@ -3,13 +3,22 @@ import {Meta} from "@storybook/react";
 
 import {hideInTable} from "../../utils";
 
-import {Header, Footer, Button, ScrollArea, IconButton, IconButtonVariant, IconButtonSize} from "../index";
+import {
+    Button,
+    Footer,
+    Header,
+    IconButton,
+    IconButtonSize,
+    IconButtonVariant,
+    ScrollArea,
+    ViewportMode
+} from "../index";
 
-import {LayoutProvider, useLayout} from "./index";
+import {ViewportProvider, useViewport} from "./index";
 
-const meta: Meta<typeof LayoutProvider> = {
-    title: "Components/Layout",
-    component: LayoutProvider,
+const meta: Meta<typeof ViewportProvider> = {
+    title: "Components/Viewport",
+    component: ViewportProvider,
     tags: ["autodocs"],
     argTypes: {
         children: hideInTable,
@@ -18,17 +27,17 @@ const meta: Meta<typeof LayoutProvider> = {
 
 export default meta;
 
-export const Layout = () => {
+export const Viewport = () => {
     return (
-        <LayoutProvider>
+        <ViewportProvider>
             <App />
-        </LayoutProvider>
+        </ViewportProvider>
     );
 };
 
 const App = () => {
     const [arr, setArr] = useState(Array.from(Array(5)));
-    const {expand, collapse} = useLayout();
+    const {setMode, resetSizes, setSizes} = useViewport();
 
     return (
         <div
@@ -41,7 +50,7 @@ const App = () => {
                 overflow: "hidden",
             }}
         >
-            <Header title={"Layout"} />
+            <Header title={"Viewport"} />
             <div style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", padding: "5px 10px"}}>
                 <IconButton
                     size={IconButtonSize.Medium}
@@ -50,8 +59,8 @@ const App = () => {
                 >
                     ➕
                 </IconButton>
-                <Button onClick={() => expand()}>Expand</Button>
-                <Button onClick={() => collapse()}>Collapse</Button>
+                <Button onClick={() => setMode(ViewportMode.Expanded)}>Expand</Button>
+                <Button onClick={() => setMode(ViewportMode.Adaptive)}>Collapse</Button>
 
                 <IconButton
                     size={IconButtonSize.Medium}
@@ -62,9 +71,9 @@ const App = () => {
                 </IconButton>
             </div>
             <div style={{display: "flex", justifyContent: "space-evenly", padding: "5px 10px"}}>
-                <Button onClick={() => expand({height: 700})}>700px height</Button>
-                <Button onClick={() => expand({height: 700, width: 500})}>700x500px</Button>
-                <Button onClick={() => expand({width: 500})}>500px width</Button>
+                <Button onClick={() => setSizes({height: 700})}>700px height</Button>
+                <Button onClick={() => setSizes({height: 700, width: 500})}>700x500px</Button>
+                <Button onClick={() => setSizes({width: 500})}>500px width</Button>
             </div>
             <ScrollArea
                 xOffset={10}

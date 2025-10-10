@@ -1,0 +1,31 @@
+.viewport {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: var(--viewport-min-width);
+  max-width: var(--viewport-max-width);
+  min-height: var(--viewport-min-height);
+  max-height: var(--viewport-max-height);
+  transition:
+    height var(--transition-speed-md) ease-in-out,
+    width var(--transition-speed-md) ease-in-out,
+    min-height var(--transition-speed-md) ease-in-out,
+    min-width var(--transition-speed-md) ease-in-out,
+    max-height var(--transition-speed-md) ease-in-out,
+    max-width var(--transition-speed-md) ease-in-out;
+
+  &--expanded {
+    min-height: var(--viewport-max-height);
+    min-width: var(--viewport-max-width);
+  }
+
+  &--fixed {
+    width: var(--viewport-width);
+    min-width: var(--viewport-width);
+    max-width: var(--viewport-width);
+
+    height: var(--viewport-height);
+    min-height: var(--viewport-height);
+    max-height: var(--viewport-height);
+  }
+}
