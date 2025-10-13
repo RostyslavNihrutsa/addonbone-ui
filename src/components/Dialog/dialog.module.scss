@@ -22,10 +22,11 @@ $root: dialog;
     box-sizing: border-box;
     position: fixed;
     z-index: 9999;
-    transition: background-color var(--transition-speed-sm),
-    transform var(--transition-speed-sm),
-    opacity var(--transition-speed-sm),
-    color var(--transition-speed-sm);
+    transition:
+      background-color var(--transition-speed-sm),
+      transform var(--transition-speed-sm),
+      opacity var(--transition-speed-sm),
+      color var(--transition-speed-sm);
     animation-timing-function: ease-in-out;
   }
 
