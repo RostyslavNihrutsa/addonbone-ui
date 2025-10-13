@@ -11,7 +11,7 @@ import {
     IconButtonSize,
     IconButtonVariant,
     ScrollArea,
-    ViewportMode
+    ViewportMode,
 } from "../index";
 
 import {ViewportProvider, useViewport} from "./index";
