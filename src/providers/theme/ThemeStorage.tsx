@@ -1,14 +1,21 @@
-import {Storage} from "@addon-core/storage";
+import {Storage, StorageProvider} from "@addon-core/storage";
 
 import {Theme, ThemeStorageContract} from "../../types/theme";
 
+export type ThemeStorageState = Record<string, Theme>;
+
 export default class implements ThemeStorageContract {
-    private readonly storage = new Storage<Record<string, Theme>>({
+    protected storage: StorageProvider<ThemeStorageState> = new Storage<ThemeStorageState>({
         area: "local",
         namespace: "addon-ui",
     });
 
-    private readonly key = "theme";
+    protected key: string = "theme";
+
+    constructor(storage?: StorageProvider<ThemeStorageState>, key?: string) {
+        this.storage = storage ? storage : this.storage;
+        this.key = key ? key : this.key;
+    }
 
     public async get(): Promise<Theme | undefined> {
         return await this.storage.get(this.key);
