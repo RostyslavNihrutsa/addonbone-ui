@@ -35,8 +35,8 @@ jobs:
             echo 'name_suffix=' >> $GITHUB_OUTPUT
           fi
 
-  build-and-test:
-    name: Build, Lint, Test ${{ needs.compute-matrix.outputs.name_suffix }}
+  testing:
+    name: Testing ${{ needs.compute-matrix.outputs.name_suffix }}
     needs: compute-matrix
     runs-on: ${{ matrix.os }}
     permissions:
