@@ -1,4 +1,5 @@
 import React, {FC, PropsWithChildren, useCallback, useEffect, useState} from "react";
+import {getBrowser} from "adnbn";
 
 import {ThemeContext} from "./context";
 
@@ -13,9 +14,10 @@ const isValid = (theme: Theme | undefined): theme is Theme => {
 
 export interface ThemeProviderProps extends Pick<Config, "components"> {
     storage?: ThemeStorageContract;
+    view?: string;
 }
 
-const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, components, storage}) => {
+const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, components, storage, view}) => {
     const [theme, setTheme] = useState<Theme>(() => (isDarkMedia() ? Theme.Dark : Theme.Light));
 
     const changeTheme = useCallback(
@@ -47,7 +49,18 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, com
     }, [storage]);
 
     useEffect(() => {
-        document.querySelector("html")?.setAttribute("theme", theme);
+        const html = document.querySelector("html");
+        if (html) {
+            html.setAttribute("theme", theme);
+
+            view && html.setAttribute("view", view);
+
+            try {
+                html.setAttribute("browser", getBrowser());
+            } catch (e) {
+                console.error("ThemeProvider: get browser error", e);
+            }
+        }
     }, [theme]);
 
     return (

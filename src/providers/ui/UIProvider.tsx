@@ -12,9 +12,18 @@ import "addon-ui-style.scss";
 
 import config from "addon-ui-config";
 
-export type UIProviderProps = Partial<Config>;
+export type UIProviderProps = Partial<Config> & {
+    view?: string
+};
 
-const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, components = {}, extra = {}, icons = {}}) => {
+const UIProvider: FC<PropsWithChildren<UIProviderProps>> = (
+    {
+        children,
+        components = {},
+        extra = {},
+        icons = {},
+        view
+    }) => {
     const storageRef = useRef<ThemeStorageContract | null>(null);
 
     if (!storageRef.current) {
@@ -28,7 +37,7 @@ const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({children, component
     const svgIcons = useMemo<Icons>(() => merge(config.icons || {}, icons), [icons]);
 
     return (
-        <ThemeProvider components={componentsProps} storage={storageRef.current}>
+        <ThemeProvider components={componentsProps} storage={storageRef.current} view={view}>
             <ExtraProvider extra={extraProps}>
                 <IconsProvider icons={svgIcons}>{children}</IconsProvider>
             </ExtraProvider>

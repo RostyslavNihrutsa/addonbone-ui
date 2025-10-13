@@ -1,11 +1,14 @@
 @use "../../../styles/mixins" as theme;
 
 @include theme.light {
-  --min-height: 440px;
-  --max-height: 540px;
+  --viewport-height: var(--viewport-min-height);
+  --viewport-width: var(--viewport-min-width);
 
-  --min-width: 380px;
-  --max-width: var(--min-width);
+  --viewport-min-height: 440px;
+  --viewport-max-height: 600px;
+
+  --viewport-min-width: 380px;
+  --viewport-max-width: var(--viewport-min-width);
 
   --font-family: "Arial", sans-serif;
   --font-size: 14px;
