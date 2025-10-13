@@ -9,8 +9,9 @@ $root: footer;
   padding: var(--footer-padding, var(--side-padding-sm));
   padding-top: 0;
   background-color: var(--footer-bg-color, transparent);
-  transition: background-color var(--transition-speed-sm),
-  box-shadow var(--transition-speed-sm);
+  transition:
+    background-color var(--transition-speed-sm),
+    box-shadow var(--transition-speed-sm);
 
   [dir="rtl"] & {
     flex-direction: row-reverse;

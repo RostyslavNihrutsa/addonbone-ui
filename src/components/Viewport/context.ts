@@ -1,9 +1,9 @@
 import {createContext, useContext} from "react";
 
 export enum ViewportMode {
-    Fixed = 'fixed',
-    Adaptive = 'adaptive',
-    Expanded = 'expanded',
+    Fixed = "fixed",
+    Adaptive = "adaptive",
+    Expanded = "expanded",
 }
 
 export type ViewportSize = number | string;
@@ -26,14 +26,11 @@ export interface ViewportContract {
 export const ViewportContext = createContext<ViewportContract>({
     mode: ViewportMode.Adaptive,
 
-    setMode() {
-    },
+    setMode() {},
 
-    setSizes() {
-    },
+    setSizes() {},
 
-    resetSizes() {
-    },
+    resetSizes() {},
 });
 
 ViewportContext.displayName = "ViewportContext";
