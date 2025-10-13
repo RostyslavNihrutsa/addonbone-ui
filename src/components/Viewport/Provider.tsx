@@ -16,18 +16,13 @@ import classnames from "classnames";
 import styles from "./viewport.module.scss";
 
 export type ViewportProps = ComponentProps<"div"> & {
-    mode?: ViewportMode
+    mode?: ViewportMode;
 };
 
 const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<ViewportProps>> = (
-    {
-        children,
-        className,
-        style,
-        mode: viewportMode = ViewportMode.Adaptive,
-        ...props
-    }, ref) => {
-
+    {children, className, style, mode: viewportMode = ViewportMode.Adaptive, ...props},
+    ref
+) => {
     const [mode, setModeState] = useState<ViewportMode>(viewportMode);
     const [sizes, setSizesState] = useState<ViewportSizes | null>(null);
 
@@ -39,12 +34,15 @@ const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<Viewp
 
     const resetSizes = useCallback(() => setSizesState(null), []);
 
-    const contextValue = useMemo(() => ({
-        mode,
-        setSizes,
-        setMode,
-        resetSizes
-    }), [mode, setSizes, setMode, resetSizes]);
+    const contextValue = useMemo(
+        () => ({
+            mode,
+            setSizes,
+            setMode,
+            resetSizes,
+        }),
+        [mode, setSizes, setMode, resetSizes]
+    );
 
     const computedStyles: CSSProperties = useMemo(() => {
         if (!sizes) return {...style};

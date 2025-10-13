@@ -13,17 +13,16 @@ import "addon-ui-style.scss";
 import config from "addon-ui-config";
 
 export type UIProviderProps = Partial<Config> & {
-    view?: string
+    view?: string;
 };
 
-const UIProvider: FC<PropsWithChildren<UIProviderProps>> = (
-    {
-        children,
-        components = {},
-        extra = {},
-        icons = {},
-        view
-    }) => {
+const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({
+    children,
+    components = {},
+    extra = {},
+    icons = {},
+    view,
+}) => {
     const storageRef = useRef<ThemeStorageContract | null>(null);
 
     if (!storageRef.current) {
