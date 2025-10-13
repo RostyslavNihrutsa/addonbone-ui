@@ -8,7 +8,7 @@
   --viewport-max-height: 600px;
 
   --viewport-min-width: 380px;
-  --viewport-max-width: var(--min-width);
+  --viewport-max-width: var(--viewport-min-width);
 
   --font-family: "Arial", sans-serif;
   --font-size: 14px;
