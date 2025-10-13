@@ -37,7 +37,7 @@ export const Viewport = () => {
 
 const App = () => {
     const [arr, setArr] = useState(Array.from(Array(5)));
-    const {setMode, resetSizes, setSizes} = useViewport();
+    const {setMode, setSizes} = useViewport();
 
     return (
         <div
@@ -76,7 +76,7 @@ const App = () => {
                 <Button onClick={() => setSizes({width: 500})}>500px width</Button>
             </div>
             <ScrollArea
-                xOffset={10}
+                xOffset={2}
                 type="always"
                 style={{flex: 1, display: "flex", flexDirection: "column", overflow: "hidden"}}
             >
