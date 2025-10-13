@@ -86,7 +86,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/react-highlight-words": "^0.20.0",
-    "adnbn": "^0.4.1",
+    "adnbn": "^0.4.2",
     "depcheck": "^1.4.7",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
@@ -117,6 +117,15 @@
     },
     "@types/react-dom": {
       "optional": true
+    }
+  },
+  "overrides": {
+    "flat-cache": "^6.1.18",
+    "html-rspack-tags-plugin": {
+      "glob": "^10.4.5"
+    },
+    "test-exclude": {
+      "glob": "^10.4.5"
     }
   },
   "eslintConfig": {
