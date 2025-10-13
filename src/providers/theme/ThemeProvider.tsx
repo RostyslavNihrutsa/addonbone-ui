@@ -1,11 +1,10 @@
-import React, {FC, PropsWithChildren, useCallback, useEffect, useMemo, useState} from "react";
+import React, {FC, PropsWithChildren, useCallback, useEffect, useState} from "react";
+import {getBrowser} from "adnbn";
 
 import {ThemeContext} from "./context";
 
 import {Theme, ThemeStorageContract} from "../../types/theme";
 import {Config} from "../../types/config";
-
-import ThemeStorage from "./ThemeStorage";
 
 const isDarkMedia = () => window?.matchMedia("(prefers-color-scheme: dark)")?.matches;
 
@@ -14,29 +13,22 @@ const isValid = (theme: Theme | undefined): theme is Theme => {
 };
 
 export interface ThemeProviderProps extends Pick<Config, "components"> {
-    storage?: ThemeStorageContract | true;
+    storage?: ThemeStorageContract;
+    view?: string;
 }
 
-const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, components, storage}) => {
+const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, components, storage, view}) => {
     const [theme, setTheme] = useState<Theme>(() => (isDarkMedia() ? Theme.Dark : Theme.Light));
-
-    const currentStorage: ThemeStorageContract | undefined = useMemo(() => {
-        if (!storage) return;
-
-        if (storage === true) return new ThemeStorage();
-
-        return storage;
-    }, [storage]);
 
     const changeTheme = useCallback(
         (theme: Theme) => {
-            if (currentStorage) {
-                currentStorage.change(theme).catch(e => console.error("ThemeProvider: set theme to storage error", e));
+            if (storage) {
+                storage.change(theme).catch(e => console.error("ThemeProvider: set theme to storage error", e));
             } else {
                 setTheme(theme);
             }
         },
-        [currentStorage]
+        [storage]
     );
 
     const toggleTheme = useCallback(() => {
@@ -44,20 +36,31 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({children, com
     }, [theme, changeTheme]);
 
     useEffect(() => {
-        if (!currentStorage) return;
+        if (!storage) return;
 
-        currentStorage
+        storage
             .get()
             .then(newTheme => isValid(newTheme) && setTheme(newTheme))
             .catch(e => console.error("ThemeProvider: get theme from storage error", e));
 
-        const unsubscribe = currentStorage.watch(newTheme => isValid(newTheme) && setTheme(newTheme));
+        const unsubscribe = storage.watch(newTheme => isValid(newTheme) && setTheme(newTheme));
 
         return () => unsubscribe();
-    }, [currentStorage]);
+    }, [storage]);
 
     useEffect(() => {
-        document.querySelector("html")?.setAttribute("theme", theme);
+        const html = document.querySelector("html");
+        if (html) {
+            html.setAttribute("theme", theme);
+
+            view && html.setAttribute("view", view);
+
+            try {
+                html.setAttribute("browser", getBrowser());
+            } catch (e) {
+                console.error("ThemeProvider: get browser error", e);
+            }
+        }
     }, [theme]);
 
     return (
