@@ -117,25 +117,19 @@ Only variables actually referenced in `src/components/TextField/text-field.modul
 | ------------------------------------ | ------------------------------------------------------------------------------------------- |
 | `--text-field-gap`                   | `var(--text-field-gap, 0.3em)`                                                              |
 | `--text-field-font-family`           | `var(--text-field-font-family, var(--font-family)), sans-serif`                             |
-| `--font-family`                      | `var(--font-family)` (none)                                                                 |
 | `--text-field-font-weight`           | `var(--text-field-font-weight, 400)`                                                        |
 | `--text-field-font-size`             | `var(--text-field-font-size, 14px)`                                                         |
 | `--text-field-letter-spacing`        | `var(--text-field-letter-spacing, 0.5px)`                                                   |
 | `--text-field-line-height`           | `var(--text-field-line-height, var(--line-height, 1 rem))`                                  |
-| `--line-height`                      | `var(--line-height)` (none)                                                                 |
 | `--text-field-padding`               | `var(--text-field-padding, 8px 12px)`                                                       |
 | `--text-field-border-radius`         | `var(--text-field-border-radius, 8px)`                                                      |
-| `--transition-speed-sm`              | `var(--transition-speed-sm)` (none)                                                         |
 | `--text-field-focus-border-color`    | `var(--text-field-focus-border-color, color-mix(in srgb, white 40%, var(--primary-color)))` |
 | `--text-field-focus-shadow`          | `var(--text-field-focus-shadow, 0 0 4px var(--primary-color))`                              |
-| `--primary-color`                    | `var(--primary-color)` (none)                                                               |
 | `--text-field-disabled-opacity`      | `var(--text-field-disabled-opacity, 0.7)`                                                   |
 | `--text-field-regular-color`         | `var(--text-field-regular-color, var(--text-field-color, var(--text-primary-color)))`       |
 | `--text-field-color`                 | `var(--text-field-color)` (none)                                                            |
-| `--text-primary-color`               | `var(--text-primary-color)` (none)                                                          |
 | `--text-field-regular-bg-color`      | `var(--text-field-regular-bg-color, var(--text-field-bg-color, var(--bg-secondary-color)))` |
 | `--text-field-bg-color`              | `var(--text-field-bg-color)` (none)                                                         |
-| `--bg-secondary-color`               | `var(--bg-secondary-color)` (none)                                                          |
 | `--text-field-regular-border-width`  | `var(--text-field-regular-border-width, var(--text-field-border-width, 1px))`               |
 | `--text-field-border-width`          | `var(--text-field-border-width, 1px)`                                                       |
 | `--text-field-regular-border-color`  | `var(--text-field-regular-border-color, var(--border-color))`                               |
@@ -154,10 +148,8 @@ Only variables actually referenced in `src/components/TextField/text-field.modul
 | `--text-field-padding-lg`            | `var(--text-field-padding-lg, 12px 16px)`                                                   |
 | `--text-field-font-size-sm`          | Contextual defaults: `12px` (small), `16px` (medium), `18px` (large)                        |
 | `--text-field-success-color`         | `var(--text-field-success-color, var(--success-color))`                                     |
-| `--success-color`                    | `var(--success-color)` (none)                                                               |
 | `--text-field-accent-border-width`   | `var(--text-field-accent-border-width, 2px)`                                                |
 | `--text-field-error-color`           | `var(--text-field-error-color, var(--error-color))`                                         |
-| `--error-color`                      | `var(--error-color)` (none)                                                                 |
 
 Notes:
 

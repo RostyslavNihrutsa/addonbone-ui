@@ -107,11 +107,9 @@ Only variables actually referenced in `src/components/TextArea/text-area.module.
 | `--text-area-color`                 | `var(--text-area-color)` (none)                                                            |
 | `--text-area-regular-bg-color`      | `var(--text-area-regular-bg-color, var(--text-area-bg-color, var(--bg-secondary-color)))`  |
 | `--text-area-bg-color`              | `var(--text-area-bg-color)` (none)                                                         |
-| `--bg-secondary-color`              | `var(--bg-secondary-color)` (none)                                                         |
 | `--text-area-regular-border-width`  | `var(--text-area-regular-border-width, var(--text-area-border-width, 1px))`                |
 | `--text-area-border-width`          | `var(--text-area-border-width, 1px)`                                                       |
 | `--text-area-regular-border-color`  | `var(--text-area-regular-border-color, var(--border-color))`                               |
-| `--border-color`                    | `var(--border-color)` (none)                                                               |
 | `--text-area-outlined-color`        | `var(--text-area-outlined-color, var(--text-area-color, var(--text-primary-color)))`       |
 | `--text-area-outlined-border-width` | `var(--text-area-outlined-border-width, var(--text-area-border-width, 1px))`               |
 | `--text-area-outlined-border-color` | `var(--text-area-outlined-border-color, var(--border-color))`                              |

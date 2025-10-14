@@ -94,14 +94,11 @@ Only variables actually referenced in `src/components/Tag/tag.module.scss` are l
 | `--tag-font-size`                       | `var(--tag-font-size, 13px)`                                                               |
 | `--tag-font-weight`                     | `var(--tag-font-weight, 500)`                                                              |
 | `--tag-line-height`                     | `var(--tag-line-height, var(--line-height, 1 rem))`                                        |
-| `--line-height`                         | `var(--line-height)` (none)                                                                |
 | `--tag-letter-spacing`                  | `var(--tag-letter-spacing, 0.5px)`                                                         |
 | `--tag-padding`                         | `var(--tag-padding, 4px 8px)`                                                              |
 | `--tag-border-radius`                   | `var(--tag-border-radius, 999px)`                                                          |
 | `--tag-color`                           | `var(--tag-color, var(--text-secondary-color))`                                            |
-| `--text-secondary-color`                | `var(--text-secondary-color)` (none)                                                       |
 | `--tag-bg-color`                        | `var(--tag-bg-color, var(--bg-secondary-color))`                                           |
-| `--bg-secondary-color`                  | `var(--bg-secondary-color)` (none)                                                         |
 | `--tag-scale`                           | `var(--tag-scale, 0.98)`                                                                   |
 | `--tag-contained-color`                 | `var(--tag-contained-color, var(--tag-color, var(--text-secondary-color)))`                |
 | `--tag-contained-bg-color`              | `var(--tag-contained-bg-color, var(--tag-bg-color, var(--bg-secondary-color)))`            |
@@ -112,11 +109,8 @@ Only variables actually referenced in `src/components/Tag/tag.module.scss` are l
 | `--tag-border-width`                    | `var(--tag-border-width, 1px)`                                                             |
 | `--tag-outlined-border-color`           | `var(--tag-outlined-border-color, var(--tag-outlined-color, var(--text-secondary-color)))` |
 | `--tag-outlined-border-primary-color`   | `var(--tag-outlined-border-primary-color, var(--primary-color))`                           |
-| `--primary-color`                       | `var(--primary-color)` (none)                                                              |
 | `--tag-outlined-border-secondary-color` | `var(--tag-outlined-border-secondary-color, var(--secondary-color))`                       |
-| `--secondary-color`                     | `var(--secondary-color)` (none)                                                            |
 | `--tag-outlined-border-accent-color`    | `var(--tag-outlined-border-accent-color, var(--accent-color))`                             |
-| `--accent-color`                        | `var(--accent-color)` (none)                                                               |
 | `--tag-soft-color`                      | `var(--tag-soft-color, var(--tag-color, var(--text-secondary-color)))`                     |
 | `--tag-soft-primary-color`              | `var(--tag-soft-primary-color, #fff)`                                                      |
 | `--tag-soft-secondary-color`            | `var(--tag-soft-secondary-color, #fff)`                                                    |

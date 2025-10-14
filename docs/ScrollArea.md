@@ -70,7 +70,6 @@ Only variables actually referenced in `src/components/ScrollArea/scroll-area.mod
 | ---------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `--scroll-area-scrollbar-padding`        | `var(--scroll-area-scrollbar-padding, 3px)`                                                 |
 | `--scroll-area-scrollbar-bg-color`       | `var(--scroll-area-scrollbar-bg-color, transparent)`                                        |
-| `--transition-speed-sm`                  | `var(--transition-speed-sm)` (none)                                                         |
 | `--scroll-area-scrollbar-bg-color-hover` | `var(--scroll-area-scrollbar-bg-color-hover, transparent)`                                  |
 | `--scroll-area-scrollbar-size`           | `var(--scroll-area-scrollbar-size, 9px)`                                                    |
 | `--scroll-area-scrollbar-offset`         | Vertical: `var(--scroll-area-scrollbar-offset, var(--scroll-area-scrollbar-x-offset, 2px))` |
