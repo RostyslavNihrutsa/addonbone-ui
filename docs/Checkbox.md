@@ -9,40 +9,36 @@ import React from "react";
 import {Checkbox, CheckboxVariant, CheckboxSize, CheckboxRadius} from "addon-ui";
 
 export function Example() {
-  const [checked, setChecked] = React.useState(false as boolean | "indeterminate");
+    const [checked, setChecked] = React.useState(false as boolean | "indeterminate");
 
-  return (
-    <div style={{display: "flex", gap: 12, alignItems: "center"}}>
-      {/* Uncontrolled */}
-      <Checkbox />
+    return (
+        <div style={{display: "flex", gap: 12, alignItems: "center"}}>
+            {/* Uncontrolled */}
+            <Checkbox />
 
-      {/* Controlled */}
-      <Checkbox checked={checked} onCheckedChange={setChecked} />
+            {/* Controlled */}
+            <Checkbox checked={checked} onCheckedChange={setChecked} />
 
-      {/* Variants */}
-      <Checkbox variant={CheckboxVariant.Classic} checked />
-      <Checkbox variant={CheckboxVariant.Soft} />
+            {/* Variants */}
+            <Checkbox variant={CheckboxVariant.Classic} checked />
+            <Checkbox variant={CheckboxVariant.Soft} />
 
-      {/* Sizes */}
-      <Checkbox size={CheckboxSize.Small} />
-      <Checkbox size={CheckboxSize.Medium} />
-      <Checkbox size={CheckboxSize.Large} />
+            {/* Sizes */}
+            <Checkbox size={CheckboxSize.Small} />
+            <Checkbox size={CheckboxSize.Medium} />
+            <Checkbox size={CheckboxSize.Large} />
 
-      {/* Radius */}
-      <Checkbox radius={CheckboxRadius.Small} />
-      <Checkbox radius={CheckboxRadius.Large} />
+            {/* Radius */}
+            <Checkbox radius={CheckboxRadius.Small} />
+            <Checkbox radius={CheckboxRadius.Large} />
 
-      {/* Indeterminate with custom icons */}
-      <Checkbox
-        checked={"indeterminate"}
-        checkedIcon={<span>✔</span>}
-        indeterminateIcon={<span>―</span>}
-      />
+            {/* Indeterminate with custom icons */}
+            <Checkbox checked={"indeterminate"} checkedIcon={<span>✔</span>} indeterminateIcon={<span>―</span>} />
 
-      {/* Disabled */}
-      <Checkbox disabled />
-    </div>
-  );
+            {/* Disabled */}
+            <Checkbox disabled />
+        </div>
+    );
 }
 ```
 
@@ -50,15 +46,15 @@ export function Example() {
 
 Only the prop name, type, and default are listed below.
 
-| Prop                  | Type                                              | Default |
-| --------------------- | ------------------------------------------------- | ------- |
-| `indicatorClassName`  | `string`                                          | —       |
-| `size`                | `'small' \| 'medium' \| 'large'`                  | —       |
-| `radius`              | `'small' \| 'large'`                              | —       |
-| `variant`             | `'classic' \| 'soft'`                             | —       |
-| `checkedIcon`         | `ReactElement`                                    | `"✔"`  |
-| `indeterminateIcon`   | `ReactElement`                                    | `"―"`  |
-| Radix checkbox attrs  | all `@radix-ui/react-checkbox` Root props (e.g., `checked`, `onCheckedChange`, `disabled`, `required`, `name`, `value`, `aria-*`, etc.) | — |
+| Prop                 | Type                                                                                                                                    | Default |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `indicatorClassName` | `string`                                                                                                                                | —       |
+| `size`               | `'small' \| 'medium' \| 'large'`                                                                                                        | —       |
+| `radius`             | `'small' \| 'large'`                                                                                                                    | —       |
+| `variant`            | `'classic' \| 'soft'`                                                                                                                   | —       |
+| `checkedIcon`        | `ReactElement`                                                                                                                          | `"✔"`  |
+| `indeterminateIcon`  | `ReactElement`                                                                                                                          | `"―"`   |
+| Radix checkbox attrs | all `@radix-ui/react-checkbox` Root props (e.g., `checked`, `onCheckedChange`, `disabled`, `required`, `name`, `value`, `aria-*`, etc.) | —       |
 
 Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui.config.ts`). Local props take precedence over global config.
 
@@ -83,30 +79,31 @@ CheckboxRadius.Large;
 
 Only variables actually referenced in `src/components/Checkbox/checkbox.module.scss` are listed, with their exact fallback chains. If a variable has no explicit fallback in the stylesheet, it is marked as “none (define in theme)”.
 
-| Variable | Fallback chain |
-| -------- | --------------- |
-| `--checkbox-size` | `var(--checkbox-size, 18px)` |
-| `--checkbox-border-radius` | `var(--checkbox-border-radius, 4px)` |
-| `--checkbox-color` | `var(--checkbox-color, #333)` |
-| `--checkbox-border-width` | `var(--checkbox-border-width, 1px)` |
-| `--checkbox-border-color` | `var(--checkbox-border-color, #999)` |
-| `--transition-speed-sm` | `var(--transition-speed-sm)` (none) |
-| `--checkbox-disabled-opacity` | `var(--checkbox-disabled-opacity, 0.6)` |
-| `--checkbox-scale` | `var(--checkbox-scale, 0.98)` |
-| `--checkbox-classic-color` | `var(--checkbox-classic-color, white)` |
-| `--checkbox-classic-bg-color` | `var(--checkbox-classic-bg-color)` (none) |
-| `--checkbox-classic-border-width` | `var(--checkbox-classic-border-width, 1px)` |
-| `--checkbox-classic-border-color` | `var(--checkbox-classic-border-color, #999)` |
-| `--checkbox-checked-bg-color` | `var(--checkbox-checked-bg-color, var(--primary-color))` |
-| `--checkbox-soft-color` | `var(--checkbox-soft-color, white)` |
-| `--checkbox-soft-bg-color` | `var(--checkbox-soft-bg-color, var(--secondary-color))` |
-| `--checkbox-size-sm` | `var(--checkbox-size-sm, 16px)` |
-| `--checkbox-size-md` | `var(--checkbox-size-md, 20px)` |
-| `--checkbox-size-lg` | `var(--checkbox-size-lg, 22px)` |
-| `--checkbox-border-radius-sm` | `var(--checkbox-border-radius-sm, 2px)` |
-| `--checkbox-border-radius-lg` | `var(--checkbox-border-radius-lg, 6px)` |
+| Variable                          | Fallback chain                                           |
+| --------------------------------- | -------------------------------------------------------- |
+| `--checkbox-size`                 | `var(--checkbox-size, 18px)`                             |
+| `--checkbox-border-radius`        | `var(--checkbox-border-radius, 4px)`                     |
+| `--checkbox-color`                | `var(--checkbox-color, #333)`                            |
+| `--checkbox-border-width`         | `var(--checkbox-border-width, 1px)`                      |
+| `--checkbox-border-color`         | `var(--checkbox-border-color, #999)`                     |
+| `--transition-speed-sm`           | `var(--transition-speed-sm)` (none)                      |
+| `--checkbox-disabled-opacity`     | `var(--checkbox-disabled-opacity, 0.6)`                  |
+| `--checkbox-scale`                | `var(--checkbox-scale, 0.98)`                            |
+| `--checkbox-classic-color`        | `var(--checkbox-classic-color, white)`                   |
+| `--checkbox-classic-bg-color`     | `var(--checkbox-classic-bg-color)` (none)                |
+| `--checkbox-classic-border-width` | `var(--checkbox-classic-border-width, 1px)`              |
+| `--checkbox-classic-border-color` | `var(--checkbox-classic-border-color, #999)`             |
+| `--checkbox-checked-bg-color`     | `var(--checkbox-checked-bg-color, var(--primary-color))` |
+| `--checkbox-soft-color`           | `var(--checkbox-soft-color, white)`                      |
+| `--checkbox-soft-bg-color`        | `var(--checkbox-soft-bg-color, var(--secondary-color))`  |
+| `--checkbox-size-sm`              | `var(--checkbox-size-sm, 16px)`                          |
+| `--checkbox-size-md`              | `var(--checkbox-size-md, 20px)`                          |
+| `--checkbox-size-lg`              | `var(--checkbox-size-lg, 22px)`                          |
+| `--checkbox-border-radius-sm`     | `var(--checkbox-border-radius-sm, 2px)`                  |
+| `--checkbox-border-radius-lg`     | `var(--checkbox-border-radius-lg, 6px)`                  |
 
 Notes:
+
 - `--checkbox-checked-bg-color` falls back to the theme color token `--primary-color`.
 - `--checkbox-soft-bg-color` falls back to `--secondary-color`.
 - `--transition-speed-sm` is expected from the theme (no local fallback).
@@ -121,16 +118,16 @@ import {defineConfig} from "addon-ui/config";
 import {CheckboxVariant, CheckboxSize, CheckboxRadius} from "addon-ui";
 
 export default defineConfig({
-  components: {
-    checkbox: {
-      variant: CheckboxVariant.Classic,
-      size: CheckboxSize.Medium,
-      radius: CheckboxRadius.Small,
-      // Optionally provide default icons
-      // checkedIcon: YourCheckIcon,
-      // indeterminateIcon: YourIndeterminateIcon,
+    components: {
+        checkbox: {
+            variant: CheckboxVariant.Classic,
+            size: CheckboxSize.Medium,
+            radius: CheckboxRadius.Small,
+            // Optionally provide default icons
+            // checkedIcon: YourCheckIcon,
+            // indeterminateIcon: YourIndeterminateIcon,
+        },
     },
-  },
 });
 ```
 
@@ -140,18 +137,18 @@ Or at runtime with the provider:
 import {UIProvider} from "addon-ui";
 
 <UIProvider
-  components={{
-    checkbox: {
-      variant: "soft",
-      size: "large",
-      radius: "large",
-      // checkedIcon: <YourCheckIcon />,
-      // indeterminateIcon: <YourIndeterminateIcon />,
-    },
-  }}
+    components={{
+        checkbox: {
+            variant: "soft",
+            size: "large",
+            radius: "large",
+            // checkedIcon: <YourCheckIcon />,
+            // indeterminateIcon: <YourIndeterminateIcon />,
+        },
+    }}
 >
-  {/* ... */}
-</UIProvider>
+    {/* ... */}
+</UIProvider>;
 ```
 
 ### Accessibility (A11y)
