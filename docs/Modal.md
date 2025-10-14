@@ -91,7 +91,6 @@ Only variables actually referenced in `src/components/Modal/modal.module.scss` a
 | `--modal-border-radius`           | `var(--modal-border-radius, 10px)`                                    |
 | `--modal-box-shadow`              | `var(--modal-box-shadow, 0 0 4px rgba(0, 0, 0, 0.5))`                 |
 | `--modal-bg-color`                | `var(--modal-bg-color, var(--bg-primary-color))`                      |
-| `--transition-speed-sm`           | `var(--transition-speed-sm)` (none)                                   |
 | `--modal-border-radius-sm`        | Contextual defaults: `5px` (small), `15px` (medium), `20px` (large)   |
 | `--modal-close-offset`            | `var(--modal-close-offset, 5px)`                                      |
 | `--modal-animation-content-scale` | `var(--modal-animation-content-scale, 0.96)`                          |

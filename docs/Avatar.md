@@ -100,7 +100,6 @@ Only variables actually referenced in `src/components/Avatar/avatar.module.scss`
 | `--avatar-border-radius-md`      | `var(--avatar-border-radius-md, 30%)`                             |
 | `--avatar-border-radius-lg`      | `var(--avatar-border-radius-lg, 40%)`                             |
 | `--avatar-fallback-color`        | `var(--avatar-fallback-color)`                                    |
-| `--fallback-line-height`         | `var(--fallback-line-height, var(--line-height, 1 rem))`          |
 | `--avatar-fallback-bg-color`     | `var(--avatar-fallback-bg-color, var(--avatar-bg-color))`         |
 | `--avatar-fallback-border-width` | `var(--avatar-fallback-border-width, var(--avatar-border-width))` |
 | `--avatar-fallback-border-color` | `var(--avatar-fallback-border-color, var(--avatar-border-color))` |

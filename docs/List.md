@@ -89,9 +89,6 @@ Variables from `src/components/ListItem/list-item.module.scss`:
 | `--list-item-line-height`     | `var(--list-item-line-height, var(--line-height, 1 rem))`       |
 | `--list-item-primary-color`   | `var(--list-item-primary-color, var(--text-primary-color))`     |
 | `--list-item-secondary-color` | `var(--list-item-secondary-color, var(--text-secondary-color))` |
-| `--line-height`               | `var(--line-height)` (none)                                     |
-| `--text-primary-color`        | `var(--text-primary-color)` (none)                              |
-| `--text-secondary-color`      | `var(--text-secondary-color)` (none)                            |
 
 ### Theming and global configuration
 

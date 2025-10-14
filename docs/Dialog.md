@@ -83,7 +83,6 @@ Only variables actually referenced in `src/components/Dialog/dialog.module.scss`
 | ------------------------------------ | ---------------------------------------------- |
 | `--dialog-overlay-bg-color`          | `var(--dialog-overlay-bg-color, #111)`         |
 | `--dialog-animation-overlay-opacity` | `var(--dialog-animation-overlay-opacity, 0.9)` |
-| `--transition-speed-sm`              | `var(--transition-speed-sm)` (none)            |
 
 Notes:
 

@@ -93,23 +93,18 @@ Only variables actually referenced in `src/components/TextArea/text-area.module.
 | Variable                            | Fallback chain                                                                             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------ |
 | `--text-area-font-family`           | `var(--text-area-font-family, var(--font-family)), sans-serif`                             |
-| `--font-family`                     | `var(--font-family)` (none)                                                                |
 | `--text-area-font-weight`           | `var(--text-area-font-weight, 400)`                                                        |
 | `--text-area-font-size`             | `var(--text-area-font-size, 14px)`                                                         |
 | `--text-area-letter-spacing`        | `var(--text-area-letter-spacing, 0.5px)`                                                   |
 | `--text-area-line-height`           | `var(--text-area-line-height, var(--line-height, 1 rem))`                                  |
-| `--line-height`                     | `var(--line-height)` (none)                                                                |
 | `--text-area-padding`               | `var(--text-area-padding, 8px 12px)`                                                       |
 | `--text-area-border-radius`         | `var(--text-area-border-radius, 8px)`                                                      |
 | `--text-area-min-width`             | `var(--text-area-min-width, 200px)`                                                        |
-| `--transition-speed-sm`             | `var(--transition-speed-sm)` (none)                                                        |
 | `--text-area-focus-border-color`    | `var(--text-area-focus-border-color, color-mix(in srgb, white 40%, var(--primary-color)))` |
 | `--text-area-focus-shadow`          | `var(--text-area-focus-shadow, 0 0 4px var(--primary-color))`                              |
-| `--primary-color`                   | `var(--primary-color)` (none)                                                              |
 | `--text-area-disabled-opacity`      | `var(--text-area-disabled-opacity, 0.7)`                                                   |
 | `--text-area-regular-color`         | `var(--text-area-regular-color, var(--text-area-color, var(--text-primary-color)))`        |
 | `--text-area-color`                 | `var(--text-area-color)` (none)                                                            |
-| `--text-primary-color`              | `var(--text-primary-color)` (none)                                                         |
 | `--text-area-regular-bg-color`      | `var(--text-area-regular-bg-color, var(--text-area-bg-color, var(--bg-secondary-color)))`  |
 | `--text-area-bg-color`              | `var(--text-area-bg-color)` (none)                                                         |
 | `--bg-secondary-color`              | `var(--bg-secondary-color)` (none)                                                         |

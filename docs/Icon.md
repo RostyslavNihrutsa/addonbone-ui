@@ -51,12 +51,11 @@ Notes:
 
 Only variables actually referenced in `src/components/Icon/icon.module.scss` are listed, with their exact fallback chains. If a variable has no explicit fallback in the stylesheet, it is marked as “none (define in theme)”.
 
-| Variable                | Fallback chain                      |
-| ----------------------- | ----------------------------------- |
-| `--icon-color`          | `var(--icon-color)` (none)          |
-| `--transition-speed-sm` | `var(--transition-speed-sm)` (none) |
-| `--icon-color-hover`    | `var(--icon-color-hover)` (none)    |
-| `--icon-scale`          | `var(--icon-scale, 1)`              |
+| Variable             | Fallback chain                   |
+| -------------------- | -------------------------------- |
+| `--icon-color`       | `var(--icon-color)` (none)       |
+| `--icon-color-hover` | `var(--icon-color-hover)` (none) |
+| `--icon-scale`       | `var(--icon-scale, 1)`           |
 
 ### Theming and global configuration
 

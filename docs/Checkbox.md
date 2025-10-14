@@ -100,7 +100,6 @@ Only variables actually referenced in `src/components/Checkbox/checkbox.module.s
 | `--checkbox-color`                | `var(--checkbox-color, #333)`                            |
 | `--checkbox-border-width`         | `var(--checkbox-border-width, 1px)`                      |
 | `--checkbox-border-color`         | `var(--checkbox-border-color, #999)`                     |
-| `--transition-speed-sm`           | `var(--transition-speed-sm)` (none)                      |
 | `--checkbox-disabled-opacity`     | `var(--checkbox-disabled-opacity, 0.6)`                  |
 | `--checkbox-scale`                | `var(--checkbox-scale, 0.98)`                            |
 | `--checkbox-classic-color`        | `var(--checkbox-classic-color, white)`                   |

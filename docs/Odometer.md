@@ -76,11 +76,8 @@ Only variables actually referenced in `src/components/Odometer/odometer.module.s
 | Variable                 | Fallback chain                                                |
 | ------------------------ | ------------------------------------------------------------- |
 | `--odometer-color`       | `var(--odometer-color, var(--text-primary-color))`            |
-| `--text-primary-color`   | `var(--text-primary-color)` (none)                            |
 | `--odometer-font-family` | `var(--odometer-font-family, var(--font-family)), sans-serif` |
-| `--font-family`          | `var(--font-family)` (none)                                   |
 | `--speed`                | `var(--speed)` (none) – set inline from `duration` prop       |
-| `--transition-speed-sm`  | `var(--transition-speed-sm)` (none)                           |
 
 Notes:
 

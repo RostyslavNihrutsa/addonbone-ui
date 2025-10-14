@@ -51,16 +51,14 @@ Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui
 
 Only variables actually referenced in `src/components/Footer/footer.module.scss` are listed, with their exact fallback chains. If a variable has no explicit fallback in the stylesheet, it is marked as “none (define in theme)”.
 
-| Variable                | Fallback chain                                                   |
-| ----------------------- | ---------------------------------------------------------------- |
-| `--footer-padding`      | `var(--footer-padding, var(--side-padding-sm))`                  |
-| `--side-padding-sm`     | `var(--side-padding-sm)` (none)                                  |
-| `--footer-bg-color`     | `var(--footer-bg-color, transparent)`                            |
-| `--transition-speed-sm` | `var(--transition-speed-sm)` (none)                              |
-| `--footer-box-shadow`   | `var(--footer-box-shadow, 0px -4px 4px 0px rgba(0, 0, 0, 0.03))` |
-| `--footer-left-gap`     | `var(--footer-left-gap, var(--footer-gap, 15px))`                |
-| `--footer-right-gap`    | `var(--footer-right-gap, var(--footer-gap, 15px))`               |
-| `--footer-gap`          | `var(--footer-gap, 15px)`                                        |
+| Variable              | Fallback chain                                                   |
+| --------------------- | ---------------------------------------------------------------- |
+| `--footer-padding`    | `var(--footer-padding, var(--side-padding-sm))`                  |
+| `--footer-bg-color`   | `var(--footer-bg-color, transparent)`                            |
+| `--footer-box-shadow` | `var(--footer-box-shadow, 0px -4px 4px 0px rgba(0, 0, 0, 0.03))` |
+| `--footer-left-gap`   | `var(--footer-left-gap, var(--footer-gap, 15px))`                |
+| `--footer-right-gap`  | `var(--footer-right-gap, var(--footer-gap, 15px))`               |
+| `--footer-gap`        | `var(--footer-gap, 15px)`                                        |
 
 Notes:
 

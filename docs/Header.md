@@ -63,20 +63,15 @@ Only variables actually referenced in `src/components/Header/header.module.scss`
 | --------------------------------- | -------------------------------------------------------------------- |
 | `--header-gap`                    | `var(--header-gap, 10px)`                                            |
 | `--header-padding`                | `var(--header-padding, var(--side-padding-sm))`                      |
-| `--side-padding-sm`               | `var(--side-padding-sm)` (none)                                      |
 | `--header-wrap-gap`               | `var(--header-wrap-gap, 10px)`                                       |
 | `--header-title-gap`              | `var(--header-title-gap, 12px)`                                      |
 | `--header-title-color`            | `var(--header-title-color, var(--text-primary-color))`               |
-| `--text-primary-color`            | `var(--text-primary-color)` (none)                                   |
 | `--header-title-font-size`        | `var(--header-title-font-size, 25px)`                                |
 | `--header-title-font-family`      | `var(--header-title-font-family, var(--font-family)), sans-serif`    |
-| `--font-family`                   | `var(--font-family)` (none)                                          |
 | `--header-title-font-weight`      | `var(--header-title-font-weight, 700)`                               |
 | `--header-title-line-height`      | `var(--header-title-line-height, 120%)`                              |
 | `--header-title-transition-speed` | `var(--header-title-transition-speed, var(--transition-speed-md))`   |
-| `--transition-speed-md`           | `var(--transition-speed-md)` (none)                                  |
 | `--header-subtitle-color`         | `var(--header-subtitle-color, var(--text-secondary-color))`          |
-| `--text-secondary-color`          | `var(--text-secondary-color)` (none)                                 |
 | `--header-subtitle-font-size`     | `var(--header-subtitle-font-size, 14px)`                             |
 | `--header-subtitle-font-family`   | `var(--header-subtitle-font-family, var(--font-family)), sans-serif` |
 | `--header-subtitle-font-weight`   | `var(--header-subtitle-font-weight, 400)`                            |
