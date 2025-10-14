@@ -72,6 +72,9 @@ jobs:
       - name: Test
         run: npm run test:ci
 
+      - name: Build Types
+        run: npm run build:types
+
       - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v4
