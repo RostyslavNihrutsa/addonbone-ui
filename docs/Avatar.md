@@ -50,6 +50,17 @@ Only the prop name, type, and default are listed below.
 
 Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui.config.ts`). Local props take precedence over global config.
 
+#### Radix UI props
+
+This component wraps Radix UI Avatar pieces under the hood. You can use relevant Radix props in addition to the props above.
+
+Commonly used Radix Avatar props:
+- Image: `src`, `srcSet`, `alt`, `referrerPolicy`, `onLoadingStatusChange`
+- Fallback: `delayMs` (already exposed as `delayMs` in this component)
+
+For the complete list, see Radix UI Avatar documentation:
+https://www.radix-ui.com/primitives/docs/components/avatar
+
 #### Sizes and radii (enums)
 
 ```ts

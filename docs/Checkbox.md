@@ -58,6 +58,19 @@ Only the prop name, type, and default are listed below.
 
 Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui.config.ts`). Local props take precedence over global config.
 
+#### Radix UI props
+
+Built on Radix UI Checkbox. In addition to the props above, you can use Radix Root props. Common ones include:
+- `checked` (supports `boolean` or `'indeterminate'` via `CheckedState`)
+- `defaultChecked`
+- `onCheckedChange`
+- `disabled`, `required`
+- `name`, `value`, `id`
+- `aria-*` accessibility attributes
+
+For the complete list, see Radix UI Checkbox documentation:
+https://www.radix-ui.com/primitives/docs/components/checkbox
+
 #### Variants, sizes, radii (enums)
 
 ```ts
