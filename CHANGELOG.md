@@ -1,5 +1,45 @@
 # Changelog
 
+## 🚀 Release `addon-ui` v0.4.2 (2025-10-14)
+
+
+### ⚡️ Performance Improvements
+
+* enhance type declaration support and refactor build process ([e9ada45](https://github.com/addon-stack/addon-ui/commit/e9ada451902850c6ab31e322954bf6a42eb7540b))
+
+  - Updated `types` field in `package.json` to point to generated type declarations.
+  - Modified `exports` to include type declarations for components (`config`, `plugin`, etc.).
+  - Added `tsconfig.build.json` to generate declaration files in the `dist-types` directory.
+  - Added `prepublishOnly` script to automate type generation during publishing.
+  - Updated `.gitignore` and ESLint configuration to include `dist-types`.
+  - Introduced type definitions for `odometer` and `addon-ui-config` modules.
+
+
+
+### 🤖 CI
+
+* update build and CI scripts to include type generation ([186eab3](https://github.com/addon-stack/addon-ui/commit/186eab3b97430cc6ca979ec5585fef63f8bcf682))
+
+  - Updated `.husky/pre-push` to replace commented-out commands with `npm run build:types`.
+  - Modified GitHub Actions workflow to add a step for running `npm run build:types` during CI.
+
+
+
+### 🧹 Chores
+
+* remove `.npmignore` and update `package.json` file patterns ([d902232](https://github.com/addon-stack/addon-ui/commit/d902232d91eb716420f1ed249b798755258db5c2))
+
+
+* update .prettierignore to include CHANGELOG.md ([e2d51ac](https://github.com/addon-stack/addon-ui/commit/e2d51ac41251cdb01cdd94318a8871b13496245d))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Addon Stack](https://github.com/addon-stack) (@addon-stack) — commits: 6
+
 ## 🚀 Release `addon-ui` v0.4.1 (2025-10-14)
 
 
