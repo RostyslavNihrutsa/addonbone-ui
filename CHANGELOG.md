@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `addon-ui` v0.4.1 (2025-10-14)
+
+
+### 🐛 Bug Fixed
+
+* update release-it config and ignore additional files in npm package ([d5ac894](https://github.com/addon-stack/addon-ui/commit/d5ac89444573081c89646c863942e86d6e40050a))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Addon Stack](https://github.com/addon-stack) (@addon-stack) — commits: 2
+
 ## 🚀 Release `addon-ui` v0.4.0 (2025-10-14)
 
 
