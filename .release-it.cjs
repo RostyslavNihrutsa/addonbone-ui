@@ -118,22 +118,17 @@ module.exports = () => {
             requireUpstream: false,
             requireBranch: false,
             commit: true,
-            // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it placeholder
             commitMessage: "chore(release): v${version}",
             tag: true,
-            // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it placeholder
             tagName: "v${version}",
-            // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it placeholder
             tagAnnotation: "v${version}",
             push: true,
         },
 
         github: {
             release: true,
-            // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it placeholder
             releaseName: "v${version}",
             autoGenerate: false,
-            // Ensure GitHub receives exactly the generated changelog body
             releaseNotes: ({changelog}) => changelog,
         },
 

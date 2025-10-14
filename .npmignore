@@ -19,9 +19,14 @@ test/
 .eslintrc
 .prettierrc
 .prettierignore
+.commitlintrc.json
+.gitattributes
+.release-it.cjs
+.mailmap
 .github/
 .vscode/
 .idea/
+.husky
 eslint.config.js
 
 # Build tools
