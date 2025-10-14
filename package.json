@@ -48,9 +48,15 @@
     "*.scss"
   ],
   "files": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.scss",
+    "src",
+    "!src/**/*.stories.*",
+    "!src/**/*.story.*",
+    "!src/**/*.mdx",
+    "!src/**/__stories__/**",
+    "!src/**/*.test.*",
+    "!src/**/*.spec.*",
+    "!src/**/__tests__/**",
+    "!src/**/__mocks__/**",
     "dist-types/**/*.d.ts",
     "README.md",
     "LICENSE.md"
@@ -70,15 +76,15 @@
     "prepublishOnly": "npm run build:types"
   },
   "dependencies": {
+    "@types/autosize": "^4.0.3",
+    "@types/react-highlight-words": "^0.20.0",
     "autosize": "^6.0.1",
     "classnames": "^2.5.1",
     "odometer": "^0.4.8",
     "radix-ui": "^1.1.3",
     "react-highlight-words": "^0.21.0",
     "sass": "^1.85.1",
-    "ts-deepmerge": "^7.0.3",
-    "@types/autosize": "^4.0.3",
-    "@types/react-highlight-words": "^0.20.0"
+    "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.0.0",
