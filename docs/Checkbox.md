@@ -61,6 +61,7 @@ Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui
 #### Radix UI props
 
 Built on Radix UI Checkbox. In addition to the props above, you can use Radix Root props. Common ones include:
+
 - `checked` (supports `boolean` or `'indeterminate'` via `CheckedState`)
 - `defaultChecked`
 - `onCheckedChange`

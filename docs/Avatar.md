@@ -55,6 +55,7 @@ Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui
 This component wraps Radix UI Avatar pieces under the hood. You can use relevant Radix props in addition to the props above.
 
 Commonly used Radix Avatar props:
+
 - Image: `src`, `srcSet`, `alt`, `referrerPolicy`, `onLoadingStatusChange`
 - Fallback: `delayMs` (already exposed as `delayMs` in this component)
 
