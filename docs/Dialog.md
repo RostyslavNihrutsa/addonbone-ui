@@ -9,30 +9,36 @@ import React from "react";
 import {Dialog, Button} from "addon-ui";
 
 export function Example() {
-  const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open dialog</Button>
+    return (
+        <>
+            <Button onClick={() => setOpen(true)}>Open dialog</Button>
 
-      <Dialog
-        open={open}
-        onOpenChange={setOpen}
-        title="Confirmation"
-        description="Please confirm your action"
-        speed={200}
-      >
-        <div style={{padding: 16, minWidth: 320}}>
-          <h2 style={{marginTop: 0}}>Are you sure?</h2>
-          <p>This action cannot be undone.</p>
-          <div style={{display: "flex", gap: 8, marginTop: 16, justifyContent: "flex-end"}}>
-            <Button onClick={() => setOpen(false)}>Cancel</Button>
-            <Button onClick={() => { /* your confirm logic */ setOpen(false); }}>Confirm</Button>
-          </div>
-        </div>
-      </Dialog>
-    </>
-  );
+            <Dialog
+                open={open}
+                onOpenChange={setOpen}
+                title="Confirmation"
+                description="Please confirm your action"
+                speed={200}
+            >
+                <div style={{padding: 16, minWidth: 320}}>
+                    <h2 style={{marginTop: 0}}>Are you sure?</h2>
+                    <p>This action cannot be undone.</p>
+                    <div style={{display: "flex", gap: 8, marginTop: 16, justifyContent: "flex-end"}}>
+                        <Button onClick={() => setOpen(false)}>Cancel</Button>
+                        <Button
+                            onClick={() => {
+                                /* your confirm logic */ setOpen(false);
+                            }}
+                        >
+                            Confirm
+                        </Button>
+                    </div>
+                </div>
+            </Dialog>
+        </>
+    );
 }
 ```
 
@@ -40,21 +46,21 @@ export function Example() {
 
 Only the prop name, type, and default are listed below.
 
-| Prop                | Type                                | Default |
-| ------------------- | ----------------------------------- | ------- |
-| `speed`             | `number`                            | `200`   |
-| `description`       | `string`                            | —       |
-| `fullscreen`        | `boolean`                           | —       |
-| `className`         | `string`                            | —       |
-| `overlayClassName`  | `string`                            | —       |
-| `childrenClassName` | `string`                            | —       |
-| `open`              | `boolean`                           | —       |
-| `defaultOpen`       | `boolean`                           | —       |
-| `onOpenChange`      | `(open: boolean) => void`           | —       |
-| `modal`             | `boolean`                           | —       |
-| `container`         | `HTMLElement`                       | —       |
-| `title`             | `string`                            | —       |
-| Radix dialog attrs  | All `@radix-ui/react-dialog` Root/Portal/Content props | — |
+| Prop                | Type                                                   | Default |
+| ------------------- | ------------------------------------------------------ | ------- |
+| `speed`             | `number`                                               | `200`   |
+| `description`       | `string`                                               | —       |
+| `fullscreen`        | `boolean`                                              | —       |
+| `className`         | `string`                                               | —       |
+| `overlayClassName`  | `string`                                               | —       |
+| `childrenClassName` | `string`                                               | —       |
+| `open`              | `boolean`                                              | —       |
+| `defaultOpen`       | `boolean`                                              | —       |
+| `onOpenChange`      | `(open: boolean) => void`                              | —       |
+| `modal`             | `boolean`                                              | —       |
+| `container`         | `HTMLElement`                                          | —       |
+| `title`             | `string`                                               | —       |
+| Radix dialog attrs  | All `@radix-ui/react-dialog` Root/Portal/Content props | —       |
 
 Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui.config.ts`). Local props take precedence over global config.
 
@@ -73,13 +79,14 @@ https://www.radix-ui.com/primitives/docs/components/dialog
 
 Only variables actually referenced in `src/components/Dialog/dialog.module.scss` are listed, with their exact fallback chains. If a variable has no explicit fallback in the stylesheet, it is marked as “none (define in theme)”.
 
-| Variable                             | Fallback chain                                       |
-| ------------------------------------ | ---------------------------------------------------- |
-| `--dialog-overlay-bg-color`          | `var(--dialog-overlay-bg-color, #111)`               |
-| `--dialog-animation-overlay-opacity` | `var(--dialog-animation-overlay-opacity, 0.9)`       |
-| `--transition-speed-sm`              | `var(--transition-speed-sm)` (none)                  |
+| Variable                             | Fallback chain                                 |
+| ------------------------------------ | ---------------------------------------------- |
+| `--dialog-overlay-bg-color`          | `var(--dialog-overlay-bg-color, #111)`         |
+| `--dialog-animation-overlay-opacity` | `var(--dialog-animation-overlay-opacity, 0.9)` |
+| `--transition-speed-sm`              | `var(--transition-speed-sm)` (none)            |
 
 Notes:
+
 - `speed` prop controls inline `animation-duration` on overlay and content; it is not a CSS variable.
 - Transitions for the content use `--transition-speed-sm` from the theme.
 
@@ -92,14 +99,14 @@ You can provide Dialog defaults via theme/config:
 import {defineConfig} from "addon-ui/config";
 
 export default defineConfig({
-  components: {
-    dialog: {
-      // library-specific defaults
-      speed: 200,
-      // You can also set Radix props if you commonly use them
-      modal: true,
+    components: {
+        dialog: {
+            // library-specific defaults
+            speed: 200,
+            // You can also set Radix props if you commonly use them
+            modal: true,
+        },
     },
-  },
 });
 ```
 
@@ -109,15 +116,15 @@ Or at runtime with the provider:
 import {UIProvider} from "addon-ui";
 
 <UIProvider
-  components={{
-    dialog: {
-      speed: 250,
-      modal: true,
-    },
-  }}
+    components={{
+        dialog: {
+            speed: 250,
+            modal: true,
+        },
+    }}
 >
-  {/* ... */}
-</UIProvider>
+    {/* ... */}
+</UIProvider>;
 ```
 
 ### Accessibility (A11y)
