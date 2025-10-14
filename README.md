@@ -81,7 +81,7 @@ This library now ships with dedicated documentation files for each component in 
 
 Notes:
 
-- Each CSS variables table lists only component-scoped variables with exact fallback chains from the corresponding *
+- Each CSS variables table lists only component-scoped variables with exact fallback chains from the corresponding \*
   .module.scss file.
 - Where a component wraps a Radix UI primitive, the doc links to the official Radix docs and lists common props.
 
@@ -95,7 +95,7 @@ function App() {
     return (
         <UIProvider>
             <div>
-                <TextField label="Username" placeholder="Enter your username"/>
+                <TextField label="Username" placeholder="Enter your username" />
                 <Button color={ButtonColor.Primary} variant={ButtonVariant.Contained}>
                     Submit
                 </Button>
@@ -206,54 +206,54 @@ directories to be combined when enabled.
 @import "addon-ui/theme";
 
 @include light {
-  // Base colors
-  --primary-color: #3f51b5;
-  --secondary-color: #f50057;
-  --accent-color: #4caf50;
+    // Base colors
+    --primary-color: #3f51b5;
+    --secondary-color: #f50057;
+    --accent-color: #4caf50;
 
-  // Text colors
-  --text-primary-color: #212121;
-  --text-secondary-color: #757575;
+    // Text colors
+    --text-primary-color: #212121;
+    --text-secondary-color: #757575;
 
-  // Background colors
-  --bg-primary-color: #ffffff;
-  --bg-secondary-color: #f5f5f5;
+    // Background colors
+    --bg-primary-color: #ffffff;
+    --bg-secondary-color: #f5f5f5;
 
-  // Font settings
-  --font-family: "Roboto", sans-serif;
-  --font-size: 14px;
-  --line-height: 1.5;
+    // Font settings
+    --font-family: "Roboto", sans-serif;
+    --font-size: 14px;
+    --line-height: 1.5;
 
-  // Button specific variables
-  --button-font-family: var(--font-family);
-  --button-font-size: var(--font-size);
-  --button-height: 34px;
-  --button-border-radius: 10px;
+    // Button specific variables
+    --button-font-family: var(--font-family);
+    --button-font-size: var(--font-size);
+    --button-height: 34px;
+    --button-border-radius: 10px;
 
-  // Button size variants
-  --button-height-sm: 24px;
-  --button-height-md: 44px;
-  --button-height-lg: 54px;
+    // Button size variants
+    --button-height-sm: 24px;
+    --button-height-md: 44px;
+    --button-height-lg: 54px;
 
-  // Button radius variants
-  --button-border-radius-sm: 5px;
-  --button-border-radius-md: 12px;
-  --button-border-radius-lg: 15px;
+    // Button radius variants
+    --button-border-radius-sm: 5px;
+    --button-border-radius-md: 12px;
+    --button-border-radius-lg: 15px;
 }
 
 @include dark {
-  // Base colors for dark theme
-  --primary-color: #7986cb;
-  --secondary-color: #ff4081;
-  --accent-color: #66bb6a;
+    // Base colors for dark theme
+    --primary-color: #7986cb;
+    --secondary-color: #ff4081;
+    --accent-color: #66bb6a;
 
-  // Text colors for dark theme
-  --text-primary-color: #ffffff;
-  --text-secondary-color: #b0bec5;
+    // Text colors for dark theme
+    --text-primary-color: #ffffff;
+    --text-secondary-color: #b0bec5;
 
-  // Background colors for dark theme
-  --bg-primary-color: #121212;
-  --bg-secondary-color: #1e1e1e;
+    // Background colors for dark theme
+    --bg-primary-color: #121212;
+    --bg-secondary-color: #1e1e1e;
 }
 ```
 
@@ -370,7 +370,7 @@ function TrackableButton(props) {
         props.onClick?.(e);
     };
 
-    return <Button {...props} onClick={handleClick}/>;
+    return <Button {...props} onClick={handleClick} />;
 }
 ```
 
@@ -402,10 +402,10 @@ hook:
 import React from "react";
 import {useExtra, Button} from "addon-ui";
 
-const FeatureFlag: React.FC<{ feature: keyof ExtraProps["features"]; children: React.ReactNode }> = ({
-                                                                                                         feature,
-                                                                                                         children,
-                                                                                                     }) => {
+const FeatureFlag: React.FC<{feature: keyof ExtraProps["features"]; children: React.ReactNode}> = ({
+    feature,
+    children,
+}) => {
     const extra = useExtra();
 
     // TypeScript knows that extra.features exists and has the properties we defined
@@ -467,4 +467,3 @@ for full type safety.
 - Consider adding a short README stub inside each component folder that links to the canonical doc (optional for
   discoverability during development).
 - Run and maintain Storybook stories (if present) to validate visual changes.
-
