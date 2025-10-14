@@ -4,3 +4,8 @@ export enum ModalRadius {
     Medium = "medium",
     Large = "large",
 }
+
+export enum ModalAnimation {
+    Fade = "fade",
+    FadeScale = "fadeScale",
+}

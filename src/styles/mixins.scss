@@ -21,3 +21,33 @@
     @content;
   }
 }
+
+@mixin browser($browser) {
+  html[browser="#{$browser}"] & {
+    @content;
+  }
+}
+
+@mixin chromeOnly() {
+  @include browser(chrome) {
+    @content;
+  }
+}
+
+@mixin edgeOnly() {
+  @include browser(edge) {
+    @content;
+  }
+}
+
+@mixin operaOnly() {
+  @include browser(opera) {
+    @content;
+  }
+}
+
+@mixin firefoxOnly() {
+  @include browser(firefox) {
+    @content;
+  }
+}

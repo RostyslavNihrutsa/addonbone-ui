@@ -14,5 +14,14 @@
         "./src/config/default.ts"
       ]
     }
-  }
+  },
+  "include": [
+    "./src/**/*",
+    "./src/**/*.d.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "**/tests/**/*.ts",
+    "dist"
+  ]
 }

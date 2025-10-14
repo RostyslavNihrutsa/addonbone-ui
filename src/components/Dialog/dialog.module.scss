@@ -24,11 +24,14 @@ $root: dialog;
     z-index: 9999;
     transition:
       background-color var(--transition-speed-sm),
+      transform var(--transition-speed-sm),
+      opacity var(--transition-speed-sm),
       color var(--transition-speed-sm);
     animation-timing-function: ease-in-out;
   }
 
   &-children {
+    flex: 1;
     display: flex;
     flex-direction: column;
     width: 100%;

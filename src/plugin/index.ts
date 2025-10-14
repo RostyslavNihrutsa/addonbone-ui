@@ -36,7 +36,7 @@ export default definePlugin((options: PluginOptions = {}) => {
     let styleBuilder: BuilderContract;
 
     return {
-        name: "adnbn-ui",
+        name: "addon-ui",
         startup: ({config}) => {
             const {srcDir, appsDir, sharedDir, app, appSrcDir} = config;
             const normalizeThemeDir = path.normalize(themeDir).split(path.sep);
