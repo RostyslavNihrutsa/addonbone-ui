@@ -6,8 +6,7 @@ The Modal component displays content centered above the page using the library D
 
 ```tsx
 import React from "react";
-import {Modal, Button} from "addon-ui";
-import {ModalRadius, ModalAnimation} from "addon-ui";
+import {Modal, Button, ModalRadius, ModalAnimation} from "addon-ui";
 
 export function Example() {
     const [open, setOpen] = React.useState(false);
