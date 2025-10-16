@@ -21,6 +21,8 @@ export interface ScrollAreaProps extends ScrollAreaRootProps {
     cornerClassName?: string;
     viewportClassName?: string;
     scrollbarClassName?: string;
+    viewportRef?: React.Ref<HTMLDivElement>;
+    viewportProps?: Omit<React.ComponentProps<typeof Viewport>, 'className' | 'children'>;
 }
 
 const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (props, ref) => {
@@ -32,6 +34,8 @@ const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (p
         horizontalScroll,
         thumbClassName,
         cornerClassName,
+        viewportRef,
+        viewportProps,
         viewportClassName,
         scrollbarClassName,
         ...other
@@ -40,6 +44,7 @@ const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (p
     return (
         <Root ref={ref} className={classnames(styles["scroll-area"], className)} {...other}>
             <Viewport
+                ref={viewportRef}
                 className={classnames(
                     styles["scroll-area__viewport"],
                     {
@@ -47,6 +52,7 @@ const ScrollArea: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaProps> = (p
                     },
                     viewportClassName
                 )}
+                {...viewportProps}
             >
                 {children}
             </Viewport>
