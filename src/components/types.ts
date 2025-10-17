@@ -58,7 +58,7 @@ export interface ComponentsProps {
         | "radius"
         | "color"
     >;
-    tooltip?: TooltipProps;
+    tooltip?: Omit<TooltipProps, "content">;
     view?: ViewProps;
     viewDrawer?: ViewDrawerProps;
     viewModal?: ViewModalProps;

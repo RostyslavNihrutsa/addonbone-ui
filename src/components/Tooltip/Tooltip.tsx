@@ -29,7 +29,7 @@ const Tooltip: ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, 
         open,
         defaultOpen,
         disableHoverableContent,
-        delayDuration,
+        delayDuration = 250,
         onOpenChange,
 
         arrowWidth,
