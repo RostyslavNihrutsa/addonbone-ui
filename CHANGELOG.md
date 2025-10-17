@@ -1,5 +1,47 @@
 # Changelog
 
+## 🚀 Release `addon-ui` v0.5.0 (2025-10-17)
+
+
+### ✨ Features
+
+* **ScrollArea:** add `scrollTo` support and improve imperative handle usage ([2a752d1](https://github.com/addon-stack/addon-ui/commit/2a752d1ba2413a1d1faeee54bf40b3af725ea0b0))
+
+
+* **ScrollArea:** add `viewportRef` and `viewportProps` support, update transitions in styles ([0ce3323](https://github.com/addon-stack/addon-ui/commit/0ce3323ceb520caafb83d141bd31c39d5a88a96a))
+
+
+* **styles:** add `view` mixin for scoped styling based on view attributes ([1f098fb](https://github.com/addon-stack/addon-ui/commit/1f098fb60dd6d9f34cd6555b07fb685cf02328d3))
+
+
+* **styles:** extend transition properties to include `border-color` and `background` ([46cb160](https://github.com/addon-stack/addon-ui/commit/46cb16003df2d85d8f10e972aa52dddd3d416dd0))
+
+
+* **Viewport:** add transition support with `withTransition` control and scoped styles ([3652483](https://github.com/addon-stack/addon-ui/commit/36524838099e7e32899dc821131b3eb60660ab3c))
+
+
+
+
+### 🐛 Bug Fixed
+
+* **Tooltip:** set default value for `delayDuration` prop ([ea29ff2](https://github.com/addon-stack/addon-ui/commit/ea29ff224e5a0e26f81157b015531d60fd8fe5c8))
+
+
+
+
+### 🛠️ Refactoring
+
+* **types:** update `tooltip` type to omit `content` property in `TooltipProps` ([5231c3e](https://github.com/addon-stack/addon-ui/commit/5231c3e28c1f54f3d76568a5893bd1b7e2a2c84d))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Rostyslav Nihrutsa](mailto:rostyslav.nihrutsa@gmail.com) — commits: 8
+- [Addon Stack](https://github.com/addon-stack) (@addon-stack) — commits: 2
+
 ## 🚀 Release `addon-ui` v0.4.2 (2025-10-14)
 
 
