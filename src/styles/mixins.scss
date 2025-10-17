@@ -22,6 +22,12 @@
   }
 }
 
+@mixin view($view) {
+  html[view="#{$view}"] & {
+    @content;
+  }
+}
+
 @mixin browser($browser) {
   html[browser="#{$browser}"] & {
     @content;

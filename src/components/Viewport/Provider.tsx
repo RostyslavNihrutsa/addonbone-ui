@@ -17,12 +17,21 @@ import styles from "./viewport.module.scss";
 
 export type ViewportProps = ComponentProps<"div"> & {
     mode?: ViewportMode;
+    transition?: boolean;
 };
 
 const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<ViewportProps>> = (
-    {children, className, style, mode: viewportMode = ViewportMode.Adaptive, ...props},
+    {
+        children,
+        className,
+        style,
+        mode: viewportMode = ViewportMode.Adaptive,
+        transition: viewportTransition = true,
+        ...props
+    },
     ref
 ) => {
+    const [transition, withTransition] = useState(viewportTransition);
     const [mode, setModeState] = useState<ViewportMode>(viewportMode);
     const [sizes, setSizesState] = useState<ViewportSizes | null>(null);
 
@@ -40,6 +49,7 @@ const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<Viewp
             setSizes,
             setMode,
             resetSizes,
+            withTransition
         }),
         [mode, setSizes, setMode, resetSizes]
     );
@@ -81,6 +91,7 @@ const Provider: ForwardRefRenderFunction<HTMLDivElement, PropsWithChildren<Viewp
                 className={classnames(
                     styles["viewport"],
                     {
+                        [styles["viewport--transition"]]: transition,
                         [styles["viewport--expanded"]]: mode === ViewportMode.Expanded,
                         [styles["viewport--fixed"]]: mode === ViewportMode.Fixed,
                     },
