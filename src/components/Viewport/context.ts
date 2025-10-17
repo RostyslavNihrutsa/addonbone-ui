@@ -20,6 +20,8 @@ export interface ViewportContract {
 
     setSizes(sizes: ViewportSizes): void;
 
+    withTransition(transition: boolean): void;
+
     resetSizes(): void;
 }
 
@@ -29,6 +31,8 @@ export const ViewportContext = createContext<ViewportContract>({
     setMode() {},
 
     setSizes() {},
+
+    withTransition() {},
 
     resetSizes() {},
 });
