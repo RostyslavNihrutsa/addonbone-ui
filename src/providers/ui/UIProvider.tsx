@@ -15,7 +15,7 @@ import "addon-ui-style.scss";
 
 import config from "addon-ui-config";
 
-export interface UIProviderProps extends Partial<Config>, Pick<ThemeProviderProps, 'storage'> {
+export interface UIProviderProps extends Partial<Config>, Pick<ThemeProviderProps, "storage"> {
     view?: string;
 }
 
@@ -27,7 +27,6 @@ const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({
     storage,
     view,
 }) => {
-
     const componentsProps = useMemo<ComponentsProps>(() => merge(config.components || {}, components), [components]);
 
     const extraProps = useMemo<ExtraProps>(() => merge(config.extra || {}, extra), [extra]);
@@ -45,7 +44,7 @@ const UIProvider: FC<PropsWithChildren<UIProviderProps>> = ({
     }, [view]);
 
     return (
-        <ThemeProvider components={componentsProps} storage={storage} >
+        <ThemeProvider components={componentsProps} storage={storage}>
             <ExtraProvider extra={extraProps}>
                 <IconsProvider icons={svgIcons}>{children}</IconsProvider>
             </ExtraProvider>
